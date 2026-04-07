@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #003141;
+  --color-brand-lime: #9ac31c;
+  --color-brand-blue: #0c5b8c;
+  --color-industrial-gray: #f4f4f4;
+
+  --font-saira: "Saira", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+/* Custom Lenis and base styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  @apply font-inter text-gray-900 bg-industrial-gray antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply uppercase tracking-wide;
+}
