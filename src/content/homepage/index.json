@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "title": "Ingeniería Inteligente en Sistemas de Pintura y Acabado.",
+    "subtitle": "Diseñamos e integramos proyectos 'llave en mano' para manufactura de alto volumen.",
+    "backgroundVideo": "/videos/hero/hero/backgroundVideo.mp4",
+    "buttons": [
+      {
+        "label": "Hablar con un Ingeniero",
+        "url": "https://wa.me/"
+      }
+    ]
+  },
+  "soluciones": {
+    "sectionTitle": "Soluciones Industriales Altamente Especializadas",
+    "sectionSubtitle": "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
+    "cards": [
+      {
+        "title": "Pintura en polvo",
+        "description": "Cabinas y sistemas eficientes para recubrimientos impecables de piezas metálicas con alta durabilidad.",
+        "image": "/images/home/soluciones/cards/0/image.jpg"
+      },
+      {
+        "title": "Pintura Líquida",
+        "description": "Acabados estéticos de clase A con sistemas automatizados robotizados para la industria automotriz.",
+        "image": "/images/home/soluciones/cards/1/image.jpg"
+      },
+      {
+        "title": "Pretratamiento",
+        "description": "Equipos de lavado de etapas múltiples asegurando la adherencia ideal antes del recubrimiento.",
+        "image": "/images/home/soluciones/cards/2/image.jpg"
+      },
+      {
+        "title": "Hornos de curado y secado",
+        "description": "Hornos de convección e infrarrojos diseñados térmicamente para eficiencia energética superlativa.",
+        "image": "/images/home/soluciones/cards/3/image.jpg"
+      },
+      {
+        "title": "Transportadores / Conveyors",
+        "description": "Desde sistemas overhead hasta floor conveyors. Movimiento exacto y fluido para tus piezas.",
+        "image": "/images/home/soluciones/cards/4/image.jpg"
+      },
+      {
+        "title": "Partes y Filtros",
+        "description": "Suministro de componentes críticos, refacciones y consumibles de alto rendimiento para tus equipos.",
+        "image": "/images/home/soluciones/cards/5/image.jpg"
+      }
+    ]
+  },
+  "mantenimiento": {
+    "sectionTitle": "Mantenimiento Preventivo",
+    "sectionSubtitle": "Garantizamos el funcionamiento ininterrumpido de tu inversión técnica mediante inspecciones detalladas e intervenciones programadas.",
+    "cards": [
+      {
+        "title": "Inspección técnica",
+        "description": "Auditorías a cabinas, hornos, conveyors y sistemas de pretratamiento para prever desgaste de piezas."
+      },
+      {
+        "title": "Pólizas de Mantenimiento",
+        "description": "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados."
+      },
+      {
+        "title": "Refacciones Originales",
+        "description": "Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas."
+      }
+    ]
+  },
+  "contacto": {
+    "heading": "¿Listo para mejorar tu capacidad productiva?",
+    "description": "Nuestro equipo de ingeniería está listo para diseñar la solución exacta que tu línea de producción requiere.",
+    "phone": "+52 (81) 1234 5678",
+    "email": "contacto@anaerobia.com"
+  }
+}

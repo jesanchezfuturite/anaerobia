@@ -1,5 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const homepageEntry = await getEntry('homepage', 'index');
+// Datos por defecto en caso de que Keystatic no haya generado el archivo aún
+const data = homepageEntry?.data || {
+  hero: {
+    title: "Ingeniería Inteligente en Sistemas de Pintura y Acabado.",
+    subtitle: "Diseñamos e integramos proyectos 'llave en mano' para manufactura de alto volumen.",
+    buttons: [
+      { label: "Hablar con un Ingeniero", url: "#contacto" },
+      { label: "Ver Proyectos", url: "#proyectos" }
+    ]
+  },
+  soluciones: {
+    sectionTitle: "Soluciones Industriales",
+    sectionSubtitle: "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
+    cards: [
+      { title: "Pintura en Polvo", description: "Cabinas y sistemas eficientes para recubrimientos impecables de piezas metálicas con alta durabilidad.", image: "https://loremflickr.com/800/600/industry,factory?lock=1" },
+      { title: "Pintura Líquida", description: "Acabados estéticos de clase A con sistemas automatizados robotizados para la industria automotriz.", image: "https://loremflickr.com/800/600/industry,robot?lock=2" },
+      { title: "Pretratamiento", description: "Equipos de lavado de etapas múltiples asegurando la adherencia ideal antes del recubrimiento.", image: "https://loremflickr.com/600/800/industry,welding?lock=3" },
+      { title: "Hornos de Curado y Secado", description: "Hornos de convección e infrarrojos diseñados térmicamente para eficiencia energética superlativa.", image: "https://loremflickr.com/800/600/industry,oven,metal?lock=4" },
+      { title: "Transportadores / Conveyors", description: "Desde sistemas overhead hasta floor conveyors. Movimiento exacto y fluido para tus piezas.", image: "https://loremflickr.com/800/600/industry,conveyor?lock=5" },
+      { title: "Partes y Filtros", description: "Suministro de componentes críticos, refacciones y consumibles de alto rendimiento para tus equipos.", image: "https://loremflickr.com/800/600/industrial,engine,part?lock=45" }
+    ]
+  },
+  mantenimiento: {
+    sectionTitle: "Mantenimiento",
+    sectionSubtitle: "Garantizamos el funcionamiento ininterrumpido de tu inversión técnica mediante inspecciones detalladas e intervenciones programadas.",
+    cards: [
+      { title: "Inspección Técnica", description: "Auditorías a cabinas, hornos, conveyors y sistemas de pretratamiento para prever desgaste de piezas." },
+      { title: "Pólizas de Mantenimiento", description: "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados." },
+      { title: "Refacciones Originales", description: "Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas." }
+    ]
+  },
+  contacto: {
+    heading: "¿Listo para mejorar tu capacidad productiva?",
+    description: "Nuestro equipo de ingeniería está listo para diseñar la solución exacta que tu línea de producción requiere.",
+    phone: "+52 (81) 1234 5678",
+    email: "contacto@anaerobia.com"
+  }
+};
 ---
 
 <Layout title="Anaerobia | Ingeniería Inteligente en Sistemas de Pintura y Acabado">
@@ -11,7 +52,7 @@ import Layout from '../layouts/Layout.astro';
         <video 
            class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" 
            autoplay loop muted playsinline>
-          <source src="/videos/home.mp4" type="video/mp4" />
+          <source src={data.hero.backgroundVideo || "/videos/home.mp4"} type="video/mp4" />
         </video>
       </div>
       
@@ -25,21 +66,25 @@ import Layout from '../layouts/Layout.astro';
             Líderes en integración industrial
           </span>
           <h1 class="text-white font-saira italic font-extrabold text-5xl md:text-7xl leading-tight mb-6">
-            Ingeniería Inteligente en Sistemas de Pintura y Acabado.
+            {data.hero.title}
           </h1>
-          <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-8">
-            Diseñamos e integramos proyectos 'llave en mano' para manufactura de alto volumen.
+          <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-8 whitespace-pre-line">
+            {data.hero.subtitle}
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="#contacto" class="bg-[var(--color-brand-lime)] text-[var(--color-brand-navy)] font-semibold px-8 py-4 rounded hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
-              Hablar con un Ingeniero
-            </a>
-            <button class="flex items-center gap-2 border border-white text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-all duration-300 backdrop-blur-sm group">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white group-hover:text-[var(--color-brand-lime)] transition-colors" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-              </svg>
-              Ver Proyectos
-            </button>
+            {data.hero.buttons.length > 0 && (
+              <a href={data.hero.buttons[0]?.url || "#"} class="bg-[var(--color-brand-lime)] text-[var(--color-brand-navy)] font-semibold px-8 py-4 rounded hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
+                {data.hero.buttons[0]?.label}
+              </a>
+            )}
+            {data.hero.buttons.length > 1 && (
+              <a href={data.hero.buttons[1]?.url || "#"} class="flex items-center gap-2 border border-white text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-all duration-300 backdrop-blur-sm group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white group-hover:text-[var(--color-brand-lime)] transition-colors" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+                {data.hero.buttons[1]?.label}
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -75,71 +120,22 @@ import Layout from '../layouts/Layout.astro';
       <div class="container mx-auto">
         <div class="mb-16">
           <h2 class="text-3xl md:text-5xl font-saira font-bold text-[var(--color-brand-navy)]">
-            Soluciones Industriales <span class="text-[var(--color-brand-lime)]">Altamente Especializadas</span>
+            {data.soluciones.sectionTitle} <span class="text-[var(--color-brand-lime)]">Altamente Especializadas</span>
           </h2>
-          <p class="mt-4 text-gray-600 max-w-2xl text-lg">Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.</p>
+          <p class="mt-4 text-gray-600 max-w-2xl text-lg whitespace-pre-line">{data.soluciones.sectionSubtitle}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
-          <!-- 1. Pintura en Polvo -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white cursor-pointer">
-            <img src="https://loremflickr.com/800/600/industry,factory?lock=1" alt="Pintura en Polvo" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-white font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Pintura en Polvo</h3>
-              <p class="text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Cabinas y sistemas eficientes para recubrimientos impecables de piezas metálicas con alta durabilidad.</p>
+          {data.soluciones.cards.map((card, index) => (
+            <div class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer ${index === 2 ? 'bg-[var(--color-brand-navy)]' : 'bg-white'} ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''}`}>
+              <img src={card.image || "https://loremflickr.com/800/600/industry?lock=" + index} alt={card.title} class={`object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 ${index === 2 ? 'opacity-70 mix-blend-overlay' : ''} ${index === 4 || index === 5 ? 'object-center' : ''}`} />
+              <div class={`absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 to-transparent ${index === 2 ? 'via-[var(--color-brand-navy)]/50' : 'via-[var(--color-brand-navy)]/40'}`}></div>
+              <div class="absolute bottom-0 left-0 p-8 w-full">
+                <h3 class={`text-2xl font-bold font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ${index === 2 ? 'text-[var(--color-brand-lime)]' : 'text-white'}`}>{card.title}</h3>
+                <p class={`mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm ${index === 2 ? 'text-gray-300' : 'text-gray-200'}`}>{card.description}</p>
+              </div>
             </div>
-          </div>
-
-          <!-- 2. Pintura Líquida -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white cursor-pointer">
-            <img src="https://loremflickr.com/800/600/industry,robot?lock=2" alt="Pintura Líquida" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-white font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Pintura Líquida</h3>
-              <p class="text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Acabados estéticos de clase A con sistemas automatizados robotizados para la industria automotriz.</p>
-            </div>
-          </div>
-
-          <!-- 3. Pretratamiento -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-[var(--color-brand-navy)] cursor-pointer">
-            <img src="https://loremflickr.com/600/800/industry,welding?lock=3" alt="Pretratamiento" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 opacity-70 mix-blend-overlay" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/50 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-[var(--color-brand-lime)] font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Pretratamiento</h3>
-              <p class="text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Equipos de lavado de etapas múltiples asegurando la adherencia ideal antes del recubrimiento.</p>
-            </div>
-          </div>
-
-          <!-- 4. Hornos de Curado -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white cursor-pointer">
-            <img src="https://loremflickr.com/800/600/industry,oven,metal?lock=4" alt="Hornos de Curado" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-white font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Hornos de Curado y Secado</h3>
-              <p class="text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Hornos de convección e infrarrojos diseñados térmicamente para eficiencia energética superlativa.</p>
-            </div>
-          </div>
-
-          <!-- 5. Conveyors -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white cursor-pointer">
-            <img src="https://loremflickr.com/800/600/industry,conveyor?lock=5" alt="Sistemas Conveyor" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 object-center" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-white font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Transportadores / Conveyors</h3>
-              <p class="text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Desde sistemas overhead hasta floor conveyors. Movimiento exacto y fluido para tus piezas.</p>
-            </div>
-          </div>
-
-          <!-- 6. Partes y Filtros -->
-          <div class="bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] bg-white cursor-pointer -translate-y-4 md:translate-y-0">
-            <img src="https://loremflickr.com/800/600/industrial,engine,part?lock=45" alt="Partes y Filtros" class="object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 object-center" />
-            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full">
-              <h3 class="text-2xl font-bold text-white font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Partes y Filtros</h3>
-              <p class="text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm">Suministro de componentes críticos, refacciones y consumibles de alto rendimiento para tus equipos.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -151,32 +147,24 @@ import Layout from '../layouts/Layout.astro';
       <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--color-brand-blue)] rounded-full blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
       <div class="container mx-auto relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16">
-          <h2 class="text-3xl md:text-5xl font-saira font-bold mb-4">Mantenimiento <span class="text-[var(--color-brand-lime)]">Preventivo</span></h2>
-          <p class="text-gray-300 text-lg">Garantizamos el funcionamiento ininterrumpido de tu inversión técnica mediante inspecciones detalladas e intervenciones programadas.</p>
+          <h2 class="text-3xl md:text-5xl font-saira font-bold mb-4">{data.mantenimiento.sectionTitle} <span class="text-[var(--color-brand-lime)]">Preventivo</span></h2>
+          <p class="text-gray-300 text-lg whitespace-pre-line">{data.mantenimiento.sectionSubtitle}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 main-services-grid">
-          <div class="bg-white/5 border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm">
-            <div class="w-14 h-14 bg-[var(--color-brand-blue)] flex items-center justify-center rounded-lg mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          {data.mantenimiento.cards.map((card, index) => (
+            <div class={index === 1 ? "bg-[var(--color-brand-lime)] p-8 rounded-xl shadow-xl transform md:-translate-y-4" : "bg-white/5 border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm"}>
+              <div class={`w-14 h-14 flex items-center justify-center rounded-lg mb-6 ${index === 1 ? 'bg-[var(--color-brand-navy)]' : 'bg-[var(--color-brand-blue)]'}`}>
+                {card.icon ? (
+                  <Fragment set:html={card.icon} />
+                ) : (
+                  <svg class={`w-7 h-7 ${index === 1 ? 'text-[var(--color-brand-lime)]' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={index === 0 ? "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" : index === 1 ? "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" : "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"}></path></svg>
+                )}
+              </div>
+              <h3 class={`text-xl font-bold font-saira mb-3 ${index === 1 ? 'text-[var(--color-brand-navy)]' : ''}`}>{card.title}</h3>
+              <p class={`text-sm ${index === 1 ? 'text-[var(--color-brand-navy)]/80' : 'text-gray-400'}`}>{card.description}</p>
             </div>
-            <h3 class="text-xl font-bold font-saira mb-3">Inspección Técnica</h3>
-            <p class="text-gray-400 text-sm">Auditorías a cabinas, hornos, conveyors y sistemas de pretratamiento para prever desgaste de piezas.</p>
-          </div>
-          <div class="bg-[var(--color-brand-lime)] p-8 rounded-xl shadow-xl transform md:-translate-y-4">
-            <div class="w-14 h-14 bg-[var(--color-brand-navy)] flex items-center justify-center rounded-lg mb-6">
-              <svg class="w-7 h-7 text-[var(--color-brand-lime)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold font-saira mb-3 text-[var(--color-brand-navy)]">Pólizas de Mantenimiento</h3>
-            <p class="text-[var(--color-brand-navy)]/80 text-sm">Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados.</p>
-          </div>
-          <div class="bg-white/5 border border-white/10 p-8 rounded-xl hover:bg-white/10 transition-colors backdrop-blur-sm">
-            <div class="w-14 h-14 bg-[var(--color-brand-blue)] flex items-center justify-center rounded-lg mb-6">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-            </div>
-            <h3 class="text-xl font-bold font-saira mb-3">Refacciones Originales</h3>
-            <p class="text-gray-400 text-sm">Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas.</p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -192,8 +180,8 @@ import Layout from '../layouts/Layout.astro';
             <!-- Izquierda: Texto de Autoridad -->
             <div class="w-full lg:w-5/12 flex flex-col justify-center">
                 <span class="inline-block text-[var(--color-brand-lime)] font-semibold tracking-widest text-sm mb-4 uppercase">Contacto Inicial</span>
-                <h2 class="text-3xl md:text-5xl font-saira font-bold text-white mb-6 uppercase tracking-wider leading-tight">¿Listo para mejorar tu capacidad productiva?</h2>
-                <p class="text-gray-300 text-lg mb-8 font-light">Nuestro equipo de ingeniería está listo para diseñar la solución exacta que tu línea de producción requiere.</p>
+                <h2 class="text-3xl md:text-5xl font-saira font-bold text-white mb-6 uppercase tracking-wider leading-tight">{data.contacto.heading}</h2>
+                <p class="text-gray-300 text-lg mb-8 font-light whitespace-pre-line">{data.contacto.description}</p>
                 
                 <div class="space-y-6 hidden lg:block">
                   <div class="flex items-center gap-4 text-white group cursor-pointer hover:bg-white/5 p-3 -ml-3 rounded-xl transition-colors">
@@ -202,7 +190,7 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                     <div>
                       <span class="block text-xs uppercase text-gray-400 tracking-wider">Centro de Atención</span>
-                      <span class="font-semibold">+52 (81) 1234 5678</span>
+                      <span class="font-semibold">{data.contacto.phone}</span>
                     </div>
                   </div>
                   <div class="flex items-center gap-4 text-white group cursor-pointer hover:bg-white/5 p-3 -ml-3 rounded-xl transition-colors">
@@ -211,7 +199,7 @@ import Layout from '../layouts/Layout.astro';
                     </div>
                     <div>
                       <span class="block text-xs uppercase text-gray-400 tracking-wider">Correo Corporativo</span>
-                      <span class="font-semibold">contacto@anaerobia.com</span>
+                      <span class="font-semibold">{data.contacto.email}</span>
                     </div>
                   </div>
                 </div>
