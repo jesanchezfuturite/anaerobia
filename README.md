@@ -1,5 +1,9 @@
 # Anaerobia - Plataforma B2B Industrial Web
 
+> [!IMPORTANT]  
+> **Aviso para Desarrolladores y Agentes de IA:**  
+> Antes de realizar cualquier modificación, crear una nueva sección o alterar el flujo de despliegue, es **obligatorio** leer detenidamente el archivo [`DEVELOPMENT_CONTEXT.md`](./DEVELOPMENT_CONTEXT.md) ubicado en la raíz del proyecto. Este archivo contiene las decisiones arquitectónicas clave, la configuración estricta de Vercel/Astro y las reglas inquebrantables de los estilos.
+
 Bienvenido al repositorio de la nueva plataforma web de **Anaerobia**, especializada en Ingeniería Inteligente en Sistemas de Pintura y Acabado. Este proyecto ha sido desarrollado utilizando **Astro**, **Tailwind CSS**, y animaciones avanzadas mediante **GSAP** y **Lenis**.
 
 ## 🚀 Tecnologías Principales
