@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_DSb8Qcuy.mjs';
+import { c as createComponent } from './astro-component_CMAn7Psd.mjs';
 import 'piccolore';
-import { l as renderComponent, r as renderTemplate } from './entrypoint_Bm1t94KG.mjs';
+import { l as renderComponent, r as renderTemplate } from './entrypoint_rvN8LzHn.mjs';
 import 'react';
 import { Keystatic } from '@keystatic/core/ui';
 import { jsx } from 'react/jsx-runtime';
