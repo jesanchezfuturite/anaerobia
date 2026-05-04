@@ -49,7 +49,18 @@ const data = homepageEntry?.data || {
   industrias: {
     sectionTitle: "Industrias",
     sectionSubtitle: "Soluciones especializadas para diversos sectores",
-    items: ["Ferroviaria", "Tractocamión y equipo pesado", "Automotriz", "Aeroespacial", "Agricultura y construcción", "Metalmecánica", "Electrodomésticos", "Eléctrica y energía", "Recreational vehicles", "Industria en general"]
+    items: [
+      { name: "Ferroviaria", icon: "" },
+      { name: "Tractocamión y equipo pesado", icon: "" },
+      { name: "Automotriz", icon: "" },
+      { name: "Aeroespacial", icon: "" },
+      { name: "Agricultura y construcción", icon: "" },
+      { name: "Metalmecánica", icon: "" },
+      { name: "Electrodomésticos", icon: "" },
+      { name: "Eléctrica y energía", icon: "" },
+      { name: "Recreational vehicles", icon: "" },
+      { name: "Industria en general", icon: "" }
+    ]
   },
   normativas: {
     sectionTitle: "Normativas",
@@ -292,11 +303,17 @@ const data = homepageEntry?.data || {
           {data.industrias.items.map((item, index) => (
             <div class={`bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center p-6 text-center group border border-gray-100 hover:border-[var(--color-brand-lime)]`}>
               <div class="w-14 h-14 rounded-full bg-[var(--color-brand-navy)]/5 flex items-center justify-center mb-4 group-hover:bg-[var(--color-brand-navy)] transition-colors duration-300">
-                <svg class="w-7 h-7 text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-lime)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
+                {item.icon ? (
+                  <div class="w-7 h-7 text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-lime)] transition-colors flex items-center justify-center [&>svg]:w-full [&>svg]:h-full">
+                    <Fragment set:html={item.icon} />
+                  </div>
+                ) : (
+                  <svg class="w-7 h-7 text-[var(--color-brand-blue)] group-hover:text-[var(--color-brand-lime)] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                  </svg>
+                )}
               </div>
-              <h3 class="font-saira font-semibold text-[var(--color-brand-navy)] text-sm md:text-base leading-tight">{item}</h3>
+              <h3 class="font-saira font-semibold text-[var(--color-brand-navy)] text-sm md:text-base leading-tight">{item.name}</h3>
             </div>
           ))}
         </div>

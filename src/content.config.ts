@@ -46,7 +46,10 @@ const homepage = defineCollection({
     industrias: z.object({
       sectionTitle: z.string(),
       sectionSubtitle: z.string(),
-      items: z.array(z.string())
+      items: z.array(z.object({
+        name: z.string(),
+        icon: z.string().optional().nullable()
+      }))
     }),
     normativas: z.object({
       sectionTitle: z.string(),

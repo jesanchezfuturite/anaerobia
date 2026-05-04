@@ -77,9 +77,13 @@ export default config({
         industrias: fields.object({
           sectionTitle: fields.text({ label: 'Título de la Sección' }),
           sectionSubtitle: fields.text({ label: 'Subtítulo de la Sección' }),
-          items: fields.array(fields.text({ label: 'Industria' }), {
+          items: fields.array(
+            fields.object({
+              name: fields.text({ label: 'Industria' }),
+              icon: fields.text({ label: 'Icono SVG (Opcional)', multiline: true })
+            }), {
             label: 'Industrias',
-            itemLabel: props => props.value
+            itemLabel: props => props.fields.name.value
           }),
         }, { label: 'Sección Industrias' }),
 
