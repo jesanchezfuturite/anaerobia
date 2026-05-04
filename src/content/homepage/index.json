@@ -49,6 +49,7 @@
   "mantenimiento": {
     "sectionTitle": "Mantenimiento Preventivo",
     "sectionSubtitle": "Garantizamos el funcionamiento ininterrumpido de tu inversión técnica mediante inspecciones detalladas e intervenciones programadas.",
+    "backgroundVideo": "/videos/mantenimiento/backgroundVideo.mp4",
     "cards": [
       {
         "title": "Inspección técnica",
@@ -63,6 +64,62 @@
         "description": "Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas."
       }
     ]
+  },
+  "gestion360": {
+    "sectionTitle": "Gestión 360°",
+    "sectionSubtitle": "Acompañamiento total en cada etapa del proyecto",
+    "steps": [
+      "Alcances y Necesidades",
+      "Propuesta Técnico-Comercial",
+      "Fabricación e Instalación",
+      "Puesta en Marcha y Entrega Final",
+      "Servicio Post-Venta"
+    ]
+  },
+  "industrias": {
+    "sectionTitle": "Industrias",
+    "sectionSubtitle": "Soluciones especializadas para diversos sectores",
+    "items": [
+      "Ferroviaria",
+      "Tractocamión y equipo pesado",
+      "Automotriz",
+      "Aeroespacial",
+      "Agricultura y construcción",
+      "Metalmecánica",
+      "Electrodomésticos",
+      "Eléctrica y energía",
+      "Recreational vehicles",
+      "Industria en general"
+    ]
+  },
+  "normativas": {
+    "sectionTitle": "Normativas",
+    "certificados": [
+      {
+        "name": "NFPA",
+        "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+      },
+      {
+        "name": "EPA",
+        "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+      },
+      {
+        "name": "ETL",
+        "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+      },
+      {
+        "name": "ICC",
+        "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+      },
+      {
+        "name": "OSHA",
+        "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+      }
+    ]
+  },
+  "mapa": {
+    "sectionTitle": "Presencia Nacional",
+    "mapImage": "/images/home/mapa/mapImage.svg"
   },
   "contacto": {
     "heading": "¿Listo para mejorar tu capacidad productiva?",

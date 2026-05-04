@@ -25,6 +25,7 @@ const homepage = defineCollection({
     mantenimiento: z.object({
       sectionTitle: z.string(),
       sectionSubtitle: z.string(),
+      backgroundVideo: z.string().optional().nullable(),
       cards: z.array(z.object({
         title: z.string(),
         description: z.string(),
@@ -36,6 +37,27 @@ const homepage = defineCollection({
       description: z.string(),
       phone: z.string(),
       email: z.string()
+    }),
+    gestion360: z.object({
+      sectionTitle: z.string(),
+      sectionSubtitle: z.string(),
+      steps: z.array(z.string())
+    }),
+    industrias: z.object({
+      sectionTitle: z.string(),
+      sectionSubtitle: z.string(),
+      items: z.array(z.string())
+    }),
+    normativas: z.object({
+      sectionTitle: z.string(),
+      certificados: z.array(z.object({
+        name: z.string(),
+        logo: z.string().optional().nullable()
+      })).optional()
+    }),
+    mapa: z.object({
+      sectionTitle: z.string(),
+      mapImage: z.string().optional().nullable()
     })
   })
 });

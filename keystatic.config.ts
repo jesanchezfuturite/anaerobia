@@ -50,6 +50,11 @@ export default config({
         mantenimiento: fields.object({
           sectionTitle: fields.text({ label: 'Título de la Sección' }),
           sectionSubtitle: fields.text({ label: 'Subtítulo de la Sección', multiline: true }),
+          backgroundVideo: fields.file({
+            label: 'Video de Fondo (MP4)',
+            directory: 'public/videos',
+            publicPath: '/videos/',
+          }),
           cards: fields.array(
             fields.object({
               title: fields.text({ label: 'Título del Servicio' }),
@@ -59,6 +64,48 @@ export default config({
             { label: 'Tarjetas de Mantenimiento', itemLabel: props => props.fields.title.value }
           ),
         }, { label: 'Sección Mantenimiento' }),
+
+        gestion360: fields.object({
+          sectionTitle: fields.text({ label: 'Título de la Sección' }),
+          sectionSubtitle: fields.text({ label: 'Subtítulo de la Sección' }),
+          steps: fields.array(fields.text({ label: 'Etapa' }), {
+            label: 'Etapas',
+            itemLabel: props => props.value
+          }),
+        }, { label: 'Sección Gestión 360°' }),
+
+        industrias: fields.object({
+          sectionTitle: fields.text({ label: 'Título de la Sección' }),
+          sectionSubtitle: fields.text({ label: 'Subtítulo de la Sección' }),
+          items: fields.array(fields.text({ label: 'Industria' }), {
+            label: 'Industrias',
+            itemLabel: props => props.value
+          }),
+        }, { label: 'Sección Industrias' }),
+
+        normativas: fields.object({
+          sectionTitle: fields.text({ label: 'Título de la Sección' }),
+          certificados: fields.array(
+            fields.object({
+              name: fields.text({ label: 'Nombre' }),
+              logo: fields.image({
+                label: 'Logo',
+                directory: 'public/images/home/certificaciones',
+                publicPath: '/images/home/certificaciones/',
+              }),
+            }),
+            { label: 'Certificaciones', itemLabel: props => props.fields.name.value }
+          ),
+        }, { label: 'Sección Normativas' }),
+
+        mapa: fields.object({
+          sectionTitle: fields.text({ label: 'Título de la Sección' }),
+          mapImage: fields.image({
+            label: 'Imagen del Mapa',
+            directory: 'public/images/home',
+            publicPath: '/images/home/',
+          }),
+        }, { label: 'Sección Mapa' }),
 
         contacto: fields.object({
           heading: fields.text({ label: 'Encabezado' }),

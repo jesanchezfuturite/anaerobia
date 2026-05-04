@@ -6,7 +6,7 @@
   --color-brand-blue: #0c5b8c;
   --color-industrial-gray: #f4f4f4;
 
-  --font-saira: "Saira", sans-serif;
+  --font-saira: "Saira Condensed", sans-serif;
   --font-inter: "Inter", sans-serif;
 }
 
@@ -36,5 +36,5 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply uppercase tracking-wide;
+  @apply font-saira font-semibold italic uppercase tracking-wide;
 }
