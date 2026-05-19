@@ -26,6 +26,9 @@
     "typescript": "^5.0.0"
   },
   "overrides": {
-    "vite": "^7"
+    "vite": "^7",
+    "@keystatic/astro": {
+      "astro": "$astro"
+    }
   }
 }
