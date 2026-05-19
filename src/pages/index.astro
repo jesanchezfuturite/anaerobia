@@ -82,7 +82,7 @@ const data = homepageEntry?.data || {
 <Layout title="Anaerobia | Ingeniería Inteligente en Sistemas de Pintura y Acabado">
   <main>
     <!-- A. Hero Section Cinematográfico -->
-    <section class="relative min-h-screen overflow-hidden flex items-center landscape:py-32">
+    <section class="relative min-h-screen overflow-hidden flex items-center pt-40 pb-12 landscape:pt-48 landscape:pb-20">
       <!-- Background Video Local -->
       <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[var(--color-brand-navy)]">
         <video 
@@ -96,12 +96,12 @@ const data = homepageEntry?.data || {
       <div class="absolute inset-0 bg-[var(--color-brand-navy)]/80 mix-blend-multiply z-10"></div>
       
       <!-- Contenido -->
-      <div class="relative z-20 container mx-auto px-6 md:px-12 w-full mt-16">
+      <div class="relative z-20 container mx-auto px-6 md:px-12 w-full">
         <div class="w-full lg:max-w-6xl hero-content">
           <span class="inline-block text-[var(--color-brand-lime)] font-semibold tracking-widest text-sm md:text-base mb-4 uppercase">
             Líderes en integración industrial
           </span>
-          <h1 class="text-white font-saira italic font-semibold uppercase text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.1] mb-6 w-full">
+          <h1 class="text-white font-saira italic font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-[5.5rem] leading-[1.1] mb-6 w-full">
             <Fragment set:html={data.hero.title.toUpperCase().replace(' INTELIGENTE EN S', ' INTELIGENTE<br/>EN S').replace('PINTURA Y A', 'PINTURA Y A')} />
           </h1>
           <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-8 whitespace-pre-line">
