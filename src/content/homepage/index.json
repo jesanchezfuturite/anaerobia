@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Ingeniería Inteligente en Sistemas de Pintura y Acabado. ",
+    "title": "Ingeniería Inteligente en Sistemas de Pintura y Acabado",
     "subtitle": "Diseñamos e integramos proyectos 'llave en mano' para manufactura de alto volumen.",
     "backgroundVideo": "/videos/hero/hero/backgroundVideo.mp4",
     "buttons": [
@@ -11,38 +11,53 @@
     ]
   },
   "soluciones": {
-    "sectionTitle": "Soluciones Industriales Altamente Especializadas",
+    "sectionTitle": "Soluciones Industriales Altamente Especializadas en Acabados Superficiales",
     "sectionSubtitle": "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
     "cards": [
       {
-        "title": "Pintura en polvo",
-        "description": "Cabinas y sistemas eficientes para recubrimientos impecables de piezas metálicas con alta durabilidad.",
+        "title": "Sistemas de pintura en polvo",
+        "description": "Sistemas de pintura en polvo Integramos sistemas completos de pintura en polvo que ofrecen mayor resistencia a tus poroductos.",
         "image": "/images/home/soluciones/cards/0/image.webp"
       },
       {
-        "title": "Pintura Líquida",
-        "description": "Acabados estéticos de clase A con sistemas automatizados robotizados para la industria automotriz.",
+        "title": "Sistemas de pintura líquida",
+        "description": "Sistemas de pintura líquida Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficiales complejas.",
         "image": "/images/home/soluciones/cards/1/image.webp"
       },
       {
-        "title": "Pretratamiento",
-        "description": "Equipos de lavado de etapas múltiples asegurando la adherencia ideal antes del recubrimiento.",
+        "title": "Sistemas de aplicación de recubrimientos",
+        "description": "Integramos equipos de las principales marcas del mercado, tanto para sistemas manuales como sistemas automáticos.",
         "image": "/images/home/soluciones/cards/2/image.webp"
       },
       {
-        "title": "Hornos de curado y secado",
-        "description": "Hornos de convección e infrarrojos diseñados térmicamente para eficiencia energética superlativa.",
+        "title": "Cabinas de pintura",
+        "description": "Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.",
         "image": "/images/home/soluciones/cards/3/image.webp"
       },
       {
-        "title": "Transportadores / Conveyors",
-        "description": "Desde sistemas overhead hasta floor conveyors. Movimiento exacto y fluido para tus piezas.",
+        "title": "Sistemas de pretratamiento",
+        "description": "Ofrecemos soluciones de pretratamiento que optimizan la preparación de tus superficies y garantizan un acabado duradero y de alta calidad.",
         "image": "/images/home/soluciones/cards/4/image.webp"
       },
       {
-        "title": "Partes y Filtros",
-        "description": "Suministro de componentes críticos, refacciones y consumibles de alto rendimiento para tus equipos.",
+        "title": "Sistemas de granallado",
+        "description": "Nuestros sistemas de granallado eliminan impurezas para alcanzar un perfil de anclaje óptimo para la aplicación de pintura.",
         "image": "/images/home/soluciones/cards/5/image.webp"
+      },
+      {
+        "title": "Hornos de cuado y secado",
+        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico",
+        "image": "/images/home/soluciones/cards/6/image.webp"
+      },
+      {
+        "title": "Transportadores/conveyors",
+        "description": "Ofrecemos conveyors a la medida como parte de un sistema de de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente",
+        "image": "/images/home/soluciones/cards/7/image.webp"
+      },
+      {
+        "title": "Partes y filtros",
+        "description": "Mejora la calidad del aire dentro de áreas de aplicación de recubrimientos para optimizar los procesos de producción, cumplir con normativas y garantizar la seguridad del personal operativo.",
+        "image": "/images/home/soluciones/cards/8/image.webp"
       }
     ]
   },
@@ -53,7 +68,7 @@
     "cards": [
       {
         "title": "Inspección técnica",
-        "description": "Auditorías a cabinas, hornos, conveyors y sistemas de pretratamiento para prever desgaste de piezas."
+        "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos"
       },
       {
         "title": "Pólizas de Mantenimiento",
@@ -61,7 +76,7 @@
       },
       {
         "title": "Refacciones Originales",
-        "description": "Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas."
+        "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas"
       }
     ]
   },
