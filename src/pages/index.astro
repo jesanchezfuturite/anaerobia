@@ -138,12 +138,12 @@ const data = homepageEntry?.data || {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[480px]">
           {data.soluciones.cards.map((card, index) => (
-            <div class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer ${index === 2 ? 'bg-[var(--color-brand-navy)]' : 'bg-white'} ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''}`}>
-              <img src={card.image || "https://loremflickr.com/800/600/industry?lock=" + index} alt={card.title} class={`object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 ${index === 2 ? 'opacity-70 mix-blend-overlay' : ''} ${index === 4 || index === 5 ? 'object-center' : ''}`} />
-              <div class={`absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 to-transparent ${index === 2 ? 'via-[var(--color-brand-navy)]/50' : 'via-[var(--color-brand-navy)]/40'}`}></div>
+            <div class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer bg-white ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''}`}>
+              <img src={card.image || "https://loremflickr.com/800/600/industry?lock=" + index} alt={card.title} class={`object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 ${index === 4 || index === 5 ? 'object-center' : ''}`} />
+              <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-8 w-full">
-                <h3 class={`text-2xl font-semibold italic font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300 ${index === 2 ? 'text-[var(--color-brand-lime)]' : 'text-white'}`}>{card.title}</h3>
-                <p class={`mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm ${index === 2 ? 'text-gray-300' : 'text-gray-200'}`}>{card.description}</p>
+                <h3 class="text-2xl font-semibold italic font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-white">{card.title}</h3>
+                <p class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm text-gray-200">{card.description}</p>
               </div>
             </div>
           ))}
@@ -367,7 +367,7 @@ const data = homepageEntry?.data || {
 
     <!-- F. Sección de Contacto Parallax -->
     <section id="contacto" class="relative py-24 md:py-32 flex items-center justify-center overflow-hidden parallax-footer">
-      <img src="https://loremflickr.com/1600/900/industry,worker?lock=100" alt="Ingenieros interactuando con maquinaria" class="absolute inset-0 w-full h-full object-cover z-0 parallax-bg" />
+      <img src="https://loremflickr.com/1600/900/industry,worker?lock=100" alt="Ingenieros interactuando con maquinaria" class="absolute -top-[15%] left-0 w-full h-[130%] object-cover z-0 parallax-bg" />
       <div class="absolute inset-0 bg-[var(--color-brand-navy)]/90 z-10 mix-blend-multiply"></div>
       
       <div class="relative z-20 container mx-auto px-6">
@@ -547,16 +547,19 @@ const data = homepageEntry?.data || {
           });
 
           // Parallax Footer
-          gsap.to(".parallax-bg", {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".parallax-footer",
-              start: "top bottom", 
-              end: "bottom top",
-              scrub: true
+          gsap.fromTo(".parallax-bg", 
+            { yPercent: -15 },
+            {
+              yPercent: 15,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".parallax-footer",
+                start: "top bottom", 
+                end: "bottom top",
+                scrub: true
+              }
             }
-          });
+          );
         }
       }
 
