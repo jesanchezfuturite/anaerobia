@@ -65,6 +65,26 @@ const homepage = defineCollection({
   })
 });
 
+const navigation = defineCollection({
+  loader: glob({ pattern: 'index.json', base: './src/content/navigation' }),
+  schema: z.object({
+    links: z.array(
+      z.object({
+        label: z.string(),
+        url: z.string(),
+        hasSubmenu: z.boolean().optional(),
+        submenu: z.array(
+          z.object({
+            label: z.string(),
+            url: z.string()
+          })
+        ).optional()
+      })
+    )
+  })
+});
+
 export const collections = {
-  homepage
+  homepage,
+  navigation
 };

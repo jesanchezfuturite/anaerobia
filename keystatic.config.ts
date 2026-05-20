@@ -119,5 +119,33 @@ export default config({
         }, { label: 'Sección Contacto' }),
       },
     }),
+    navigation: singleton({
+      label: 'Barra de Navegación',
+      path: 'src/content/navigation/index',
+      format: { data: 'json' },
+      schema: {
+        links: fields.array(
+          fields.object({
+            label: fields.text({ label: 'Etiqueta del enlace' }),
+            url: fields.text({ label: 'Enlace (URL)', defaultValue: '#' }),
+            hasSubmenu: fields.checkbox({ label: '¿Tiene submenú?', defaultValue: false }),
+            submenu: fields.array(
+              fields.object({
+                label: fields.text({ label: 'Etiqueta del sub-enlace' }),
+                url: fields.text({ label: 'Enlace (URL)', defaultValue: '#' }),
+              }),
+              {
+                label: 'Submenú (Enlaces colapsables)',
+                itemLabel: props => props.fields.label.value || 'Sub-enlace'
+              }
+            )
+          }),
+          {
+            label: 'Enlaces principales',
+            itemLabel: props => props.fields.label.value || 'Enlace'
+          }
+        )
+      }
+    })
   },
 });

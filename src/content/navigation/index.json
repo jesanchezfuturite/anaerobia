@@ -1,0 +1,85 @@
+{
+  "links": [
+    {
+      "label": "Nosotros",
+      "url": "#",
+      "hasSubmenu": false,
+      "submenu": []
+    },
+    {
+      "label": "Soluciones",
+      "url": "#",
+      "hasSubmenu": true,
+      "submenu": [
+        {
+          "label": "Sistemas de pintura líquida",
+          "url": "#"
+        },
+        {
+          "label": "Sistemas de pintura en polvo",
+          "url": "#"
+        },
+        {
+          "label": "Sistemas de aplicación de recubrimientos",
+          "url": "#"
+        },
+        {
+          "label": "Equipos de pretratamiento - Lavadoras",
+          "url": "#"
+        },
+        {
+          "label": "Equipos y cabinas de granallado",
+          "url": "#"
+        },
+        {
+          "label": "Hornos",
+          "url": "#"
+        },
+        {
+          "label": "Conveyors",
+          "url": "#"
+        },
+        {
+          "label": "Colectores de polvo",
+          "url": "#"
+        },
+        {
+          "label": "Filtros de aire",
+          "url": "#"
+        },
+        {
+          "label": "Servicio industrial y refaccionamiento",
+          "url": "#"
+        },
+        {
+          "label": "Equipos auxiliares",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "label": "Proyectos",
+      "url": "#",
+      "hasSubmenu": false,
+      "submenu": []
+    },
+    {
+      "label": "Partes y Filtros",
+      "url": "#",
+      "hasSubmenu": false,
+      "submenu": []
+    },
+    {
+      "label": "Blog",
+      "url": "#",
+      "hasSubmenu": false,
+      "submenu": []
+    },
+    {
+      "label": "Contacto",
+      "url": "#",
+      "hasSubmenu": false,
+      "submenu": []
+    }
+  ]
+}
