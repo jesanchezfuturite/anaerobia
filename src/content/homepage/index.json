@@ -16,12 +16,12 @@
     "cards": [
       {
         "title": "Sistemas de pintura en polvo",
-        "description": "Sistemas de pintura en polvo Integramos sistemas completos de pintura en polvo que ofrecen mayor resistencia a tus poroductos.",
+        "description": "Integramos sistemas completos de pintura en polvo que ofrecen mayor resistencia a tus productos.",
         "image": "/images/home/soluciones/cards/0/image.webp"
       },
       {
         "title": "Sistemas de pintura líquida",
-        "description": "Sistemas de pintura líquida Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficiales complejas.",
+        "description": "Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficies complejas.",
         "image": "/images/home/soluciones/cards/1/image.webp"
       },
       {
@@ -45,13 +45,13 @@
         "image": "/images/home/soluciones/cards/5/image.webp"
       },
       {
-        "title": "Hornos de cuado y secado",
-        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico",
+        "title": "Hornos de curado y secado",
+        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
         "image": "/images/home/soluciones/cards/6/image.webp"
       },
       {
         "title": "Transportadores/conveyors",
-        "description": "Ofrecemos conveyors a la medida como parte de un sistema de de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente",
+        "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente.",
         "image": "/images/home/soluciones/cards/7/image.webp"
       },
       {
@@ -68,7 +68,7 @@
     "cards": [
       {
         "title": "Inspección técnica",
-        "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos"
+        "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos."
       },
       {
         "title": "Pólizas de Mantenimiento",
@@ -76,7 +76,7 @@
       },
       {
         "title": "Refacciones Originales",
-        "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas"
+        "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas."
       }
     ]
   },
