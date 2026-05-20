@@ -1,9 +1,18 @@
 ---
+const navItems = [
+  { href: '#soluciones', label: 'Soluciones' },
+  { href: '#mantenimiento', label: 'Mantenimiento' },
+  { href: '#gestion360', label: 'Gestión 360°' },
+  { href: '#industrias', label: 'Industrias' },
+  { href: '#normativas', label: 'Normativas' },
+  { href: '#mapa', label: 'Presencia' },
+  { href: '#contacto', label: 'Contacto' },
+];
 ---
 
 <header class="fixed w-full z-50 transition-all duration-300" id="main-nav">
-  <div class="absolute inset-0 bg-white" id="nav-bg"></div>
-  <div class="container mx-auto px-6 relative z-10">
+  <div class="absolute inset-0 bg-white z-20" id="nav-bg"></div>
+  <div class="container mx-auto px-6 relative z-30">
     <div class="flex items-center justify-between h-24 md:h-28">
       <!-- Logo Oficial -->
       <a href="/" class="flex items-center">
@@ -12,21 +21,28 @@
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center gap-[clamp(8px,2vw,32px)]">
-        <a href="#nosotros" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Nosotros</a>
-        <a href="#productos" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Productos</a>
-        <a href="#galeria" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Galería</a>
-        <a href="#blog" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Blog</a>
-        <a href="#contacto" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Contacto</a>
-        <a href="#partes" class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">Partes y Filtros</a>
+        {navItems.map((item) => (
+          <a href={item.href} class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">{item.label}</a>
+        ))}
       </nav>
 
       <!-- Mobile Button -->
-      <button class="md:hidden text-[var(--color-brand-navy)]">
+      <button class="md:hidden text-[var(--color-brand-navy)] focus:outline-none z-30 cursor-pointer" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
+  </div>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white/98 backdrop-blur-lg shadow-xl border-t border-gray-100 transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none md:hidden z-10">
+    <nav class="flex flex-col p-6 space-y-4">
+      {navItems.map((item) => (
+        <a href={item.href} class="mobile-nav-link text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-sm uppercase tracking-widest transition-colors py-3 border-b border-gray-100 last:border-b-0">{item.label}</a>
+      ))}
+    </nav>
   </div>
 </header>
 
@@ -34,7 +50,12 @@
   document.addEventListener("DOMContentLoaded", () => {
     const nav = document.getElementById("main-nav");
     const navBg = document.getElementById("nav-bg");
-    
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
     // Add shadow when scrolling for depth
     if (window.scrollY < 50) {
       navBg.classList.remove('shadow-md');
@@ -46,6 +67,41 @@
       } else {
         navBg.classList.remove('shadow-md');
       }
+    });
+
+    // Toggle Mobile Menu
+    function toggleMobileMenu() {
+      const isExpanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+      mobileMenuBtn.setAttribute("aria-expanded", !isExpanded);
+      
+      if (!isExpanded) {
+        // Open
+        mobileMenu.classList.remove("-translate-y-full", "opacity-0", "pointer-events-none");
+        mobileMenu.classList.add("translate-y-0", "opacity-100", "pointer-events-auto");
+        hamburgerIcon.classList.remove("block");
+        hamburgerIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+        closeIcon.classList.add("block");
+      } else {
+        // Close
+        mobileMenu.classList.remove("translate-y-0", "opacity-100", "pointer-events-auto");
+        mobileMenu.classList.add("-translate-y-full", "opacity-0", "pointer-events-none");
+        hamburgerIcon.classList.remove("hidden");
+        hamburgerIcon.classList.add("block");
+        closeIcon.classList.remove("block");
+        closeIcon.classList.add("hidden");
+      }
+    }
+
+    mobileMenuBtn?.addEventListener("click", toggleMobileMenu);
+
+    // Close menu when clicking on any mobile nav link
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (mobileMenuBtn.getAttribute("aria-expanded") === "true") {
+          toggleMobileMenu();
+        }
+      });
     });
   });
 </script>
