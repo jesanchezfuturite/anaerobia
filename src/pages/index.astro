@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
 import { getEntry } from 'astro:content';
 
 const homepageEntry = await getEntry('homepage', 'index');
@@ -127,6 +128,18 @@ const arrowColors = [
   "text-[var(--color-brand-blue)]",
   "text-[var(--color-brand-navy)]",
   "text-[var(--color-brand-navy)]"
+];
+
+const infographicItems = [
+  { index: 7, side: "left", cardTop: "8%", anchorY: 15, x: 50, y: 18, color: "lime", num: "01" },
+  { index: 4, side: "left", cardTop: "30%", anchorY: 37, x: 35, y: 39, color: "blue", num: "02" },
+  { index: 5, side: "left", cardTop: "53%", anchorY: 60, x: 25, y: 48, color: "navy", num: "03" },
+  { index: 2, side: "left", cardTop: "76%", anchorY: 83, x: 41, y: 57, color: "blue", num: "04" },
+  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 53, y: 36, color: "navy", num: "05" },
+  { index: 0, side: "right", cardTop: "24%", anchorY: 31, x: 46, y: 43, color: "lime", num: "06" },
+  { index: 8, side: "right", cardTop: "42%", anchorY: 49, x: 63, y: 43, color: "blue", num: "07" },
+  { index: 1, side: "right", cardTop: "60%", anchorY: 67, x: 50, y: 52, color: "blue", num: "08" },
+  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 59, y: 66, color: "lime", num: "09" }
 ];
 ---
 
@@ -461,26 +474,201 @@ const arrowColors = [
       </div>
     </section>
 
-    <!-- MAPA NACIONAL -->
-    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 py-24 bg-white px-6 md:px-12">
-      <div class="container mx-auto max-w-6xl">
+    <!-- INFOGRAFÍA INTERACTIVA (PRESENCIA NACIONAL) -->
+    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 py-24 bg-white px-6 md:px-12 overflow-hidden">
+      <div class="container mx-auto max-w-7xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.mapa.sectionTitle}</h2>
-          <p class="text-gray-600 text-lg">Cobertura estratégica en los principales polos industriales de México.</p>
+          <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+            Ingeniería inteligente integrada en los sistemas de producción más exigentes a nivel nacional.
+          </p>
         </div>
-        
-        <div class="bg-gray-50 rounded-3xl p-8 md:p-12 shadow-sm min-h-[400px] flex items-center justify-center border border-gray-100 relative overflow-hidden">
-          {data.mapa.mapImage ? (
-            <img src={data.mapa.mapImage} alt="Mapa de Presencia Nacional Anaerobia" class="w-full max-w-4xl h-auto object-contain drop-shadow-md hover:drop-shadow-xl transition-all duration-500 hover:scale-[1.02]" />
-          ) : (
-            <div class="text-center text-gray-400">
-              <p class="font-saira text-xl">Mapa no disponible</p>
+
+        <!-- MÓVIL / TABLET LAYOUT (< lg) -->
+        <div class="block lg:hidden w-full">
+          <!-- Central Image with Hotspots -->
+          <div class="relative bg-gray-50 rounded-2xl p-4 border border-gray-100 overflow-hidden mb-8 shadow-sm flex justify-center items-center select-none">
+            <div class="relative w-full max-w-2xl aspect-[4/3]">
+              <img src={data.mapa.mapImage} alt="Sistemas Integrados de Pintura" class="w-full h-full object-contain" />
+              {infographicItems.map((item) => {
+                const card = data.soluciones.cards[item.index];
+                return (
+                  <button
+                    class="absolute w-6 h-6 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
+                    style={`left: ${item.x}%; top: ${item.y}%; transform: translate(-50%, -50%);`}
+                    data-target={`mob-card-${item.index}`}
+                    aria-label={`Ver ${card.title}`}
+                  >
+                    <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-lime)] opacity-75 animate-ping"></span>
+                    <span class="relative inline-flex rounded-full h-5 w-5 shadow-md border border-white bg-[var(--color-brand-navy)] text-[9px] font-bold text-[var(--color-brand-lime)] flex items-center justify-center">
+                      {item.num}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
-          )}
+          </div>
+
+          <!-- Cards Scroll Area or Accordion/Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {infographicItems.map((item) => {
+              const card = data.soluciones.cards[item.index];
+              return (
+                <div
+                  id={`mob-card-${item.index}`}
+                  class="bg-gray-50 rounded-xl p-5 border border-gray-100 transition-all duration-300 flex gap-4 items-start mobile-sol-card cursor-pointer hover:border-[var(--color-brand-lime)] hover:bg-white"
+                >
+                  <div class="w-8 h-8 rounded-lg bg-[var(--color-brand-navy)] text-[var(--color-brand-lime)] flex items-center justify-center font-bold text-sm shrink-0 font-saira shadow-sm">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 class="font-saira font-bold italic uppercase text-[var(--color-brand-navy)] text-base">{card.title}</h3>
+                    <p class="text-xs text-gray-500 mt-1 leading-relaxed">{card.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+
+        <!-- ESCRITORIO LAYOUT (>= lg) -->
+        <div class="hidden lg:block relative w-full aspect-[16/10] select-none" id="desktop-infographic">
+          <!-- Base lines connecting the sides to center -->
+          <svg class="absolute inset-0 pointer-events-none w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {infographicItems.map((item) => {
+              const xStart = item.side === 'left' ? 22 : 78;
+              const yStart = item.anchorY;
+              const xEnd = 24 + 0.52 * item.x;
+              const yEnd = 2 + 0.96 * item.y;
+              return (
+                <>
+                  <!-- Background thin line -->
+                  <line
+                    id={`line-bg-${item.index}`}
+                    x1={xStart}
+                    y1={yStart}
+                    x2={xEnd}
+                    y2={yEnd}
+                    class="stroke-gray-200/60"
+                    stroke-width="0.1"
+                  />
+                  <!-- Active colored glow line -->
+                  <line
+                    id={`line-active-${item.index}`}
+                    x1={xStart}
+                    y1={yStart}
+                    x2={xEnd}
+                    y2={yEnd}
+                    class="stroke-transparent transition-all duration-500 opacity-0 line-active-path"
+                    stroke-width="0.25"
+                    stroke-linecap="round"
+                    data-color={
+                      item.color === 'lime' ? 'var(--color-brand-lime)' :
+                      item.color === 'blue' ? 'var(--color-brand-blue)' :
+                      'var(--color-brand-navy)'
+                    }
+                  />
+                </>
+              );
+            })}
+          </svg>
+
+          <!-- Left Column Cards -->
+          {infographicItems.filter(item => item.side === 'left').map((item) => {
+            const card = data.soluciones.cards[item.index];
+            return (
+              <div
+                class="absolute w-[22%] bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
+                style={`left: 0%; top: ${item.cardTop};`}
+                data-index={item.index}
+                data-color={item.color}
+              >
+                <!-- Right Anchor Bullet -->
+                <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-2 h-2 rounded-full border border-white bg-gray-200 transition-colors duration-300 group-hover/card:bg-[var(--color-brand-lime)] z-30 anchor-dot" id={`anchor-${item.index}`}></div>
+                
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-gray-400 group-hover/card:text-[var(--color-brand-lime)] transition-colors font-saira">{item.num}</span>
+                  <h3 class="font-saira font-extrabold italic uppercase text-xs lg:text-sm text-[var(--color-brand-navy)] group-hover/card:text-[var(--color-brand-blue)] transition-colors leading-tight">{card.title}</h3>
+                </div>
+                <p class="text-[10px] lg:text-xs text-gray-500 mt-1 leading-snug line-clamp-2 group-hover/card:line-clamp-none transition-all duration-300">{card.description}</p>
+              </div>
+            );
+          })}
+
+          <!-- Central Image & Hotspots -->
+          <div class="absolute left-[24%] top-[2%] w-[52%] h-[96%] flex items-center justify-center bg-gray-50/50 rounded-3xl border border-gray-100/50 p-4 relative shadow-inner overflow-hidden">
+            <!-- Grid decorative backdrop -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:30px_30px] opacity-25"></div>
+            
+            <div class="relative w-full h-full flex items-center justify-center">
+              <img
+                src={data.mapa.mapImage}
+                alt="Sistemas Integrados de Pintura"
+                class="w-full h-full object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.01]"
+              />
+
+              {infographicItems.map((item) => {
+                const card = data.soluciones.cards[item.index];
+                return (
+                  <button
+                    class="absolute w-5 h-5 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 hover:scale-125 desktop-hotspot"
+                    style={`left: ${item.x}%; top: ${item.y}%; transform: translate(-50%, -50%);`}
+                    data-index={item.index}
+                    data-color={item.color}
+                    aria-label={`Ver detalle de ${card.title}`}
+                  >
+                    <span class="absolute inline-flex h-full w-full rounded-full opacity-50 animate-ping transition-colors duration-300 hotspot-ping bg-gray-400/80"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 shadow-sm border border-white/50 transition-all duration-300 hotspot-core bg-gray-400"></span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <!-- Right Column Cards -->
+          {infographicItems.filter(item => item.side === 'right').map((item) => {
+            const card = data.soluciones.cards[item.index];
+            return (
+              <div
+                class="absolute w-[22%] bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
+                style={`right: 0%; top: ${item.cardTop};`}
+                data-index={item.index}
+                data-color={item.color}
+              >
+                <!-- Left Anchor Bullet -->
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-white bg-gray-200 transition-colors duration-300 group-hover/card:bg-[var(--color-brand-lime)] z-30 anchor-dot" id={`anchor-${item.index}`}></div>
+
+                <div class="flex items-center gap-3">
+                  <span class="text-xs font-bold text-gray-400 group-hover/card:text-[var(--color-brand-lime)] transition-colors font-saira">{item.num}</span>
+                  <h3 class="font-saira font-extrabold italic uppercase text-xs lg:text-sm text-[var(--color-brand-navy)] group-hover/card:text-[var(--color-brand-blue)] transition-colors leading-tight">{card.title}</h3>
+                </div>
+                <p class="text-[10px] lg:text-xs text-gray-500 mt-1 leading-snug line-clamp-2 group-hover/card:line-clamp-none transition-all duration-300">{card.description}</p>
+              </div>
+            );
+          })}
+        </div>
     </section>
 
+    <!-- Banner: Cobertura de Envíos en México -->
+    <section class="coverage-banner relative bg-[var(--color-brand-lime)] py-8 px-6 md:px-12 overflow-hidden flex items-center justify-center border-t border-b border-black/10 z-20">
+      <!-- Background Map Image styled only with CSS -->
+      <div class="absolute inset-y-0 right-0 w-full md:w-1/2 flex items-center justify-end pointer-events-none z-0 select-none opacity-15">
+        <img
+          src="/images/home/mapa/mapImage.svg"
+          alt="Mapa de Cobertura México"
+          class="w-[400px] h-[400px] object-contain max-w-none mexico-map-watermark"
+        />
+      </div>
+
+      <div class="relative z-10 container mx-auto text-center max-w-4xl">
+        <h2 class="text-2xl md:text-3xl font-saira font-extrabold italic uppercase tracking-widest leading-none flex items-center justify-center gap-3 select-none banner-text-container">
+          <svg class="w-6 h-6 shrink-0 text-[var(--color-brand-navy)] banner-icon-animated" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+          <span class="banner-text-shine">Envío a todo México</span>
+        </h2>
+      </div>
+    </section>
 
     <!-- F. Sección de Contacto Parallax -->
     <section id="contacto" class="scroll-mt-24 md:scroll-mt-28 relative py-24 md:py-32 flex items-center justify-center overflow-hidden parallax-footer">
@@ -560,57 +748,7 @@ const arrowColors = [
     </section>
 
     <!-- FOOTER NAVEGABLE (SEO) -->
-    <footer class="bg-[var(--color-brand-navy)] text-white pt-20 pb-10 border-t border-white/10">
-      <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div class="md:col-span-1">
-            <img src="https://anaerobia.com/wp-content/uploads/2020/10/Anaerobia-logotipo-1.svg" alt="Anaerobia" class="w-64 md:w-72 h-auto object-contain mb-6" />
-            <p class="text-gray-400 text-sm leading-relaxed">
-              Líderes en ingeniería e integración industrial. Desarrollamos soluciones integrales de pintura, silos y sistemas de pretratamiento para la manufactura global.
-            </p>
-          </div>
-          
-          <div>
-            <h4 class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6">Navegación</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li><a href="#soluciones" class="hover:text-white transition-colors">Soluciones</a></li>
-              <li><a href="#mantenimiento" class="hover:text-white transition-colors">Mantenimiento</a></li>
-              <li><a href="#gestion360" class="hover:text-white transition-colors">Gestión 360°</a></li>
-              <li><a href="#industrias" class="hover:text-white transition-colors">Industrias</a></li>
-              <li><a href="#normativas" class="hover:text-white transition-colors">Normativas</a></li>
-              <li><a href="#mapa" class="hover:text-white transition-colors">Presencia</a></li>
-              <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6">Especialidades</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li>Pintura en Polvo Automatizada</li>
-              <li>Hornos Industriales de Curado</li>
-              <li>Conveyors Power & Free</li>
-              <li>Cabinas de Pretratamiento</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6">Contacto Institucional</h4>
-            <ul class="space-y-3 text-sm text-gray-300">
-              <li class="flex gap-2"><svg class="w-5 h-5 text-[var(--color-brand-lime)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Parque Industrial Metalsa</li>
-              <li class="flex gap-2"><svg class="w-5 h-5 text-[var(--color-brand-lime)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> contacto@anaerobia.com</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Anaerobia. Todos los derechos reservados.</p>
-          <div class="flex gap-6">
-            <a href="#" class="hover:text-white transition-colors">Aviso de Privacidad</a>
-            <a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </main>
 
   <script is:inline>
@@ -698,6 +836,173 @@ const arrowColors = [
         });
       }
 
+      // 5. Infografía Interactiva (Desktop & Mobile Sync)
+      const desktopInfographic = document.getElementById("desktop-infographic");
+      if (desktopInfographic) {
+        const cards = desktopInfographic.querySelectorAll(".info-card");
+        const hotspots = desktopInfographic.querySelectorAll(".desktop-hotspot");
+        const lines = desktopInfographic.querySelectorAll(".line-active-path");
+
+        const getColorValue = (colorName) => {
+          switch (colorName) {
+            case 'lime': return 'var(--color-brand-lime)';
+            case 'blue': return 'var(--color-brand-blue)';
+            case 'navy': return 'var(--color-brand-navy)';
+            default: return 'var(--color-brand-lime)';
+          }
+        };
+
+        const highlightElement = (index) => {
+          const card = desktopInfographic.querySelector(`.info-card[data-index="${index}"]`);
+          const hotspot = desktopInfographic.querySelector(`.desktop-hotspot[data-index="${index}"]`);
+          const activeLine = document.getElementById(`line-active-${index}`);
+
+          if (card) {
+            const color = card.getAttribute("data-color");
+            const colorVal = getColorValue(color);
+            card.style.borderColor = colorVal;
+            card.style.boxShadow = `0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px ${colorVal}20`;
+            card.classList.remove("bg-[#f8fafc]");
+            card.classList.add("bg-white", "scale-[1.02]");
+            card.style.zIndex = "40";
+
+            const anchor = card.querySelector(".anchor-dot");
+            if (anchor) {
+              anchor.style.backgroundColor = colorVal;
+              anchor.style.borderColor = colorVal;
+            }
+          }
+
+          if (hotspot) {
+            const color = hotspot.getAttribute("data-color");
+            const colorVal = getColorValue(color);
+            const ping = hotspot.querySelector(".hotspot-ping");
+            const core = hotspot.querySelector(".hotspot-core");
+            if (ping) {
+              ping.classList.remove("bg-gray-400/80");
+              ping.style.backgroundColor = colorVal;
+              ping.classList.add("scale-125");
+            }
+            if (core) {
+              core.classList.remove("bg-gray-400");
+              core.style.backgroundColor = colorVal;
+              core.classList.add("scale-125");
+            }
+          }
+
+          if (activeLine) {
+            const colorVal = activeLine.getAttribute("data-color");
+            activeLine.style.stroke = colorVal;
+            activeLine.style.opacity = "1";
+            activeLine.setAttribute("stroke-width", "0.35");
+            activeLine.classList.add("active");
+          }
+        };
+
+        const resetAllElements = () => {
+          cards.forEach(card => {
+            card.style.borderColor = "";
+            card.style.boxShadow = "";
+            card.style.zIndex = "";
+            card.classList.add("bg-[#f8fafc]");
+            card.classList.remove("bg-white", "scale-[1.02]");
+            const anchor = card.querySelector(".anchor-dot");
+            if (anchor) {
+              anchor.style.backgroundColor = "";
+              anchor.style.borderColor = "";
+            }
+          });
+
+          hotspots.forEach(hotspot => {
+            const ping = hotspot.querySelector(".hotspot-ping");
+            const core = hotspot.querySelector(".hotspot-core");
+            if (ping) {
+              ping.classList.add("bg-gray-400/80");
+              ping.style.backgroundColor = "";
+              ping.classList.remove("scale-125");
+            }
+            if (core) {
+              core.classList.add("bg-gray-400");
+              core.style.backgroundColor = "";
+              core.classList.remove("scale-125");
+            }
+          });
+
+          lines.forEach(line => {
+            line.style.stroke = "";
+            line.style.opacity = "";
+            line.setAttribute("stroke-width", "0.25");
+            line.classList.remove("active");
+          });
+        };
+
+        cards.forEach(card => {
+          card.addEventListener("pointerenter", () => {
+            resetAllElements();
+            highlightElement(card.getAttribute("data-index"));
+          });
+          card.addEventListener("pointerleave", resetAllElements);
+        });
+
+        hotspots.forEach(hotspot => {
+          hotspot.addEventListener("pointerenter", () => {
+            resetAllElements();
+            highlightElement(hotspot.getAttribute("data-index"));
+          });
+          hotspot.addEventListener("pointerleave", resetAllElements);
+        });
+      }
+
+      // Mobile Hotspot interaction: clicking scrolling down/highlighting card
+      const mobileHotspots = document.querySelectorAll(".mobile-hotspot");
+      const mobileCards = document.querySelectorAll(".mobile-sol-card");
+
+      mobileHotspots.forEach(hotspot => {
+        hotspot.addEventListener("click", () => {
+          const targetId = hotspot.getAttribute("data-target");
+          const targetCard = document.getElementById(targetId);
+          if (targetCard) {
+            // Reset mobile cards
+            mobileCards.forEach(c => {
+              c.classList.remove("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+              c.classList.add("bg-gray-50");
+            });
+
+            // Highlight target
+            targetCard.classList.add("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+            targetCard.classList.remove("bg-gray-50");
+
+            // Scroll to card
+            targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      });
+
+      mobileCards.forEach(card => {
+        card.addEventListener("click", () => {
+          const cardId = card.getAttribute("id");
+          const hotspot = document.querySelector(`.mobile-hotspot[data-target="${cardId}"]`);
+          
+          // Reset cards
+          mobileCards.forEach(c => {
+            c.classList.remove("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+            c.classList.add("bg-gray-50");
+          });
+          
+          // Highlight card
+          card.classList.add("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+          card.classList.remove("bg-gray-50");
+
+          if (hotspot) {
+            // Scroll to the image container
+            hotspot.parentElement.scrollIntoView({ behavior: "smooth", block: "center" });
+            // Add custom dynamic pulse animation to the clicked hotspot
+            hotspot.classList.add("scale-125");
+            setTimeout(() => hotspot.classList.remove("scale-125"), 1000);
+          }
+        });
+      });
+
     });
   </script>
 
@@ -714,6 +1019,86 @@ const arrowColors = [
       }
       .step-card-inner {
         clip-path: polygon(14px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 14px);
+      }
+    }
+
+    /* Active dynamic pulse line flow */
+    .line-active-path {
+      transition: stroke-width 0.4s ease, opacity 0.4s ease, stroke-dashoffset 0.4s ease;
+      stroke-dasharray: 4 2;
+      stroke-dashoffset: 0;
+    }
+    .line-active-path.active {
+      animation: linePulseFlow 1.5s linear infinite;
+    }
+    @keyframes linePulseFlow {
+      to {
+        stroke-dashoffset: -12;
+      }
+    }
+    .desktop-hotspot .hotspot-ping, .desktop-hotspot .hotspot-core {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Watermark Map styling (static, no hover animations) */
+    .mexico-map-watermark {
+      filter: brightness(0) invert(1);
+      transform: translate(3rem, 6rem) rotate(6deg);
+    }
+    @media (max-width: 767px) {
+      .mexico-map-watermark {
+        transform: translate(0, 5rem) rotate(4deg) scale(1) !important;
+      }
+    }
+
+    /* Text styling and active animations for the banner (hover-only) */
+    .banner-text-container {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .coverage-banner:hover .banner-text-container {
+      transform: scale(1.08);
+    }
+    .banner-text-shine {
+      background: linear-gradient(
+        to right,
+        var(--color-brand-navy) 20%,
+        #0284c7 40%,
+        #06b6d4 50%,
+        #0284c7 60%,
+        var(--color-brand-navy) 80%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      transition: background-position 0.5s ease;
+      background-position: 0% center;
+      padding-right: 0.15em; /* Evita que la letra cursiva se corte al final por el background-clip */
+    }
+    .coverage-banner:hover .banner-text-shine {
+      animation: textShine 2.5s linear infinite;
+    }
+    .banner-icon-animated {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .coverage-banner:hover .banner-icon-animated {
+      animation: iconWiggle 2s ease-in-out infinite;
+    }
+
+    @keyframes textShine {
+      to {
+        background-position: 200% center;
+      }
+    }
+    @keyframes iconWiggle {
+      0%, 100% {
+        transform: rotate(0deg) scale(1);
+      }
+      25% {
+        transform: rotate(-10deg) scale(1.15);
+      }
+      75% {
+        transform: rotate(10deg) scale(1.15);
       }
     }
   </style>
