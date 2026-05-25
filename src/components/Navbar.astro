@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 
 const navigationEntry = await getEntry('navigation', 'index');
 const navItems = navigationEntry?.data?.links || [
-  { label: 'Nosotros', url: '#', hasSubmenu: false, submenu: [] },
+  { label: 'Nosotros', url: '/', hasSubmenu: false, submenu: [] },
   {
     label: 'Soluciones',
     url: '#',
@@ -25,7 +25,7 @@ const navItems = navigationEntry?.data?.links || [
   { label: 'Proyectos', url: '#', hasSubmenu: false, submenu: [] },
   { label: 'Partes y Filtros', url: '#', hasSubmenu: false, submenu: [] },
   { label: 'Blog', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Contacto', url: '#', hasSubmenu: false, submenu: [] },
+  { label: 'Contacto', url: '/#contacto', hasSubmenu: false, submenu: [] },
 ];
 ---
 
