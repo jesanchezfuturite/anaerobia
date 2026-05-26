@@ -61,9 +61,9 @@ export default config({
               description: fields.text({ label: 'Descripción' }),
               icon: fields.text({ label: 'Icono SVG (Opcional)' }),
             }),
-            { label: 'Tarjetas de Mantenimiento', itemLabel: props => props.fields.title.value }
+            { label: 'Tarjetas de Servicio Industrial', itemLabel: props => props.fields.title.value }
           ),
-        }, { label: 'Sección Mantenimiento' }),
+        }, { label: 'Sección Servicio Industrial' }),
 
         gestion360: fields.object({
           sectionTitle: fields.text({ label: 'Título de la Sección' }),

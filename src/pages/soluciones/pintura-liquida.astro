@@ -664,354 +664,347 @@ const seoDescription =
           class="flex flex-wrap justify-center gap-4 mb-16"
           id="tech-tabs-nav"
         >
-              <button
-                class="tech-tab-btn active px-6 py-4 rounded-xl border border-brand-navy bg-brand-navy text-white shadow-lg transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
-                data-tab="tab-pretratamiento"
-              >
-                <span
-                  class="w-7 h-7 rounded-full bg-brand-lime text-brand-navy flex items-center justify-center text-xs font-bold font-sans not-italic"
-                  >01</span
+          <button
+            class="tech-tab-btn active px-6 py-4 rounded-xl border border-brand-navy bg-brand-navy text-white shadow-lg transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-pretratamiento"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-lime text-brand-navy flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >01</span
+            >
+            Pretratamiento
+          </button>
+          <button
+            class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-cabina"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >02</span
+            >
+            Cabinas de Aplicación
+          </button>
+          <button
+            class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-curado"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >03</span
+            >
+            Curado (Hornos)
+          </button>
+        </div>
+
+        <!-- Tabs Content Panels -->
+        <div id="tech-tabs-content" class="relative w-full">
+          <!-- Panel 1: Pretratamiento -->
+          <div
+            id="tab-pretratamiento"
+            class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-5 space-y-6">
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
                 >
-                Pretratamiento
-              </button>
-              <button
-                class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
-                data-tab="tab-cabina"
-              >
-                <span
-                  class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
-                  >02</span
+                  Pretratamiento de Superficies
+                </h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                  El pretratamiento es esencial para garantizar una buena
+                  adherencia, durabilidad y apariencia del acabado final.
+                  Existen dos métodos generales que se implementan según las
+                  condiciones del metal:
+                </p>
+              </div>
+
+              <div class="lg:col-span-7">
+                <div
+                  class="overflow-x-auto rounded-lg border border-gray-300/80 bg-white shadow-sm"
                 >
-                Cabinas de Aplicación
-              </button>
-              <button
-                class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
-                data-tab="tab-curado"
-              >
-                <span
-                  class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
-                  >03</span
-                >
-                Curado (Hornos)
-              </button>
+                  <table class="w-full text-left text-sm">
+                    <thead>
+                      <tr
+                        class="bg-brand-navy text-white font-saira italic uppercase tracking-wider text-xs border-b border-brand-navy"
+                      >
+                        <th class="px-6 py-4">Pretratamiento Químico</th>
+                        <th class="px-6 py-4">Pretratamiento Mecánico</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-gray-100 text-gray-600 font-light text-xs leading-relaxed"
+                    >
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Permite aplicar sello antioxidante protector.</td
+                        >
+                        <td class="px-6 py-4"
+                          >Permite utilizar diversos materiales abrasivos
+                          (granalla, arena).</td
+                        >
+                      </tr>
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Elimina de forma absoluta aceites, lubricantes y
+                          grasas.</td
+                        >
+                        <td class="px-6 py-4"
+                          >Elimina cascarilla de laminación, óxido fuerte,
+                          rebaba y recubrimientos viejos.</td
+                        >
+                      </tr>
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Gran versatilidad del proceso (aspersión, inmersión).</td
+                        >
+                        <td class="px-6 py-4"
+                          >Permite alcanzar y controlar el perfil de anclaje
+                          (rugosidad) deseado.</td
+                        >
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <!-- Tabs Content Panels -->
-            <div id="tech-tabs-content" class="relative w-full">
-              <!-- Panel 1: Pretratamiento -->
-              <div
-                id="tab-pretratamiento"
-                class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
-              >
-                <div
-                  class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+          <!-- Panel 2: Cabina -->
+          <div
+            id="tab-cabina"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-4 space-y-6">
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
                 >
-                  <div class="lg:col-span-5 space-y-6">
-                    <h3
-                      class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
-                    >
-                      Pretratamiento de Superficies
-                    </h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">
-                      El pretratamiento es esencial para garantizar una buena
-                      adherencia, durabilidad y apariencia del acabado final.
-                      Existen dos métodos generales que se implementan según las
-                      condiciones del metal:
-                    </p>
-                  </div>
-
-                  <div class="lg:col-span-7">
-                    <div
-                      class="overflow-x-auto rounded-lg border border-gray-300/80 bg-white shadow-sm"
-                    >
-                      <table class="w-full text-left text-sm">
-                        <thead>
-                          <tr
-                            class="bg-brand-navy text-white font-saira italic uppercase tracking-wider text-xs border-b border-brand-navy"
-                          >
-                            <th class="px-6 py-4">Pretratamiento Químico</th>
-                            <th class="px-6 py-4">Pretratamiento Mecánico</th>
-                          </tr>
-                        </thead>
-                        <tbody
-                          class="divide-y divide-gray-100 text-gray-600 font-light text-xs leading-relaxed"
-                        >
-                          <tr>
-                            <td
-                              class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
-                              >Permite aplicar sello antioxidante protector.</td
-                            >
-                            <td class="px-6 py-4"
-                              >Permite utilizar diversos materiales abrasivos
-                              (granalla, arena).</td
-                            >
-                          </tr>
-                          <tr>
-                            <td
-                              class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
-                              >Elimina de forma absoluta aceites, lubricantes y
-                              grasas.</td
-                            >
-                            <td class="px-6 py-4"
-                              >Elimina cascarilla de laminación, óxido fuerte,
-                              rebaba y recubrimientos viejos.</td
-                            >
-                          </tr>
-                          <tr>
-                            <td
-                              class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
-                              >Gran versatilidad del proceso (aspersión,
-                              inmersión).</td
-                            >
-                            <td class="px-6 py-4"
-                              >Permite alcanzar y controlar el perfil de anclaje
-                              (rugosidad) deseado.</td
-                            >
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
+                  Especificaciones de Cabinas
+                </h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                  La cabina proporciona un espacio de confinamiento controlado y
+                  seguro para la aplicación de pintura, asegurando la calidad
+                  del acabado Clase A mediante:
+                </p>
               </div>
 
-              <!-- Panel 2: Cabina -->
-              <div
-                id="tab-cabina"
-                class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
-              >
-                <div
-                  class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-                >
-                  <div class="lg:col-span-4 space-y-6">
-                    <h3
-                      class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
+              <div class="lg:col-span-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <!-- Item 1: Ventilación Controlada -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
                     >
-                      Especificaciones de Cabinas
-                    </h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">
-                      La cabina proporciona un espacio de confinamiento
-                      controlado y seguro para la aplicación de pintura,
-                      asegurando la calidad del acabado Clase A mediante:
-                    </p>
-                  </div>
-
-                  <div class="lg:col-span-8">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <!-- Item 1: Ventilación Controlada -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Ventilación Controlada
-                          </h4>
-                        </div>
-                      </div>
-
-                      <!-- Item 2: Filtros de Aire -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Filtros de Aire
-                          </h4>
-                        </div>
-                      </div>
-
-                      <!-- Item 3: Iluminación Específica -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Iluminación Específica
-                          </h4>
-                        </div>
-                      </div>
-
-                      <!-- Item 4: Paredes y Pisos -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Paredes y Pisos Resistentes
-                          </h4>
-                        </div>
-                      </div>
-
-                      <!-- Item 5: Puertas Herméticas -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Puertas Herméticas
-                          </h4>
-                        </div>
-                      </div>
-
-                      <!-- Item 6: Sistemas de Protección -->
-                      <div
-                        class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
-                      >
-                        <svg
-                          class="w-5 h-5 text-brand-lime shrink-0"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="3"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <div>
-                          <h4
-                            class="font-saira font-semibold text-brand-navy text-sm uppercase"
-                          >
-                            Protección Personal
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 3: Curado -->
-              <div
-                id="tab-curado"
-                class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
-              >
-                <div
-                  class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
-                >
-                  <div class="lg:col-span-7 space-y-6">
-                    <h3
-                      class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-200 pb-2"
-                    >
-                      Curado de la Capa de Pintura (Horno vs Secado Natural)
-                    </h3>
-                    <p class="text-sm text-gray-600 font-light leading-relaxed">
-                      Es posible secar piezas de pintura líquida al aire libre,
-                      pero dependerá de factores climáticos (humedad y
-                      temperatura) que añaden variabilidad e incrementan el
-                      tiempo de ciclo. El curado con un **horno especializado**
-                      asegura que la capa de pintura alcance rápidamente la
-                      polimerización exacta, garantizando las propiedades
-                      mecánicas y químicas de resistencia, durabilidad y
-                      adherencia certificadas por el fabricante.
-                    </p>
-                  </div>
-
-                  <div class="lg:col-span-5">
-                    <div
-                      class="p-6 bg-brand-lime/10 border-l-4 border-brand-lime text-brand-navy rounded-r-xl space-y-3 shadow-sm"
-                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
                       <h4
-                        class="font-saira font-bold text-base uppercase tracking-wider flex items-center gap-2"
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
                       >
-                        <svg
-                          class="w-5 h-5 text-brand-lime"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2.5"
-                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                          ></path>
-                        </svg>
-                        Nota técnica importante
+                        Ventilación Controlada
                       </h4>
-                      <p class="text-xs font-medium leading-relaxed">
-                        Siga estrictamente las recomendaciones del fabricante de
-                        la pintura en cuanto a la rampa de temperatura y el
-                        tiempo de residencia para un curado impecable.
-                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Item 2: Filtros de Aire -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                      <h4
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
+                      >
+                        Filtros de Aire
+                      </h4>
+                    </div>
+                  </div>
+
+                  <!-- Item 3: Iluminación Específica -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                      <h4
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
+                      >
+                        Iluminación Específica
+                      </h4>
+                    </div>
+                  </div>
+
+                  <!-- Item 4: Paredes y Pisos -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                      <h4
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
+                      >
+                        Paredes y Pisos Resistentes
+                      </h4>
+                    </div>
+                  </div>
+
+                  <!-- Item 5: Puertas Herméticas -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                      <h4
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
+                      >
+                        Puertas Herméticas
+                      </h4>
+                    </div>
+                  </div>
+
+                  <!-- Item 6: Sistemas de Protección -->
+                  <div
+                    class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <div>
+                      <h4
+                        class="font-saira font-semibold text-brand-navy text-sm uppercase"
+                      >
+                        Protección Personal
+                      </h4>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-      </section>
+
+          <!-- Panel 3: Curado -->
+          <div
+            id="tab-curado"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-7 space-y-6">
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-200 pb-2"
+                >
+                  Curado de la Capa de Pintura (Horno vs Secado Natural)
+                </h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                  Es posible secar piezas de pintura líquida al aire libre, pero
+                  dependerá de factores climáticos (humedad y temperatura) que
+                  añaden variabilidad e incrementan el tiempo de ciclo. El
+                  curado con un **horno especializado** asegura que la capa de
+                  pintura alcance rápidamente la polimerización exacta,
+                  garantizando las propiedades mecánicas y químicas de
+                  resistencia, durabilidad y adherencia certificadas por el
+                  fabricante.
+                </p>
+              </div>
+
+              <div class="lg:col-span-5">
+                <div
+                  class="p-6 bg-brand-lime/10 border-l-4 border-brand-lime text-brand-navy rounded-r-xl space-y-3 shadow-sm"
+                >
+                  <h4
+                    class="font-saira font-bold text-base uppercase tracking-wider flex items-center gap-2"
+                  >
+                    <svg
+                      class="w-5 h-5 text-brand-lime"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2.5"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      ></path>
+                    </svg>
+                    Nota técnica importante
+                  </h4>
+                  <p class="text-xs font-medium leading-relaxed">
+                    Siga estrictamente las recomendaciones del fabricante de la
+                    pintura en cuanto a la rampa de temperatura y el tiempo de
+                    residencia para un curado impecable.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- 08. RESULTADOS Y VENTAJAS -->
     <section class="py-24 bg-white px-6 md:px-12" id="ventajas">
@@ -1209,7 +1202,7 @@ const seoDescription =
                       <img
                         src={cert.logo}
                         alt={`Certificación ${cert.name}`}
-                        class="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300"
+                        class="max-h-full max-w-full object-contain transition-all duration-300"
                       />
                     </div>
                     <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
