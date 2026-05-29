@@ -1,0 +1,126 @@
+<!-- Tabs Navigation -->
+        <div
+          class="flex flex-wrap justify-center gap-4 mb-16"
+          id="tech-tabs-nav"
+        >
+          <button
+            class="tech-tab-btn active px-6 py-4 rounded-xl border border-brand-navy bg-brand-navy text-white shadow-lg transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-pretratamiento"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-lime text-brand-navy flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >01</span
+            >
+            Pretratamiento
+          </button>
+          <button
+            class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-cabina"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >02</span
+            >
+            Cabinas de Aplicación
+          </button>
+          <button
+            class="tech-tab-btn px-6 py-4 rounded-xl border border-gray-200 bg-white text-gray-500 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 flex items-center gap-3 cursor-pointer select-none font-saira font-semibold italic text-lg uppercase tracking-wider"
+            data-tab="tab-curado"
+          >
+            <span
+              class="w-7 h-7 rounded-full bg-brand-blue/10 text-brand-blue flex items-center justify-center text-xs font-bold font-sans not-italic"
+              >03</span
+            >
+            Curado (Hornos)
+          </button>
+        </div>
+
+        <!-- Tabs Content Panels -->
+        <div id="tech-tabs-content" class="relative w-full">
+          <!-- Panel 1: Pretratamiento -->
+          <div
+            id="tab-pretratamiento"
+            class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-5 space-y-6">
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
+                >
+                  Pretratamiento de Superficies
+                </h3>
+                <p class="text-sm text-gray-600 font-light leading-relaxed">
+                  El pretratamiento es esencial para garantizar una buena
+                  adherencia, durabilidad y apariencia del acabado final.
+                  Existen dos métodos generales que se implementan según las
+                  condiciones del metal:
+                </p>
+              </div>
+
+              <div class="lg:col-span-7">
+                <div
+                  class="overflow-x-auto rounded-lg border border-gray-300/80 bg-white shadow-sm"
+                >
+                  <table class="w-full text-left text-sm">
+                    <thead>
+                      <tr
+                        class="bg-brand-navy text-white font-saira italic uppercase tracking-wider text-xs border-b border-brand-navy"
+                      >
+                        <th class="px-6 py-4">Pretratamiento Químico</th>
+                        <th class="px-6 py-4">Pretratamiento Mecánico</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      class="divide-y divide-gray-100 text-gray-600 font-light text-xs leading-relaxed"
+                    >
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Permite aplicar sello antioxidante protector.</td
+                        >
+                        <td class="px-6 py-4"
+                          >Permite utilizar diversos materiales abrasivos
+                          (granalla, arena).</td
+                        >
+                      </tr>
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Elimina de forma absoluta aceites, lubricantes y
+                          grasas.</td
+                        >
+                        <td class="px-6 py-4"
+                          >Elimina cascarilla de laminación, óxido fuerte,
+                          rebaba y recubrimientos viejos.</td
+                        >
+                      </tr>
+                      <tr>
+                        <td
+                          class="px-6 py-4 font-medium text-brand-navy bg-brand-blue/5"
+                          >Gran versatilidad del proceso (aspersión, inmersión).</td
+                        >
+                        <td class="px-6 py-4"
+                          >Permite alcanzar y controlar el perfil de anclaje
+                          (rugosidad) deseado.</td
+                        >
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Cabina -->
+          <div
+            id="tab-cabina"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              <div class="lg:col-span-4 space-y-6">
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-2xl uppercase border-b border-gray-300 pb-2"
+                >
+                  Especificaciones de Cabinas
+                </h3>
+       

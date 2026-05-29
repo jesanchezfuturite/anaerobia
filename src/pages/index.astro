@@ -74,8 +74,8 @@ const data = homepageEntry?.data || {
     ]
   },
   mapa: {
-    sectionTitle: "Proceso de Pintura",
-    mapImage: "/images/home/mapa/presencia.svg"
+    sectionTitle: "Sistema de Acabados",
+    mapImage: "/images/home/mapa/proceso_line.webp"
   }
 };
 
@@ -133,15 +133,17 @@ const arrowColors = [
 ];
 
 const infographicItems = [
-  { index: 7, side: "left", cardTop: "8%", anchorY: 15, x: 50, y: 18, color: "lime", num: "01" },
-  { index: 4, side: "left", cardTop: "30%", anchorY: 37, x: 35, y: 39, color: "blue", num: "02" },
+  { index: 7, side: "left", cardTop: "8%", anchorY: 15, x: 25, y: 48, color: "lime", num: "01" },
+  { index: 4, side: "left", cardTop: "30%", anchorY: 37, x: 60, y: 60, color: "blue", num: "02" },
   { index: 5, side: "left", cardTop: "53%", anchorY: 60, x: 25, y: 48, color: "navy", num: "03" },
-  { index: 2, side: "left", cardTop: "76%", anchorY: 83, x: 41, y: 57, color: "blue", num: "04" },
+  { index: 2, side: "left", cardTop: "76%", anchorY: 83, x: 50, y: 50, color: "blue", num: "04" },
   { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 53, y: 36, color: "navy", num: "05" },
-  { index: 0, side: "right", cardTop: "24%", anchorY: 31, x: 46, y: 43, color: "lime", num: "06" },
+  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 63, y: 43, color: "navy", isExtra: true },
+  { index: 0, side: "right", cardTop: "24%", anchorY: 31, x: 53, y: 36, color: "lime", num: "06" },
   { index: 8, side: "right", cardTop: "42%", anchorY: 49, x: 63, y: 43, color: "blue", num: "07" },
-  { index: 1, side: "right", cardTop: "60%", anchorY: 67, x: 50, y: 52, color: "blue", num: "08" },
-  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 59, y: 66, color: "lime", num: "09" }
+  { index: 1, side: "right", cardTop: "60%", anchorY: 67, x: 63, y: 43, color: "blue", num: "08" },
+  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 78, y: 49, color: "lime", num: "09" },
+  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 20, y: 60, color: "lime", isExtra: true }
 ];
 ---
 
@@ -193,7 +195,7 @@ const infographicItems = [
     </section>
 
     <!-- C. Bento Grid Dinámico -->
-    <section id="soluciones" class="scroll-mt-24 md:scroll-mt-28 bg-[var(--color-industrial-gray)] py-24 bento-grid-container px-6 md:px-12">
+    <section id="soluciones" class="scroll-mt-24 md:scroll-mt-28 bg-[var(--color-industrial-gray)] py-12 bento-grid-container px-6 md:px-12">
       <div class="container mx-auto">
         <div class="mb-16">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)]">
@@ -238,13 +240,13 @@ const infographicItems = [
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-6 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
             
             <!-- Duplicate for loop -->
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
             <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-6 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
           </div>
         </div>
       </div>
@@ -253,7 +255,7 @@ const infographicItems = [
 
 
     <!-- NUEVA: E. Sección de Servicio Industrial -->
-    <section id="mantenimiento" class="scroll-mt-24 md:scroll-mt-28 bg-[var(--color-brand-navy)] text-white py-24 px-6 md:px-12 relative overflow-hidden">
+    <section id="mantenimiento" class="scroll-mt-24 md:scroll-mt-28 bg-[var(--color-brand-navy)] text-white py-12 px-6 md:px-12 relative overflow-hidden">
       <!-- Background Video Local -->
       <div class="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[var(--color-brand-navy)]">
         {data.mantenimiento.backgroundVideo && (
@@ -331,7 +333,7 @@ const infographicItems = [
       </div>
     </section>
     <!-- GESTION 360 -->
-    <section id="gestion360" class="scroll-mt-24 md:scroll-mt-28 pt-24 pb-12 bg-white px-6 md:px-12 relative overflow-hidden">
+    <section id="gestion360" class="scroll-mt-24 md:scroll-mt-28 py-12 bg-white px-6 md:px-12 relative overflow-hidden">
       <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.gestion360.sectionTitle}</h2>
@@ -434,7 +436,7 @@ const infographicItems = [
     </section>
 
     <!-- INDUSTRIAS -->
-    <section id="industrias" class="scroll-mt-24 md:scroll-mt-28 pt-12 pb-24 bg-[var(--color-industrial-gray)] px-6 md:px-12">
+    <section id="industrias" class="scroll-mt-24 md:scroll-mt-28 py-12 bg-[var(--color-industrial-gray)] px-6 md:px-12">
       <div class="container mx-auto max-w-6xl">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.industrias.sectionTitle}</h2>
@@ -463,7 +465,7 @@ const infographicItems = [
     </section>
 
     <!-- NORMATIVAS -->
-    <section id="normativas" class="scroll-mt-24 md:scroll-mt-28 py-24 bg-[var(--color-brand-navy)] text-white px-6 md:px-12 relative overflow-hidden">
+    <section id="normativas" class="scroll-mt-24 md:scroll-mt-28 py-12 bg-[var(--color-brand-navy)] text-white px-6 md:px-12 relative overflow-hidden">
       <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
       <div class="container mx-auto relative z-10 max-w-6xl">
         <div class="text-center mb-16 max-w-3xl mx-auto">
@@ -484,9 +486,9 @@ const infographicItems = [
     </section>
 
     <!-- INFOGRAFÍA INTERACTIVA (PRESENCIA NACIONAL) -->
-    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 py-24 bg-white px-6 md:px-12 overflow-hidden">
+    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 pt-12 pb-2 md:pb-0 bg-white px-6 md:px-12 overflow-hidden">
       <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-16">
+        <div class="text-center">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.mapa.sectionTitle}</h2>
           <p class="text-gray-600 text-lg max-w-3xl mx-auto">
             Ingeniería inteligente integrada en los sistemas de producción más exigentes.
@@ -553,7 +555,7 @@ const infographicItems = [
                 <>
                   <!-- Background thin line -->
                   <line
-                    id={`line-bg-${item.index}`}
+                    id={`line-bg-${item.index}${item.isExtra ? '-extra' : ''}`}
                     x1={xStart}
                     y1={yStart}
                     x2={xEnd}
@@ -563,7 +565,8 @@ const infographicItems = [
                   />
                   <!-- Active colored glow line -->
                   <line
-                    id={`line-active-${item.index}`}
+                    id={`line-active-${item.index}${item.isExtra ? '-extra' : ''}`}
+                    data-line-index={item.index}
                     x1={xStart}
                     y1={yStart}
                     x2={xEnd}
@@ -583,7 +586,7 @@ const infographicItems = [
           </svg>
 
           <!-- Left Column Cards -->
-          {infographicItems.filter(item => item.side === 'left').map((item) => {
+          {infographicItems.filter(item => item.side === 'left' && !item.isExtra).map((item) => {
             const card = data.soluciones.cards[item.index];
             return (
               <div
@@ -605,15 +608,12 @@ const infographicItems = [
           })}
 
           <!-- Central Image & Hotspots -->
-          <div class="absolute left-[24%] top-[2%] w-[52%] h-[96%] flex items-center justify-center bg-gray-50/50 rounded-3xl border border-gray-100/50 p-4 relative shadow-inner overflow-hidden">
-            <!-- Grid decorative backdrop -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:30px_30px] opacity-25"></div>
-            
+          <div class="absolute left-[24%] top-[2%] w-[52%] h-[96%] flex items-center justify-center relative overflow-hidden">
             <div class="relative w-full h-full flex items-center justify-center">
               <img
                 src={data.mapa.mapImage}
                 alt="Proceso de Pintura"
-                class="w-full h-full object-contain drop-shadow-lg transition-transform duration-700 hover:scale-[1.01]"
+                class="max-w-full max-h-full rounded-3xl drop-shadow-lg transition-transform duration-700 hover:scale-[1.01]"
               />
 
               {infographicItems.map((item) => {
@@ -635,7 +635,7 @@ const infographicItems = [
           </div>
 
           <!-- Right Column Cards -->
-          {infographicItems.filter(item => item.side === 'right').map((item) => {
+          {infographicItems.filter(item => item.side === 'right' && !item.isExtra).map((item) => {
             const card = data.soluciones.cards[item.index];
             return (
               <div
@@ -659,28 +659,28 @@ const infographicItems = [
     </section>
 
     <!-- Banner: Cobertura de Envíos en México -->
-    <section class="coverage-banner relative bg-[var(--color-brand-lime)] py-8 px-6 md:px-12 overflow-hidden flex items-center justify-center border-t border-b border-black/10 z-20">
-      <!-- Background Map Image styled only with CSS -->
-      <div class="absolute inset-y-0 right-0 w-full md:w-1/2 flex items-center justify-end pointer-events-none z-0 select-none opacity-15">
-        <img
-          src="/images/home/mapa/mapImage.svg"
-          alt="Mapa de Cobertura México"
-          class="w-[400px] h-[400px] object-contain max-w-none mexico-map-watermark"
-        />
-      </div>
+    <section class="coverage-banner relative bg-gradient-to-r from-[#00151c] via-[var(--color-brand-navy)] to-[#00151c] py-8 px-6 md:px-12 flex items-center justify-center border-t border-b border-black/10 z-20 overflow-visible">
+      <div class="relative z-10 container mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <!-- Text Content -->
+        <div class="text-center md:text-left flex-1">
+          <h2 class="text-3xl md:text-4xl font-saira font-extrabold italic uppercase tracking-widest leading-none select-none banner-text-container text-sky-200">
+            <span>Presencia nacional</span>
+          </h2>
+          <p class="text-gray-300 font-semibold text-base md:text-xl mt-3 select-none max-w-lg mx-auto md:mx-0">
+            Realizamos proyectos en los centros industriales más importantes del país
+          </p>
+        </div>
 
-      <div class="relative z-10 container mx-auto text-center max-w-4xl">
-        <h2 class="text-2xl md:text-3xl font-saira font-extrabold italic uppercase tracking-widest leading-none flex items-center justify-center gap-3 select-none banner-text-container">
+        <!-- Map Image overlapping the banner -->
+        <div class="flex-shrink-0 relative md:-my-20 lg:-my-24 z-30 flex justify-center">
           <img
-            src="/img/fast-delivery.png"
-            alt="Icono Envío e instalación"
-            class="w-8 h-8 shrink-0 object-contain banner-icon-animated"
+            src="/images/home/mapa/mapImage.svg"
+            alt="Mapa de Cobertura México"
+            class="w-64 md:w-80 lg:w-[400px] h-auto object-contain hover:scale-105 transition-transform duration-500"
           />
-          <span class="banner-text-shine">Presencia nacional</span>
-        </h2>
-        <p class="text-[var(--color-brand-navy)]/80 font-semibold text-sm md:text-base mt-2 select-none">
-          Realizamos proyectos en los centros industriales más importantes del país
-        </p>
+        </div>
+
       </div>
     </section>
 
@@ -868,8 +868,8 @@ const infographicItems = [
 
         const highlightElement = (index) => {
           const card = desktopInfographic.querySelector(`.info-card[data-index="${index}"]`);
-          const hotspot = desktopInfographic.querySelector(`.desktop-hotspot[data-index="${index}"]`);
-          const activeLine = document.getElementById(`line-active-${index}`);
+          const hotspotsEl = desktopInfographic.querySelectorAll(`.desktop-hotspot[data-index="${index}"]`);
+          const activeLines = desktopInfographic.querySelectorAll(`.line-active-path[data-line-index="${index}"]`);
 
           if (card) {
             const color = card.getAttribute("data-color");
@@ -887,7 +887,7 @@ const infographicItems = [
             }
           }
 
-          if (hotspot) {
+          hotspotsEl.forEach(hotspot => {
             const color = hotspot.getAttribute("data-color");
             const colorVal = getColorValue(color);
             const ping = hotspot.querySelector(".hotspot-ping");
@@ -902,15 +902,15 @@ const infographicItems = [
               core.style.backgroundColor = colorVal;
               core.classList.add("scale-125");
             }
-          }
+          });
 
-          if (activeLine) {
+          activeLines.forEach(activeLine => {
             const colorVal = activeLine.getAttribute("data-color");
             activeLine.style.stroke = colorVal;
             activeLine.style.opacity = "1";
             activeLine.setAttribute("stroke-width", "0.35");
             activeLine.classList.add("active");
-          }
+          });
         };
 
         const resetAllElements = () => {
@@ -1054,16 +1054,7 @@ const infographicItems = [
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    /* Watermark Map styling (static, no hover animations) */
-    .mexico-map-watermark {
-      filter: brightness(0) invert(1);
-      transform: translate(3rem, 6rem) rotate(6deg);
-    }
-    @media (max-width: 767px) {
-      .mexico-map-watermark {
-        transform: translate(0, 5rem) rotate(4deg) scale(1) !important;
-      }
-    }
+    /* Watermark Map styling removed */
 
     /* Text styling and active animations for the banner (hover-only) */
     .banner-text-container {
@@ -1072,26 +1063,7 @@ const infographicItems = [
     .coverage-banner:hover .banner-text-container {
       transform: scale(1.08);
     }
-    .banner-text-shine {
-      background: linear-gradient(
-        to right,
-        var(--color-brand-navy) 20%,
-        #0284c7 40%,
-        #06b6d4 50%,
-        #0284c7 60%,
-        var(--color-brand-navy) 80%
-      );
-      background-size: 200% auto;
-      color: transparent;
-      -webkit-background-clip: text;
-      background-clip: text;
-      transition: background-position 0.5s ease;
-      background-position: 0% center;
-      padding-right: 0.15em; /* Evita que la letra cursiva se corte al final por el background-clip */
-    }
-    .coverage-banner:hover .banner-text-shine {
-      animation: textShine 2.5s linear infinite;
-    }
+    /* Banner text shine effect removed */
     .banner-icon-animated {
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -1099,11 +1071,7 @@ const infographicItems = [
       animation: iconWiggle 2s ease-in-out infinite;
     }
 
-    @keyframes textShine {
-      to {
-        background-position: 200% center;
-      }
-    }
+    /* textShine keyframes removed */
     @keyframes iconWiggle {
       0%, 100% {
         transform: rotate(0deg) scale(1);
