@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -40,6 +41,7 @@ const {
   <body class="overflow-x-hidden font-inter text-gray-800">
     <Navbar />
     <slot />
+    <Footer />
 
     <!-- CDNs de animaciones y UI -->
     <script

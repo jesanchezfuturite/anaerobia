@@ -45,11 +45,11 @@ const seoDescription =
           <nav
             class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6"
           >
-            <a href="/" class="hover:text-brand-lime transition-colors"
+            <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors"
               >Inicio</a
             >
             <span>/</span>
-            <span class="text-gray-500">Soluciones</span>
+            <span class="text-gray-400">Soluciones</span>
             <span>/</span>
             <span class="text-brand-lime">Pintura Líquida</span>
           </nav>
@@ -57,7 +57,7 @@ const seoDescription =
           <span
             class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"
           >
-            Integración de Acabados Superficiales
+            INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES
           </span>
           <h1
             class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
@@ -418,7 +418,7 @@ const seoDescription =
   </div>
 
   <!-- Right Column for Bento Cards 2 & 3 -->
-  <div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-6 h-full">
     
     <!-- Bento Card 2 -->
     <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
@@ -1414,8 +1414,7 @@ const seoDescription =
       </div>
     </section>
 
-    <!-- FOOTER GLOBAL -->
-    <Footer />
+
   </main>
 
   <!-- CDNs y Configuración de Animación Scroll / Lenis -->
@@ -1491,6 +1490,7 @@ const seoDescription =
             duration: 0.7,
             stagger: 0.15,
             ease: "power2.out",
+            clearProps: "all",
           });
 
           // Diferenciadores grid
