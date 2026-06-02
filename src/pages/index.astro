@@ -666,13 +666,31 @@ const infographicItems = [
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-white uppercase tracking-wider">
             PRESENCIA NACIONAL
           </h2>
-          <div class="w-16 h-1 bg-[var(--color-brand-lime)] mt-2"></div>
+          <div class="w-16 h-1 bg-[var(--color-brand-lime)] mt-2 mb-6"></div>
+          <p class="text-gray-300 text-lg font-light max-w-2xl">
+            Realizamos proyectos en los centros industriales más importantes del país.
+          </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Columna Izquierda: Mapa -->
           <div class="flex justify-center items-center">
-            <img src="/images/home/mapa/mapa_presencia_nacional.png" alt="Mapa de Presencia Nacional" class="w-full max-w-[500px] object-contain drop-shadow-2xl" />
+            <div class="relative inline-block w-full max-w-[500px]">
+              <img src="/images/home/mapa/mapa_mex_bco.svg" alt="Mapa de Presencia Nacional" class="w-full h-auto object-contain drop-shadow-2xl" />
+              <!-- Puntos Interactivos -->
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="0" style="top: 15%; left: 5%;" aria-label="Baja California"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="1" style="top: 17%; left: 32%;" aria-label="Chihuahua"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="2" style="top: 35%; left: 53%;" aria-label="Nuevo León"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="3" style="top: 25%; left: 47%;" aria-label="Coahuila"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="4" style="top: 60%; left: 52%;" aria-label="Aguascalientes"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="5" style="top: 66%; left: 53%;" aria-label="Guanajuato"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="6" style="top: 73%; left: 41%;" aria-label="Jalisco"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="7" style="top: 83%; left: 53%;" aria-label="Guerrero"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="8" style="top: 77%; left: 62%;" aria-label="Puebla"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="9" style="top: 74%; left: 58%;" aria-label="Ciudad de México"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="10" style="top: 70%; left: 55%;" aria-label="Estado de México"></button>
+              <button class="map-dot absolute w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-[0_0_12px_rgba(56,189,248,0.8)] transition-all hover:scale-125 focus:outline-none z-10" data-slide="11" style="top: 58%; left: 91%;" aria-label="Yucatán"></button>
+            </div>
           </div>
 
           <!-- Columna Derecha: Galería (Swiper) -->
@@ -680,24 +698,87 @@ const infographicItems = [
             <div class="swiper gallery-swiper w-full h-full">
               <div class="swiper-wrapper">
                 <div class="swiper-slide relative w-full h-full">
-                  <img src="/images/home/galeria/factory_gallery_1_1780332557927.png" alt="Planta Monterrey" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src="/images/home/galeria/factory_baja_california_1780415126940.png" alt="Baja California" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
                   <div class="absolute bottom-6 left-6 right-6">
-                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">MONTERREY, NUEVO LEÓN</h3>
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">BAJA CALIFORNIA</h3>
                   </div>
                 </div>
                 <div class="swiper-slide relative w-full h-full">
-                  <img src="/images/home/galeria/factory_gallery_2_1780332570757.png" alt="Planta Querétaro" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src="/images/home/galeria/factory_chihuahua_1780415139658.png" alt="Chihuahua" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
                   <div class="absolute bottom-6 left-6 right-6">
-                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">QUERÉTARO, QUERÉTARO</h3>
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">CHIHUAHUA</h3>
                   </div>
                 </div>
                 <div class="swiper-slide relative w-full h-full">
-                  <img src="/images/home/galeria/factory_gallery_3_1780332586521.png" alt="Planta Saltillo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src="/images/home/galeria/factory_nuevo_leon_1780415151799.png" alt="Nuevo León" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
                   <div class="absolute bottom-6 left-6 right-6">
-                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">SALTILLO, COAHUILA</h3>
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">NUEVO LEÓN</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_coahuila_1780415163948.png" alt="Coahuila" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">COAHUILA</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_aguascalientes_1780415191136.png" alt="Aguascalientes" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">AGUASCALIENTES</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_guanajuato_1780415203114.png" alt="Guanajuato" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">GUANAJUATO</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_jalisco_1780415214181.png" alt="Jalisco" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">JALISCO</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_guerrero_1780415226495.png" alt="Guerrero" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">GUERRERO</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_puebla_1780415271527.png" alt="Puebla" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">PUEBLA</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_cdmx_1780415283579.png" alt="Ciudad de México" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">CIUDAD DE MÉXICO</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_edomex_1780415296200.png" alt="Estado de México" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">ESTADO DE MÉXICO</h3>
+                  </div>
+                </div>
+                <div class="swiper-slide relative w-full h-full">
+                  <img src="/images/home/galeria/factory_yucatan_1780415309425.png" alt="Yucatán" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/30 to-transparent opacity-95"></div>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <h3 class="font-saira font-semibold italic text-white text-xl md:text-2xl uppercase tracking-wider">YUCATÁN</h3>
                   </div>
                 </div>
               </div>
@@ -877,7 +958,7 @@ const infographicItems = [
 
       // Galería Presencia Nacional
       if (typeof Swiper !== 'undefined') {
-        new Swiper('.gallery-swiper', {
+        const gallerySwiper = new Swiper('.gallery-swiper', {
           loop: true,
           autoplay: {
             delay: 4000,
@@ -892,6 +973,35 @@ const infographicItems = [
             clickable: true,
           }
         });
+
+        // Interacción con los puntos del mapa
+        const mapDots = document.querySelectorAll('.map-dot');
+        
+        function updateMapDots(realIndex) {
+          mapDots.forEach(dot => {
+            if (parseInt(dot.getAttribute('data-slide')) === realIndex) {
+              dot.classList.remove('bg-white', 'shadow-[0_0_12px_rgba(56,189,248,0.8)]');
+              dot.classList.add('bg-[var(--color-brand-lime)]', 'shadow-[0_0_20px_var(--color-brand-lime)]');
+            } else {
+              dot.classList.remove('bg-[var(--color-brand-lime)]', 'shadow-[0_0_20px_var(--color-brand-lime)]');
+              dot.classList.add('bg-white', 'shadow-[0_0_12px_rgba(56,189,248,0.8)]');
+            }
+          });
+        }
+
+        mapDots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            const slideIndex = parseInt(dot.getAttribute('data-slide'));
+            gallerySwiper.slideToLoop(slideIndex);
+          });
+        });
+
+        gallerySwiper.on('realIndexChange', () => {
+          updateMapDots(gallerySwiper.realIndex);
+        });
+
+        // Estado inicial
+        updateMapDots(gallerySwiper.realIndex);
       }
 
       // 5. Infografía Interactiva (Desktop & Mobile Sync)
