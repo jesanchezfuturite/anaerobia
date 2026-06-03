@@ -23,9 +23,20 @@ const navItems = navigationEntry?.data?.links || [
     ]
   },
   { label: 'Proyectos', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Partes y Filtros', url: '#', hasSubmenu: false, submenu: [] },
+  { 
+    label: 'Partes y Filtros', 
+    url: '#', 
+    hasSubmenu: true, 
+    submenu: [
+      { label: 'Pintura en polvo', url: '#' },
+      { label: 'Filtros', url: '#' },
+      { label: 'Pintura líquida', url: '#' },
+      { label: 'Lámparas infrarrojas', url: '#' },
+      { label: 'Refacciones', url: '#' }
+    ] 
+  },
   { label: 'Blog', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Contacto', url: '/#contacto', hasSubmenu: false, submenu: [] },
+  { label: 'Contacto', url: '/contacto', hasSubmenu: false, submenu: [] },
 ];
 ---
 
@@ -51,8 +62,8 @@ const navItems = navigationEntry?.data?.links || [
               </button>
               
               <!-- Dropdown Menu -->
-              <div class="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[580px] bg-white border border-gray-100 rounded-xl shadow-2xl p-6 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto z-50 before:content-[''] before:absolute before:-top-6 before:left-0 before:w-full before:h-6">
-                <div class="grid grid-cols-2 gap-x-6 gap-y-3">
+              <div class:list={["absolute top-full left-1/2 -translate-x-1/2 mt-1 bg-white border border-gray-100 rounded-xl shadow-2xl p-6 transition-all duration-300 transform scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 group-hover:pointer-events-auto z-50 before:content-[''] before:absolute before:-top-6 before:left-0 before:w-full before:h-6", item.submenu.length > 5 ? "w-[580px]" : "w-[280px]"]}>
+                <div class:list={["grid gap-x-6 gap-y-3", item.submenu.length > 5 ? "grid-cols-2" : "grid-cols-1"]}>
                   {item.submenu.map((subitem) => (
                     <a href={subitem.url} class="group/sub flex items-center gap-2 text-[11px] font-semibold text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] transition-colors py-1.5">
                       <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-brand-blue)] group-hover/sub:bg-[var(--color-brand-lime)] transition-colors"></span>
