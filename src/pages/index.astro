@@ -220,9 +220,13 @@ const infographicItems = [
             <div class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer bg-white ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''}`}>
               <img src={card.image || "https://loremflickr.com/800/600/industry?lock=" + index} alt={card.title} class={`object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 ${index === 4 || index === 5 ? 'object-center' : ''}`} />
               <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 p-8 w-full">
+              <div class="absolute bottom-0 left-0 p-8 pb-16 w-full">
                 <h3 class="text-2xl font-semibold italic font-saira translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-white">{card.title}</h3>
-                <p class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm text-gray-200">{card.description}</p>
+                <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-300 ease-in-out">
+                  <div class="overflow-hidden">
+                    <p class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 text-sm text-gray-200">{card.description}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

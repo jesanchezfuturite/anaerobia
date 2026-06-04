@@ -339,6 +339,21 @@ const seoDescription = "Nuestra especialidad es el diseño, fabricación e insta
 <script>
   // Simple GSAP animations for the page elements
   document.addEventListener('DOMContentLoaded', () => {
+    // Marquee Swiper
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.marquee-swiper', {
+        loop: true,
+        speed: 3000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        allowTouchMove: false,
+        freeMode: true,
+      });
+    }
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
       
