@@ -12,12 +12,12 @@
       "hasSubmenu": true,
       "submenu": [
         {
-          "label": "Sistemas de pintura líquida",
-          "url": "/soluciones/pintura-liquida"
+          "label": "Sistemas de pintura en polvo",
+          "url": "/soluciones/pintura-en-polvo"
         },
         {
-          "label": "Sistemas de pintura en polvo",
-          "url": "#"
+          "label": "Sistemas de pintura líquida",
+          "url": "/soluciones/pintura-liquida"
         },
         {
           "label": "Sistemas de aplicación de recubrimientos",
@@ -28,35 +28,23 @@
           "url": "#cabinas-pintura"
         },
         {
-          "label": "Equipos de pretratamiento - Lavadoras",
+          "label": "Sistemas de pretratamiento",
+          "url": "/soluciones/sistemas-de-pretratamiento"
+        },
+        {
+          "label": "Pretratamiento / granallado",
           "url": "#"
         },
         {
-          "label": "Equipos y cabinas de granallado",
+          "label": "Hornos de curado y secado",
           "url": "#"
         },
         {
-          "label": "Hornos",
+          "label": "Transportadores / conveyors",
           "url": "#"
         },
         {
-          "label": "Conveyors",
-          "url": "#"
-        },
-        {
-          "label": "Colectores de polvo",
-          "url": "#"
-        },
-        {
-          "label": "Filtros de aire",
-          "url": "#"
-        },
-        {
-          "label": "Servicio industrial y refaccionamiento",
-          "url": "#"
-        },
-        {
-          "label": "Equipos auxiliares",
+          "label": "Filtros",
           "url": "#"
         }
       ]

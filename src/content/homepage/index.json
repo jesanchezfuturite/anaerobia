@@ -159,6 +159,10 @@
       {
         "name": "OSHA",
         "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+      },
+      {
+        "name": "ATEX",
+        "logo": "/images/soluciones/ATEXLogo.webp"
       }
     ]
   },

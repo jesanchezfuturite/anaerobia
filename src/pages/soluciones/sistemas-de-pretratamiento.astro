@@ -1,0 +1,977 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+// Obtener datos de la página de inicio para reutilizar logos de normativas si se ocupan
+const homepageEntry = await getEntry("homepage", "index");
+const homepageData = homepageEntry?.data || {};
+const certificados = homepageData.normativas?.certificados || [
+  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
+  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
+  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
+  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
+  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
+];
+
+// SEO Metadata
+const seoTitle = "Equipos de Pretratamiento Superficial y Sistemas de Lavado Industrial | Anaerobia";
+const seoDescription =
+  "Diseñamos y fabricamos sistemas completos de pretratamiento químico y mecánico para acondicionar superficies antes de la pintura. Túneles continuos y tinas de inmersión.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="bg-industrial-gray min-h-screen text-brand-navy">
+    <!-- 01. HEADER / HERO -->
+    <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/home/soluciones/cards/4/image.webp"
+          alt="Equipo de Pretratamiento"
+          class="w-full h-full object-cover opacity-60 scale-105"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl hero-section-text">
+          <!-- Breadcrumbs -->
+          <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+            <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+            <span>/</span>
+            <span class="text-gray-400">Soluciones</span>
+            <span>/</span>
+            <span class="text-brand-lime">Pretratamiento</span>
+          </nav>
+
+          <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">
+            INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES
+          </span>
+          <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
+            Equipos de Pretratamiento Superficial y Sistemas de Lavado Industrial
+          </h1>
+          <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">
+            Diseñamos y fabricamos sistemas completos de pretratamiento químico y mecánico para acondicionar superficies antes de la pintura. Desde túneles de aspersión continuos hasta tinas de inmersión y tecnología ecológica de zirconio, garantizamos la adherencia absoluta de sus acabados y la máxima protección contra la corrosión bajo normas NFPA, OSHA y ATEX.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. INTRODUCCIÓN AL PRETRATAMIENTO -->
+    <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden" id="introduccion">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 intro-text">
+            <div>
+              <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+                Introducción
+              </span>
+              <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">
+                ¿Qué es el Pretratamiento de Superficies y por qué es Crítico?
+              </h2>
+              <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
+                El pretratamiento de superficies es la base fundacional de cualquier recubrimiento industrial. Consiste en la preparación física y química de los sustratos metálicos con el fin de eliminar óxidos, aceites y contaminantes de manufactura. Un acondicionamiento deficiente conducirá inevitablemente a desprendimientos prematuros, ampollas en la pintura y corrosión interna acelerada bajo la capa de recubrimiento.
+              </p>
+            </div>
+
+            <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100"
+            >
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Experiencia
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestro equipo cuenta con la preparación y experiencia
+                  necesaria para afrontar los desafíos de la industria.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Soporte Nacional
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Estamos presentes en los centros industriales del país para
+                  dar acompañamiento cercano y puntual a nuestros clientes.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Normativa
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestros equipos cumplen con normativas internacionales y
+                  nacionales.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="relative intro-image group">
+            <div class="relative rounded-lg overflow-hidden shadow-2xl">
+              <img src="/images/home/soluciones/cards/4/image.webp" alt="Pretratamiento de Superficies" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. IMPORTANCIA EN EL CICLO -->
+    <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50" id="importancia">
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Impacto Operativo
+          </span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Importancia del Pretratamiento en el Ciclo del Recubrimiento
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 lg:h-[700px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
+          <!-- Column 1: Image (45%) -->
+          <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
+             <img src="/images/soluciones/sistema-pretratamiento/MG_2979.webp" alt="Pretratamiento" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+          </div>
+          
+          <!-- Column 2: Cards (20%) -->
+          <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
+            <!-- Card 1 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Protección contra Corrosión</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Adherencia Química Óptima</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Máximo Ahorro Operativo</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Resistencia y Durabilidad</p>
+            </div>
+          </div>
+
+          <!-- Column 3: Content (35%) -->
+          <div class="w-full lg:w-[35%] flex flex-col justify-between space-y-4 shrink-0 lg:pl-2 h-full py-2">
+            <!-- Item 1 -->
+            <div class="space-y-2 flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">
+                  Barrera Activa Contra la Corrosión
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+                Los metales expuestos a humedad y oxígeno se degradan rápidamente. Nuestros sistemas aplican capas de conversión química pasivante que detienen la oxidación e impiden el avance de la corrosión debajo de la pintura.
+              </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="space-y-2 flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">
+                  Adherencia Mecánica y Química Óptima
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+                Eliminamos grasas de maquinado y aceites de troquelado que bloquean el contacto molecular entre la superficie y el recubrimiento, generando micro-rugosidades que facilitan la adhesión perfecta.
+              </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="space-y-2 flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">
+                  Máximo Ahorro Operativo (OPEX)
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+                Invertir en un sistema de pretratamiento industrial de alta eficiencia reduce defectos cosméticos, retrabajos y desperdicio de energía, optimizando la productividad general de la línea.
+              </p>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="space-y-2 flex-1 flex flex-col justify-center">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">
+                  Longevidad del Acabado
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 leading-relaxed font-light">
+                El proceso de pretratamiento asegura que el recubrimiento final sea resistente y duradero, lo cual es de máxima prioridad en aplicaciones industriales expuestas a ambientes o condiciones muy severas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03.5. PRIMER CTA PERSONALIZADO -->
+    <section class="py-16 bg-brand-navy relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"
+      >
+      </div>
+      <div
+        class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+      >
+        <div class="text-left">
+          <h2
+            class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase"
+          >
+            ¿Requieres automatizar o diseñar tu sistema de pretratamiento?
+          </h2>
+          <p
+            class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl"
+          >
+            Diseñamos un sistema a la medida adaptado a los alcances específicos
+            de tu producción.
+          </p>
+        </div>
+        <a
+          href="/contacto"
+          class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"
+        >
+          Solicitar Cotización
+        </a>
+      </div>
+    </section>
+
+    <!-- 04. CONFIGURACIONES DE INGENIERÍA -->
+    <section class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden" id="ingenieria">
+      <div class="container mx-auto">
+        <div class="max-w-5xl mb-10 section-solucion-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Nuestra Ingeniería
+          </span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Configuraciones de Soluciones de Pretratamiento Anaerobia
+          </h2>
+          <p class="mt-6 text-gray-600 font-light text-lg">
+            Ofrecemos soluciones de pretratamiento que optimizan la preparación de tus superficies y garantizan un acabado duradero y de alta calidad. Nuestros sistemas están diseñados para maximizar la eficiencia y asegurar que tu proceso de recubrimiento sea impecable.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
+          <!-- Bento Card 1 (Large Left) -->
+          <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
+            <!-- Image background -->
+            <div class="absolute inset-0 bg-[url('/images/soluciones/sistema-pretratamiento/MG_2967.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+            <!-- Overlay azul -->
+            <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+            
+            <!-- Decorative background element -->
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            
+            <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+              <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div class="relative z-10 mt-auto">
+              <div>
+                <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">
+                  Túneles de Aspersión Continuos
+                </h3>
+                <p class="text-lg text-gray-200 font-light leading-relaxed">
+                  Diseñados para líneas de alto volumen integradas a transportadores continuos. Las piezas atraviesan etapas encapsuladas con boquillas industriales de alta presión garantizando máxima limpieza y adherencia.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column for Bento Cards 2 & 3 -->
+          <div class="flex flex-col gap-6 h-full">
+            
+            <!-- Bento Card 2 -->
+            <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+              <!-- Image background -->
+              <div class="absolute inset-0 bg-[url('/images/soluciones/sistema-pretratamiento/card_limpieza.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+              <!-- Overlay azul -->
+              <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+              
+              <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                </svg>
+              </div>
+              <div class="relative z-10">
+                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
+                  Sistemas integrados de limpieza química y desengrase
+                </h3>
+                <p class="text-base text-gray-200 font-light leading-relaxed">
+                  Nuestras tecnologías de limpieza y desengrase se adaptan a una amplia variedad de necesidades industriales, eliminando contaminantes de manera eficiente y segura.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bento Card 3 -->
+            <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
+              <!-- Image background -->
+              <div class="absolute inset-0 bg-[url('/images/soluciones/sistema-pretratamiento/card_fosfatado.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+              <!-- Overlay azul -->
+              <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+              
+              <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L12 17.25 6.429 12.75m11.142 0-4.179 2.25m0 0L12 21.75 6.429 17.25" />
+                </svg>
+              </div>
+              <div class="relative z-10">
+                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
+                  Sistemas de fosfatado avanzados
+                </h3>
+                <p class="text-base text-gray-200 font-light leading-relaxed">
+                  Ofrecemos fosfatado de zinc y fosfatado de hierro, según las necesidades específicas de tu proyecto. Estos procesos aseguran que las superficies metálicas estén preparadas para resistir los efectos de la corrosión y mejorar la adherencia del recubrimiento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (Pasivación personalizada) -->
+        <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 relative overflow-hidden group border border-brand-navy/50 mt-6 shadow-xl w-full flex flex-col md:flex-row items-center justify-between gap-8">
+          <!-- Image background -->
+          <div class="absolute inset-0 bg-[url('/images/soluciones/sistema-pretratamiento/card_pasivacion.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+          <!-- Overlay azul -->
+          <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/80 transition-colors duration-500"></div>
+          
+          <div class="absolute right-0 top-0 w-64 h-64 bg-brand-lime/10 rounded-full blur-3xl -mr-20 -mt-20 z-10"></div>
+          <div class="absolute left-6 top-6 lg:left-10 lg:top-10 w-16 h-16 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+            </svg>
+          </div>
+          
+          <div class="relative z-10 w-full pl-0 pt-20 lg:pt-0 lg:pl-24">
+            <h3 class="font-saira font-semibold italic text-white text-2xl lg:text-3xl uppercase leading-tight mb-4">
+              Pasivación personalizada
+            </h3>
+            <p class="text-base lg:text-lg text-gray-200 font-light leading-relaxed">
+              Nuestras soluciones de pasivación protegen tus piezas metálicas en el tiempo previo al pintado, asegurando una mayor durabilidad y resistencia a largo plazo.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 08. VENTAJAS COMPETITIVAS -->
+    <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="diferenciadores">
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Ventajas Competitivas
+          </span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Diferenciadores de Anaerobia en Sistemas de Pretratamiento
+          </h2>
+          <p class="text-gray-600 font-light mt-4">
+            Nuestra ingeniería destaca por resolver los desafíos más exigentes en preparación de superficies y pretratamiento con un enfoque integral.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 diferenciadores-grid max-w-5xl mx-auto">
+          {[
+            { 
+              title: "Mayor protección contra la corrosión", 
+              text: "Nuestros sistemas garantizan que el metal tratado esté adecuadamente protegido contra el óxido y otros factores que podrían comprometer la calidad del producto final.",
+              icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            },
+            { 
+              title: "Optimización del tiempo de producción", 
+              text: "Al eliminar los riesgos de defectos en el recubrimiento, se minimizan los repintados y retrabajos, lo que se traduce en procesos de producción más eficiente.",
+              icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            },
+            { 
+              title: "Reducción de costos de mantenimiento", 
+              text: "Entendemos que cada proyecto tiene necesidades únicas, por lo que ofrecemos sistemas de pretratamiento personalizados, garantizando que obtengas los mejores resultados en tu línea de producción.",
+              icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            }
+          ].map((dif) => (
+            <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div class="text-brand-lime flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={dif.icon}></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                    {dif.title}
+                  </h3>
+                </div>
+                <p class="text-sm text-gray-500 leading-relaxed font-light">
+                  {dif.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. ESPECIFICACIONES TÉCNICAS -->
+    <section class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden" id="fases">
+      <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
+
+      <div class="container mx-auto relative z-10">
+        <div class="mb-16 text-center md:text-left">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Especificaciones Técnicas
+          </span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-8">
+            Fases del Proceso de Pretratamiento Industrial
+          </h2>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto snap-x hide-scrollbar" id="tech-tabs-nav">
+          <button class="tech-tab-btn active snap-start flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]" data-tab="tab-desengrasado">
+            <span class="text-2xl md:text-3xl font-light not-italic font-sans">01</span>
+            <span>Desengrasado</span>
+          </button>
+          <button class="tech-tab-btn snap-start flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]" data-tab="tab-decapado">
+            <span class="text-2xl md:text-3xl font-light not-italic font-sans">02</span>
+            <span>Decapado</span>
+          </button>
+          <button class="tech-tab-btn snap-start flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]" data-tab="tab-fosfatado">
+            <span class="text-2xl md:text-3xl font-light not-italic font-sans">03</span>
+            <span>Fosfatado</span>
+          </button>
+          <button class="tech-tab-btn snap-start flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]" data-tab="tab-pasivacion">
+            <span class="text-2xl md:text-3xl font-light not-italic font-sans">04</span>
+            <span>Pasivación</span>
+          </button>
+          <button class="tech-tab-btn snap-start flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]" data-tab="tab-enjuague-secado">
+            <span class="text-2xl md:text-3xl font-light not-italic font-sans">05</span>
+            <span>Enjuague y Secado</span>
+          </button>
+        </div>
+
+        <!-- Tabs Content Panels -->
+        <div id="tech-tabs-content" class="relative w-full">
+          <!-- Panel 1 -->
+          <div id="tab-desengrasado" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                <img src="/images/soluciones/sistema-pretratamiento/card_limpieza.webp" alt="Desengrasado y limpieza química" class="w-full h-full object-cover absolute inset-0" />
+              </div>
+              <div class="flex flex-col pb-8">
+                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Desengrasado y limpieza química</h3>
+                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">Los metales a menudo están cubiertos por aceites o grasas utilizados durante los procesos de fabricación. Estos residuos pueden afectar negativamente la adherencia de la pintura. Para eliminarlos, se emplean soluciones desengrasantes que eliminan todos estos contaminantes.</p>
+                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Desengrasado Alcalino:</strong> Una solución alcalina se utiliza para romper los enlaces grasos y eliminarlos de la superficie.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Desengrasado por Inmersión o Pulverización:</strong> Dependiendo del tamaño y la forma del metal, se puede optar por un sistema de inmersión en soluciones desengrasantes o por la pulverización de estos agentes limpiadores.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2 -->
+          <div id="tab-decapado" class="tech-tab-panel transition-all duration-500 opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                <img src="/images/soluciones/sistema-pretratamiento/MG_2982.webp" alt="Decapado o tratamiento ácido" class="w-full h-full object-cover absolute inset-0" />
+              </div>
+              <div class="flex flex-col pb-8">
+                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Decapado o tratamiento ácido</h3>
+                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">Este proceso se utiliza para remover óxidos, incrustaciones y otras impurezas mediante el uso de soluciones ácidas, como el ácido fosfórico o el ácido sulfúrico. Este paso es crucial para preparar adecuadamente la superficie del metal, eliminando cualquier oxidación o capa superficial que pueda debilitar la unión de la pintura.</p>
+                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Ácido Fosfórico:</strong> Popular por su capacidad de generar una capa pasivante que mejora la resistencia a la corrosión.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Ácido Sulfúrico o Clorhídrico:</strong> Más agresivos, utilizados en casos donde hay incrustaciones más fuertes u óxidos más persistentes.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3 -->
+          <div id="tab-fosfatado" class="tech-tab-panel transition-all duration-500 opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                <img src="/images/soluciones/sistema-pretratamiento/card_fosfatado.webp" alt="Fosfatado" class="w-full h-full object-cover absolute inset-0" />
+              </div>
+              <div class="flex flex-col pb-8">
+                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Fosfatado</h3>
+                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">El fosfatado es un tratamiento común en metales ferrosos que aplica una capa de fosfato en la superficie del metal. Esta capa no solo mejora la adherencia del recubrimiento, sino que también proporciona una primera barrera contra la corrosión. Existen diferentes tipos de fosfatado dependiendo de las necesidades:</p>
+                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Fosfatado de Zinc:</strong> Es el más común, usado para mejorar la resistencia a la corrosión en la mayoría de las superficies metálicas.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Fosfatado de Manganeso:</strong> Ideal para superficies que se enfrentan a condiciones extremas de desgaste y temperatura.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Fosfatado de Hierro:</strong> Aunque proporciona menor protección contra la corrosión, es útil en procesos que requieren una capa más fina.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4 -->
+          <div id="tab-pasivacion" class="tech-tab-panel transition-all duration-500 opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                <img src="/images/soluciones/sistema-pretratamiento/card_pasivacion.webp" alt="Pasivación" class="w-full h-full object-cover absolute inset-0" />
+              </div>
+              <div class="flex flex-col pb-8">
+                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Pasivación</h3>
+                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">La pasivación es un proceso químico que, tras el fosfatado, busca neutralizar las reacciones químicas residuales y proteger la superficie del metal contra la corrosión en el tiempo que pasa antes de la aplicación de la pintura. Además, minimiza la formación de óxidos y mejora la durabilidad del recubrimiento.</p>
+                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Busca neutralizar las reacciones químicas residuales tras el fosfatado.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Protege la superficie del metal contra la corrosión antes de la pintura.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Minimiza la formación de óxidos y mejora la durabilidad del recubrimiento.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 5 -->
+          <div id="tab-enjuague-secado" class="tech-tab-panel transition-all duration-500 opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
+                <img src="/images/soluciones/sistema-pretratamiento/MG_3035.webp" alt="Enjuague y secado" class="w-full h-full object-cover absolute inset-0" />
+              </div>
+              <div class="flex flex-col pb-8">
+                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Enjuague y secado</h3>
+                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">Para finalizar el pretratamiento, la superficie debe enjuagarse completamente con agua desmineralizada o desionizada para remover cualquier residuo de las soluciones químicas utilizadas anteriormente. Este paso es vital para evitar que estos residuos afecten la adherencia del recubrimiento. Posteriormente, la pieza se seca completamente para garantizar que no haya humedad en la superficie.</p>
+                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Enjuague completo con agua desmineralizada o desionizada.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Remoción de residuos químicos para no afectar la adherencia.</span></li>
+                  <li class="flex items-start gap-3"><svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Secado absoluto de la pieza para garantizar que no haya humedad en la superficie.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 07. SECTORES INDUSTRIALES Y GUÍA TÉCNICA -->
+    <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-200/50" id="sectores">
+      <div class="container mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          <!-- Columna Izquierda: Aplicaciones B2B -->
+          <div class="flex flex-col">
+            <div class="mb-8 text-center lg:text-left">
+              <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+                Aplicaciones B2B
+              </span>
+              <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+                Sectores de Aplicación e Industrias Clave
+              </h2>
+              <p class="text-gray-600 mt-4 font-light text-lg">
+                Nuestros sistemas de pretratamiento son indispensables en industrias donde la adherencia, resistencia a corrosión y calidad cosmética representan estándares críticos de manufactura.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-y-6 gap-x-4">
+              {[
+                { name: "Automotriz y autopartes", icon: "M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1h1" },
+                { name: "Aeroespacial", icon: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8" },
+                { name: "Metalmecánica", icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" },
+                { name: "Construcción", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+                { name: "Electrodomésticos", icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" },
+                { name: "Manufactura pesada", icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" },
+              ].map((sector) => (
+                <div class="flex items-center gap-3 text-left">
+                  <div class="text-brand-lime shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={sector.icon}></path>
+                    </svg>
+                  </div>
+                  <span class="font-saira font-bold text-brand-navy uppercase text-sm leading-tight">{sector.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Guía Técnica -->
+          <div class="w-full h-full flex">
+            <div class="bg-brand-navy rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden w-full flex flex-col justify-center">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-brand-lime/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+              
+              <h2 class="text-2xl md:text-3xl font-saira italic font-semibold text-white uppercase mb-4 relative z-10">
+                Guía Técnica: ¿Cómo Elegir su Sistema de Pretratamiento?
+              </h2>
+              <p class="text-gray-300 font-light text-base mb-8 relative z-10">
+                Nuestro equipo de ingeniería analiza variables químicas, operativas y dimensionales para diseñar sistemas de pretratamiento optimizados para productividad, eficiencia energética y cumplimiento ambiental.
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+                {[
+                  "Tipo de sustrato metálico",
+                  "Volumen de producción",
+                  "Nivel de automatización",
+                  "Resistencia requerida",
+                  "Espacio disponible",
+                  "Objetivos ambientales"
+                ].map((variable) => (
+                  <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-brand-lime shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="font-semibold text-sm uppercase tracking-wide">{variable}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 09. BENEFICIOS OPERATIVOS -->
+    <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-200/50" id="beneficios">
+      <div class="container mx-auto max-w-6xl">
+        <div class="text-center max-w-3xl mx-auto mb-16 advantages-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Beneficios del Sistema
+          </span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Beneficios Operativos y Protección Anticorrosiva
+          </h2>
+          <p class="text-gray-600 mt-4 font-light text-lg">
+            Un sistema de pretratamiento correctamente diseñado impacta directamente la rentabilidad de la planta, reduciendo fallas cosméticas y extendiendo significativamente la vida útil del recubrimiento industrial.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-center advantages-grid">
+          {[
+            { title: "Mayor adherencia", icon: "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" },
+            { title: "Reducción de corrosión", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+            { title: "Menos retrabajos", icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" },
+            { title: "Menor desperdicio", icon: "M5 13l4 4L19 7" },
+            { title: "Mayor vida útil del recubrimiento", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+            { title: "Menores costos de mantenimiento", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" }
+          ].map((bene) => (
+            <div class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300">
+              <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={bene.icon}></path>
+                </svg>
+              </div>
+              <h3 class="font-saira font-bold text-brand-navy text-lg italic uppercase">{bene.title}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SEGUNDO CTA -->
+    <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
+      <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+      <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+
+      <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+        <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">
+          Envíanos las especificaciones de tus piezas y producción
+        </h2>
+        <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">
+          Nuestros ingenieros estructurarán la propuesta técnica con los diagramas de proceso y capacidades que optimicen el pretratamiento en tu planta.
+        </p>
+        <div class="pt-8">
+          <a href="/contacto?solucion=sistemas-de-pretratamiento" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">
+            Solicitar Propuesta Técnica
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. NORMATIVIDAD -->
+    <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
+      <div class="container mx-auto max-w-6xl">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+          <div class="lg:w-1/2 space-y-6 norms-text">
+            <div>
+              <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
+              <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">
+                Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental
+              </h2>
+              <p class="text-gray-300 font-light leading-relaxed mt-4">
+                El diseño de nuestros sistemas de pretratamiento se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.
+              </p>
+            </div>
+
+            <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">
+              Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual.
+            </p>
+          </div>
+
+          <div class="lg:w-1/2 w-full">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+              {
+                certificados.map((cert) => (
+                  <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                    <div class="h-14 w-full flex items-center justify-center mb-2">
+                      <img
+                        src={cert.logo}
+                        alt={`Certificación ${cert.name}`}
+                        class="max-h-full max-w-full object-contain transition-all duration-300"
+                        onerror={`this.outerHTML='<span class=\\'font-bold text-gray-400\\'>${cert.name}</span>'`}
+                      />
+                    </div>
+                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
+                      {cert.name}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. ALIANZAS / PARTNERS -->
+    <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+        <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
+          Tecnología respaldada por aliados globales:
+        </span>
+        <div class="swiper marquee-swiper w-full overflow-hidden relative">
+          <div class="swiper-wrapper flex items-center gap-16">
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+            
+            <!-- Duplicate for loop -->
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. FAQ (PREGUNTAS FRECUENTES) -->
+    <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-16 faq-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Preguntas Técnicas</span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Preguntas Frecuentes de Sistemas de Pretratamiento
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open>
+            <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+              <span>¿Qué son los equipos de pretratamiento y cómo se utilizan?</span>
+              <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+            </summary>
+            <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+              <p class="mb-4">Los equipos de pretratamiento se utilizan para preparar superficies antes de la aplicación de recubrimiento, eliminando contaminantes como grasa, óxido o cascarilla. Este proceso incluye etapas como lavado, enjuague, decapado, fosfatado y secado, y garantiza una limpieza profunda que mejora la eficacia del tratamiento superficial.</p>
+              <p>Estos equipos de pretratamiento de superficies optimizan la calidad del proceso, prolongan la vida útil de los abrasivos, reducen el desgaste y aseguran una mejor adhesión de recubrimientos posteriores.</p>
+            </div>
+          </details>
+
+          <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+            <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+              <span>¿Qué tipo de industrias utilizan equipos de pretratamiento?</span>
+              <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+            </summary>
+            <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+              Los equipos de pretratamiento son utilizados en industrias como la automotriz, aeronáutica, metalmecánica, construcción, naval, electrodomésticos y transporte pesado, donde se requiere preparar superficies metálicas antes de procesos como granallado, pintura o recubrimientos. Estas industrias los emplean para asegurar una limpieza profunda, mejorar la adhesión de recubrimientos y garantizar una mayor durabilidad de las piezas.
+            </div>
+          </details>
+
+          <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+            <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+              <span>¿Cómo elegir el equipo de pretratamiento adecuado para mi empresa?</span>
+              <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+            </summary>
+            <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+              Para elegir el equipo de pretratamiento adecuado, considera el tipo de material, el volumen de producción, el nivel de limpieza requerido y el tipo de recubrimiento que aplicarás. También evalúa si necesitas un sistema manual o automatizado, el espacio disponible y las normativas que debes cumplir. Elegir un proveedor confiable con soporte técnico es clave para asegurar calidad y eficiencia a largo plazo.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. GALERÍA DE PROYECTOS -->
+    <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Galería</span>
+          <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">
+            Proyectos e Instalaciones Reales
+          </h2>
+          <p class="text-gray-600 mt-4 font-light">
+            Ejemplos de túneles de pretratamiento, tinas por inmersión y sistemas químicos llave en mano implementados en plantas del país.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+          <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+            <img src="/images/soluciones/sistema-pretratamiento/MG_2967.webp" alt="Túnel de aspersión" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="text-white text-xs font-semibold uppercase tracking-wider">Túnel de Aspersión Continuo</p>
+            </div>
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+            <img src="/images/soluciones/sistema-pretratamiento/MG_2998.webp" alt="Tinas de inmersión" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="text-white text-xs font-semibold uppercase tracking-wider">Sistemas de Inmersión (DIP)</p>
+            </div>
+          </div>
+          <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+            <img src="/images/soluciones/sistema-pretratamiento/MG_3035.webp" alt="Proceso Químico" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="text-white text-xs font-semibold uppercase tracking-wider">Control de Fosfatado Avanzado</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GSAP Animations for new elements -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.from(".hero-section-text > *", { y: 35, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out" });
+        gsap.from(".intro-text > *", { scrollTrigger: { trigger: "#introduccion", start: "top 80%" }, y: 30, opacity: 0, duration: 0.8, stagger: 0.12, ease: "power2.out" });
+        gsap.from(".intro-image", { scrollTrigger: { trigger: "#introduccion", start: "top 80%" }, x: 40, opacity: 0, duration: 0.9, ease: "power2.out" });
+        gsap.from(".pain-points-grid > div", { scrollTrigger: { trigger: "#importancia", start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: "power2.out" });
+        gsap.from("#ingenieria .grid > div", { scrollTrigger: { trigger: "#ingenieria", start: "top 80%" }, y: 30, opacity: 0, duration: 0.7, stagger: 0.15, ease: "power2.out", clearProps: "all" });
+        gsap.from("#fases .grid > div", { scrollTrigger: { trigger: "#fases", start: "top 85%" }, y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: "back.out(1.7)" });
+
+        gsap.from("#sectores .grid > div", { scrollTrigger: { trigger: "#sectores", start: "top 85%" }, scale: 0.9, opacity: 0, duration: 0.5, stagger: 0.05, ease: "power2.out" });
+        gsap.from("#diferenciadores .grid > div", { scrollTrigger: { trigger: "#diferenciadores", start: "top 85%" }, y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" });
+        gsap.from("#beneficios .grid > div", { scrollTrigger: { trigger: "#beneficios", start: "top 85%" }, y: 20, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" });
+
+        // Nuevas animaciones añadidas
+        gsap.from(".norms-text > *", { scrollTrigger: { trigger: "#normas", start: "top 80%" }, y: 30, opacity: 0, duration: 0.8, stagger: 0.12, ease: "power2.out" });
+        gsap.from(".norms-grid > div", { scrollTrigger: { trigger: ".norms-grid", start: "top 85%" }, y: 20, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out", clearProps: "opacity,transform" });
+        gsap.from("#faq details", { scrollTrigger: { trigger: "#faq", start: "top 80%" }, y: 20, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out", clearProps: "opacity,transform" });
+        gsap.from(".gallery-grid > div", { scrollTrigger: { trigger: ".gallery-grid", start: "top 85%" }, y: 30, opacity: 0, duration: 0.7, stagger: 0.12, ease: "power2.out", clearProps: "opacity,transform" });
+      }
+
+      
+      // Tech Tabs Logic
+      const tabBtns = document.querySelectorAll(".tech-tab-btn");
+      const tabPanels = document.querySelectorAll(".tech-tab-panel");
+
+      if (tabBtns.length > 0) {
+        tabBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const targetTab = btn.getAttribute("data-tab");
+
+            // Update buttons
+            tabBtns.forEach((b) => {
+              b.classList.remove("active", "border-brand-lime", "bg-brand-lime/10", "text-brand-lime");
+              b.classList.add("border-transparent", "bg-transparent", "text-gray-400");
+            });
+            btn.classList.remove("border-transparent", "bg-transparent", "text-gray-400");
+            btn.classList.add("active", "border-brand-lime", "bg-brand-lime/10", "text-brand-lime");
+
+            // Update panels
+            tabPanels.forEach((panel) => {
+              panel.classList.remove("opacity-100", "translate-y-0", "relative", "z-10");
+              panel.classList.add("opacity-0", "translate-y-4", "absolute", "top-0", "left-0", "w-full", "z-0", "pointer-events-none");
+            });
+
+            const targetPanel = document.getElementById(targetTab);
+            if (targetPanel) {
+              targetPanel.classList.remove("opacity-0", "translate-y-4", "absolute", "top-0", "left-0", "w-full", "z-0", "pointer-events-none");
+              targetPanel.classList.add("opacity-100", "translate-y-0", "relative", "z-10");
+            }
+          });
+        });
+      }
+
+      // Inicializar Marquee Swiper
+      if (typeof Swiper !== "undefined") {
+        new Swiper(".marquee-swiper", {
+          loop: true,
+          speed: 3000,
+          autoplay: { delay: 0, disableOnInteraction: false },
+          slidesPerView: "auto",
+          spaceBetween: 10,
+          allowTouchMove: false,
+          freeMode: true,
+        });
+      }
+    });
+  </script>
+</Layout>
