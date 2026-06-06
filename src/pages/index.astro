@@ -134,17 +134,17 @@ const arrowColors = [
 ];
 
 const infographicItems = [
-  { index: 7, side: "left", cardTop: "8%", anchorY: 15, x: 25, y: 48, color: "lime", num: "01" },
-  { index: 4, side: "left", cardTop: "30%", anchorY: 37, x: 60, y: 60, color: "blue", num: "02" },
-  { index: 5, side: "left", cardTop: "53%", anchorY: 60, x: 60, y: 60, color: "navy", num: "03" },
-  { index: 2, side: "left", cardTop: "76%", anchorY: 83, x: 50, y: 50, color: "blue", num: "04" },
-  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 53, y: 36, color: "navy", num: "05" },
-  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 63, y: 43, color: "navy", isExtra: true },
-  { index: 0, side: "right", cardTop: "24%", anchorY: 31, x: 53, y: 36, color: "lime", num: "06" },
-  { index: 8, side: "right", cardTop: "42%", anchorY: 49, x: 63, y: 43, color: "blue", num: "07" },
-  { index: 1, side: "right", cardTop: "60%", anchorY: 67, x: 63, y: 43, color: "blue", num: "08" },
-  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 78, y: 49, color: "lime", num: "09" },
-  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 20, y: 60, color: "lime", isExtra: true }
+  { index: 7, side: "left", cardTop: "8%", anchorY: 15, x: 25, y: 45, color: "lime", num: "01" },
+  { index: 4, side: "left", cardTop: "30%", anchorY: 37, x: 15, y: 55, color: "blue", num: "02" },
+  { index: 5, side: "left", cardTop: "53%", anchorY: 60, x: 60, y: 57, color: "navy", num: "03" },
+  { index: 2, side: "left", cardTop: "76%", anchorY: 83, x: 50, y: 47, color: "blue", num: "04" },
+  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 45, y: 32, color: "navy", num: "05" },
+  { index: 3, side: "right", cardTop: "6%", anchorY: 13, x: 70, y: 38, color: "navy", num: "05", isExtra: true },
+  { index: 0, side: "right", cardTop: "24%", anchorY: 31, x: 53, y: 33, color: "lime", num: "06" },
+  { index: 8, side: "right", cardTop: "42%", anchorY: 49, x: 65, y: 38, color: "blue", num: "07" },
+  { index: 1, side: "right", cardTop: "60%", anchorY: 67, x: 62, y: 42, color: "blue", num: "08" },
+  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 78, y: 46, color: "lime", num: "09" },
+  { index: 6, side: "right", cardTop: "78%", anchorY: 85, x: 25, y: 59, color: "lime", num: "09", isExtra: true }
 ];
 ---
 
@@ -347,33 +347,33 @@ const infographicItems = [
         
         <div class="relative w-full">
           <!-- Mobile & Tablet Layout (< lg) -->
-          <div class="flex flex-col md:flex-row md:flex-wrap lg:hidden justify-center items-center gap-6 md:gap-4 max-w-xs md:max-w-2xl mx-auto">
+          <div class="flex flex-col md:flex-row md:flex-wrap xl:hidden justify-center items-center gap-6 md:gap-4 max-w-xs md:max-w-2xl lg:max-w-4xl mx-auto">
             {data.gestion360.steps.map((step, index) => {
               const isLast = index === data.gestion360.steps.length - 1;
               const idxMod = index % defaultIcons.length;
               return (
                 <>
-                  <div class={`relative w-full md:w-[calc(33.33%-12px)] aspect-[4/5] p-[5px] md:p-[4px] shadow-lg transition-transform duration-300 hover:-translate-y-1 ${borderColors[idxMod]} step-card-outer`}>
-                    <div class="w-full h-full bg-[#f8fafc] flex flex-col items-center justify-between p-8 pb-10 md:p-4 md:pb-8 relative step-card-inner">
-                      <div class="text-xs md:text-[9px] font-extrabold tracking-widest text-gray-400 uppercase">
+                  <div class={`relative w-full md:w-[calc(33.33%-12px)] lg:w-[calc(33.33%-16px)] aspect-[4/5] p-[5px] md:p-[4px] shadow-lg transition-transform duration-300 hover:-translate-y-1 ${borderColors[idxMod]} step-card-outer`}>
+                    <div class="w-full h-full bg-[#f8fafc] flex flex-col items-center justify-between p-8 pb-16 md:p-4 md:pb-14 relative step-card-inner">
+                      <div class="text-xs md:text-sm font-extrabold tracking-widest text-gray-400 uppercase">
                         Fase {String(index + 1).padStart(2, '0')}
                       </div>
                       
-                      <div class="h-14 md:h-10 flex items-center justify-center">
+                      <div class="h-24 md:h-20 flex items-center justify-center">
                         {index === 4 ? (
-                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[120px] md:max-w-[70px] max-h-12 md:max-h-8 object-contain" />
+                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[160px] md:max-w-[140px] max-h-16 md:max-h-14 object-contain" />
                         ) : (
-                          <div class={`w-14 h-14 md:w-10 md:h-10 flex items-center justify-center ${textColors[idxMod]} [&>svg]:w-8 md:[&>svg]:w-7`}>
+                          <div class={`w-20 h-20 md:w-16 md:h-16 flex items-center justify-center ${textColors[idxMod]} [&>svg]:w-full [&>svg]:h-full`}>
                             <Fragment set:html={defaultIcons[idxMod]} />
                           </div>
                         )}
                       </div>
                       
-                      <h4 class="font-saira font-extrabold italic text-xl md:text-xs text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-2 md:px-1">
+                      <h4 class="font-saira font-extrabold italic text-xl md:text-lg text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-2 md:px-1">
                         {step}
                       </h4>
 
-                      <div class={`absolute -bottom-[1px] -left-[1px] px-4 py-1.5 md:px-2 md:py-0.5 font-saira font-black text-white text-base md:text-[10px] z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
+                      <div class={`absolute -bottom-[1px] -left-[1px] px-4 py-1.5 md:px-5 md:py-2 font-saira font-black text-white text-base md:text-lg z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
                         {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
@@ -391,24 +391,24 @@ const infographicItems = [
             })}
           </div>
 
-          <!-- Desktop Layout (>= lg) -->
-          <div class="hidden lg:flex flex-row items-stretch justify-center gap-2 w-full pt-4">
+          <!-- Desktop Layout (>= xl) -->
+          <div class="hidden xl:flex flex-row items-stretch justify-center gap-2 w-full pt-4">
             {data.gestion360.steps.map((step, index) => {
               const isLast = index === data.gestion360.steps.length - 1;
               const idxMod = index % defaultIcons.length;
               return (
                 <>
                   <div class={`relative flex-1 min-w-0 aspect-[4/5] p-[5px] shadow-lg transition-all duration-300 hover:-translate-y-2 group ${borderColors[idxMod]} step-card-outer`}>
-                    <div class="w-full h-full bg-[#f8fafc] flex flex-col items-center justify-between p-6 pb-8 relative step-card-inner">
-                      <div class="text-[10px] font-extrabold tracking-widest text-gray-400 uppercase">
+                    <div class="w-full h-full bg-[#f8fafc] flex flex-col items-center justify-between p-6 pb-14 relative step-card-inner">
+                      <div class="text-xs xl:text-sm font-extrabold tracking-widest text-gray-400 uppercase">
                         Fase {String(index + 1).padStart(2, '0')}
                       </div>
                       
-                      <div class="h-12 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                      <div class="h-20 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
                         {index === 4 ? (
-                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[90px] max-h-10 object-contain" />
+                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[160px] max-h-14 object-contain" />
                         ) : (
-                          <div class={`w-12 h-12 flex items-center justify-center ${textColors[idxMod]}`}>
+                          <div class={`w-16 h-16 flex items-center justify-center ${textColors[idxMod]} [&>svg]:w-full [&>svg]:h-full`}>
                             <Fragment set:html={defaultIcons[idxMod]} />
                           </div>
                         )}
@@ -418,7 +418,7 @@ const infographicItems = [
                         {step}
                       </h4>
 
-                      <div class={`absolute -bottom-[1px] -left-[1px] px-3.5 py-1 font-saira font-black text-white text-sm z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
+                      <div class={`absolute -bottom-[1px] -left-[1px] px-5 py-2 font-saira font-black text-white text-lg z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
                         {String(index + 1).padStart(2, '0')}
                       </div>
                     </div>
@@ -472,12 +472,12 @@ const infographicItems = [
     <!-- NORMATIVAS -->
     <section id="normativas" class="scroll-mt-24 md:scroll-mt-28 py-16 bg-[var(--color-brand-navy)] text-white px-6 md:px-12 relative overflow-hidden">
       <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
-      <div class="container mx-auto relative z-10 max-w-6xl">
+      <div class="container mx-auto relative z-10 max-w-4xl">
         <div class="text-center mb-16 max-w-3xl mx-auto">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-white mb-4">{data.normativas.sectionTitle}</h2>
           <p class="text-gray-300">Cumplimos con los más altos estándares internacionales para asegurar la calidad y seguridad en cada proyecto de integración industrial.</p>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
           {(data.normativas.certificados || []).map((cert) => (
             <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-[var(--color-brand-lime)]">
               <div class="h-14 md:h-16 w-full flex items-center justify-center mb-2">
@@ -491,17 +491,17 @@ const infographicItems = [
     </section>
 
     <!-- INFOGRAFÍA INTERACTIVA (PRESENCIA NACIONAL) -->
-    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 pt-12 pb-2 md:pb-0 bg-white px-6 md:px-12 overflow-hidden">
+    <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 pt-12 pb-12 xl:pb-0 bg-white px-6 md:px-12 overflow-hidden">
       <div class="container mx-auto max-w-7xl">
-        <div class="text-center">
+        <div class="text-center mb-12 xl:mb-0">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.mapa.sectionTitle}</h2>
           <p class="text-gray-600 text-lg max-w-3xl mx-auto">
             Ingeniería inteligente integrada en los sistemas de producción más exigentes.
           </p>
         </div>
 
-        <!-- MÓVIL / TABLET LAYOUT (< lg) -->
-        <div class="block lg:hidden w-full">
+        <!-- MÓVIL / TABLET LAYOUT (< xl) -->
+        <div class="block xl:hidden w-full">
           <!-- Central Image with Hotspots -->
           <div class="relative bg-gray-50 rounded-2xl p-4 border border-gray-100 overflow-hidden mb-8 shadow-sm flex justify-center items-center select-none">
             <div class="relative w-full max-w-2xl aspect-[4/3]">
@@ -510,13 +510,13 @@ const infographicItems = [
                 const card = data.soluciones.cards[item.index];
                 return (
                   <button
-                    class="absolute w-6 h-6 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
+                    class="absolute w-8 h-8 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
                     style={`left: ${item.x}%; top: ${item.y}%; transform: translate(-50%, -50%);`}
                     data-target={`mob-card-${item.index}`}
                     aria-label={`Ver ${card.title}`}
                   >
                     <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-lime)] opacity-75 animate-ping"></span>
-                    <span class="relative inline-flex rounded-full h-5 w-5 shadow-md border border-white bg-[var(--color-brand-navy)] text-[9px] font-bold text-[var(--color-brand-lime)] flex items-center justify-center">
+                    <span class="relative inline-flex rounded-full h-7 w-7 shadow-md border border-white bg-[var(--color-brand-navy)] text-[10px] font-bold text-[var(--color-brand-lime)] flex items-center justify-center">
                       {item.num}
                     </span>
                   </button>
@@ -527,7 +527,7 @@ const infographicItems = [
 
           <!-- Cards Scroll Area or Accordion/Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {infographicItems.map((item) => {
+            {infographicItems.filter(item => !item.isExtra).map((item) => {
               const card = data.soluciones.cards[item.index];
               return (
                 <div
@@ -547,8 +547,8 @@ const infographicItems = [
           </div>
         </div>
 
-        <!-- ESCRITORIO LAYOUT (>= lg) -->
-        <div class="hidden lg:block relative w-full aspect-[16/10] select-none" id="desktop-infographic">
+        <!-- ESCRITORIO LAYOUT (>= xl) -->
+        <div class="hidden xl:block relative w-full aspect-[16/10] select-none" id="desktop-infographic">
           <!-- Base lines connecting the sides to center -->
           <svg class="absolute inset-0 pointer-events-none w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
             {infographicItems.map((item) => {
@@ -625,14 +625,16 @@ const infographicItems = [
                 const card = data.soluciones.cards[item.index];
                 return (
                   <button
-                    class="absolute w-5 h-5 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 hover:scale-125 desktop-hotspot"
+                    class="absolute flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 hover:scale-110 desktop-hotspot"
                     style={`left: ${item.x}%; top: ${item.y}%; transform: translate(-50%, -50%);`}
                     data-index={item.index}
                     data-color={item.color}
                     aria-label={`Ver detalle de ${card.title}`}
                   >
-                    <span class="absolute inline-flex h-full w-full rounded-full opacity-50 animate-ping transition-colors duration-300 hotspot-ping bg-gray-400/80"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 shadow-sm border border-white/50 transition-all duration-300 hotspot-core bg-gray-400"></span>
+                    <span class="absolute inline-flex h-full w-full rounded-full opacity-50 animate-ping transition-colors duration-300 hotspot-ping bg-[var(--color-brand-lime)]"></span>
+                    <span class="relative inline-flex rounded-full h-8 w-8 lg:h-10 lg:w-10 shadow-md border-2 border-[var(--color-brand-lime)] transition-all duration-300 hotspot-core bg-[var(--color-brand-navy)] text-white font-bold text-xs lg:text-sm items-center justify-center font-saira">
+                      {item.num}
+                    </span>
                   </button>
                 );
               })}
@@ -1000,7 +1002,8 @@ const infographicItems = [
           if (card) {
             const color = card.getAttribute("data-color");
             const colorVal = getColorValue(color);
-            card.style.borderColor = colorVal;
+            card.style.borderColor = "var(--color-brand-lime)";
+            card.style.borderWidth = "2px";
             card.style.boxShadow = `0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px ${colorVal}20`;
             card.classList.remove("bg-[#f8fafc]");
             card.classList.add("bg-white", "scale-[1.02]");
@@ -1042,6 +1045,7 @@ const infographicItems = [
         const resetAllElements = () => {
           cards.forEach(card => {
             card.style.borderColor = "";
+            card.style.borderWidth = "";
             card.style.boxShadow = "";
             card.style.zIndex = "";
             card.classList.add("bg-[#f8fafc]");
@@ -1104,13 +1108,17 @@ const infographicItems = [
           if (targetCard) {
             // Reset mobile cards
             mobileCards.forEach(c => {
-              c.classList.remove("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+              c.classList.remove("bg-white", "shadow-md");
               c.classList.add("bg-gray-50");
+              c.style.borderColor = "";
+              c.style.borderWidth = "";
             });
 
             // Highlight target
-            targetCard.classList.add("border-[var(--color-brand-lime)]", "bg-white", "shadow-md");
+            targetCard.classList.add("bg-white", "shadow-md");
             targetCard.classList.remove("bg-gray-50");
+            targetCard.style.borderColor = "var(--color-brand-lime)";
+            targetCard.style.borderWidth = "2px";
 
             // Scroll to card
             targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
