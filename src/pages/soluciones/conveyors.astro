@@ -1,0 +1,1845 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import { getEntry } from "astro:content";
+
+// Obtener datos de la página de inicio para reutilizar logos de normativas
+const homepageEntry = await getEntry("homepage", "index");
+const homepageData = homepageEntry?.data || {};
+const certificados = homepageData.normativas?.certificados || [
+  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
+  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
+  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
+  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
+  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
+];
+
+// SEO Metadata
+const seoTitle = "Sistemas de Transporte y Conveyors Industriales | Anaerobia";
+const seoDescription =
+  "Especialistas en el diseño, integración y montaje de sistemas de transporte y conveyors aéreos (Overhead), a piso (Floor) y Power & Free a la medida.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="bg-industrial-gray min-h-screen text-brand-navy">
+    <!-- 01. HEADER / HERO -->
+    <section
+      class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/soluciones/conveyors/conveyor-13.webp"
+          alt="Sistemas de Transporte y Conveyors Industriales"
+          class="w-full h-full object-cover opacity-60 scale-105"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"
+        >
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl hero-section-text">
+          <!-- Breadcrumbs -->
+          <nav
+            class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6"
+          >
+            <a
+              href="/"
+              class="text-gray-300 hover:text-brand-lime transition-colors"
+              >Inicio</a
+            >
+            <span>/</span>
+            <span class="text-gray-400">Soluciones</span>
+            <span>/</span>
+            <span class="text-brand-lime">Conveyors</span>
+          </nav>
+
+          <span
+            class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"
+          >
+            SISTEMAS DE TRANSPORTE Y MANIPULACIÓN B2B
+          </span>
+          <h1
+            class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
+          >
+            Conveyors
+          </h1>
+          <p
+            class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed"
+          >
+            Nuestros sistemas de transporte pueden adaptarse a las necesidades
+            específicas de cualquier proceso, ya que es posible configurar
+            elementos como la velocidad y los movimientos, además de ajustarse
+            dependiendo del tamaño y peso de las piezas que se manipularán.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. INTRODUCCIÓN -->
+    <section
+      class="py-16 bg-white px-6 md:px-12 relative overflow-hidden"
+      id="introduccion"
+    >
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 intro-text">
+            <div>
+              <span
+                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+                >Logística Interna y Flujo Continuo</span
+              >
+              <h2
+                class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight"
+              >
+                ¿Qué son los conveyors?
+              </h2>
+              <p
+                class="text-gray-600 leading-relaxed font-light text-base md:text-lg mb-4"
+              >
+                Los conveyors, o sistemas de transporte, son mecanismos
+                utilizados en los procesos de aplicación de recubrimientos para
+                el desplazamiento eficiente de materiales, productos o
+                mercancías dentro de una instalación.
+              </p>
+              <p class="text-gray-600 leading-relaxed font-light text-base">
+                Estos sistemas permiten trasladar, separar y clasificar objetos
+                de forma continua y ordenada, minimizando la intervención manual
+                y optimizando los tiempos del ciclo de producción. Su
+                adaptabilidad a diferentes pesos, velocidades y recorridos los
+                convierte en el núcleo de la automatización en plantas
+                industriales de acabados.
+              </p>
+              <p
+                class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4"
+              >
+                Mejoramos la industria del mundo con ingeniería especializada y
+                alta tecnología.
+              </p>
+            </div>
+
+            <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100"
+            >
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Experiencia
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestro equipo cuenta con la preparación y experiencia
+                  necesarias para afrontar los desafíos de la industria.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Soporte Local
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Estamos presentes en los centros industriales del país para
+                  dar acompañamiento cercano y puntual a nuestros clientes.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Normativa
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestros equipos cumplen con normativas internacionales y
+                  nacionales.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intro Image -->
+          <div class="relative intro-image group">
+            <div class="relative rounded-lg overflow-hidden shadow-2xl">
+              <img
+                src="/images/soluciones/conveyors/conveyor-1.webp"
+                alt="Sistema de Conveyor Industrial en Operación"
+                class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
+    <section
+      class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50"
+    >
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Desafíos</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Desafíos Comunes en el Transporte de Materiales
+          </h2>
+          <p class="text-gray-600 mt-4 font-light">
+            El flujo ineficiente de piezas en una línea de aplicación de
+            recubrimiento puede elevar drásticamente los tiempos muertos y
+            reducir la calidad del acabado.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch"
+        >
+          <!-- Column 1: Image (45%) -->
+          <div
+            class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group"
+          >
+            <img
+              src="/images/soluciones/conveyors/conveyor-4.webp"
+              alt="Desafíos de Transporte de Materiales"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply">
+            </div>
+          </div>
+
+          <!-- Column 2: Cards (20%) -->
+          <div
+            class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full"
+          >
+            <!-- Card 1 -->
+            <div
+              class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]"
+            >
+              <p
+                class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center"
+              >
+                Cuellos de botella en la línea
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]"
+            >
+              <p
+                class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center"
+              >
+                Riesgos por manejo manual
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]"
+            >
+              <p
+                class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center"
+              >
+                Rigidez en el trayecto de piezas
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 3: Content (35%) -->
+          <div
+            class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2"
+          >
+            <!-- Item 1 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg
+                    class="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase"
+                >
+                  Cuellos de Botella y Retrasos
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                El traslado ineficiente o manual de componentes de gran tamaño
+                interrumpe la sincronía de la línea de acabado, generando
+                acumulaciones críticas en las áreas de pretratamiento o
+                aplicación.
+              </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg
+                    class="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase"
+                >
+                  Riesgos Ocupacionales y Daños
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                La manipulación física directa de piezas pesadas incrementa el
+                riesgo de accidentes laborales y fatiga de los operadores,
+                elevando además la probabilidad de rayaduras o contaminación del
+                recubrimiento fresco.
+              </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg
+                    class="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase"
+                >
+                  Falta de Adaptabilidad
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                Los sistemas de transporte que no permiten curvas cerradas,
+                inclinaciones o rampas de velocidad dinámicas restringen
+                severamente la optimización y flexibilidad del espacio en
+                planta.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. PRIMER CTA PERSONALIZADO -->
+    <section class="py-16 bg-brand-navy relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"
+      >
+      </div>
+      <div
+        class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+      >
+        <div class="text-left">
+          <h2
+            class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase"
+          >
+            ¿Requieres optimizar el flujo de tu línea con conveyors a la medida?
+          </h2>
+          <p
+            class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl"
+          >
+            Diseñamos e integramos un sistema de transporte adaptado a las
+            necesidades específicas de tu proceso.
+          </p>
+        </div>
+        <a
+          href="/contacto?solucion=conveyors"
+          class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"
+        >
+          Solicitar Cotización
+        </a>
+      </div>
+    </section>
+
+    <!-- 05. SOLUCIÓN ANAEROBIA (NUESTRA INGENIERÍA) -->
+    <section
+      class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden"
+      id="ingenieria"
+    >
+      <div class="container mx-auto">
+        <div class="max-w-5xl mb-10 section-solucion-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Integrador Especializado</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Nuestra Ingeniería en Sistemas de Transporte
+          </h2>
+          <p class="text-gray-600 font-light mt-4">
+            Diseñamos e integramos sistemas de transporte avanzados, adaptados a
+            la geometría de tus piezas, condiciones de carga y la velocidad
+            requerida por tus cabinas y hornos de curado.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch"
+        >
+          <!-- Bento Card 1 (Large Left) -->
+          <div
+            class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full"
+          >
+            <!-- Image background -->
+            <div
+              class="absolute inset-0 bg-[url('/images/soluciones/conveyors/conveyor-3.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+            >
+            </div>
+            <!-- Overlay azul -->
+            <div
+              class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"
+            >
+            </div>
+
+            <!-- Decorative background element -->
+            <div
+              class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"
+            >
+            </div>
+
+            <div
+              class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20"
+            >
+              <svg
+                class="w-10 h-10"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                ></path>
+              </svg>
+            </div>
+            <div class="relative z-10 mt-auto">
+              <div>
+                <h3
+                  class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight"
+                >
+                  Sistemas Aéreos (Overhead Conveyors)
+                </h3>
+                <p class="text-lg text-gray-200 font-light leading-relaxed">
+                  Configuraciones con Viga I (I Beam) y Track Cerrado. Ideales
+                  para optimizar el espacio a nivel de piso. Suspendiendo la
+                  carga, facilitan el tránsito de las piezas de forma continua y
+                  segura por zonas de pretratamiento químico, cabinas de
+                  aplicación y hornos de secado.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column for Bento Cards 2 & 3 -->
+          <div class="flex flex-col gap-6 h-full">
+            <!-- Bento Card 2 -->
+            <div
+              class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]"
+            >
+              <!-- Image background -->
+              <div
+                class="absolute inset-0 bg-[url('/images/soluciones/conveyors/conveyor-2.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+              >
+              </div>
+              <!-- Overlay azul -->
+              <div
+                class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"
+              >
+              </div>
+
+              <div
+                class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20"
+              >
+                <svg
+                  class="w-7 h-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="4"></circle>
+                </svg>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6"
+                >
+                  Sistemas a Piso (Floor Conveyors)
+                </h3>
+                <p class="text-base text-gray-200 font-light leading-relaxed">
+                  Soluciones de Rodillos, Cadena y Banda. Brindan máxima
+                  estabilidad y arrastre para piezas masivas o de gran volumen.
+                  Son clave para ensambles finales, líneas de transferencia
+                  pesada y retorno de dispositivos o ganchos vacíos.
+                </p>
+              </div>
+            </div>
+
+            <!-- Bento Card 3 -->
+            <div
+              class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]"
+            >
+              <!-- Image background -->
+              <div
+                class="absolute inset-0 bg-[url('/images/soluciones/conveyors/conveyor-5.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+              >
+              </div>
+              <!-- Overlay azul -->
+              <div
+                class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"
+              >
+              </div>
+
+              <div
+                class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20"
+              >
+                <svg
+                  class="w-7 h-7"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                  <path d="M21 12H3M12 3v18"></path>
+                </svg>
+              </div>
+              <div class="relative z-10">
+                <h3
+                  class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6"
+                >
+                  Automatización y Power & Free
+                </h3>
+                <p class="text-base text-gray-200 font-light leading-relaxed">
+                  Sistemas semiautomatizados (indexados) y Power & Free (doble
+                  riel) que permiten detener de forma independiente cargas
+                  individuales en cabinas o estaciones sin frenar el flujo del
+                  resto de la línea.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. DIFERENCIADORES ANAEROBIA (VENTAJAS) -->
+    <section
+      class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden"
+      id="diferenciadores"
+    >
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Ventajas Competitivas</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Ventajas de Nuestros Sistemas de Transporte
+          </h2>
+          <p class="text-gray-600 font-light mt-4">
+            Nuestros conveyors garantizan un flujo de producción continuo,
+            seguro y totalmente optimizado.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 diferenciadores-grid"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-brand-lime flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight"
+                >
+                  Agilidad Productiva
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Incremento notable en la velocidad de transferencia y
+                sincronización perfecta con los tiempos de aplicación y secado.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-brand-lime flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight"
+                >
+                  Rendimiento Operativo
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Reducción de tiempos inactivos y eliminación de cuellos de
+                botella por acumulación manual de materiales.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-brand-lime flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight"
+                >
+                  Movimiento Versátil
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Diseños totalmente configurables con curvas cerradas, trayectos
+                con inclinación y cambios de nivel eficientes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-brand-lime flex items-center justify-center shrink-0"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight"
+                >
+                  Seguridad Ocupacional
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Minimización del esfuerzo físico y la manipulación de piezas de
+                alto peso, mitigando riesgos de caídas o golpes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. INFORMACIÓN TÉCNICA -->
+    <section
+      class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden"
+      id="datos-tecnicos"
+    >
+      <!-- Logo de fondo -->
+      <img
+        src="/images/soluciones/fondo-seccion.png"
+        alt=""
+        class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0"
+      />
+
+      <div class="container mx-auto relative z-10">
+        <div class="max-w-4xl mb-16 text-center md:text-left">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+          >
+            Especificaciones y Criterios
+          </span>
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-4"
+          >
+            Tipos de conveyors
+          </h2>
+          <p
+            class="text-gray-600 font-light text-base md:text-lg leading-relaxed"
+          >
+            Existen diferentes tipos de conveyors, cada uno se adapta a
+            necesidades específicas en función del tipo de material a
+            transportar, el peso, la velocidad y el entorno de trabajo. Es
+            posible clasificar el tipo de conveyor de acuerdo a los siguientes
+            criterios:
+          </p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div
+          class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto"
+          id="tech-tabs-nav"
+        >
+          <button
+            class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+            data-tab="tab-ubicacion"
+          >
+            <span class="text-3xl font-light not-italic font-sans">01</span>
+            <span>Por Ubicación</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+            data-tab="tab-operacion"
+          >
+            <span class="text-3xl font-light not-italic font-sans">02</span>
+            <span>Por Tipo de Operación</span>
+          </button>
+        </div>
+
+        <!-- Tabs Content Panels -->
+        <div id="tech-tabs-content" class="relative w-full">
+          <!-- Panel 1: Por Ubicación -->
+          <div
+            id="tab-ubicacion"
+            class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
+          >
+            <!-- Sub-sección 1: Overhead -->
+            <div class="mb-12">
+              <h3
+                class="font-saira font-bold italic text-brand-navy text-2xl uppercase mb-3 border-l-4 border-brand-lime pl-4"
+              >
+                Overhead o Elevado
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Viga I (I Beam) -->
+                <div
+                  class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div class="h-60 overflow-hidden relative">
+                    <img
+                      src="/images/soluciones/conveyors/conveyor-3.webp"
+                      alt="Viga I (I Beam)"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4
+                        class="font-saira font-semibold italic text-brand-navy text-xl uppercase mb-2"
+                      >
+                        Viga I (I Beam)
+                      </h4>
+                      <p
+                        class="text-sm text-gray-500 font-light leading-relaxed"
+                      >
+                        Sistemas robustos de transportador aéreo diseñados para
+                        soportar piezas masivas y trayectos exigentes sobre
+                        vigas estructurales.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Track Cerrado -->
+                <div
+                  class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div class="h-60 overflow-hidden relative">
+                    <img
+                      src="/images/soluciones/conveyors/conveyor-4.webp"
+                      alt="Track Cerrado"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4
+                        class="font-saira font-semibold italic text-brand-navy text-xl uppercase mb-2"
+                      >
+                        Track Cerrado
+                      </h4>
+                      <p
+                        class="text-sm text-gray-500 font-light leading-relaxed"
+                      >
+                        Protección total contra goteos o contaminantes externos
+                        mediante un riel cerrado que alberga la cadena
+                        internamente.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sub-sección 2: Floor -->
+            <div class="mt-16">
+              <h3
+                class="font-saira font-bold italic text-brand-navy text-2xl uppercase mb-3 border-l-4 border-brand-lime pl-4"
+              >
+                Floor o a Piso
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Track Cerrado a Piso -->
+                <div
+                  class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div class="h-48 overflow-hidden relative">
+                    <img
+                      src="/images/soluciones/conveyors/conveyor-8.webp"
+                      alt="Track Cerrado a Piso"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4
+                        class="font-saira font-semibold italic text-brand-navy text-lg uppercase mb-2"
+                      >
+                        Track Cerrado
+                      </h4>
+                      <p
+                        class="text-xs text-gray-500 font-light leading-relaxed"
+                      >
+                        Configuración a nivel de suelo que provee una guía
+                        rígida para carros o dispositivos de arrastre inferior.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Mesa de Rodillos -->
+                <div
+                  class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div class="h-48 overflow-hidden relative">
+                    <img
+                      src="/images/soluciones/conveyors/conveyor-7.webp"
+                      alt="Mesa de Rodillos"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4
+                        class="font-saira font-semibold italic text-brand-navy text-lg uppercase mb-2"
+                      >
+                        Mesa de Rodillos
+                      </h4>
+                      <p
+                        class="text-xs text-gray-500 font-light leading-relaxed"
+                      >
+                        Desplazamiento plano y continuo para tarimas o
+                        componentes con base uniforme, reduciendo la fricción.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Transportador de Cadena y/o Banda -->
+                <div
+                  class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div class="h-48 overflow-hidden relative">
+                    <img
+                      src="/images/soluciones/conveyors/conveyor-2.webp"
+                      alt="Transportador de Cadena y/o Banda"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4
+                        class="font-saira font-semibold italic text-brand-navy text-lg uppercase mb-2"
+                      >
+                        Transportador de Cadena y/o Banda
+                      </h4>
+                      <p
+                        class="text-xs text-gray-500 font-light leading-relaxed"
+                      >
+                        Tracción continua mediante banda de alta resistencia o
+                        cadenas de arrastre para mover piezas pesadas o
+                        volumétricas.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Por Tipo de Operación -->
+          <div
+            id="tab-operacion"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div
+              class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+            >
+              <!-- Left Column: Content -->
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3
+                    class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4"
+                  >
+                    Modos de Operación e Integración
+                  </h3>
+                  <p class="text-base text-gray-600 font-light leading-relaxed">
+                    Sincronizamos la logística del transporte con las diferentes
+                    fases del recubrimiento para obtener el máximo rendimiento
+                    operativo.
+                  </p>
+                </div>
+
+                <div class="flex flex-col gap-8">
+                  <!-- Manual (Free) -->
+                  <div class="flex items-start gap-4">
+                    <div class="text-brand-lime shrink-0 mt-1">
+                      <span
+                        class="w-8 h-8 rounded-full bg-brand-lime/10 flex items-center justify-center font-bold text-sm text-brand-lime"
+                        >01</span
+                      >
+                    </div>
+                    <div>
+                      <h4
+                        class="font-saira font-bold text-brand-navy text-xl uppercase italic mb-1"
+                      >
+                        Manual (Free)
+                      </h4>
+                      <p class="text-gray-500 font-light text-sm">
+                        Sistemas operados manualmente por empuje, indicados para
+                        flujos de baja densidad o estaciones de carga,
+                        preparación y retoque de piezas.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Semiautomatizado (Indexado) -->
+                  <div class="flex items-start gap-4">
+                    <div class="text-brand-lime shrink-0 mt-1">
+                      <span
+                        class="w-8 h-8 rounded-full bg-brand-lime/10 flex items-center justify-center font-bold text-sm text-brand-lime"
+                        >02</span
+                      >
+                    </div>
+                    <div>
+                      <h4
+                        class="font-saira font-bold text-brand-navy text-xl uppercase italic mb-1"
+                      >
+                        Semiautomatizado (Indexado)
+                      </h4>
+                      <p class="text-gray-500 font-light text-sm">
+                        Avance paso a paso controlado mediante temporizadores,
+                        deteniéndose el tiempo exacto en cabinas de
+                        pretratamiento o de aplicación.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Automatizado (Power & Free) -->
+                  <div class="flex items-start gap-4">
+                    <div class="text-brand-lime shrink-0 mt-1">
+                      <span
+                        class="w-8 h-8 rounded-full bg-brand-lime/10 flex items-center justify-center font-bold text-sm text-brand-lime"
+                        >03</span
+                      >
+                    </div>
+                    <div>
+                      <h4
+                        class="font-saira font-bold text-brand-navy text-xl uppercase italic mb-1"
+                      >
+                        Automatizado (Power & Free)
+                      </h4>
+                      <p class="text-gray-500 font-light text-sm">
+                        Rieles dobles que permiten acumular, desviar, reordenar
+                        y detener piezas individuales de manera autónoma sin
+                        parar el resto de la producción.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Sistemas con Robots -->
+                  <div class="flex items-start gap-4">
+                    <div class="text-brand-lime shrink-0 mt-1">
+                      <span
+                        class="w-8 h-8 rounded-full bg-brand-lime/10 flex items-center justify-center font-bold text-sm text-brand-lime"
+                        >04</span
+                      >
+                    </div>
+                    <div>
+                      <h4
+                        class="font-saira font-bold text-brand-navy text-xl uppercase italic mb-1"
+                      >
+                        Sistemas con robots
+                      </h4>
+                      <p class="text-gray-500 font-light text-sm">
+                        Integración directa de robots antropomórficos para
+                        carga, descarga o aplicación de recubrimientos en
+                        sincronía directa con el conveyor.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Image -->
+              <div
+                class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[350px] md:h-[450px] lg:h-[550px]"
+              >
+                <img
+                  src="/images/soluciones/conveyors/conveyor-18.webp"
+                  alt="Operación de Conveyors Automatizados"
+                  class="w-full h-full object-cover absolute inset-0"
+                />
+                <div
+                  class="absolute inset-0 bg-brand-navy/15 mix-blend-multiply"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- 08. RESULTADOS Y VENTAJAS -->
+<section
+  class="py-24 bg-white px-6 md:px-12 animate-results"
+  id="ventajas-adicionales"
+>
+  <div class="container mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 advantages-header">
+      <span
+        class="text-brand-lime font-bold tracking-widest text-sm mb-4 uppercase inline-block"
+        >¿Por qué son importantes?</span
+      >
+      <h2
+        class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+      >
+        Importancia de los Sistemas de Transporte
+      </h2>
+      <p class="text-gray-600 mt-4 font-light text-base md:text-lg">
+        Los conveyors son las venas de cualquier línea de producción continua de
+        acabados. Su correcta integración reduce drásticamente el costo
+        operativo, incrementa la productividad de la planta y garantiza un flujo
+        uniforme de piezas a través de las cabinas y hornos de curado.
+      </p>
+    </div>
+
+    <!-- Quantitative Metrics Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto"
+    >
+      <div
+        class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60"
+      >
+        <span
+          class="text-brand-lime font-saira italic font-bold text-5xl md:text-6xl"
+          >+50%</span
+        >
+        <h4
+          class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300"
+        >
+          Velocidad de Flujo
+        </h4>
+        <p class="text-xs text-gray-400 font-light">
+          Transferencia continua que optimiza el ciclo total de acabado.
+        </p>
+      </div>
+      <div
+        class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60"
+      >
+        <span
+          class="text-brand-lime font-saira italic font-bold text-5xl md:text-6xl"
+          >-80%</span
+        >
+        <h4
+          class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300"
+        >
+          Manejo Manual
+        </h4>
+        <p class="text-xs text-gray-400 font-light">
+          Eliminación de riesgos ocupacionales por levantamiento físico de
+          piezas.
+        </p>
+      </div>
+      <div
+        class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60"
+      >
+        <span
+          class="text-brand-lime font-saira italic font-bold text-5xl md:text-6xl"
+          >100%</span
+        >
+        <h4
+          class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300"
+        >
+          Sincronización
+        </h4>
+        <p class="text-xs text-gray-400 font-light">
+          Integración perfecta con pretratamiento, hornos y cabinas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09. SEGUNDO CTA -->
+<section
+  class="py-16 relative flex items-center justify-center overflow-hidden px-6"
+>
+  <img
+    src="/img/parallax_bg.webp"
+    alt="Ingenieros interactuando con maquinaria"
+    class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0"
+  />
+  <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+
+  <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+    <h2
+      class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider"
+    >
+      Diseñamos el Sistema de Conveyor Ideal para Tu Planta
+    </h2>
+    <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">
+      Contacta con nuestro equipo de ingeniería industrial. Desarrollamos
+      soluciones llave en mano adaptadas a tus necesidades.
+    </p>
+    <div class="pt-8">
+      <a
+        href="/contacto?solucion=conveyors"
+        class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"
+      >
+        Hablar con Especialista
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 10. NORMATIVIDAD -->
+<section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div class="lg:w-1/2 space-y-6 norms-text">
+        <div>
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+          >
+            Cumplimiento Internacional
+          </span>
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight"
+          >
+            Normatividad y Seguridad
+          </h2>
+          <p class="text-gray-300 font-light leading-relaxed mt-4">
+            Nuestros sistemas de transporte cumplen con normatividad
+            internacional y exigencias de calidad y seguridad industrial.
+            Diseñamos conveyors que garantizan la máxima protección laboral y la
+            integridad de las piezas a lo largo del proceso.
+          </p>
+        </div>
+
+        <ul
+          class="space-y-3 text-sm text-gray-300 font-light border-t border-white/10 pt-6 pl-4 mt-6"
+        >
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Cumplimiento
+            de lineamientos OSHA para el manejo seguro de materiales.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Estándares de
+            seguridad eléctrica y parada de emergencia automatizada.
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Project Managers
+            certificados por IPMA.
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:w-1/2 w-full">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+          {
+            certificados.map((cert) => (
+              <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                <div class="h-14 w-full flex items-center justify-center mb-2">
+                  <img
+                    src={cert.logo}
+                    alt={`Certificado ${cert.name}`}
+                    class="max-h-full max-w-full object-contain filter transition-all duration-300"
+                    onerror={`this.outerHTML='<span class=\'font-bold text-gray-400\'>${cert.name}</span>'`}
+                  />
+                </div>
+                <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
+                  {cert.name}
+                </span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. ALIANZAS / PARTNERS -->
+<section
+  class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center"
+>
+  <div
+    class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6"
+  >
+    <span
+      class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"
+    >
+      Tecnología respaldada por aliados globales:
+    </span>
+    <div class="swiper marquee-swiper w-full overflow-hidden relative">
+      <div class="swiper-wrapper flex items-center gap-16">
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/fanuc.png"
+            alt="FANUC"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/graco.png"
+            alt="GRACO"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/binks.png"
+            alt="BINKS"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/gfs.png"
+            alt="GFS"
+            class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'"
+          />
+        </div>
+
+        <!-- Duplicate for loop -->
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/fanuc.png"
+            alt="FANUC"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/graco.png"
+            alt="GRACO"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/binks.png"
+            alt="BINKS"
+            class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'"
+          />
+        </div>
+        <div class="swiper-slide !w-auto px-8">
+          <img
+            src="/img/logos/gfs.png"
+            alt="GFS"
+            class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain"
+            onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FAQ (PREGUNTAS FRECUENTES) -->
+<section
+  class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50"
+  id="faq"
+>
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center mb-16 faq-header">
+      <span
+        class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+      >
+        Preguntas Técnicas
+      </span>
+      <h2
+        class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+      >
+        Preguntas Frecuentes
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      <!-- FAQ 1 -->
+      <details
+        name="faq"
+        class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+        open
+      >
+        <summary
+          class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+        >
+          <span
+            >¿Qué diferencia hay entre un transportador aéreo (Overhead) y uno a
+            piso (Floor)?</span
+          >
+          <span
+            class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+          ></span>
+        </summary>
+        <div
+          class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+        >
+          Los transportadores aéreos suspenden las piezas en rieles elevados,
+          liberando espacio en el piso y facilitando el paso a través de hornos
+          y cabinas. Los transportadores a piso deslizan o arrastran las piezas
+          sobre rodillos, bandas o cadenas a nivel de suelo, siendo ideales para
+          componentes de gran volumen y peso que requieren soporte inferior.
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details
+        name="faq"
+        class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+      >
+        <summary
+          class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+        >
+          <span
+            >¿Qué es un sistema Power & Free y cómo ayuda a mi producción?</span
+          >
+          <span
+            class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+          ></span>
+        </summary>
+        <div
+          class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+        >
+          Un sistema Power & Free consta de dos rieles paralelos: uno con cadena
+          en movimiento continuo (Power) y otro donde viajan los carros de carga
+          (Free). Permite enganchar y desenganchar carros de forma automática,
+          haciendo posible detener piezas en una estación de pintura o
+          acumularlas en zonas de espera sin detener el resto de la línea de
+          producción.
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details
+        name="faq"
+        class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+      >
+        <summary
+          class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+        >
+          <span
+            >¿Cómo afecta la temperatura de los hornos al diseño del conveyor?</span
+          >
+          <span
+            class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+          ></span>
+        </summary>
+        <div
+          class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+        >
+          La temperatura de los hornos de secado y curado (que puede llegar a
+          los 200 °C) requiere componentes metálicos con tolerancias de
+          expansión térmica, rodamientos sellados especiales para alta
+          temperatura y lubricantes sintéticos de grado industrial que no se
+          evaporen ni goteen sobre las piezas pintadas.
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details
+        name="faq"
+        class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+      >
+        <summary
+          class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+        >
+          <span>¿Cómo elegir el tipo de conveyor adecuado para mi planta?</span>
+          <span
+            class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+          ></span>
+        </summary>
+        <div
+          class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+        >
+          La elección depende de la geometría y peso de tus piezas, la velocidad
+          de producción deseada, el layout físico de tu planta (espacio aéreo vs
+          piso) y las condiciones ambientales (temperatura de curado, cabina de
+          lavado químico). En Anaerobia analizamos estas variables para
+          recomendar la combinación óptima de riel aéreo, rodillos o Power &
+          Free.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 13. GALERÍA DE PROYECTOS -->
+<section class="py-16 bg-white px-6 md:px-12" id="galeria">
+  <div class="container mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+      <span
+        class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+      >
+        Galería
+      </span>
+      <h2
+        class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+      >
+        Proyectos
+      </h2>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid"
+    >
+      <div
+        class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+      >
+        <img
+          src="/images/soluciones/conveyors/conveyor-9.webp"
+          alt="Sistemas aéreos de cadena continua"
+          class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+        />
+        <div
+          class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <p class="text-white text-xs font-semibold uppercase tracking-wider">
+            Sistemas aéreos de cadena continua
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+      >
+        <img
+          src="/images/soluciones/conveyors/conveyor-11.webp"
+          alt="Líneas Power & Free automatizadas"
+          class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+        />
+        <div
+          class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <p class="text-white text-xs font-semibold uppercase tracking-wider">
+            Líneas Power & Free automatizadas
+          </p>
+        </div>
+      </div>
+      <div
+        class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+      >
+        <img
+          src="/images/soluciones/conveyors/conveyor-12.webp"
+          alt="Transportadores robustos a piso"
+          class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+        />
+        <div
+          class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <p class="text-white text-xs font-semibold uppercase tracking-wider">
+            Transportadores robustos a piso
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+<!-- CDNs y Configuración de Animación Scroll / Lenis -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Inicializar Lenis (Scroll Suave)
+    if (typeof Lenis !== "undefined") {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Conectar GSAP con Lenis y animar
+      if (typeof gsap !== "undefined") {
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        if (typeof ScrollTrigger !== "undefined") {
+          lenis.on("scroll", ScrollTrigger.update);
+        }
+      }
+    }
+
+    // Animaciones GSAP
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+      // Animación Hero al cargar
+      gsap.from(".hero-section-text > *", {
+        y: 35,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+      });
+
+      // Animación Introducción
+      gsap.from(".intro-text > *", {
+        scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power2.out",
+      });
+      gsap.from(".intro-image", {
+        scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
+        x: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power2.out",
+      });
+
+      // Pain points grid
+      gsap.from(".pain-points-grid > div", {
+        scrollTrigger: { trigger: ".pain-points-grid", start: "top 85%" },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+
+      // Ingeniería grid (Bento)
+      gsap.from("#ingenieria .grid > div", {
+        scrollTrigger: { trigger: "#ingenieria", start: "top 80%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out",
+        clearProps: "all",
+      });
+
+      // Diferenciadores grid
+      gsap.from(".diferenciadores-grid > div", {
+        scrollTrigger: { trigger: ".diferenciadores-grid", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+
+      // Especificaciones (Tabs)
+      gsap.from("#datos-tecnicos table, #datos-tecnicos .grid > div", {
+        scrollTrigger: { trigger: "#datos-tecnicos", start: "top 80%" },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+
+      // Resultados
+      gsap.from(".animate-results .grid > div", {
+        scrollTrigger: { trigger: ".animate-results", start: "top 80%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+
+      // Normativas text
+      gsap.from(".norms-text > *", {
+        scrollTrigger: { trigger: "#normas", start: "top 80%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power2.out",
+      });
+
+      // Normativas grid
+      gsap.from(".norms-grid > div", {
+        scrollTrigger: { trigger: ".norms-grid", start: "top 85%" },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "opacity,transform",
+      });
+
+      // FAQ list
+      gsap.from("#faq details", {
+        scrollTrigger: { trigger: "#faq", start: "top 80%" },
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "opacity,transform",
+      });
+
+      // Gallery grid
+      gsap.from(".gallery-grid > div", {
+        scrollTrigger: { trigger: ".gallery-grid", start: "top 85%" },
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power2.out",
+        clearProps: "opacity,transform",
+      });
+    }
+
+    // 3. Controlador de Tabs Técnicos
+    const tabBtns = document.querySelectorAll(".tech-tab-btn");
+    const tabPanels = document.querySelectorAll(".tech-tab-panel");
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetTabId = btn.getAttribute("data-tab");
+
+        tabBtns.forEach((b) => {
+          b.classList.remove(
+            "active",
+            "border-brand-lime",
+            "text-brand-lime",
+            "bg-brand-lime/10",
+          );
+          b.classList.add(
+            "border-transparent",
+            "text-gray-400",
+            "bg-transparent",
+          );
+        });
+
+        btn.classList.add(
+          "active",
+          "border-brand-lime",
+          "text-brand-lime",
+          "bg-brand-lime/10",
+        );
+        btn.classList.remove(
+          "border-transparent",
+          "text-gray-400",
+          "bg-transparent",
+        );
+
+        tabPanels.forEach((panel) => {
+          panel.classList.add("hidden", "opacity-0", "translate-y-4");
+          panel.classList.remove("opacity-100", "translate-y-0");
+        });
+
+        const activePanel = document.getElementById(targetTabId);
+        if (activePanel) {
+          activePanel.classList.remove("hidden");
+          setTimeout(() => {
+            activePanel.classList.remove("opacity-0", "translate-y-4");
+            activePanel.classList.add("opacity-100", "translate-y-0");
+          }, 20);
+        }
+
+        if (typeof ScrollTrigger !== "undefined") {
+          ScrollTrigger.refresh();
+        }
+      });
+    });
+
+    // Inicializar Marquee Swiper
+    if (typeof Swiper !== "undefined") {
+      new Swiper(".marquee-swiper", {
+        loop: true,
+        speed: 3000,
+        autoplay: { delay: 0, disableOnInteraction: false },
+        slidesPerView: "auto",
+        spaceBetween: 10,
+        allowTouchMove: false,
+        freeMode: true,
+      });
+    }
+  });
+
+  // Refrescar ScrollTrigger al cargar completamente la página
+  window.addEventListener("load", () => {
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.refresh();
+    }
+  });
+</script>
+</Layout>

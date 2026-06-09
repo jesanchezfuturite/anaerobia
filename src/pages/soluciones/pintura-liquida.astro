@@ -1,1582 +1,1027 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Footer.astro";
-import { getEntry } from "astro:content";
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import { getEntry } from 'astro:content'
 
 // Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry("homepage", "index");
-const homepageData = homepageEntry?.data || {};
+const homepageEntry = await getEntry('homepage', 'index')
+const homepageData = homepageEntry?.data || {}
 const certificados = homepageData.normativas?.certificados || [
-  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
-  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
-  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
-  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
-  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
-];
+    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
+    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
+    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
+    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
+    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
+]
 
 // SEO Metadata
-const seoTitle = "Sistemas de Pintura Líquida Industriales | Anaerobia";
-const seoDescription =
-  "Diseño, fabricación e instalación de sistemas integrales de pintura líquida manuales y automatizados. Soluciones llave en mano de alto volumen.";
+const seoTitle = 'Sistemas de Pintura Líquida Industriales | Anaerobia'
+const seoDescription = 'Diseño, fabricación e instalación de sistemas integrales de pintura líquida manuales y automatizados. Soluciones llave en mano de alto volumen.'
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-  <main class="bg-industrial-gray min-h-screen text-brand-navy">
-    <!-- 01. HEADER / HERO -->
-    <section
-      class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden"
-    >
-      <!-- Background Image with Overlay -->
-      <div class="absolute inset-0 z-0">
-        <img
-          src="/images/home/soluciones/cards/1/image.jpg"
-          alt="Línea de Pintura Líquida Industrial"
-          class="w-full h-full object-cover opacity-60 scale-105"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"
-        >
-        </div>
-      </div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl hero-section-text">
-          <!-- Breadcrumbs -->
-          <nav
-            class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6"
-          >
-            <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors"
-              >Inicio</a
-            >
-            <span>/</span>
-            <span class="text-gray-400">Soluciones</span>
-            <span>/</span>
-            <span class="text-brand-lime">Pintura Líquida</span>
-          </nav>
-
-          <span
-            class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"
-          >
-            INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES
-          </span>
-          <h1
-            class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
-          >
-            Sistemas de Pintura Líquida
-          </h1>
-          <p
-            class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed"
-          >
-            Especialistas en el diseño, fabricación, instalación y puesta en
-            marcha de sistemas integrales de pintura líquida, desde cabinas
-            manuales hasta líneas completamente programables y automatizadas.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02. INTRODUCCIÓN -->
-    <section
-      class="py-16 bg-white px-6 md:px-12 relative overflow-hidden"
-      id="introduccion"
-    >
-      <div class="container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-8 intro-text">
-            <div>
-              <span
-                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-                >Ingeniería y Tecnología</span
-              >
-              <h2
-                class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight"
-              >
-                Mejoramos la industria del mundo con ingeniería especializada y
-                alta tecnología
-              </h2>
-              <p
-                class="text-gray-600 leading-relaxed font-light text-base md:text-lg"
-              >
-                Un sistema de pintura líquida engloba un conjunto de equipos,
-                procesos y tecnologías que se utilizan para aplicar
-                recubrimientos líquidos sobre superficies de diversos
-                materiales. Estos sistemas permiten proteger la superficie de la
-                corrosión, mejorar la apariencia estética y cumplir con otros
-                requisitos funcionales rigurosos de los productos terminados en
-                cualquier industria.
-              </p>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <!-- 01. HEADER / HERO -->
+        <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="/images/home/soluciones/cards/1/image.jpg" alt="Línea de Pintura Líquida Industrial" class="w-full h-full object-cover opacity-60 scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
-            <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
-            <div
-              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100"
-            >
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Experiencia
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Nuestro equipo cuenta con la preparación y experiencia
-                  necesaria para afrontar los desafíos de la industria.
-                </p>
-              </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl hero-section-text">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                        <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                        <span>/</span>
+                        <span class="text-gray-400">Soluciones</span>
+                        <span>/</span>
+                        <span class="text-brand-lime">Pintura Líquida</span>
+                    </nav>
 
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES </span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Sistemas de Pintura Líquida</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">Especialistas en el diseño, fabricación, instalación y puesta en marcha de sistemas integrales de pintura líquida, desde cabinas manuales hasta líneas completamente programables y automatizadas.</p>
                 </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Soporte Nacional
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Estamos presentes en los centros industriales del país para
-                  dar acompañamiento cercano y puntual a nuestros clientes.
-                </p>
-              </div>
-
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Normativa
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Nuestros equipos cumplen con normativas internacionales y
-                  nacionales.
-                </p>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <!-- Intro Image -->
-          <div class="relative intro-image group">
-            <div
-              class="relative rounded-lg overflow-hidden shadow-2xl"
-            >
-              <img
-                src="/images/soluciones/pintura_liquida_2.webp"
-                alt="Proceso de Pintura Líquida Automatizada"
-                class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700"
-              />
+        <!-- 02. INTRODUCCIÓN -->
+        <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden" id="introduccion">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 intro-text">
+                        <div>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ingeniería y Tecnología</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">Mejoramos la industria del mundo con ingeniería especializada y alta tecnología</h2>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
+                                Un sistema de pintura líquida engloba un conjunto de equipos, procesos y tecnologías que se utilizan para aplicar recubrimientos líquidos sobre superficies de diversos materiales. Estos sistemas permiten proteger la superficie de la corrosión, mejorar la apariencia
+                                estética y cumplir con otros requisitos funcionales rigurosos de los productos terminados en cualquier industria.
+                            </p>
+                        </div>
+
+                        <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Experiencia</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestro equipo cuenta con la preparación y experiencia necesaria para afrontar los desafíos de la industria.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Soporte Nacional</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Estamos presentes en los centros industriales del país para dar acompañamiento cercano y puntual a nuestros clientes.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Normativa</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestros equipos cumplen con normativas internacionales y nacionales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intro Image -->
+                    <div class="relative intro-image group">
+                        <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                            <img src="/images/soluciones/pintura_liquida_2.webp" alt="Proceso de Pintura Líquida Automatizada" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
-    <section
-      class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50"
-    >
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Desafíos</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Puntos de Inflexión Comunes en la Línea de Pintura
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Las operaciones de manufactura de alto volumen a menudo enfrentan
-            ineficiencias críticas que elevan el costo por pieza y afectan la
-            calidad estética final.
-          </p>
-        </div>
+        <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
+        <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Desafíos</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Puntos de Inflexión Comunes en la Línea de Pintura</h2>
+                    <p class="text-gray-600 mt-4 font-light">Las operaciones de manufactura de alto volumen a menudo enfrentan ineficiencias críticas que elevan el costo por pieza y afectan la calidad estética final.</p>
+                </div>
 
                 <div class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
-          <!-- Column 1: Image (45%) -->
-          <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-             <img src="/images/soluciones/pintura_liquida_2.webp" alt="Puntos de Inflexión" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-             <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
-          </div>
-          
-          <!-- Column 2: Cards (20%) -->
-          <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
-<!-- Card 1 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Desperdicio de pintura de hasta un 60%</p>
-            </div>
+                    <!-- Column 1: Image (45%) -->
+                    <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
+                        <img src="/images/soluciones/pintura_liquida_2.webp" alt="Puntos de Inflexión" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
+                    </div>
 
-            <!-- Card 2 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Sobrecosto térmico e ineficiencia eléctrica</p>
-            </div>
+                    <!-- Column 2: Cards (20%) -->
+                    <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
+                        <!-- Card 1 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
+                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Desperdicio de pintura de hasta un 60%</p>
+                        </div>
 
-            <!-- Card 3 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Tasa de rechazo y retrabajos elevados</p>
-            </div>
-          </div>
+                        <!-- Card 2 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]">
+                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Sobrecosto térmico e ineficiencia eléctrica</p>
+                        </div>
 
-          <!-- Column 3: Content (35%) -->
-          <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2">
-            <!-- Item 1 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
+                        <!-- Card 3 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
+                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Tasa de rechazo y retrabajos elevados</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Content (35%) -->
+                    <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2">
+                        <!-- Item 1 -->
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Baja Eficiencia de Transferencia</h3>
+                            </div>
+                            <p class="text-base text-gray-600 leading-relaxed font-light">El exceso de pintura desperdiciada (overspray) no solo eleva los costos operativos de materia prima, sino que satura los filtros rápidamente e incrementa los desechos químicos.</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Altos Costos de Energía</h3>
+                            </div>
+                            <p class="text-base text-gray-600 leading-relaxed font-light">El curado o secado térmico ineficiente en hornos que no retienen el calor o cabinas con exceso de ventilación desbalanceada dispara el consumo eléctrico y de gas natural.</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Defectos de Acabado (Clase A)</h3>
+                            </div>
+                            <p class="text-base text-gray-600 leading-relaxed font-light">Variación de espesor, ojos de pescado por grasa remanente, y desprendimientos por pretratamientos mal controlados derivan en altos porcentajes de rechazo y retrabajos costosos.</p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Baja Eficiencia de Transferencia
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                El exceso de pintura desperdiciada (overspray) no solo eleva los
-                costos operativos de materia prima, sino que satura los filtros
-                rápidamente e incrementa los desechos químicos.
-              </p>
             </div>
-
-            <!-- Item 2 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Altos Costos de Energía
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                El curado o secado térmico ineficiente en hornos que no retienen
-                el calor o cabinas con exceso de ventilación desbalanceada
-                dispara el consumo eléctrico y de gas natural.
-              </p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Defectos de Acabado (Clase A)
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                Variación de espesor, ojos de pescado por grasa remanente, y
-                desprendimientos por pretratamientos mal controlados derivan en
-                altos porcentajes de rechazo y retrabajos costosos.
-              </p>
-            </div>
-          </div>          </div>
-        </div>
-
-      </div>
-    </section>
+        </section>
 
     <!-- 04. PRIMER CTA PERSONALIZADO -->
     <section class="py-16 bg-brand-navy relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"
-      >
-      </div>
-      <div
-        class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
-      >
-        <div class="text-left">
-          <h2
-            class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase"
-          >
-            ¿Requieres automatizar o diseñar tu línea de pintura líquida?
-          </h2>
-          <p
-            class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl"
-          >
-            Diseñamos un sistema a la medida adaptado a los alcances específicos
-            de tu producción.
-          </p>
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-left">
+                <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">¿Requieres automatizar o diseñar tu línea de pintura líquida?</h2>
+                <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl">Diseñamos un sistema a la medida adaptado a los alcances específicos de tu producción.</p>
+            </div>
+            <a href="/contacto?solucion=pintura-liquida" class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"> Solicitar Cotización </a>
         </div>
-        <a
-          href="/contacto?solucion=pintura-liquida"
-          class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"
-        >
-          Solicitar Cotización
-        </a>
-      </div>
     </section>
 
     <!-- 05. SOLUCIÓN ANAEROBIA (NUESTRA INGENIERÍA) -->
-    <section
-      class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden"
-      id="ingenieria"
-    >
-      <div class="container mx-auto">
-        <div class="max-w-5xl mb-10 section-solucion-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Integrador Especializado</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Nuestra Solución en Ingeniería de Pintura Líquida
-          </h2>
-          <p class="text-gray-600 font-light mt-4">
-            Diseñamos y fabricamos líneas completas "llave en mano" adaptadas a
-            los requisitos físicos de tu planta, la geometría de tus piezas y
-            los estándares químicos del recubrimiento.
-          </p>
+    <section class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden" id="ingenieria">
+        <div class="container mx-auto">
+            <div class="max-w-5xl mb-10 section-solucion-header">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Integrador Especializado</span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Nuestra Solución en Ingeniería de Pintura Líquida</h2>
+                <p class="text-gray-600 font-light mt-4">Diseñamos y fabricamos líneas completas "llave en mano" adaptadas a los requisitos físicos de tu planta, la geometría de tus piezas y los estándares químicos del recubrimiento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
+                <!-- Bento Card 1 (Large Left) -->
+                <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
+                    <!-- Image background -->
+                    <div class="absolute inset-0 bg-[url('/images/soluciones/nano/design.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                    <!-- Overlay azul -->
+                    <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                    <!-- Decorative background element -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+
+                    <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+                        <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                            ></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="relative z-10 mt-auto">
+                        <div>
+                            <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">Diseño Manual o Programable</h3>
+                            <p class="text-lg text-gray-200 font-light leading-relaxed">
+                                Desde cabinas de aplicación por batch y pistolas manuales asistidas, hasta sistemas automatizados con transportadores aéreos de velocidad variable y reciprocadores inteligentes para altos volúmenes de producción.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column for Bento Cards 2 & 3 -->
+                <div class="flex flex-col gap-6 h-full">
+                    <!-- Bento Card 2 -->
+                    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+                        <!-- Image background -->
+                        <div class="absolute inset-0 bg-[url('/images/soluciones/nano/climate.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                        <!-- Overlay azul -->
+                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.365 5.25 5.25 0 0 0-9.88-2.32 4.5 4.5 0 0 0-7.202 5.185Z"></path>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Control Ambiental en Cabinas</h3>
+                            <p class="text-base text-gray-200 font-light leading-relaxed">
+                                Garantizamos acabados Clase A integrando cabinas de pintura líquida presurizadas con flujo de aire laminado y sistemas de climatización (HVAC) para controlar de forma exacta la temperatura y el porcentaje de humedad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bento Card 3 -->
+                    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
+                        <!-- Image background -->
+                        <div class="absolute inset-0 bg-[url('/images/soluciones/nano/mixing.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                        <!-- Overlay azul -->
+                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="relative z-10">
+                            <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Mezcla y Suministro Eficiente</h3>
+                            <p class="text-base text-gray-200 font-light leading-relaxed">Integramos cocinas de pintura con sistemas de almacenamiento y bombeo neumático o eléctrico, incorporando cambiadores rápidos de color y dosificadores electrónicos bicomponentes (2K/3K) de alta precisión.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
-  
-  <!-- Bento Card 1 (Large Left) -->
-  <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
-    <!-- Image background -->
-    <div class="absolute inset-0 bg-[url('/images/soluciones/nano/design.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
-    <!-- Overlay azul -->
-    <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
-    
-    <!-- Decorative background element -->
-    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
-    
-    <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
-
-      <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    </div>
-    <div class="relative z-10 mt-auto">
-    <div>
-      <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">
-        Diseño Manual o Programable
-      </h3>
-      <p class="text-lg text-gray-200 font-light leading-relaxed">
-        Desde cabinas de aplicación por batch y pistolas manuales asistidas, hasta sistemas automatizados con transportadores aéreos de velocidad variable y reciprocadores inteligentes para altos volúmenes de producción.
-      </p>
-    </div>
-    </div>
-  </div>
-
-  <!-- Right Column for Bento Cards 2 & 3 -->
-  <div class="flex flex-col gap-6 h-full">
-    
-    <!-- Bento Card 2 -->
-    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
-      <!-- Image background -->
-      <div class="absolute inset-0 bg-[url('/images/soluciones/nano/climate.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
-      <!-- Overlay azul -->
-      <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
-      
-      <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-
-        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.365 5.25 5.25 0 0 0-9.88-2.32 4.5 4.5 0 0 0-7.202 5.185Z" />
-        </svg>
-      </div>
-      <div class="relative z-10">
-      <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
-        Control Ambiental en Cabinas
-      </h3>
-      <p class="text-base text-gray-200 font-light leading-relaxed">
-        Garantizamos acabados Clase A integrando cabinas de pintura líquida presurizadas con flujo de aire laminado y sistemas de climatización (HVAC) para controlar de forma exacta la temperatura y el porcentaje de humedad.
-      </p>
-      </div>
-    </div>
-
-    <!-- Bento Card 3 -->
-    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
-      <!-- Image background -->
-      <div class="absolute inset-0 bg-[url('/images/soluciones/nano/mixing.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
-      <!-- Overlay azul -->
-      <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
-      
-      <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-
-        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-        </svg>
-      </div>
-      <div class="relative z-10">
-      <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
-        Mezcla y Suministro Eficiente
-      </h3>
-      <p class="text-base text-gray-200 font-light leading-relaxed">
-        Integramos cocinas de pintura con sistemas de almacenamiento y bombeo neumático o eléctrico, incorporando cambiadores rápidos de color y dosificadores electrónicos bicomponentes (2K/3K) de alta precisión.
-      </p>
-      </div>
-    </div>
-
-  </div>
-</div>
-      </div>
     </section>
 
     <!-- 06. DIFERENCIADORES ANAEROBIA -->
-    <section
-      class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden"
-      id="diferenciadores"
-    >
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Ventajas Competitivas</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Diferenciadores de Anaerobia en Pintura Líquida
-          </h2>
-          <p class="text-gray-600 font-light mt-4">
-            Nuestra ingeniería destaca por resolver los desafíos más exigentes
-            en acabados industriales con un enfoque integral.
-          </p>
+    <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="diferenciadores">
+        <div class="container mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ventajas Competitivas</span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Diferenciadores de Anaerobia en Pintura Líquida</h2>
+                <p class="text-gray-600 font-light mt-4">Nuestra ingeniería destaca por resolver los desafíos más exigentes en acabados industriales con un enfoque integral.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 diferenciadores-grid">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Ingeniería Llave en Mano</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Diseñamos, fabricamos e instalamos de manera centralizada. Un solo punto de contacto para todo tu proyecto de pintura.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                    ></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Soporte y Refacciones</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Respuesta técnica local inmediata y refaccionamiento garantizado para asegurar la continuidad de tu operación.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Tecnología e Integración</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Integramos robótica de pintura (FANUC) y sistemas automáticos de dosificación 2K/3K (Graco, Nordson) de última generación.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Eficiencia Energética</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 leading-relaxed font-light">Sistemas diseñados para reducir al mínimo el desperdicio de pintura y optimizar el consumo de gas en los hornos de curado.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 diferenciadores-grid"
-        >
-          <!-- Card 1 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  ></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Ingeniería Llave en Mano
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Diseñamos, fabricamos e instalamos de manera centralizada. Un
-                solo punto de contacto para todo tu proyecto de pintura.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Soporte y Refacciones
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Respuesta técnica local inmediata y refaccionamiento garantizado
-                para asegurar la continuidad de tu operación.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                  ></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Tecnología e Integración
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Integramos robótica de pintura (FANUC) y sistemas automáticos de
-                dosificación 2K/3K (Graco, Nordson) de última generación.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Eficiencia Energética
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Sistemas diseñados para reducir al mínimo el desperdicio de
-                pintura y optimizar el consumo de gas en los hornos de curado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- 07. INFORMACIÓN TÉCNICA -->
-    <section
-      class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden"
-      id="datos-tecnicos"
-    >
-      <!-- Logo de fondo (Se debe subir la imagen a esta ruta) -->
-      <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
+    <section class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden" id="datos-tecnicos">
+        <!-- Logo de fondo (Se debe subir la imagen a esta ruta) -->
+        <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
 
-      <div class="container mx-auto relative z-10">
-        <div class="mb-16">
-          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
-            Especificaciones Técnicas
-          </span>
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8"
-          >
-            Fases de un Sistema de Pintura Líquida y Parámetros
-          </h2>
-        </div>
+        <div class="container mx-auto relative z-10">
+            <div class="mb-16">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"> Especificaciones Técnicas </span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8">Fases de un Sistema de Pintura Líquida y Parámetros</h2>
+            </div>
 
-        <!-- Tabs Navigation -->
-        <div
-          class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto"
-          id="tech-tabs-nav"
-        >
-          <button
-            class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-            data-tab="tab-pretratamiento"
-          >
-            <span class="text-3xl font-light not-italic font-sans">01</span>
-            <span>Pretratamiento</span>
-          </button>
-          <button
-            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-            data-tab="tab-cabina"
-          >
-            <span class="text-3xl font-light not-italic font-sans">02</span>
-            <span>Cabinas de Aplicación</span>
-          </button>
-          <button
-            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-            data-tab="tab-curado"
-          >
-            <span class="text-3xl font-light not-italic font-sans">03</span>
-            <span>Curado (Hornos)</span>
-          </button>
-        </div>
+            <!-- Tabs Navigation -->
+            <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto" id="tech-tabs-nav">
+                <button
+                    class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                    data-tab="tab-pretratamiento"
+                >
+                    <span class="text-3xl font-light not-italic font-sans">01</span>
+                    <span>Pretratamiento</span>
+                </button>
+                <button
+                    class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                    data-tab="tab-cabina"
+                >
+                    <span class="text-3xl font-light not-italic font-sans">02</span>
+                    <span>Cabinas de Aplicación</span>
+                </button>
+                <button
+                    class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                    data-tab="tab-curado"
+                >
+                    <span class="text-3xl font-light not-italic font-sans">03</span>
+                    <span>Curado (Hornos)</span>
+                </button>
+            </div>
 
-        <!-- Tabs Content Panels -->
-        <div id="tech-tabs-content" class="relative w-full">
-          <!-- Panel 1: Pretratamiento -->
-          <div
-            id="tab-pretratamiento"
-            class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              <!-- Left Column: Image -->
-              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                <img src="/images/soluciones/pretratamiento.webp" alt="Pretratamiento Industrial" class="w-full h-full object-cover absolute inset-0" />
-                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-              </div>
+            <!-- Tabs Content Panels -->
+            <div id="tech-tabs-content" class="relative w-full">
+                <!-- Panel 1: Pretratamiento -->
+                <div id="tab-pretratamiento" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                        <!-- Left Column: Image -->
+                        <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
+                            <img src="/images/soluciones/pretratamiento.webp" alt="Pretratamiento Industrial" class="w-full h-full object-cover absolute inset-0" />
+                            <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                        </div>
 
-              <!-- Right Column: Content -->
-              <div class="flex flex-col pb-8">
-                <div class="mb-10 text-center lg:text-left">
-                  <h3
-                    class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4"
-                  >
-                    Pretratamiento de Superficies
-                  </h3>
-                  <p class="text-base text-gray-600 font-light leading-relaxed">
-                    El pretratamiento es esencial para garantizar una buena
-                    adherencia, durabilidad y apariencia del acabado final.
-                    Existen dos métodos generales que se implementan según las
-                    condiciones del metal:
-                  </p>
-                </div>
+                        <!-- Right Column: Content -->
+                        <div class="flex flex-col pb-8">
+                            <div class="mb-10 text-center lg:text-left">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Pretratamiento de Superficies</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed">El pretratamiento es esencial para garantizar una buena adherencia, durabilidad y apariencia del acabado final. Existen dos métodos generales que se implementan según las condiciones del metal:</p>
+                            </div>
 
-                <div class="flex flex-col gap-10">
-                  <!-- Quimico -->
-                  <div class="flex flex-col">
-                    <div class="flex items-center gap-3 mb-4">
-                      <div class="text-brand-lime flex items-center justify-center shrink-0">
-                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                      </div>
-                      <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Pretratamiento Químico</h4>
+                            <div class="flex flex-col gap-10">
+                                <!-- Quimico -->
+                                <div class="flex flex-col">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                        <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Pretratamiento Químico</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-gray-600 font-light text-sm pl-10 lg:pl-0">
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Permite aplicar sello antioxidante protector.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Elimina de forma absoluta aceites, lubricantes y grasas.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Gran versatilidad del proceso (aspersión, inmersión).</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Mecanico -->
+                                <div class="flex flex-col">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                                                ></path>
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                            </svg>
+                                        </div>
+                                        <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Pretratamiento Mecánico</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-gray-600 font-light text-sm pl-10 lg:pl-0">
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Permite utilizar diversos materiales abrasivos (granalla, arena).</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Elimina cascarilla de laminación, óxido fuerte, rebaba y recubrimientos viejos.</span>
+                                        </li>
+                                        <li class="flex items-start gap-3">
+                                            <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>Permite alcanzar y controlar el perfil de anclaje (rugosidad) deseado.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="space-y-3 text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Permite aplicar sello antioxidante protector.</span>
-                      </li>
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Elimina de forma absoluta aceites, lubricantes y grasas.</span>
-                      </li>
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Gran versatilidad del proceso (aspersión, inmersión).</span>
-                      </li>
-                    </ul>
-                  </div>
+                </div>
 
-                  <!-- Mecanico -->
-                  <div class="flex flex-col">
-                    <div class="flex items-center gap-3 mb-4">
-                      <div class="text-brand-lime flex items-center justify-center shrink-0">
-                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                      </div>
-                      <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Pretratamiento Mecánico</h4>
+                <!-- Panel 2: Cabina -->
+                <div id="tab-cabina" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                        <!-- Left Column: Image -->
+                        <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
+                            <img src="/images/soluciones/cabina-aplicacion.webp" alt="Cabina de Aplicación Industrial" class="w-full h-full object-cover absolute inset-0" />
+                            <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                        </div>
+
+                        <!-- Right Column: Content -->
+                        <div class="flex flex-col pb-8">
+                            <div class="mb-10 text-center lg:text-left">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Especificaciones de Cabinas</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed">La cabina proporciona un espacio de confinamiento controlado y seguro para la aplicación de pintura, asegurando la calidad del acabado Clase A mediante:</p>
+                            </div>
+
+                            <ul class="space-y-6 text-gray-600 font-light text-base lg:text-lg pl-2 lg:pl-0">
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Ventilación Controlada</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Filtros de Aire</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Iluminación Específica</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Paredes y Pisos Resistentes</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Puertas Herméticas</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Protección Personal</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="space-y-3 text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Permite utilizar diversos materiales abrasivos (granalla, arena).</span>
-                      </li>
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Elimina cascarilla de laminación, óxido fuerte, rebaba y recubrimientos viejos.</span>
-                      </li>
-                      <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Permite alcanzar y controlar el perfil de anclaje (rugosidad) deseado.</span>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
-              </div>
+
+                <!-- Panel 3: Curado -->
+                <div id="tab-curado" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                        <!-- Left Column: Image -->
+                        <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[450px]">
+                            <img src="/images/soluciones/curado-horno.webp" alt="Horno de Curado Industrial" class="w-full h-full object-cover absolute inset-0" />
+                            <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                        </div>
+
+                        <!-- Right Column: Content -->
+                        <div class="flex flex-col pb-8">
+                            <div class="mb-6 text-center lg:text-left">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">Curado de la Capa de Pintura (Horno vs Secado Natural)</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed">
+                                    Es posible secar piezas de pintura líquida al aire libre, pero dependerá de factores climáticos (humedad y temperatura) que añaden variabilidad e incrementan el tiempo de ciclo. El curado con un <strong class="font-semibold text-brand-navy"
+                                        >horno especializado</strong
+                                    > asegura que la capa de pintura alcance rápidamente la polimerización exacta, garantizando las propiedades mecánicas y químicas de resistencia, durabilidad y adherencia certificadas por el fabricante.
+                                </p>
+                            </div>
+
+                            <div class="p-6 bg-brand-lime/10 border-l-4 border-brand-lime text-brand-navy rounded-r-xl space-y-3 shadow-sm mt-4">
+                                <h4 class="font-saira font-bold text-lg uppercase tracking-wider flex items-center gap-2">
+                                    <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    </svg>
+                                    Nota técnica importante
+                                </h4>
+                                <p class="text-sm font-medium leading-relaxed pl-8">Siga estrictamente las recomendaciones del fabricante de la pintura en cuanto a la rampa de temperatura y el tiempo de residencia para un curado impecable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <!-- Panel 2: Cabina -->
-          <div
-            id="tab-cabina"
-            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              <!-- Left Column: Image -->
-              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                <img src="/images/soluciones/cabina-aplicacion.webp" alt="Cabina de Aplicación Industrial" class="w-full h-full object-cover absolute inset-0" />
-                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-              </div>
-
-              <!-- Right Column: Content -->
-              <div class="flex flex-col pb-8">
-                <div class="mb-10 text-center lg:text-left">
-                  <h3
-                    class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4"
-                  >
-                    Especificaciones de Cabinas
-                  </h3>
-                  <p class="text-base text-gray-600 font-light leading-relaxed">
-                    La cabina proporciona un espacio de confinamiento controlado y
-                    seguro para la aplicación de pintura, asegurando la calidad
-                    del acabado Clase A mediante:
-                  </p>
-                </div>
-
-                <ul class="space-y-6 text-gray-600 font-light text-base lg:text-lg pl-2 lg:pl-0">
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Ventilación Controlada</span>
-                  </li>
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Filtros de Aire</span>
-                  </li>
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Iluminación Específica</span>
-                  </li>
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Paredes y Pisos Resistentes</span>
-                  </li>
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Puertas Herméticas</span>
-                  </li>
-                  <li class="flex items-center gap-4">
-                    <svg class="w-7 h-7 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    <span class="font-saira font-semibold text-brand-navy uppercase italic tracking-wide">Protección Personal</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Panel 3: Curado -->
-          <div
-            id="tab-curado"
-            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
-          >
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-              <!-- Left Column: Image -->
-              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[450px]">
-                <img src="/images/soluciones/curado-horno.webp" alt="Horno de Curado Industrial" class="w-full h-full object-cover absolute inset-0" />
-                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-              </div>
-
-              <!-- Right Column: Content -->
-              <div class="flex flex-col pb-8">
-                <div class="mb-6 text-center lg:text-left">
-                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">
-                    Curado de la Capa de Pintura (Horno vs Secado Natural)
-                  </h3>
-                  <p class="text-base text-gray-600 font-light leading-relaxed">
-                    Es posible secar piezas de pintura líquida al aire libre, pero
-                    dependerá de factores climáticos (humedad y temperatura) que
-                    añaden variabilidad e incrementan el tiempo de ciclo. El
-                    curado con un <strong class="font-semibold text-brand-navy">horno especializado</strong> asegura que la capa de
-                    pintura alcance rápidamente la polimerización exacta,
-                    garantizando las propiedades mecánicas y químicas de
-                    resistencia, durabilidad y adherencia certificadas por el
-                    fabricante.
-                  </p>
-                </div>
-
-                <div class="p-6 bg-brand-lime/10 border-l-4 border-brand-lime text-brand-navy rounded-r-xl space-y-3 shadow-sm mt-4">
-                  <h4 class="font-saira font-bold text-lg uppercase tracking-wider flex items-center gap-2">
-                    <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                    </svg>
-                    Nota técnica importante
-                  </h4>
-                  <p class="text-sm font-medium leading-relaxed pl-8">
-                    Siga estrictamente las recomendaciones del fabricante de la
-                    pintura en cuanto a la rampa de temperatura y el tiempo de
-                    residencia para un curado impecable.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- 08. RESULTADOS Y VENTAJAS -->
     <section class="py-16 bg-white px-6 md:px-12" id="ventajas">
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-8 advantages-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Beneficios del Sistema</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Ventajas de la Pintura Líquida
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Análisis comparativo de las ventajas mecánicas y financieras de
-            integrar un sistema de pintura líquida en tu planta.
-          </p>
+        <div class="container mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-8 advantages-header">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Beneficios del Sistema</span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Ventajas de la Pintura Líquida</h2>
+                <p class="text-gray-600 mt-4 font-light">Análisis comparativo de las ventajas mecánicas y financieras de integrar un sistema de pintura líquida en tu planta.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center advantages-grid">
+                <!-- ventaja 1 -->
+                <div class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase">Variedad de Acabados</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed font-light">La pintura líquida está disponible en una amplia gama de colores y acabados, lo que permite una personalización significativa según los requisitos estéticos y funcionales del producto final.</p>
+                </div>
+
+                <!-- ventaja 2 -->
+                <div class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase">Costos de Inversión Inicial</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed font-light">En comparación con algunos métodos de recubrimiento más avanzados, como el recubrimiento en polvo o el recubrimiento de películas delgadas, los sistemas de pintura líquida suelen tener costos iniciales más bajos.</p>
+                </div>
+
+                <!-- ventaja 3 -->
+                <div class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase">Reparación y Retoque</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed font-light">En caso de daños o necesidad de retoques, la pintura líquida permite reparaciones más sencillas y locales en comparación con algunos otros métodos de recubrimiento.</p>
+                </div>
+            </div>
         </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center advantages-grid"
-        >
-          <!-- ventaja 1 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Variedad de Acabados
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              La pintura líquida está disponible en una amplia gama de colores y
-              acabados, lo que permite una personalización significativa según
-              los requisitos estéticos y funcionales del producto final.
-            </p>
-          </div>
-
-          <!-- ventaja 2 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Costos de Inversión Inicial
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              En comparación con algunos métodos de recubrimiento más avanzados,
-              como el recubrimiento en polvo o el recubrimiento de películas
-              delgadas, los sistemas de pintura líquida suelen tener costos
-              iniciales más bajos.
-            </p>
-          </div>
-
-          <!-- ventaja 3 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Reparación y Retoque
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              En caso de daños o necesidad de retoques, la pintura líquida
-              permite reparaciones más sencillas y locales en comparación con
-              algunos otros métodos de recubrimiento.
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- 09. SEGUNDO CTA -->
     <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-      <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
-      <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+        <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+        <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
-      <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
-        <h2
-          class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider"
-        >
-          Envíanos las especificaciones de tus piezas y producción
-        </h2>
-        <p
-          class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto"
-        >
-          Nuestros ingenieros estructurarán la propuesta técnica con los
-          diagramas y capacidades de flujo de aire que optimicen la aplicación
-          de pintura en tu planta.
-        </p>
-        <div class="pt-8">
-          <a
-            href="/contacto?solucion=pintura-liquida"
-            class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"
-          >
-            Solicitar Propuesta Técnica
-          </a>
+        <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">Envíanos las especificaciones de tus piezas y producción</h2>
+            <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">Nuestros ingenieros estructurarán la propuesta técnica con los diagramas y capacidades de flujo de aire que optimicen la aplicación de pintura en tu planta.</p>
+            <div class="pt-8">
+                <a href="/contacto?solucion=pintura-liquida" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Solicitar Propuesta Técnica </a>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- 10. NORMATIVIDAD -->
     <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
-      <div class="container mx-auto max-w-6xl">
-        <div
-          class="flex flex-col lg:flex-row items-center justify-between gap-12"
-        >
-          <div class="lg:w-1/2 space-y-6 norms-text">
-            <div>
-              <span
-                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-                >Cumplimiento Legal y de Seguridad</span
-              >
-              <h2
-                class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight"
-              >
-                Cumplimiento Riguroso de Estándares de Seguridad e Impacto
-                Ambiental
-              </h2>
-              <p class="text-gray-300 font-light leading-relaxed mt-4">
-                El diseño de nuestros sistemas de pintura líquida se realiza de
-                manera personalizada para garantizar el cumplimiento normativo
-                exigido por las aseguradoras globales y las dependencias de
-                medio ambiente y salud ocupacional.
-              </p>
-            </div>
-
-            <p
-              class="text-gray-400 font-light text-xs border-t border-white/10 pt-4"
-            >
-              Contamos con un equipo de ingenieros calificados y Project
-              Managers certificados por **IPMA (International Project Management
-              Association)** para liderar la instalación y puesta en marcha de
-              manera segura y puntual.
-            </p>
-          </div>
-
-          <div class="lg:w-1/2 w-full">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
-              {
-                certificados.map((cert) => (
-                  <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
-                    <div class="h-14 w-full flex items-center justify-center mb-2">
-                      <img
-                        src={cert.logo}
-                        alt={`Certificación ${cert.name}`}
-                        class="max-h-full max-w-full object-contain transition-all duration-300"
-                      />
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2 space-y-6 norms-text">
+                    <div>
+                        <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
+                        <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental</h2>
+                        <p class="text-gray-300 font-light leading-relaxed mt-4">
+                            El diseño de nuestros sistemas de pintura líquida se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.
+                        </p>
                     </div>
-                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
-                      {cert.name}
-                    </span>
-                  </div>
-                ))
-              }
+
+                    <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">
+                        Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual.
+                    </p>
+                </div>
+
+                <div class="lg:w-1/2 w-full">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+                        {
+                            certificados.map((cert) => (
+                                <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                                    <div class="h-14 w-full flex items-center justify-center mb-2">
+                                        <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" onerror={`this.outerHTML='<span class=\\'font-bold text-gray-400\\'>${cert.name}</span>'`} />
+                                    </div>
+                                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- 11. ALIANZAS / PARTNERS -->
     <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-        <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
-          Tecnología respaldada por aliados globales:
-        </span>
-        <div class="swiper marquee-swiper w-full">
-          <div class="swiper-wrapper items-center">
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-            
-            <!-- Duplicate for loop -->
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-          </div>
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+            <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"> Tecnología respaldada por aliados globales: </span>
+            <div class="swiper marquee-swiper w-full overflow-hidden relative">
+                <div class="swiper-wrapper flex items-center gap-16">
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                    </div>
+
+                    <!-- Duplicate for loop -->
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                    </div>
+                    <div class="swiper-slide !w-auto px-8">
+                        <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
     <!-- 12. FAQ (PREGUNTAS FRECUENTES) -->
-    <section
-      class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50"
-      id="faq"
-    >
-      <div class="container mx-auto max-w-4xl">
-        <div class="text-center mb-16 faq-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Preguntas Técnicas</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Preguntas Frecuentes de Pintura Líquida
-          </h2>
+    <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-16 faq-header">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Preguntas Técnicas</span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Preguntas Frecuentes</h2>
+            </div>
+
+            <!-- Exclusive accordion set -->
+            <div class="space-y-4">
+                <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open>
+                    <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                        <span>¿Qué es la pintura líquida y cómo se aplica?</span>
+                        <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                        La pintura líquida es un recubrimiento aplicado en forma de líquido (por aspersión mediante pistolas atomizadoras) que se seca a través de un proceso de evaporación de solventes o mediante un curado térmico controlado en hornos, proporcionando una película protectora,
+                        uniforme y de alta calidad estética sobre las piezas.
+                    </div>
+                </details>
+
+                <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                    <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                        <span>¿Cuáles son las ventajas de la pintura líquida frente a otros recubrimientos?</span>
+                        <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                        Ofrece una inigualable variedad de acabados y brillos (incluyendo metalizados y acabados Clase A), es óptima para aplicar sobre sustratos termosensibles como plástico, madera o fibra de vidrio, posee menores costos de inversión inicial y permite reparaciones y retoques
+                        rápidos y locales de forma muy sencilla.
+                    </div>
+                </details>
+
+                <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                    <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                        <span>¿Qué materiales pueden ser recubiertos con pintura líquida?</span>
+                        <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                        Se puede aplicar en una gran variedad de sustratos como metales (acero, aluminio), plásticos automotrices, madera, fibra de vidrio y materiales compuestos, siempre y cuando se aplique el pretratamiento mecánico o químico adecuado para asegurar la adherencia molecular.
+                    </div>
+                </details>
+
+                <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                    <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                        <span>¿Cuál es el proceso de preparación de la superficie antes de la pintura líquida?</span>
+                        <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                        La superficie debe limpiarse a fondo mediante lavado químico (desengrase y fosfatizado) o de forma mecánica (granallado) para eliminar impurezas, rebabas o cascarillas. Posteriormente, en muchos casos, se requiere aplicar una imprimación (primer) para garantizar un anclaje
+                        molecular óptimo.
+                    </div>
+                </details>
+
+                <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                    <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                        <span>¿Qué tipo de mantenimiento requieren los sistemas de pintura líquida?</span>
+                        <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                        Requieren una limpieza rigurosa regular. Las pistolas atomizadoras, boquillas y mangueras deben lavarse al final de cada turno para evitar acumulaciones. Además, es crítico el reemplazo programado de los filtros de aire en las cabinas para mantener el flujo laminar balanceado
+                        de ventilación y proteger los extractores de la acumulación de sólidos.
+                    </div>
+                </details>
+            </div>
         </div>
-
-        <!-- Exclusive accordion set -->
-        <div class="space-y-4">
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-            open
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span>¿Qué es la pintura líquida y cómo se aplica?</span>
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              La pintura líquida es un recubrimiento aplicado en forma de
-              líquido (por aspersión mediante pistolas atomizadoras) que se seca
-              a través de un proceso de evaporación de solventes o mediante un
-              curado térmico controlado en hornos, proporcionando una película
-              protectora, uniforme y de alta calidad estética sobre las piezas.
-            </div>
-          </details>
-
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Cuáles son las ventajas de la pintura líquida frente a otros
-                recubrimientos?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Ofrece una inigualable variedad de acabados y brillos (incluyendo
-              metalizados y acabados Clase A), es óptima para aplicar sobre
-              sustratos termosensibles como plástico, madera o fibra de vidrio,
-              posee menores costos de inversión inicial y permite reparaciones y
-              retoques rápidos y locales de forma muy sencilla.
-            </div>
-          </details>
-
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Qué materiales pueden ser recubiertos con pintura líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Se puede aplicar en una gran variedad de sustratos como metales
-              (acero, aluminio), plásticos automotrices, madera, fibra de vidrio
-              y materiales compuestos, siempre y cuando se aplique el
-              pretratamiento mecánico o químico adecuado para asegurar la
-              adherencia molecular.
-            </div>
-          </details>
-
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Cuál es el proceso de preparación de la superficie antes de la
-                pintura líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              La superficie debe limpiarse a fondo mediante lavado químico
-              (desengrase y fosfatizado) o de forma mecánica (granallado) para
-              eliminar impurezas, rebabas o cascarillas. Posteriormente, en
-              muchos casos, se requiere aplicar una imprimación (primer) para
-              garantizar un anclaje molecular óptimo.
-            </div>
-          </details>
-
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Qué tipo de mantenimiento requieren los sistemas de pintura
-                líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Requieren una limpieza rigurosa regular. Las pistolas
-              atomizadoras, boquillas y mangueras deben lavarse al final de cada
-              turno para evitar acumulaciones. Además, es crítico el reemplazo
-              programado de los filtros de aire en las cabinas para mantener el
-              flujo laminar balanceado de ventilación y proteger los extractores
-              de la acumulación de sólidos.
-            </div>
-          </details>
-        </div>
-      </div>
     </section>
 
     <!-- 13. GALERÍA DE PROYECTOS -->
     <section class="py-16 bg-white px-6 md:px-12" id="galeria">
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Galería</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Proyectos e Instalaciones Reales
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Ejemplos de cabinas, túneles de pretratamiento y líneas de pintura
-            líquida llave en mano implementadas en plantas del país.
-          </p>
-        </div>
+        <div class="container mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Galería</span>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Proyectos</h2>
+                <p class="text-gray-600 mt-4 font-light">Ejemplos de cabinas, túneles de pretratamiento y líneas de pintura líquida llave en mano implementadas en plantas del país.</p>
+            </div>
 
-        <!-- Grid layout -->
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid"
-        >
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/pintura_liquida_3.webp"
-              alt="Cabina de pintura líquida industrial"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-            <div
-              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              <p
-                class="text-white text-xs font-semibold uppercase tracking-wider"
-              >
-                Cabina Presurizada de Aplicación
-              </p>
+            <!-- Grid layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+                <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                    <img src="/images/soluciones/pintura_liquida_3.webp" alt="Cabina de pintura líquida industrial" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Cabina Presurizada de Aplicación</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                    <img src="/images/soluciones/pintura_liquida_4.webp" alt="Robot de aplicación de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Línea Robótica Integrada</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                    <img src="/images/soluciones/pintura_liquida_5.webp" alt="Horno de curado industrial" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Sistemas de Secado y Curado</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/pintura_liquida_4.webp"
-              alt="Robot de aplicación de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-            <div
-              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              <p
-                class="text-white text-xs font-semibold uppercase tracking-wider"
-              >
-                Línea Robótica Integrada
-              </p>
-            </div>
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/pintura_liquida_5.webp"
-              alt="Horno de curado industrial"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-            <div
-              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-              <p
-                class="text-white text-xs font-semibold uppercase tracking-wider"
-              >
-                Sistemas de Curado y Secado
-              </p>
-            </div>
-          </div>
         </div>
-      </div>
     </section>
+    </main>
+</Layout>
 
+<!-- CDNs y Configuración de Animación Scroll / Lenis -->
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Inicializar Lenis (Smooth Scroll)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        })
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+        requestAnimationFrame(raf)
 
+        // 2. Conectar GSAP con Lenis y animar
+        if (typeof gsap !== 'undefined') {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000)
+            })
+            gsap.ticker.lagSmoothing(0)
 
-  </main>
+            // Actualizar ScrollTrigger con Lenis scroll
+            if (typeof ScrollTrigger !== 'undefined') {
+                lenis.on('scroll', ScrollTrigger.update)
+            }
 
-  <!-- CDNs y Configuración de Animación Scroll / Lenis -->
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1. Inicializar Lenis (Smooth Scroll)
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+            // Animación Hero al cargar
+            gsap.from('.hero-section-text > *', {
+                y: 35,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: 'power3.out',
+            })
 
-      // 2. Conectar GSAP con Lenis y animar
-      if (typeof gsap !== "undefined") {
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
+            // Animaciones al hacer scroll con ScrollTrigger
+            if (typeof ScrollTrigger !== 'undefined') {
+                // Animación Introducción
+                gsap.from('.intro-text > *', {
+                    scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.12,
+                    ease: 'power2.out',
+                })
+                gsap.from('.intro-image', {
+                    scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                    x: 40,
+                    opacity: 0,
+                    duration: 0.9,
+                    ease: 'power2.out',
+                })
 
-        // Actualizar ScrollTrigger con Lenis scroll
-        if (typeof ScrollTrigger !== "undefined") {
-          lenis.on("scroll", ScrollTrigger.update);
+                // Pain points grid
+                gsap.from('.pain-points-grid > div', {
+                    scrollTrigger: { trigger: '.pain-points-grid', start: 'top 85%' },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: 'power2.out',
+                })
+
+                // Ingeniería grid
+                gsap.from('#ingenieria .grid > div', {
+                    scrollTrigger: { trigger: '#ingenieria', start: 'top 80%' },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.15,
+                    ease: 'power2.out',
+                    clearProps: 'all',
+                })
+
+                // Diferenciadores grid
+                gsap.from('.diferenciadores-grid > div', {
+                    scrollTrigger: {
+                        trigger: '.diferenciadores-grid',
+                        start: 'top 85%',
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.15,
+                    ease: 'power2.out',
+                })
+
+                // Especificaciones
+                gsap.from('#datos-tecnicos table, #datos-tecnicos .grid > div', {
+                    scrollTrigger: { trigger: '#datos-tecnicos', start: 'top 80%' },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: 'power2.out',
+                })
+
+                // Ventajas grid
+                gsap.from('.advantages-grid > div', {
+                    scrollTrigger: { trigger: '.advantages-grid', start: 'top 85%' },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.15,
+                    ease: 'power2.out',
+                })
+
+                // Normativas text
+                gsap.from('.norms-text > *', {
+                    scrollTrigger: { trigger: '#normas', start: 'top 80%' },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    stagger: 0.12,
+                    ease: 'power2.out',
+                })
+
+                // Normativas grid items
+                gsap.from('.norms-grid > div', {
+                    scrollTrigger: { trigger: '.norms-grid', start: 'top 85%' },
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,transform',
+                })
+
+                // FAQ list
+                gsap.from('#faq details', {
+                    scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,transform',
+                })
+
+                // Gallery grid
+                gsap.from('.gallery-grid > div', {
+                    scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.12,
+                    ease: 'power2.out',
+                    clearProps: 'opacity,transform',
+                })
+            }
         }
 
-        // Animación Hero al cargar
-        gsap.from(".hero-section-text > *", {
-          y: 35,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-        });
-
-        // Animaciones al hacer scroll con ScrollTrigger
-        if (typeof ScrollTrigger !== "undefined") {
-          // Animación Introducción
-          gsap.from(".intro-text > *", {
-            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power2.out",
-          });
-          gsap.from(".intro-image", {
-            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
-            x: 40,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power2.out",
-          });
-
-          // Pain points grid
-          gsap.from(".pain-points-grid > div", {
-            scrollTrigger: { trigger: ".pain-points-grid", start: "top 85%" },
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
-
-          // Ingeniería grid
-          gsap.from("#ingenieria .grid > div", {
-            scrollTrigger: { trigger: "#ingenieria", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-            clearProps: "all",
-          });
-
-          // Diferenciadores grid
-          gsap.from(".diferenciadores-grid > div", {
-            scrollTrigger: {
-              trigger: ".diferenciadores-grid",
-              start: "top 85%",
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
-
-          // Especificaciones
-          gsap.from("#datos-tecnicos table, #datos-tecnicos .grid > div", {
-            scrollTrigger: { trigger: "#datos-tecnicos", start: "top 80%" },
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
-
-          // Ventajas grid
-          gsap.from(".advantages-grid > div", {
-            scrollTrigger: { trigger: ".advantages-grid", start: "top 85%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
-
-          // Normativas text
-          gsap.from(".norms-text > *", {
-            scrollTrigger: { trigger: "#normas", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power2.out",
-          });
-
-          // Normativas grid items
-          gsap.from(".norms-grid > div", {
-            scrollTrigger: { trigger: ".norms-grid", start: "top 85%" },
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
-
-          // FAQ list
-          gsap.from("#faq details", {
-            scrollTrigger: { trigger: "#faq", start: "top 80%" },
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
-
-          // Gallery grid
-          gsap.from(".gallery-grid > div", {
-            scrollTrigger: { trigger: ".gallery-grid", start: "top 85%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
+        // 3. Inicializar Marquee Swiper
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.marquee-swiper', {
+                loop: true,
+                speed: 3000,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                },
+                slidesPerView: 'auto',
+                spaceBetween: 10,
+                allowTouchMove: false,
+                freeMode: true,
+            })
         }
-      }
 
-      // 3. Inicializar Marquee Swiper
-      if (typeof Swiper !== "undefined") {
-        new Swiper(".marquee-swiper", {
-          loop: true,
-          speed: 3000,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
-          slidesPerView: "auto",
-          spaceBetween: 10,
-          allowTouchMove: false,
-          freeMode: true,
-        });
-      }
+        // 5. Controlador de Tabs Técnicos
+        const tabBtns = document.querySelectorAll('.tech-tab-btn')
+        const tabPanels = document.querySelectorAll('.tech-tab-panel')
 
-      // 5. Controlador de Tabs Técnicos
-      const tabBtns = document.querySelectorAll(".tech-tab-btn");
-      const tabPanels = document.querySelectorAll(".tech-tab-panel");
+        tabBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const targetTabId = btn.getAttribute('data-tab')
 
-      tabBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const targetTabId = btn.getAttribute("data-tab");
+                tabBtns.forEach((b) => {
+                    b.classList.remove('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                    b.classList.add('border-transparent', 'text-gray-400', 'bg-transparent')
+                })
 
-          tabBtns.forEach((b) => {
-            b.classList.remove(
-              "active",
-              "border-brand-lime",
-              "text-brand-lime",
-              "bg-brand-lime/10"
-            );
-            b.classList.add(
-              "border-transparent",
-              "text-gray-400",
-              "bg-transparent"
-            );
-          });
+                btn.classList.add('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                btn.classList.remove('border-transparent', 'text-gray-400', 'bg-transparent')
 
-          btn.classList.add(
-            "active",
-            "border-brand-lime",
-            "text-brand-lime",
-            "bg-brand-lime/10"
-          );
-          btn.classList.remove(
-            "border-transparent",
-            "text-gray-400",
-            "bg-transparent"
-          );
+                tabPanels.forEach((panel) => {
+                    panel.classList.add('hidden', 'opacity-0', 'translate-y-4')
+                    panel.classList.remove('opacity-100', 'translate-y-0')
+                })
 
-          tabPanels.forEach((panel) => {
-            panel.classList.add("hidden", "opacity-0", "translate-y-4");
-            panel.classList.remove("opacity-100", "translate-y-0");
-          });
+                const activePanel = document.getElementById(targetTabId)
+                if (activePanel) {
+                    activePanel.classList.remove('hidden')
+                    setTimeout(() => {
+                        activePanel.classList.remove('opacity-0', 'translate-y-4')
+                        activePanel.classList.add('opacity-100', 'translate-y-0')
+                    }, 20)
+                }
 
-          const activePanel = document.getElementById(targetTabId);
-          if (activePanel) {
-            activePanel.classList.remove("hidden");
-            setTimeout(() => {
-              activePanel.classList.remove("opacity-0", "translate-y-4");
-              activePanel.classList.add("opacity-100", "translate-y-0");
-            }, 20);
-          }
-
-          if (typeof ScrollTrigger !== "undefined") {
-            ScrollTrigger.refresh();
-          }
-        });
-      });
-    });
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh()
+                }
+            })
+        })
+    })
 
     // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
-    window.addEventListener("load", () => {
-      if (typeof ScrollTrigger !== "undefined") {
-        ScrollTrigger.refresh();
-      }
-    });
-  </script>
-</Layout>
+    window.addEventListener('load', () => {
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh()
+        }
+    })
+</script>

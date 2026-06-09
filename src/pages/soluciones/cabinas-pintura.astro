@@ -1,1663 +1,983 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Footer from "../../components/Footer.astro";
-import { getEntry } from "astro:content";
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import { getEntry } from 'astro:content'
 
 // Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry("homepage", "index");
-const homepageData = homepageEntry?.data || {};
+const homepageEntry = await getEntry('homepage', 'index')
+const homepageData = homepageEntry?.data || {}
 const certificados = homepageData.normativas?.certificados || [
-  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
-  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
-  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
-  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
-  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
-];
+    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
+    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
+    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
+    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
+    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
+]
 
 // SEO Metadata
-const seoTitle = "Cabinas de Pintura Industriales | Anaerobia";
-const seoDescription =
-  "Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.";
+const seoTitle = 'Cabinas de Pintura Industriales | Anaerobia'
+const seoDescription = 'Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.'
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-  <main class="bg-industrial-gray min-h-screen text-brand-navy">
-    <!-- 01. HEADER / HERO -->
-    <section
-      class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden"
-    >
-      <!-- Background Image with Overlay -->
-      <div class="absolute inset-0 z-0">
-        <img
-          src="/images/home/soluciones/cards/3/image.webp"
-          alt="Cabinas de Pintura Industrial"
-          class="w-full h-full object-cover opacity-60 scale-105"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"
-        >
-        </div>
-      </div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-4xl hero-section-text">
-          <!-- Breadcrumbs -->
-          <nav
-            class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6"
-          >
-            <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors"
-              >Inicio</a
-            >
-            <span>/</span>
-            <span class="text-gray-400">Soluciones</span>
-            <span>/</span>
-            <span class="text-brand-lime">Cabinas de Pintura</span>
-          </nav>
-
-          <span
-            class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"
-          >
-            INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES
-          </span>
-          <h1
-            class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
-          >
-            Cabinas de Pintura
-          </h1>
-          <p
-            class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed"
-          >
-            Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02. INTRODUCCIÓN -->
-    <section
-      class="py-16 bg-white px-6 md:px-12 relative overflow-hidden"
-      id="introduccion"
-    >
-      <div class="container mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-8 intro-text">
-            <div>
-              <span
-                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-                >Ingeniería y Tecnología</span
-              >
-              <h2
-                class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight"
-              >
-                ¿Por qué es importante una cabina de pintura?
-              </h2>
-              <p
-                class="text-gray-600 leading-relaxed font-light text-base md:text-lg"
-              >
-                La cabina de pintura es fundamental en los procesos industriales de acabado, y su importancia se manifiesta en varios aspectos clave, como la calidad y precisión en el acabado, la seguridad para los operadores y el cumplimiento de normativas ambientales y de seguridad. Al tener un espacio controlado y optimizado para el pintado, se mejora la eficiencia operativa, permitiendo obtener resultados consistentes.
-              </p>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <!-- 01. HEADER / HERO -->
+        <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="/images/soluciones/cabinas-pintura/cabina-pintura-7.webp" alt="Cabinas de Pintura Industrial" class="w-full h-full object-cover opacity-60 scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
-            <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
-            <div
-              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100"
-            >
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    ></path>
-                  </svg>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl hero-section-text">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                        <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                        <span>/</span>
+                        <span class="text-gray-400">Soluciones</span>
+                        <span>/</span>
+                        <span class="text-brand-lime">Cabinas de Pintura</span>
+                    </nav>
+
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES </span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Cabinas de Pintura</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.</p>
                 </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Experiencia
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Nuestro equipo cuenta con la preparación y experiencia
-                  necesaria para afrontar los desafíos de la industria.
-                </p>
-              </div>
-
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Soporte Nacional
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Estamos presentes en los centros industriales del país para
-                  dar acompañamiento cercano y puntual a nuestros clientes.
-                </p>
-              </div>
-
-              <div class="space-y-2">
-                <div
-                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy"
-                >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3
-                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
-                >
-                  Normativa
-                </h3>
-                <p class="text-xs text-gray-500 leading-relaxed">
-                  Nuestros equipos cumplen con normativas internacionales y
-                  nacionales.
-                </p>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <!-- Intro Image -->
-          <div class="relative intro-image group">
-            <div
-              class="relative rounded-lg overflow-hidden shadow-2xl"
-            >
-              <img
-                src="/images/soluciones/pintura_liquida_2.webp"
-                alt="Proceso de Pintura Líquida Automatizada"
-                class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- 02. INTRODUCCIÓN -->
+        <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden" id="introduccion">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 intro-text">
+                        <div>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ingeniería y Tecnología</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">¿Qué es una cabina de pintura?</h2>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
+                                Las cabinas de pintura son instalaciones especializadas que proporcionan un entorno controlado para la aplicación de pintura en objetos o piezas de diversas industrias. Utilizadas en sectores como la automotriz, aeronáutica, metalúrgica, de electrodomésticos y
+                                mobiliario, las cabinas de pintura son esenciales para garantizar acabados de alta calidad.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg mt-4">
+                                Estas cabinas están equipadas con sistemas de filtración, ventilación y, en algunos casos, de calentamiento, que permiten realizar un proceso de pintura eficiente, uniforme y en condiciones seguras tanto para los trabajadores como para el ambiente.
+                            </p>
+                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4">Mejoramos la industria del mundo con ingeniería especializada y alta tecnología.</p>
+                        </div>
 
-    <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
-    <section
-      class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50"
-    >
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Desafíos</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Puntos de Inflexión Comunes en la Línea de Pintura
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Las operaciones de manufactura de alto volumen a menudo enfrentan
-            ineficiencias críticas que elevan el costo por pieza y afectan la
-            calidad estética final.
-          </p>
-        </div>
+                        <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Experiencia</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestro equipo cuenta con la preparación y experiencia necesaria para afrontar los desafíos de la industria.</p>
+                            </div>
 
-                <div class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
-          <!-- Column 1: Image (45%) -->
-          <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-             <img src="/images/soluciones/pintura_liquida_2.webp" alt="Puntos de Inflexión" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-             <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
-          </div>
-          
-          <!-- Column 2: Cards (20%) -->
-          <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
-<!-- Card 1 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Desperdicio de pintura de hasta un 60%</p>
-            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Soporte Nacional</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Estamos presentes en los centros industriales del país para dar acompañamiento cercano y puntual a nuestros clientes.</p>
+                            </div>
 
-            <!-- Card 2 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Sobrecosto térmico e ineficiencia eléctrica</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Tasa de rechazo y retrabajos elevados</p>
-            </div>
-          </div>
-
-          <!-- Column 3: Content (35%) -->
-          <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2">
-            <!-- Item 1 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Baja Eficiencia de Transferencia
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                El exceso de pintura desperdiciada (overspray) no solo eleva los
-                costos operativos de materia prima, sino que satura los filtros
-                rápidamente e incrementa los desechos químicos.
-              </p>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Altos Costos de Energía
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                El curado o secado térmico ineficiente en hornos que no retienen
-                el calor o cabinas con exceso de ventilación desbalanceada
-                dispara el consumo eléctrico y de gas natural.
-              </p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
-                  Defectos de Acabado (Clase A)
-                </h3>
-              </div>
-              <p class="text-base text-gray-600 leading-relaxed font-light">
-                Variación de espesor, ojos de pescado por grasa remanente, y
-                desprendimientos por pretratamientos mal controlados derivan en
-                altos porcentajes de rechazo y retrabajos costosos.
-              </p>
-            </div>
-          </div>          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 04. PRIMER CTA PERSONALIZADO -->
-    <section class="py-16 bg-brand-navy relative overflow-hidden">
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"
-      >
-      </div>
-      <div
-        class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
-      >
-        <div class="text-left">
-          <h2
-            class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase"
-          >
-            ¿Requieres automatizar o diseñar tu línea de pintura líquida?
-          </h2>
-          <p
-            class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl"
-          >
-            Diseñamos un sistema a la medida adaptado a los alcances específicos
-            de tu producción.
-          </p>
-        </div>
-        <a
-          href="/contacto?solucion=pintura-liquida"
-          class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"
-        >
-          Solicitar Cotización
-        </a>
-      </div>
-    </section>
-
-        
-    <!-- 03. BENEFICIOS / IMPORTANCIA -->
-    <section
-      class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50"
-    >
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Beneficios</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            ¿Por qué es importante una cabina de pintura?
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            La cabina de pintura es fundamental en los procesos industriales de acabado, y su importancia se manifiesta en varios aspectos clave.
-          </p>
-        </div>
-
-        <div class="flex flex-col lg:flex-row gap-8 lg:h-[750px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
-          <!-- Column 1: Image (45%) -->
-          <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-             <img src="/images/soluciones/cabinas-pintura/MiConv.com__DSC_2370-scaled.jpg" alt="Importancia de la Cabina de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-             <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-          </div>
-          
-          <!-- Column 2: Cards (20%) -->
-          <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
-            <!-- Card 1 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-4 lg:h-[25%] min-h-[100px]">
-              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Acabados uniformes, duraderos y de alta adherencia</p>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-4 lg:h-[25%] min-h-[100px]">
-              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Extracción controlada de vapores y productos tóxicos</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-4 lg:h-[25%] min-h-[100px]">
-              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Cumplimiento normativo (OSHA, NFPA, EPA)</p>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-4 lg:h-[25%] min-h-[100px]">
-              <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Reducción de procesos por defectos en el acabado</p>
-            </div>
-          </div>
-
-          <!-- Column 3: Content (35%) -->
-          <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-6 shrink-0 lg:pl-2">
-            
-            <!-- Item 1 -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase leading-tight">
-                  Calidad y precisión en el acabado
-                </h3>
-              </div>
-              <p class="text-sm lg:text-base text-gray-600 leading-relaxed font-light">
-                Las cabinas de pintura protegen las superficies de agentes externos, como polvo y partículas, lo que permite obtener acabados uniformes y duraderos. La pintura aplicada en condiciones controladas tiene mejor adherencia, lo que incrementa la resistencia de la capa de pintura a factores ambientales y mecánicos.
-              </p>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase leading-tight">
-                  Seguridad para los operadores
-                </h3>
-              </div>
-              <p class="text-sm lg:text-base text-gray-600 leading-relaxed font-light">
-                Durante el proceso de pintura, los trabajadores pueden exponerse a vapores y productos químicos tóxicos, especialmente si se trabaja con solventes. La cabina permite contener y extraer estos vapores de forma controlada, minimizando el riesgo de intoxicación o daños a la salud.
-              </p>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase leading-tight">
-                  Cumplimiento de normativas ambientales y de seguridad
-                </h3>
-              </div>
-              <p class="text-sm lg:text-base text-gray-600 leading-relaxed font-light">
-                Las cabinas de pintura permiten cumplir con regulaciones industriales de seguridad, como las de la Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA) y Environmental Protection Agency (EPA) en Estados Unidos y de otras normativas internacionales, que exigen condiciones de trabajo seguras y limpias.
-              </p>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-3">
-                <div class="text-brand-lime shrink-0">
-                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </div>
-                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase leading-tight">
-                  Eficiencia en el proceso
-                </h3>
-              </div>
-              <p class="text-sm lg:text-base text-gray-600 leading-relaxed font-light">
-                Al tener un espacio controlado y optimizado para el pintado, se mejora la eficiencia operativa, permitiendo obtener resultados consistentes y minimizando la repetición de procesos por defectos o imperfecciones en el acabado.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 05\. SOLUCIONES DE CABINAS DE PINTURA \(TABS\) -->
-    <section
-      class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden"
-      id="soluciones-tabs"
-    >
-      <div class="container mx-auto">
-        <div class="max-w-5xl mb-10 section-solucion-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Integrador Especializado</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            SOLUCIONES DE CABINAS DE PINTURA
-          </h2>
-          <p class="text-gray-600 font-light mt-4">
-            Existen distintos tipos de cabinas de pintura, y la elección del modelo adecuado dependerá de factores como el tipo de material, el tamaño de la pieza, el tipo de pintura y la cantidad de producción. Las dos categorías generales de las cabinas de pintura son las de pintura líquida y pintura en polvo.
-          </p>
-        </div>
-
-        <!-- Tabs Navigation -->
-        <div
-          class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto"
-          id="cabinas-tabs-nav"
-        >
-          <button
-            class="cabina-tab-btn active flex-1 py-4 px-6 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[200px]"
-            data-tab="tab-liquida"
-          >
-            <span>Cabinas de pintura líquida</span>
-          </button>
-          <button
-            class="cabina-tab-btn flex-1 py-4 px-6 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[200px]"
-            data-tab="tab-polvo"
-          >
-            <span>Cabinas de pintura en polvo</span>
-          </button>
-        </div>
-
-        <!-- Tabs Content Panels -->
-        <div id="cabinas-tabs-content" class="relative w-full">
-          <!-- Panel 1: Líquida -->
-          <div
-            id="tab-liquida"
-            class="cabina-tab-panel transition-all duration-500 opacity-100 transform translate-y-0 block"
-          >
-            <p class="text-gray-600 font-light mb-6">
-              En ANAEROBIA somos expertos en el diseño, fabricación e instalación de cabinas de pintura líquida con un alto nivel de ingeniería especializada y tecnología avanzada. Las cabinas de pintura líquida se pueden distinguir de acuerdo a su tipo de flujo de aire y sistema de filtración:
-            </p>
-            <ul class="list-disc pl-6 text-gray-600 font-light mb-8">
-              <li><strong>Filtro seco:</strong> Utilizan filtros secos para capturar el polvo y las partículas en el aire. Estas cabinas se clasifican de acuerdo al tipo de flujo de aire:</li>
-            </ul>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño Downdraft</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Generalmente aceptadas como las cabinas con el mejor flujo de aire. Proporcionan un excelente manejo del exceso de pintura y de contaminantes. El aire entra a la cabina a través del techo cubierto por filtros plenum. Posteriormente, fluye verticalmente sobre el producto y hasta la fosa de extracción en el suelo.
-                </p>
-              </div>
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño side downdraft</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Este tipo de cabina de pintura combina características de las cabinas crossdraft y downdraft. Es la solución para cuando no es posible instalar una fosa de extracción. El aire entra a la cabina a través del techo de filtros plenum y fluye verticalmente sobre el producto. Cuando el aire llega al piso, es impulsado a nivel del piso hacia filtros plenum de extracción en ambos lados de la cabina.
-                </p>
-              </div>
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño semi-downdraft</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Las cabinas semi-downdraft comparten características con las cabinas crossdraft y downdraft. En este tipo de cabinas, el aire es introducido a través del techo hasta 25-30% de la cabina.
-                </p>
-              </div>
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño Crossdraft</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Las cabinas crossdraft ofrecen un desempeño confiable a un precio asequible. Ya que no es necesario contar con una fosa de extracción, las cabinas crossdraft se pueden integrar fácilmente a sistemas existentes. El aire fluye horizontalmente a través de la cabina, comenzando por el frente y fluyendo sobre el producto o pieza hacia un el área de filtrado en la parte trasera de la cabina.
-                </p>
-              </div>
-            </div>
-
-            <ul class="list-disc pl-6 text-gray-600 font-light">
-              <li>Cabinas de pintura con cortina de agua: Estas cabinas emplean cortinas de agua para capturar partículas de pintura y evitar que se dispersen. Son adecuadas para procesos industriales de alta velocidad y de alto volumen de producción en serie.</li>
-            </ul>
-          </div>
-
-          <!-- Panel 2: Polvo -->
-          <div
-            id="tab-polvo"
-            class="cabina-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
-          >
-            <p class="text-gray-600 font-light mb-8">
-              Las cabinas de pintura en polvo se diseñan para cumplir con altos niveles de eficiencia, permitiendo producir acabados de alta calidad. Las cabinas de pintura en polvo pueden distinguirse principalmente en las siguientes tres categorías:
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Recuperación con cartucho</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Son ideales para aplicaciones de pintura en polvo de pequeño a mediano tamaño. Un sistema de autolimpieza de pulsos limpia continuamente los filtros de cartucho, lo que alarga su vida útil. El polvo no utilizado puede ser recuperado para futuras aplicaciones de pintura en polvo.
-                </p>
-              </div>
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Cambio rápido de color</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Las cabinas de pintura en polvo de cambio rápido de color son sistemas diseñados para facilitar y agilizar el proceso de cambio de color entre lotes de producción, lo que es especialmente útil en aplicaciones de recubrimiento en polvo donde se requieren cambios frecuentes de color para diferentes productos o proyectos. Estas cabinas están diseñadas para minimizar el tiempo y el esfuerzo necesarios para limpiar y reconfigurar el equipo entre los cambios de color, lo que permite una mayor eficiencia y reducción de tiempos de inactividad.
-                </p>
-              </div>
-              <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
-                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Sin recuperación</h3>
-                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
-                  Las cabinas de pintura en polvo sin recuperación son una solución de alto rendimiento para aplicaciones en lotes pequeños. Estas cabinas se pueden encontrar en diseños open face, con sistema de filtración de tres etapas y un ventilador de bajo ruido y de gran capacidad.
-                </p>
-              </div>
-            </div>
-
-            <ul class="list-disc pl-6 text-gray-600 font-light">
-              <li>Cabinas de pintura con cortina de agua: Estas cabinas emplean cortinas de agua para capturar partículas de pintura y evitar que se dispersen. Son adecuadas para procesos industriales de alta velocidad y de alto volumen de producción en serie.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Script for Cabinas Tabs -->
-    <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
-        const tabs = document.querySelectorAll(".cabina-tab-btn");
-        const panels = document.querySelectorAll(".cabina-tab-panel");
-
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", () => {
-            const targetId = tab.getAttribute("data-tab");
-
-            // Update tabs styling
-            tabs.forEach((t) => {
-              t.classList.remove(
-                "active",
-                "border-brand-lime",
-                "bg-brand-lime/10",
-                "text-brand-lime"
-              );
-              t.classList.add(
-                "border-transparent",
-                "bg-transparent",
-                "text-gray-400"
-              );
-            });
-            tab.classList.remove(
-              "border-transparent",
-              "bg-transparent",
-              "text-gray-400"
-            );
-            tab.classList.add(
-              "active",
-              "border-brand-lime",
-              "bg-brand-lime/10",
-              "text-brand-lime"
-            );
-
-            // Update panels
-            panels.forEach((panel) => {
-              panel.classList.remove("opacity-100", "translate-y-0");
-              panel.classList.add("opacity-0", "translate-y-4");
-              
-              setTimeout(() => {
-                panel.classList.add("hidden");
-                panel.classList.remove("block");
-                if (panel.id === targetId) {
-                  panel.classList.remove("hidden");
-                  panel.classList.add("block");
-                  // Trigger reflow
-                  void panel.offsetWidth;
-                  panel.classList.remove("opacity-0", "translate-y-4");
-                  panel.classList.add("opacity-100", "translate-y-0");
-                }
-              }, 300);
-            });
-          });
-        });
-      });
-    </script>
-
-
-    <!-- 06\. DIFERENCIADORES ANAEROBIA -->
-    <section
-      class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden"
-      id="diferenciadores"
-    >
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Ventajas Competitivas</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Diferenciadores de Anaerobia en Pintura Líquida
-          </h2>
-          <p class="text-gray-600 font-light mt-4">
-            Nuestra ingeniería destaca por resolver los desafíos más exigentes
-            en acabados industriales con un enfoque integral.
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 diferenciadores-grid"
-        >
-          <!-- Card 1 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  ></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Ingeniería Llave en Mano
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Diseñamos, fabricamos e instalamos de manera centralizada. Un
-                solo punto de contacto para todo tu proyecto de pintura.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Soporte y Refacciones
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Respuesta técnica local inmediata y refaccionamiento garantizado
-                para asegurar la continuidad de tu operación.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
-                  ></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Tecnología e Integración
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Integramos robótica de pintura (FANUC) y sistemas automáticos de
-                dosificación 2K/3K (Graco, Nordson) de última generación.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div
-            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
-          >
-            <div class="space-y-4">
-              <div class="flex items-center gap-4">
-                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                  <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                </div>
-                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
-                  Eficiencia Energética
-                </h3>
-              </div>
-              <p class="text-sm text-gray-500 leading-relaxed font-light">
-                Sistemas diseñados para reducir al mínimo el desperdicio de
-                pintura y optimizar el consumo de gas en los hornos de curado.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 08\. RESULTADOS Y VENTAJAS -->
-    <section class="py-16 bg-white px-6 md:px-12" id="ventajas">
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-8 advantages-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Beneficios del Sistema</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Ventajas de la Pintura Líquida
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Análisis comparativo de las ventajas mecánicas y financieras de
-            integrar un sistema de pintura líquida en tu planta.
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center advantages-grid"
-        >
-          <!-- ventaja 1 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Variedad de Acabados
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              La pintura líquida está disponible en una amplia gama de colores y
-              acabados, lo que permite una personalización significativa según
-              los requisitos estéticos y funcionales del producto final.
-            </p>
-          </div>
-
-          <!-- ventaja 2 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Costos de Inversión Inicial
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              En comparación con algunos métodos de recubrimiento más avanzados,
-              como el recubrimiento en polvo o el recubrimiento de películas
-              delgadas, los sistemas de pintura líquida suelen tener costos
-              iniciales más bajos.
-            </p>
-          </div>
-
-          <!-- ventaja 3 -->
-          <div
-            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
-          >
-            <div
-              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                ></path>
-              </svg>
-            </div>
-            <h3
-              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
-            >
-              Reparación y Retoque
-            </h3>
-            <p class="text-sm text-gray-500 leading-relaxed font-light">
-              En caso de daños o necesidad de retoques, la pintura líquida
-              permite reparaciones más sencillas y locales en comparación con
-              algunos otros métodos de recubrimiento.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 09. SEGUNDO CTA -->
-    <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-      <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
-      <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
-
-      <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
-        <h2
-          class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider"
-        >
-          Envíanos las especificaciones de tus piezas y producción
-        </h2>
-        <p
-          class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto"
-        >
-          Nuestros ingenieros estructurarán la propuesta técnica con los
-          diagramas y capacidades de flujo de aire que optimicen la aplicación
-          de pintura en tu planta.
-        </p>
-        <div class="pt-8">
-          <a
-            href="/contacto?solucion=pintura-liquida"
-            class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"
-          >
-            Solicitar Propuesta Técnica
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. NORMATIVIDAD -->
-    <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
-      <div class="container mx-auto max-w-6xl">
-        <div
-          class="flex flex-col lg:flex-row items-center justify-between gap-12"
-        >
-          <div class="lg:w-1/2 space-y-6 norms-text">
-            <div>
-              <span
-                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-                >Cumplimiento Legal y de Seguridad</span
-              >
-              <h2
-                class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight"
-              >
-                Cumplimiento Riguroso de Estándares de Seguridad e Impacto
-                Ambiental
-              </h2>
-              <p class="text-gray-300 font-light leading-relaxed mt-4">
-                El diseño de nuestros sistemas de pintura líquida se realiza de
-                manera personalizada para garantizar el cumplimiento normativo
-                exigido por las aseguradoras globales y las dependencias de
-                medio ambiente y salud ocupacional.
-              </p>
-            </div>
-
-            <p
-              class="text-gray-400 font-light text-xs border-t border-white/10 pt-4"
-            >
-              Contamos con un equipo de ingenieros calificados y Project
-              Managers certificados por **IPMA (International Project Management
-              Association)** para liderar la instalación y puesta en marcha de
-              manera segura y puntual.
-            </p>
-          </div>
-
-          <div class="lg:w-1/2 w-full">
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
-              {
-                certificados.map((cert) => (
-                  <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
-                    <div class="h-14 w-full flex items-center justify-center mb-2">
-                      <img
-                        src={cert.logo}
-                        alt={`Certificación ${cert.name}`}
-                        class="max-h-full max-w-full object-contain transition-all duration-300"
-                      />
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Normativa</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestros equipos cumplen con normativas internacionales y nacionales.</p>
+                            </div>
+                        </div>
                     </div>
-                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
-                      {cert.name}
-                    </span>
-                  </div>
-                ))
-              }
+
+                    <!-- Intro Image -->
+                    <div class="relative intro-image group">
+                        <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                            <img src="/images/soluciones/cabinas-pintura/cabina-pintura-1.webp" alt="Instalación de Cabina de Pintura Industrial" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- 11. ALIANZAS / PARTNERS -->
-    <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-        <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
-          Tecnología respaldada por aliados globales:
-        </span>
-        <div class="swiper marquee-swiper w-full">
-          <div class="swiper-wrapper items-center">
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-            
-            <!-- Duplicate for loop -->
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
+        <!-- 03. IMPORTANCIA / NECESIDAD -->
+        <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Importancia</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">¿Por qué es importante una cabina de pintura?</h2>
+                    <p class="text-gray-600 mt-4 font-light">La cabina de pintura es fundamental en los procesos industriales de acabado, y su importancia se manifiesta en varios aspectos clave:</p>
+                </div>
 
-    <!-- 12. FAQ (PREGUNTAS FRECUENTES) -->
-    <section
-      class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50"
-      id="faq"
-    >
-      <div class="container mx-auto max-w-4xl">
-        <div class="text-center mb-16 faq-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Preguntas Técnicas</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Preguntas Frecuentes de Pintura Líquida
-          </h2>
-        </div>
+                <div class="flex flex-col lg:flex-row gap-8 lg:h-[700px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
+                    <!-- Column 1: Image (45%) -->
+                    <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-2.webp" alt="Importancia de la Cabina de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
+                    </div>
 
-        <!-- Exclusive accordion set -->
-        <div class="space-y-4">
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-            open
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span>¿Qué es la pintura líquida y cómo se aplica?</span>
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              La pintura líquida es un recubrimiento aplicado en forma de
-              líquido (por aspersión mediante pistolas atomizadoras) que se seca
-              a través de un proceso de evaporación de solventes o mediante un
-              curado térmico controlado en hornos, proporcionando una película
-              protectora, uniforme y de alta calidad estética sobre las piezas.
+                    <!-- Column 2: Cards (20%) -->
+                    <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
+                        <!-- Card 1 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Calidad y precisión en el acabado</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Seguridad para los operadores</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Cumplimiento de normativas</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Eficiencia en el proceso</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Content (35%) -->
+                    <div class="w-full lg:w-[35%] flex flex-col justify-between space-y-4 shrink-0 lg:pl-2 h-full py-2">
+                        <!-- Item 1 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Calidad y precisión en el acabado</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">Las cabinas de pintura protegen las superficies de agentes externos, como polvo y partículas, lo que permite obtener acabados uniformes y duraderos. La pintura aplicada en condiciones controladas tiene mejor adherencia, lo que incrementa la resistencia de la capa de pintura a factores ambientales y mecánicos.</p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Seguridad para los operadores</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">Durante el proceso de pintura, los trabajadores pueden exponerse a vapores y productos químicos tóxicos, especialmente si se trabaja con solventes. La cabina de pintura permite contener y extraer estos vapores de forma controlada, minimizando el riesgo de intoxicación o daños a la salud de los trabajadores.</p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Cumplimiento de normativas ambientales y de seguridad</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">Las cabinas de pintura permiten cumplir con regulaciones industriales de seguridad, como las de la Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA) y Environmental Protection Agency (EPA) en Estados Unidos y de otras normativas internacionales, que exigen condiciones de trabajo seguras y limpias.</p>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Eficiencia en el proceso</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">Al tener un espacio controlado y optimizado para el pintado, se mejora la eficiencia operativa, permitiendo obtener resultados consistentes y minimizando la repetición de procesos por defectos o imperfecciones en el acabado.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Cuáles son las ventajas de la pintura líquida frente a otros
-                recubrimientos?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Ofrece una inigualable variedad de acabados y brillos (incluyendo
-              metalizados y acabados Clase A), es óptima para aplicar sobre
-              sustratos termosensibles como plástico, madera o fibra de vidrio,
-              posee menores costos de inversión inicial y permite reparaciones y
-              retoques rápidos y locales de forma muy sencilla.
+        <!-- 04. PRIMER CTA PERSONALIZADO -->
+        <section class="py-16 bg-brand-navy relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
+            <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-left">
+                    <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">¿Requieres optimizar tus procesos con cabinas de pintura a la medida?</h2>
+                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl">Diseñamos un sistema a la medida adaptado a los alcances específicos de tu producción.</p>
+                </div>
+                <a href="/contacto?solucion=cabinas-pintura" class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"> Solicitar Cotización </a>
             </div>
-          </details>
+        </section>
 
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Qué materiales pueden ser recubiertos con pintura líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Se puede aplicar en una gran variedad de sustratos como metales
-              (acero, aluminio), plásticos automotrices, madera, fibra de vidrio
-              y materiales compuestos, siempre y cuando se aplique el
-              pretratamiento mecánico o químico adecuado para asegurar la
-              adherencia molecular.
+        <!-- 05. SOLUCIÓN ANAEROBIA (NUESTRA INGENIERÍA) -->
+        <section class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden" id="ingenieria">
+            <div class="container mx-auto">
+                <div class="max-w-5xl mb-10 section-solucion-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Integrador Especializado</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Nuestra Solución en Ingeniería de Cabinas de Pintura</h2>
+                    <p class="text-gray-600 font-light mt-4">Diseñamos y fabricamos cabinas de aplicación a la medida, garantizando la contención eficiente de partículas, flujos de aire controlados y cumplimiento estricto de normativas internacionales.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
+                    <!-- Bento Card 1 (Large Left) -->
+                    <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
+                        <!-- Image background -->
+                        <div class="absolute inset-0 bg-[url('/images/soluciones/cabinas-pintura/cabina-pintura-3.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                        <!-- Overlay azul -->
+                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                        <!-- Decorative background element -->
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+
+                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                            </svg>
+                        </div>
+                        <div class="relative z-10 mt-auto">
+                            <div>
+                                <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">Diseño y Dimensionamiento a la Medida</h3>
+                                <p class="text-lg text-gray-200 font-light leading-relaxed">
+                                    Configuramos las dimensiones de la cabina según la geometría de tus productos y tu volumen de producción. Desde equipos tipo batch para procesos manuales hasta sistemas completamente automatizados integrados a líneas de transporte continuo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column for Bento Cards 2 & 3 -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Bento Card 2 -->
+                        <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+                            <!-- Image background -->
+                            <div class="absolute inset-0 bg-[url('/images/soluciones/cabinas-pintura/cabina-pintura-4.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <!-- Overlay azul -->
+                            <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                            <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Sistemas de Filtración Avanzada</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed">
+                                    Integramos etapas de filtrado en seco o por cortina de agua de alta eficiencia. Capturamos la sobrepulverización (overspray) de forma óptima para mantener un entorno limpio y cumplir con normativas ambientales de emisiones.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Bento Card 3 -->
+                        <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
+                            <!-- Image background -->
+                            <div class="absolute inset-0 bg-[url('/images/soluciones/cabinas-pintura/cabina-pintura-5.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <!-- Overlay azul -->
+                            <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                            <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Distribución de Aire y Flujo Laminado</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed">
+                                    Nuestros plenums de techos filtrantes aseguran una inyección de aire uniforme y constante sobre la zona de aplicación. Eliminamos turbulencias y corrientes cruzadas para asegurar acabados Clase A libres de impurezas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Cuál es el proceso de preparación de la superficie antes de la
-                pintura líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              La superficie debe limpiarse a fondo mediante lavado químico
-              (desengrase y fosfatizado) o de forma mecánica (granallado) para
-              eliminar impurezas, rebabas o cascarillas. Posteriormente, en
-              muchos casos, se requiere aplicar una imprimación (primer) para
-              garantizar un anclaje molecular óptimo.
+        <!-- 06. DIFERENCIADORES ANAEROBIA (BENEFICIOS) -->
+        <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="diferenciadores">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Beneficios</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Beneficios o ventajas de las cabinas de pintura</h2>
+                    <p class="text-gray-600 font-light mt-4">Las cabinas de pintura ofrecen una serie de beneficios que justifican su uso y hacen que sean una solución imprescindible en muchos procesos industriales de acabado.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 diferenciadores-grid">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Mayor control de calidad</h3>
+                            </div>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">
+                                Al proporcionar un entorno libre de polvo y contaminantes, las cabinas de pintura garantizan que la pintura se aplique de manera uniforme y sin imperfecciones, mejorando significativamente la apariencia y durabilidad del acabado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Ahorro de tiempo y material</h3>
+                            </div>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">
+                                La sobrepulverización (overspray) se reduce considerablemente en una cabina bien diseñada, lo que optimiza el uso de pintura y disminuye los costos. Además, los sistemas de secado integrados aceleran los tiempos de proceso.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                                        ></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Protección para el operador</h3>
+                            </div>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">La ventilación adecuada y los filtros retienen los vapores nocivos y las partículas suspendidas, protegiendo la salud de los pintores y reduciendo riesgos de incendios o explosiones.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Cumplimiento de estándares</h3>
+                            </div>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">Las cabinas de pintura de calidad ayudan a cumplir con las normas ambientales locales e internacionales en cuanto a emisiones y seguridad laboral (como NFPA 33, OSHA, etc.).</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v-4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Versatilidad</h3>
+                            </div>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">Pueden adaptarse a diferentes tipos de piezas, desde componentes pequeños hasta estructuras de gran tamaño, y son compatibles con sistemas automáticos o manuales.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <details
-            name="faq"
-            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
-          >
-            <summary
-              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
-            >
-              <span
-                >¿Qué tipo de mantenimiento requieren los sistemas de pintura
-                líquida?</span
-              >
-              <span
-                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
-              ></span>
-            </summary>
-            <div
-              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
-            >
-              Requieren una limpieza rigurosa regular. Las pistolas
-              atomizadoras, boquillas y mangueras deben lavarse al final de cada
-              turno para evitar acumulaciones. Además, es crítico el reemplazo
-              programado de los filtros de aire en las cabinas para mantener el
-              flujo laminar balanceado de ventilación y proteger los extractores
-              de la acumulación de sólidos.
+        <!-- 07. INFORMACIÓN TÉCNICA (SISTEMAS DE CABINAS) -->
+        <section class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden" id="datos-tecnicos">
+            <!-- Logo de fondo -->
+            <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
+
+            <div class="container mx-auto relative z-10">
+                <div class="max-w-5xl mb-10 section-solucion-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Especificaciones Técnicas</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Tipos y Configuraciones de Cabinas de Pintura</h2>
+                    <p class="text-gray-600 font-light mt-4">
+                        Existen distintos tipos de cabinas de pintura, y la elección del modelo adecuado dependerá de factores como el tipo de material, el tamaño de la pieza, el tipo de pintura y la cantidad de producción. Las dos categorías generales de las cabinas de pintura son las de pintura
+                        líquida y pintura en polvo.
+                    </p>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto" id="tech-tabs-nav">
+                    <button
+                        class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                        data-tab="tab-liquida"
+                    >
+                        <span class="text-3xl font-light not-italic font-sans">01</span>
+                        <span>Cabinas de pintura líquida</span>
+                    </button>
+                    <button
+                        class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                        data-tab="tab-polvo"
+                    >
+                        <span class="text-3xl font-light not-italic font-sans">02</span>
+                        <span>Cabinas de pintura en polvo</span>
+                    </button>
+                </div>
+
+                <!-- Tabs Content Panels -->
+                <div id="tech-tabs-content" class="relative w-full">
+                    <!-- Panel 1: Líquida -->
+                    <div id="tab-liquida" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
+                        <p class="text-gray-600 font-light mb-6">
+                            En ANAEROBIA somos expertos en el diseño, fabricación e instalación de cabinas de pintura líquida con un alto nivel de ingeniería especializada y tecnología avanzada. Las cabinas de pintura líquida se pueden distinguir de acuerdo a su tipo de flujo de aire y sistema de
+                            filtración:
+                        </p>
+                        <ul class="list-disc pl-6 text-gray-600 font-light mb-8">
+                            <li>
+                                <strong>Filtro seco:</strong> Utilizan filtros secos para capturar el polvo y las partículas en el aire. Estas cabinas se clasifican de acuerdo al tipo de flujo de aire:
+                            </li>
+                        </ul>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño Downdraft</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Generalmente aceptadas como las cabinas con el mejor flujo de aire. Proporcionan un excelente manejo del exceso de pintura y de contaminantes. El aire entra a la cabina a través del techo cubierto por filtros plenum. Posteriormente, fluye verticalmente sobre el
+                                    producto y hasta la fosa de extracción en el suelo.
+                                </p>
+                            </div>
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño side downdraft</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Este tipo de cabina de pintura combina características de las cabinas crossdraft y downdraft. Es la solución para cuando no es posible instalar una fosa de extracción. El aire entra a la cabina a través del techo de filtros plenum y fluye verticalmente sobre el
+                                    producto. Cuando el aire llega al piso, es impulsado a nivel del piso hacia filtros plenum de extracción en ambos lados de la cabina.
+                                </p>
+                            </div>
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño semi-downdraft</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">Las cabinas semi-downdraft comparten características con las cabinas crossdraft y downdraft. En este tipo de cabinas, el aire es introducido a través del techo hasta 25-30% de la cabina.</p>
+                            </div>
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Diseño Crossdraft</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Las cabinas crossdraft ofrecen un desempeño confiable a un precio asequible. Ya que no es necesario contar con una fosa de extracción, las cabinas crossdraft se pueden integrar fácilmente a sistemas existentes. El aire fluye horizontalmente a través de la cabina,
+                                    comenzando por el frente y fluyendo sobre el producto o pieza hacia un el área de filtrado en la parte trasera de la cabina.
+                                </p>
+                            </div>
+                        </div>
+
+                        <ul class="list-disc pl-6 text-gray-600 font-light">
+                            <li>Cabinas de pintura con cortina de agua: Estas cabinas emplean cortinas de agua para capturar partículas de pintura y evitar que se dispersen. Son adecuadas para procesos industriales de alta velocidad y de alto volumen de producción en serie.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Panel 2: Polvo -->
+                    <div id="tab-polvo" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                        <p class="text-gray-600 font-light mb-8">
+                            Las cabinas de pintura en polvo se diseñan para cumplir con altos niveles de eficiencia, permitiendo producir acabados de alta calidad. Las cabinas de pintura en polvo pueden distinguirse principalmente en las siguientes tres categorías:
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Recuperación con cartucho</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Son ideales para aplicaciones de pintura en polvo de pequeño a mediano tamaño. Un sistema de autolimpieza de pulsos limpia continuamente los filtros de cartucho, lo que alarga su vida útil. El polvo no utilizado puede ser recuperado para futuras aplicaciones de
+                                    pintura en polvo.
+                                </p>
+                            </div>
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Cambio rápido de color</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Las cabinas de pintura en polvo de cambio rápido de color son sistemas diseñados para facilitar y agilizar el proceso de cambio de color entre lotes de producción, lo que es especialmente útil en aplicaciones de recubrimiento en polvo donde se requieren cambios
+                                    frecuentes de color para diferentes productos o proyectos. Estas cabinas están diseñadas para minimizar el tiempo y el esfuerzo necesarios para limpiar y reconfigurar el equipo entre los cambios de color, lo que permite una mayor eficiencia y reducción de tiempos
+                                    de inactividad.
+                                </p>
+                            </div>
+                            <div class="bg-white text-brand-navy p-6 rounded-2xl shadow-lg flex flex-col border border-gray-100">
+                                <h3 class="font-saira font-semibold text-xl text-center mb-4 text-brand-blue uppercase">Sin recuperación</h3>
+                                <p class="text-sm font-light text-center leading-relaxed text-gray-600">
+                                    Las cabinas de pintura en polvo sin recuperación son una solución de alto rendimiento para aplicaciones en lotes pequeños. Estas cabinas se pueden encontrar en diseños open face, con sistema de filtración de tres etapas y un ventilador de bajo ruido y de gran
+                                    capacidad.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    
-    <!-- 10. PREGUNTAS FRECUENTES -->
-    <section class="py-16 bg-gray-50 px-6 md:px-12 border-t border-gray-200/50" id="faq">
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 faq-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >FAQ</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Preguntas Frecuentes
-          </h2>
-        </div>
-        
-        <div class="max-w-4xl mx-auto space-y-4">
-          <!-- Item 1 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Qué es cabinas de pintura?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              Es un espacio diseñado específicamente para aplicar recubrimientos de pintura a una variedad de productos, desde piezas pequeñas hasta vehículos y componentes industriales. Estas cabinas están equipadas con sistemas de filtración y ventilación para controlar las partículas de pintura y proporcionar un entorno de trabajo seguro.
+        <!-- 08. RESULTADOS Y VENTAJAS (CONCLUSIÓN) -->
+        <section class="py-20 bg-industrial-gray px-6 md:px-12" id="conclusion">
+            <div class="container mx-auto max-w-5xl">
+                <div class="bg-gradient-to-br from-brand-navy to-brand-blue/90 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-white/10">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-lime/10 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
+
+                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
+                        <div class="shrink-0 text-brand-lime">
+                            <svg class="w-16 h-16 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                            </svg>
+                        </div>
+                        <div class="space-y-6">
+                            <h3 class="text-brand-lime font-saira font-bold uppercase tracking-widest text-xs">Conclusión Técnica</h3>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200">
+                                Las cabinas de pintura son herramientas esenciales en la industria moderna, ya que optimizan las condiciones para la aplicación de recubrimientos de alta calidad, garantizan la seguridad de los trabajadores y minimizan el impacto ambiental.
+                            </p>
+                            <p class="text-base md:text-lg font-light leading-relaxed text-gray-300 border-t border-white/10 pt-6">
+                                Invertir en una cabina adecuada no solo mejora la eficiencia del proceso de pintado, sino que también asegura el cumplimiento de normativas y proporciona un retorno de inversión a través del ahorro de material y la reducción de retrabajos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <!-- Item 2 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Cuál es la importancia de las cabinas de pintura?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              Son esenciales para lograr acabados de alta calidad y duraderos en productos industriales. Proporcionan un entorno controlado que evita la contaminación de partículas, polvo y contaminantes en la pintura, lo que garantiza resultados consistentes y la adherencia adecuada de la pintura.
+        <!-- 09. SEGUNDO CTA -->
+        <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
+            <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+
+            <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">Envíanos las especificaciones de tus piezas y producción</h2>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">Nuestros ingenieros estructurarán la propuesta técnica con los diagramas y capacidades de flujo de aire que optimicen la aplicación de pintura en tu planta.</p>
+                <div class="pt-8">
+                    <a href="/contacto?solucion=cabinas-pintura" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Solicitar Propuesta Técnica </a>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <!-- Item 3 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Cuáles son los tipos de cabinas más comunes?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              Los tipos más comunes son las cabinas de pintura líquida y las cabinas de pintura en polvo. Además, existen cabinas diseñadas dependiendo del sector industrial. Otro criterio importante en la clasificación de cabinas es el tipo de filtrado.
+        <!-- 10. NORMATIVIDAD -->
+        <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div class="lg:w-1/2 space-y-6 norms-text">
+                        <div>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental</h2>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4">
+                                El diseño de nuestros sistemas de pintura líquida se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.
+                            </p>
+                        </div>
+
+                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">
+                            Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual.
+                        </p>
+                    </div>
+
+                    <div class="lg:w-1/2 w-full">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+                            {
+                                certificados.map((cert) => (
+                                    <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                                        <div class="h-14 w-full flex items-center justify-center mb-2">
+                                            <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
+                                        </div>
+                                        <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <!-- Item 4 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Cómo se mantiene la seguridad en cabinas de pintura?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              En ANAEROBIA diseñamos y fabricamos cabinas de pintura de acuerdo a los lineamientos de nomativas nacionales e internacionales.
+        <!-- 11. ALIANZAS / PARTNERS -->
+        <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"> Tecnología respaldada por aliados globales: </span>
+                <div class="swiper marquee-swiper w-full">
+                    <div class="swiper-wrapper items-center">
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                        </div>
+
+                        <!-- Duplicate for loop -->
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <!-- Item 5 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Cuál es la importancia de la filtración en una cabina?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              La filtración es esencial para capturar partículas de pintura y polvo en suspensión en el aire. Esto evita que estas partículas contaminen la superficie de las piezas recién pintadas y mantiene la calidad de los acabados, así como la salud de los trabajadores y el cuidado del medio ambiente.
+        <!-- 12. PREGUNTAS FRECUENTES -->
+        <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50" id="faq">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-16 faq-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Preguntas Técnicas</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Preguntas Frecuentes</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Item 1 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open>
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Qué es una cabina de pintura?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Es un espacio diseñado específicamente para aplicar recubrimientos de pintura a una variedad de productos, desde piezas pequeñas hasta vehículos y componentes industriales. Estas cabinas están equipadas con sistemas de filtración y ventilación para controlar las
+                            partículas de pintura y proporcionar un entorno de trabajo seguro.
+                        </div>
+                    </details>
+
+                    <!-- Item 2 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cuál es la importancia de las cabinas de pintura?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Son esenciales para lograr acabados de alta calidad y duraderos en productos industriales. Proporcionan un entorno controlado que evita la contaminación de partículas, polvo y contaminantes en la pintura, lo que garantiza resultados consistentes y la adherencia adecuada
+                            de la pintura.
+                        </div>
+                    </details>
+
+                    <!-- Item 3 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cuáles son los tipos de cabinas más comunes?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Los tipos más comunes son las cabinas de pintura líquida y las cabinas de pintura en polvo. Además, existen cabinas diseñadas dependiendo del sector industrial. Otro criterio importante en la clasificación de cabinas es el tipo de filtrado.
+                        </div>
+                    </details>
+
+                    <!-- Item 4 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cómo se mantiene la seguridad en cabinas de pintura?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">En ANAEROBIA diseñamos y fabricamos cabinas de pintura de acuerdo a los lineamientos de normativas nacionales e internacionales.</div>
+                    </details>
+
+                    <!-- Item 5 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cuál es la importancia de la filtración en una cabina?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            La filtración es esencial para capturar partículas de pintura y polvo en suspensión en el aire. Esto evita que estas partículas contaminen la superficie de las piezas recién pintadas y mantiene la calidad de los acabados, así como la salud de los trabajadores y el cuidado
+                            del medio ambiente.
+                        </div>
+                    </details>
+
+                    <!-- Item 6 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Se pueden personalizar las cabinas para aplicaciones específicas?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Sí, muchas se pueden personalizar para adaptarse a aplicaciones específicas. Esto incluye ajustes en el tamaño, el sistema de filtración, la disposición de las luces y la temperatura para satisfacer las necesidades de pintura particulares de una industria o empresa.
+                        </div>
+                    </details>
+
+                    <!-- Item 7 -->
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cuál es la vida útil típica de las cabinas de pintura?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            La vida útil depende del mantenimiento adecuado y del uso. Con un mantenimiento regular, una cabina bien construida puede durar décadas. Sin embargo, es importante seguir las recomendaciones del fabricante y realizar el mantenimiento preventivo para prolongar su vida
+                            útil.
+                        </div>
+                    </details>
+                </div>
             </div>
-          </details>
+        </section>
 
-          <!-- Item 6 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Se pueden personalizar las cabinas para aplicaciones específicas?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              Sí, muchas se pueden personalizar para adaptarse a aplicaciones específicas. Esto incluye ajustes en el tamaño, el sistema de filtración, la disposición de las luces y la temperatura para satisfacer las necesidades de pintura particulares de una industria o empresa.
+        <!-- 13. GALERÍA DE PROYECTOS -->
+        <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Galería</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Proyectos</h2>
+                    <p class="text-gray-600 mt-4 font-light">Ejemplos de cabinas de pintura llave en mano implementadas en plantas del país.</p>
+                </div>
+
+                <!-- Grid layout -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gallery-grid">
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-11.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-12.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-3.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-6.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-5.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-4.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-23.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/cabinas-pintura/cabina-pintura-8.webp" alt="Proyecto de cabina de pintura" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                </div>
             </div>
-          </details>
+        </section>
+    </main>
 
-          <!-- Item 7 -->
-          <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden [&_summary::-webkit-details-marker]:hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-6 font-saira font-semibold italic text-brand-navy text-lg transition-colors hover:bg-gray-50">
-              <span>¿Cuál es la vida útil típica de cabinas de pintura?</span>
-              <span class="transition group-open:rotate-180">
-                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-              </span>
-            </summary>
-            <div class="p-6 pt-0 text-gray-600 font-light text-base leading-relaxed border-t border-gray-50">
-              La vida útil depende del mantenimiento adecuado y del uso. Con un mantenimiento regular, una cabina bien construida puede durar décadas. Sin embargo, es importante seguir las recomendaciones del fabricante y realizar el mantenimiento preventivo para prolongar su vida útil.
-            </div>
-          </details>
+    <!-- CDNs y Configuración de Animación Scroll / Lenis -->
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Inicializar Lenis (Smooth Scroll)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            })
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+            requestAnimationFrame(raf)
 
-        </div>
-      </div>
-    </section>
+            // 2. Conectar GSAP con Lenis y animar
+            if (typeof gsap !== 'undefined') {
+                gsap.ticker.add((time) => {
+                    lenis.raf(time * 1000)
+                })
+                gsap.ticker.lagSmoothing(0)
 
-    <!-- 13. GALERÍA DE PROYECTOS -->
-    <section class="py-16 bg-white px-6 md:px-12" id="galeria">
-      <div class="container mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
-          <span
-            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-            >Galería</span
-          >
-          <h2
-            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
-          >
-            Proyectos e Instalaciones Reales
-          </h2>
-          <p class="text-gray-600 mt-4 font-light">
-            Ejemplos de cabinas de pintura llave en mano implementadas en plantas del país.
-          </p>
-        </div>
+                // Actualizar ScrollTrigger con Lenis scroll
+                if (typeof ScrollTrigger !== 'undefined') {
+                    lenis.on('scroll', ScrollTrigger.update)
+                }
 
-        <!-- Grid layout -->
-        <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gallery-grid"
-        >
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/DSC_5416-1-scaled (1).jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/DSC_5416-1-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/DSC_6954-min-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/IMG_20200621_170639-1-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/MiConv.com__DSC_2370-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/MiConv.com___56A9405-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/MiConv.com___56A9493-scaled.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
-          >
-            <img
-              src="/images/soluciones/cabinas-pintura/cabinas-de-pintura.jpg"
-              alt="Proyecto de cabina de pintura"
-              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+                // Animación Hero al cargar
+                gsap.from('.hero-section-text > *', {
+                    y: 35,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                })
 
+                // Animaciones al hacer scroll con ScrollTrigger
+                if (typeof ScrollTrigger !== 'undefined') {
+                    // Animación Introducción
+                    gsap.from('.intro-text > *', {
+                        scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                    })
+                    gsap.from('.intro-image', {
+                        scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                        x: 40,
+                        opacity: 0,
+                        duration: 0.9,
+                        ease: 'power2.out',
+                    })
 
+                    // Pain points grid
+                    gsap.from('.pain-points-grid > div', {
+                        scrollTrigger: { trigger: '.pain-points-grid', start: 'top 85%' },
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
 
-  </main>
+                    // Ingeniería grid
+                    gsap.from('#ingenieria .grid > div', {
+                        scrollTrigger: { trigger: '#ingenieria', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                        clearProps: 'all',
+                    })
 
-  <!-- CDNs y Configuración de Animación Scroll / Lenis -->
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      // 1. Inicializar Lenis (Smooth Scroll)
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
+                    // Diferenciadores grid
+                    gsap.from('.diferenciadores-grid > div', {
+                        scrollTrigger: {
+                            trigger: '.diferenciadores-grid',
+                            start: 'top 85%',
+                        },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
 
-      // 2. Conectar GSAP con Lenis y animar
-      if (typeof gsap !== "undefined") {
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
+                    // Especificaciones
+                    gsap.from('#datos-tecnicos table, #datos-tecnicos .grid > div', {
+                        scrollTrigger: { trigger: '#datos-tecnicos', start: 'top 80%' },
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
 
-        // Actualizar ScrollTrigger con Lenis scroll
-        if (typeof ScrollTrigger !== "undefined") {
-          lenis.on("scroll", ScrollTrigger.update);
-        }
+                    // Conclusión
+                    gsap.from('#conclusion > div', {
+                        scrollTrigger: { trigger: '#conclusion', start: 'top 85%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                    })
 
-        // Animación Hero al cargar
-        gsap.from(".hero-section-text > *", {
-          y: 35,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-        });
+                    // Normativas text
+                    gsap.from('.norms-text > *', {
+                        scrollTrigger: { trigger: '#normas', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                    })
 
-        // Animaciones al hacer scroll con ScrollTrigger
-        if (typeof ScrollTrigger !== "undefined") {
-          // Animación Introducción
-          gsap.from(".intro-text > *", {
-            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power2.out",
-          });
-          gsap.from(".intro-image", {
-            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
-            x: 40,
-            opacity: 0,
-            duration: 0.9,
-            ease: "power2.out",
-          });
+                    // Normativas grid items
+                    gsap.from('.norms-grid > div', {
+                        scrollTrigger: { trigger: '.norms-grid', start: 'top 85%' },
+                        y: 20,
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
 
-          // Pain points grid
-          gsap.from(".pain-points-grid > div", {
-            scrollTrigger: { trigger: ".pain-points-grid", start: "top 85%" },
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
+                    // FAQ list
+                    gsap.from('#faq details', {
+                        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+                        y: 20,
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
 
-          // Ingeniería grid
-          gsap.from("#ingenieria .grid > div", {
-            scrollTrigger: { trigger: "#ingenieria", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-            clearProps: "all",
-          });
+                    // Gallery grid
+                    gsap.from('.gallery-grid > div', {
+                        scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
+                }
+            }
 
-          // Diferenciadores grid
-          gsap.from(".diferenciadores-grid > div", {
-            scrollTrigger: {
-              trigger: ".diferenciadores-grid",
-              start: "top 85%",
-            },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
+            // 3. Inicializar Marquee Swiper
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.marquee-swiper', {
+                    loop: true,
+                    speed: 3000,
+                    autoplay: {
+                        delay: 0,
+                        disableOnInteraction: false,
+                    },
+                    slidesPerView: 'auto',
+                    spaceBetween: 10,
+                    allowTouchMove: false,
+                    freeMode: true,
+                })
+            }
 
-          // Especificaciones
-          gsap.from("#datos-tecnicos table, #datos-tecnicos .grid > div", {
-            scrollTrigger: { trigger: "#datos-tecnicos", start: "top 80%" },
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
+            // 5. Controlador de Tabs Técnicos
+            const tabBtns = document.querySelectorAll('.tech-tab-btn')
+            const tabPanels = document.querySelectorAll('.tech-tab-panel')
 
-          // Ventajas grid
-          gsap.from(".advantages-grid > div", {
-            scrollTrigger: { trigger: ".advantages-grid", start: "top 85%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.15,
-            ease: "power2.out",
-          });
+            tabBtns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const targetTabId = btn.getAttribute('data-tab')
 
-          // Normativas text
-          gsap.from(".norms-text > *", {
-            scrollTrigger: { trigger: "#normas", start: "top 80%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: "power2.out",
-          });
+                    tabBtns.forEach((b) => {
+                        b.classList.remove('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                        b.classList.add('border-transparent', 'text-gray-400', 'bg-transparent')
+                    })
 
-          // Normativas grid items
-          gsap.from(".norms-grid > div", {
-            scrollTrigger: { trigger: ".norms-grid", start: "top 85%" },
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
+                    btn.classList.add('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                    btn.classList.remove('border-transparent', 'text-gray-400', 'bg-transparent')
 
-          // FAQ list
-          gsap.from("#faq details", {
-            scrollTrigger: { trigger: "#faq", start: "top 80%" },
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
+                    tabPanels.forEach((panel) => {
+                        panel.classList.add('hidden', 'opacity-0', 'translate-y-4')
+                        panel.classList.remove('opacity-100', 'translate-y-0')
+                    })
 
-          // Gallery grid
-          gsap.from(".gallery-grid > div", {
-            scrollTrigger: { trigger: ".gallery-grid", start: "top 85%" },
-            y: 30,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power2.out",
-            clearProps: "opacity,transform",
-          });
-        }
-      }
+                    const activePanel = document.getElementById(targetTabId)
+                    if (activePanel) {
+                        activePanel.classList.remove('hidden')
+                        setTimeout(() => {
+                            activePanel.classList.remove('opacity-0', 'translate-y-4')
+                            activePanel.classList.add('opacity-100', 'translate-y-0')
+                        }, 20)
+                    }
 
-      // 3. Inicializar Marquee Swiper
-      if (typeof Swiper !== "undefined") {
-        new Swiper(".marquee-swiper", {
-          loop: true,
-          speed: 3000,
-          autoplay: {
-            delay: 0,
-            disableOnInteraction: false,
-          },
-          slidesPerView: "auto",
-          spaceBetween: 10,
-          allowTouchMove: false,
-          freeMode: true,
-        });
-      }
+                    if (typeof ScrollTrigger !== 'undefined') {
+                        ScrollTrigger.refresh()
+                    }
+                })
+            })
+        })
 
-      // 5. Controlador de Tabs Técnicos
-      const tabBtns = document.querySelectorAll(".tech-tab-btn");
-      const tabPanels = document.querySelectorAll(".tech-tab-panel");
-
-      tabBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const targetTabId = btn.getAttribute("data-tab");
-
-          tabBtns.forEach((b) => {
-            b.classList.remove(
-              "active",
-              "border-brand-lime",
-              "text-brand-lime",
-              "bg-brand-lime/10"
-            );
-            b.classList.add(
-              "border-transparent",
-              "text-gray-400",
-              "bg-transparent"
-            );
-          });
-
-          btn.classList.add(
-            "active",
-            "border-brand-lime",
-            "text-brand-lime",
-            "bg-brand-lime/10"
-          );
-          btn.classList.remove(
-            "border-transparent",
-            "text-gray-400",
-            "bg-transparent"
-          );
-
-          tabPanels.forEach((panel) => {
-            panel.classList.add("hidden", "opacity-0", "translate-y-4");
-            panel.classList.remove("opacity-100", "translate-y-0");
-          });
-
-          const activePanel = document.getElementById(targetTabId);
-          if (activePanel) {
-            activePanel.classList.remove("hidden");
-            setTimeout(() => {
-              activePanel.classList.remove("opacity-0", "translate-y-4");
-              activePanel.classList.add("opacity-100", "translate-y-0");
-            }, 20);
-          }
-
-          if (typeof ScrollTrigger !== "undefined") {
-            ScrollTrigger.refresh();
-          }
-        });
-      });
-    });
-
-    // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
-    window.addEventListener("load", () => {
-      if (typeof ScrollTrigger !== "undefined") {
-        ScrollTrigger.refresh();
-      }
-    });
-  </script>
+        // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
+        window.addEventListener('load', () => {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh()
+            }
+        })
+    </script>
 </Layout>

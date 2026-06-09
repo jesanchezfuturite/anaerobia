@@ -24,36 +24,34 @@
         "description": "Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficies complejas.",
         "image": "/images/home/soluciones/cards/1/image.jpg"
       },
-
       {
         "title": "Pretratamiento / granallado",
         "description": "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento; el pretratamiento químico y el pretratamiento mecánico, también conocido como granallado.",
-        "image": "/images/home/soluciones/cards/5/image.webp"
+        "image": "/images/home/soluciones/cards/2/image.webp"
       },
       {
         "title": "Horno de Secado",
         "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
-        "image": "/images/home/soluciones/cards/6/image.webp"
+        "image": "/images/home/soluciones/cards/3/image.webp"
       },
       {
         "title": "Transportadores / conveyors",
         "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente.",
-        "image": "/images/home/soluciones/cards/7/image.webp"
+        "image": "/images/home/soluciones/cards/4/image.webp"
       },
       {
         "title": "Filtros",
         "description": "Mejora la calidad del aire dentro de áreas de aplicación de recubrimientos para optimizar los procesos de producción, cumplir con normativas y garantizar la seguridad del personal operativo.",
-        "image": "/images/home/soluciones/cards/8/image.jpeg"
+        "image": "/images/home/soluciones/cards/5/image.jpeg"
       },
       {
         "title": "Robot de Manipulación y Pintura",
         "description": "Automatización avanzada para la aplicación precisa y eficiente de recubrimientos mediante robots de alta tecnología.",
-        "image": "/images/home/soluciones/cards/2/image.webp"
+        "image": "/images/home/soluciones/cards/6/image.webp"
       },
       {
         "title": "Horno de Curado",
-        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
-        "image": "/images/home/soluciones/cards/6/image.jpeg"
+        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico."
       }
     ]
   },
@@ -158,13 +156,13 @@
       },
       {
         "name": "ATEX",
-        "logo": "/images/soluciones/ATEXLogo.webp"
+        "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
       }
     ]
   },
   "mapa": {
     "sectionTitle": "Sistema de Acabados",
-    "mapImage": "/images/home/mapa/proceso_line.webp"
+    "mapImage": "/images/home/mapa/mapImage.webp"
   },
   "contacto": {
     "heading": "¿Listo para mejorar tu proceso de acabados superficiales?",
