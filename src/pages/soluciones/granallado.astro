@@ -1,0 +1,1505 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import { getEntry } from "astro:content";
+
+// Obtener datos de la página de inicio para reutilizar logos de normativas
+const homepageEntry = await getEntry("homepage", "index");
+const homepageData = homepageEntry?.data || {};
+const certificados = homepageData.normativas?.certificados || [
+  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
+  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
+  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
+  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
+  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
+];
+
+// SEO Metadata
+const seoTitle = "Sistemas de Granallado | Anaerobia";
+const seoDescription =
+  "Optimiza tus procesos con nuestros sistemas de granallado. Alta eficiencia en limpieza y preparación de superficies. Soluciones llave en mano.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <main class="bg-industrial-gray min-h-screen text-brand-navy">
+    <!-- 01. HEADER / HERO -->
+    <section
+      class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/images/home/soluciones/cards/5/image.webp"
+          alt="Sistema de Granallado Industrial"
+          class="w-full h-full object-cover opacity-60 scale-105"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"
+        >
+        </div>
+      </div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl hero-section-text">
+          <!-- Breadcrumbs -->
+          <nav
+            class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6"
+          >
+            <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors"
+              >Inicio</a
+            >
+            <span>/</span>
+            <span class="text-gray-400">Soluciones</span>
+            <span>/</span>
+            <span class="text-brand-lime">Granallado</span>
+          </nav>
+
+          <span
+            class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"
+          >
+            SISTEMAS DE PREPARACIÓN DE SUPERFICIES
+          </span>
+          <h1
+            class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6"
+          >
+            PRETRATAMIENTO / GRANALLADO
+          </h1>
+          <p
+            class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed"
+          >
+            Prepara tus piezas para la aplicación de pintura mediante el pretratamiento mecánico, también conocido como granallado. Soluciones integrales para optimizar tus procesos y aumentar la calidad del acabado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. INTRODUCCIÓN -->
+    <section
+      class="py-16 bg-white px-6 md:px-12 relative overflow-hidden"
+      id="introduccion"
+    >
+      <div class="container mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 intro-text">
+            <div>
+              <span
+                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+                >Ingeniería y Tecnología</span
+              >
+              <h2
+                class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight"
+              >
+                Mejoramos la industria del mundo con ingeniería especializada y
+                alta tecnología
+              </h2>
+              <p
+                class="text-gray-600 leading-relaxed font-light text-base md:text-lg"
+              >
+                Un sistema de granallado es un conjunto de equipos y procesos de tratamiento de superficies en el cual, mediante herramientas y tecnologías especializadas, se dispara una corriente de partículas abrasivas (granalla) a alta velocidad sobre una superficie. Este proceso permite eliminar óxidos, pinturas, suciedad, y otros materiales no deseados, dejando la superficie limpia, rugosa y lista para tratamientos posteriores como pintura y otros revestimientos. Estos sistemas pueden utilizar diferentes tipos de granalla (metálicas, de vidrio, cerámicas, etc.), según las necesidades del material y el acabado deseado.
+              </p>
+            </div>
+
+            <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100"
+            >
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Experiencia
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestro equipo cuenta con la preparación y experiencia
+                  necesaria para afrontar los desafíos de la industria.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Soporte Nacional
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Estamos presentes en los centros industriales del país para
+                  dar acompañamiento cercano y puntual a nuestros clientes.
+                </p>
+              </div>
+
+              <div class="space-y-2">
+                <div
+                  class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <h3
+                  class="font-saira font-semibold italic text-brand-navy text-base uppercase"
+                >
+                  Normativa
+                </h3>
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  Nuestros equipos cumplen con normativas internacionales y
+                  nacionales.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Intro Image -->
+          <div class="relative intro-image group">
+            <div
+              class="relative rounded-lg overflow-hidden shadow-2xl"
+            >
+              <img
+                src="/images/soluciones/granallado/anaerobia-granallado-img-08.jpg"
+                alt="Proceso de Granallado"
+                class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. PROBLEMA / NECESIDAD (PAIN POINTS) -->
+    <section
+      class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50"
+    >
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Desafíos</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Desafíos en la Preparación de Superficies
+          </h2>
+          <p class="text-gray-600 mt-4 font-light">
+            La correcta preparación de la superficie es crucial; de lo contrario, se presentan fallas prematuras en el recubrimiento que elevan los costos de retrabajo.
+          </p>
+        </div>
+
+                <div class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
+          <!-- Column 1: Image (45%) -->
+          <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
+             <img src="/images/soluciones/granallado/anaerobia-granallado-img-10.jpg" alt="Desafíos en Granallado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+             <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
+          </div>
+          
+          <!-- Column 2: Cards (20%) -->
+          <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
+<!-- Card 1 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
+              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Desprendimiento prematuro del recubrimiento</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]">
+              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Corrosión bajo la pintura por limpieza deficiente</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
+              <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Perfil de anclaje inadecuado para la especificación</p>
+            </div>
+          </div>
+
+          <!-- Column 3: Content (35%) -->
+          <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2">
+            <!-- Item 1 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
+                  Contaminación Residual
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                La presencia de aceites, óxido o cascarilla de laminación impide la correcta adherencia de la pintura, causando fallas catastróficas a corto plazo.
+              </p>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
+                  Falta de Rugosidad
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                Una superficie demasiado lisa no permite el anclaje mecánico del recubrimiento, resultando en desprendimientos ante impactos o flexión.
+              </p>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="text-brand-lime shrink-0">
+                  <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"></path>
+                  </svg>
+                </div>
+                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">
+                  Consumo Excesivo de Abrasivo
+                </h3>
+              </div>
+              <p class="text-base text-gray-600 leading-relaxed font-light">
+                El uso de equipos ineficientes o sin recuperación provoca un gasto excesivo en granalla y altos costos operativos, además de problemas de limpieza.
+              </p>
+            </div>
+          </div>          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04. PRIMER CTA PERSONALIZADO -->
+    <section class="py-16 bg-brand-navy relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"
+      >
+      </div>
+      <div
+        class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8"
+      >
+        <div class="text-left">
+          <h2
+            class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase"
+          >
+            ¿Requieres automatizar o diseñar tu línea de pintura líquida?
+          </h2>
+          <p
+            class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl"
+          >
+            Diseñamos un sistema a la medida adaptado a los alcances específicos
+            de tu producción.
+          </p>
+        </div>
+        <a
+          href="/contacto?solucion=pintura-liquida"
+          class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"
+        >
+          Solicitar Cotización
+        </a>
+      </div>
+    </section>
+
+    <!-- 05. SOLUCIÓN ANAEROBIA (NUESTRA INGENIERÍA) -->
+    <section
+      class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden"
+      id="ingenieria"
+    >
+      <div class="container mx-auto">
+        <div class="max-w-5xl mb-10 section-solucion-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Integrador Especializado</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Nuestra Solución en Sistemas de Granallado
+          </h2>
+          <p class="text-gray-600 font-light mt-4">
+            Diseñamos y fabricamos sistemas de granallado "llave en mano" adaptados a
+            los requisitos físicos de tu planta y las especificaciones de preparación de tus piezas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
+  
+  <!-- Bento Card 1 (Large Left) -->
+  <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
+    <!-- Image background -->
+    <div class="absolute inset-0 bg-[url('/images/soluciones/granallado/anaerobia-granallado-img-06.jpg')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+    <!-- Overlay azul -->
+    <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+    
+    <!-- Decorative background element -->
+    <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+    
+    <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+
+      <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    </div>
+    <div class="relative z-10 mt-auto">
+    <div>
+      <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">
+        Granallado a Presión
+      </h3>
+      <p class="text-lg text-gray-200 font-light leading-relaxed">
+        Equipos diseñados para aplicaciones manuales en cabinas cerradas, ideales para piezas de geometrías complejas o producción en lotes pequeños donde se requiere control detallado por parte del operador.
+      </p>
+    </div>
+    </div>
+  </div>
+
+  <!-- Right Column for Bento Cards 2 & 3 -->
+  <div class="flex flex-col gap-6 h-full">
+    
+    <!-- Bento Card 2 -->
+    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+      <!-- Image background -->
+      <div class="absolute inset-0 bg-[url('/images/soluciones/granallado/anaerobia-granallado-img-07.jpg')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+      <!-- Overlay azul -->
+      <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+      
+      <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.365 5.25 5.25 0 0 0-9.88-2.32 4.5 4.5 0 0 0-7.202 5.185Z" />
+        </svg>
+      </div>
+      <div class="relative z-10">
+      <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
+        Máquinas Automáticas
+      </h3>
+      <p class="text-base text-gray-200 font-light leading-relaxed">
+        Sistemas de turbinas para altos volúmenes de producción, donde las piezas pasan continuamente a través de la máquina mediante transportadores, logrando una limpieza uniforme y eficiente sin intervención manual constante.
+      </p>
+      </div>
+    </div>
+
+    <!-- Bento Card 3 -->
+    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
+      <!-- Image background -->
+      <div class="absolute inset-0 bg-[url('/images/soluciones/granallado/anaerobia-granallado-img-08.jpg')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+      <!-- Overlay azul -->
+      <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+      
+      <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+        </svg>
+      </div>
+      <div class="relative z-10">
+      <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">
+        Equipos Portátiles
+      </h3>
+      <p class="text-base text-gray-200 font-light leading-relaxed">
+        Soluciones móviles para granallado in-situ y estructuras de gran tamaño, permitiendo la preparación de superficies en campo o astilleros con alta eficiencia de recuperación del abrasivo.
+      </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </section>
+
+    <!-- 06. DIFERENCIADORES ANAEROBIA -->
+    <section
+      class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden"
+      id="diferenciadores"
+    >
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Ventajas Competitivas</span
+          >
+                    <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Diferenciadores de Anaerobia en Granallado
+          </h2>
+          <p class="text-gray-600 font-light mt-4">
+            Nuestra tecnología en sistemas de granallado destaca por resolver los desafíos más exigentes en preparación de superficies, garantizando resultados óptimos con un enfoque sustentable e integral.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 diferenciadores-grid"
+        >
+          <!-- Card 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                  <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                </div>
+                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                  Eficiencia en la limpieza
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Permiten una limpieza profunda de la superficie en un tiempo reducido.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                  <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"></path>
+                </svg>
+                </div>
+                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                  Calidad en el acabado
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Permite a una mejor adherencia por el anclaje mecánico que produce al limpiar la superficie.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                  <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.514m-3.182 5.514l-5.511-3.181"></path>
+                </svg>
+                </div>
+                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                  Reducción de costos de mantenimiento
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Al eliminar óxido y suciedad, se previenen problemas de corrosión y deterioro, reduciendo la necesidad de reparaciones.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                  <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"></path>
+                </svg>
+                </div>
+                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                  Versatilidad de aplicaciones
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                Es adecuado para múltiples industrias y se adapta a diferentes tipos de materiales y acabados deseados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between md:col-span-2 lg:col-span-1 lg:col-start-2"
+          >
+            <div class="space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="text-brand-lime flex items-center justify-center shrink-0">
+                  <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
+                </svg>
+                </div>
+                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">
+                  Impacto ambiental reducido
+                </h3>
+              </div>
+              <p class="text-sm text-gray-500 leading-relaxed font-light">
+                La granalla es reciclable, lo cual disminuye la generación de residuos y es más amigable con el medio ambiente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 07. FASES DEL PROCESO -->
+    <section
+      class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden"
+      id="datos-tecnicos"
+    >
+      <!-- Logo de fondo -->
+      <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
+
+      <div class="container mx-auto relative z-10">
+        <div class="mb-16">
+          <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+            Especificaciones Técnicas
+          </span>
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8"
+          >
+            Fases del Proceso de Granallado
+          </h2>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div
+          class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto"
+          id="tech-tabs-nav"
+        >
+          <button
+            class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase1"
+          >
+            <span class="text-3xl font-light not-italic font-sans">01</span>
+            <span>Preparación</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase2"
+          >
+            <span class="text-3xl font-light not-italic font-sans">02</span>
+            <span>Selección</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase3"
+          >
+            <span class="text-3xl font-light not-italic font-sans">03</span>
+            <span>Ajuste</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase4"
+          >
+            <span class="text-3xl font-light not-italic font-sans">04</span>
+            <span>Proceso</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase5"
+          >
+            <span class="text-3xl font-light not-italic font-sans">05</span>
+            <span>Inspección</span>
+          </button>
+          <button
+            class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]"
+            data-tab="tab-phase6"
+          >
+            <span class="text-3xl font-light not-italic font-sans">06</span>
+            <span>Recuperación</span>
+          </button>
+        </div>
+
+        <!-- Tabs Content Panels -->
+        <div id="tech-tabs-content" class="relative w-full">
+          <!-- Panel 1 -->
+          <div
+            id="tab-phase1"
+            class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_1.webp" alt="Preparación de la superficie" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Preparación de la superficie
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    Se evalúa la condición de la superficie y el tipo de limpieza necesaria, considerando factores como óxido, pintura o contaminantes adheridos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2 -->
+          <div
+            id="tab-phase2"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_2.webp" alt="Selección de la granalla" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Selección de la granalla
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    Se elige el tipo de granalla adecuado (acero, vidrio, cerámica, etc.) según el acabado requerido y la dureza de la superficie.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3 -->
+          <div
+            id="tab-phase3"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_3.webp" alt="Ajuste del equipo" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Ajuste del equipo
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    Se configuran los parámetros de la máquina de granallado, como la presión y el ángulo de proyección de la granalla, para garantizar un tratamiento eficaz.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4 -->
+          <div
+            id="tab-phase4"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_4.webp" alt="Proceso de granallado" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Proceso de granallado
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    La máquina proyecta la granalla a alta velocidad sobre la superficie, logrando el acabado deseado.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 5 -->
+          <div
+            id="tab-phase5"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_5.webp" alt="Inspección post-granallado" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Inspección post-granallado
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    Se revisa la superficie para verificar que se haya logrado el nivel de limpieza y rugosidad requeridos, sin dañar el material base.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 6 -->
+          <div
+            id="tab-phase6"
+            class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+              <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
+                <img src="/images/soluciones/granallado/granallado_phase_6.webp" alt="Recuperación de granalla" class="w-full h-full object-cover absolute inset-0" />
+                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+              </div>
+              <div class="flex flex-col pb-8">
+                <div class="mb-10 text-center lg:text-left">
+                  <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">
+                    Recuperación de granalla
+                  </h3>
+                  <p class="text-lg text-gray-600 font-light leading-relaxed">
+                    Los sistemas suelen contar con mecanismos de recuperación para reutilizar la granalla, mejorando la eficiencia y reduciendo costos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08. RESULTADOS Y VENTAJAS -->
+    <section class="py-16 bg-white px-6 md:px-12" id="ventajas">
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-8 advantages-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Beneficios del Sistema</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Ventajas del Granallado
+          </h2>
+          <p class="text-gray-600 mt-4 font-light">
+            La importancia del sistema de granallado radica en los múltiples beneficios que ofrece para la industria. Algunas razones por las cuales este sistema es crucial incluyen:
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center advantages-grid"
+        >
+          <!-- ventaja 1 -->
+          <div
+            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
+          >
+            <div
+              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.428-1.428L13.5 18.75l1.183-.394a2.25 2.25 0 001.428-1.428l.394-1.183.394 1.183a2.25 2.25 0 001.428 1.428l1.183.394-1.183.394a2.25 2.25 0 00-1.428 1.428z"></path>
+              </svg>
+            </div>
+            <h3
+              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
+            >
+              Preparación de superficies
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed font-light">
+              El granallado permite limpiar y dejar una textura adecuada en la superficie, optimizando la adherencia de recubrimientos.
+            </p>
+          </div>
+
+          <!-- ventaja 2 -->
+          <div
+            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
+          >
+            <div
+              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path>
+              </svg>
+            </div>
+            <h3
+              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
+            >
+              Aumento de la vida útil de las piezas
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed font-light">
+              Al eliminar óxidos y contaminantes, el granallado reduce los puntos débiles en los materiales que pueden propiciar la corrosión.
+            </p>
+          </div>
+
+          <!-- ventaja 3 -->
+          <div
+            class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300"
+          >
+            <div
+              class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto"
+            >
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+              </svg>
+            </div>
+            <h3
+              class="font-saira font-semibold italic text-brand-navy text-xl uppercase"
+            >
+              Uniformidad en el acabado
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed font-light">
+              Las máquinas de granallado proporcionan un acabado consistente, eliminando las irregularidades y defectos superficiales que puedan afectar la calidad visual y funcional del producto final.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09. SEGUNDO CTA -->
+    <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
+      <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+      <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+
+      <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+        <h2
+          class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider"
+        >
+          Envíanos las especificaciones de tus piezas y producción
+        </h2>
+        <p
+          class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto"
+        >
+          Nuestros ingenieros estructurarán la propuesta técnica con los
+          diagramas y capacidades de flujo de aire que optimicen la aplicación
+          de pintura en tu planta.
+        </p>
+        <div class="pt-8">
+          <a
+            href="/contacto?solucion=pintura-liquida"
+            class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"
+          >
+            Solicitar Propuesta Técnica
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. NORMATIVIDAD -->
+    <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
+      <div class="container mx-auto max-w-6xl">
+        <div
+          class="flex flex-col lg:flex-row items-center justify-between gap-12"
+        >
+          <div class="lg:w-1/2 space-y-6 norms-text">
+            <div>
+              <span
+                class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+                >Cumplimiento Legal y de Seguridad</span
+              >
+              <h2
+                class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight"
+              >
+                Cumplimiento Riguroso de Estándares de Seguridad e Impacto
+                Ambiental
+              </h2>
+              <p class="text-gray-300 font-light leading-relaxed mt-4">
+                El diseño de nuestros sistemas de pintura líquida se realiza de
+                manera personalizada para garantizar el cumplimiento normativo
+                exigido por las aseguradoras globales y las dependencias de
+                medio ambiente y salud ocupacional.
+              </p>
+            </div>
+
+            <p
+              class="text-gray-400 font-light text-xs border-t border-white/10 pt-4"
+            >
+              Contamos con un equipo de ingenieros calificados y Project
+              Managers certificados por **IPMA (International Project Management
+              Association)** para liderar la instalación y puesta en marcha de
+              manera segura y puntual.
+            </p>
+          </div>
+
+          <div class="lg:w-1/2 w-full">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+              {
+                certificados.map((cert) => (
+                  <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                    <div class="h-14 w-full flex items-center justify-center mb-2">
+                      <img
+                        src={cert.logo}
+                        alt={`Certificación ${cert.name}`}
+                        class="max-h-full max-w-full object-contain transition-all duration-300"
+                      />
+                    </div>
+                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
+                      {cert.name}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. ALIANZAS / PARTNERS -->
+    <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+        <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
+          Tecnología respaldada por aliados globales:
+        </span>
+        <div class="swiper marquee-swiper w-full">
+          <div class="swiper-wrapper items-center">
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+            
+            <!-- Duplicate for loop -->
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
+            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FAQ (PREGUNTAS FRECUENTES) -->
+    <section
+      class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50"
+      id="faq"
+    >
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-16 faq-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Preguntas Técnicas</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Preguntas Frecuentes de Granallado
+          </h2>
+        </div>
+
+        <!-- Exclusive accordion set -->
+        <div class="space-y-4">
+          <!-- FAQ 1 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+            open
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Qué tipos de abrasivos se usan en el sistema de granallado?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              En el granallado se emplean diversos abrasivos según la aplicación y el acabado deseado. Los más comunes incluyen la granalla de acero, utilizada para limpiar y preparar superficies metálicas; el óxido de aluminio, efectivo para eliminar contaminantes y preparar superficies duras; las microesferas de vidrio, ideales para acabados suaves sin dañar materiales delicados; y abrasivos orgánicos como la cáscara de nuez, empleados en trabajos que requieren mínima abrasión. La elección del abrasivo depende del material de la pieza y del resultado final deseado.
+            </div>
+          </details>
+
+          <!-- FAQ 2 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Qué mantenimiento requiere un sistema de granallado?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              Para mantener un sistema de granallado en óptimas condiciones, es esencial realizar inspecciones diarias que detecten desgastes en componentes, verificar el estado de mangueras y conexiones para evitar fugas, y asegurar niveles adecuados de abrasivo sin obstrucciones. Además, se recomienda limpiar profundamente el equipo al finalizar cada jornada, eliminando residuos de abrasivos y partículas acumuladas, y revisar la lubricación de cojinetes, incluyendo los del motor, añadiendo grasa nueva según sea necesario.
+            </div>
+          </details>
+
+          <!-- FAQ 3 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Qué diferencia hay entre granallado y sandblasting?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              El granallado y el sandblasting son procesos de preparación de superficies que utilizan materiales abrasivos para limpiar o preparar superficies. La principal diferencia radica en la técnica de aplicación:<br><br>
+              <strong>Sandblasting:</strong> Utiliza aire comprimido para proyectar abrasivos, permitiendo mayor precisión y control, ideal para superficies delicadas o con oxidación leve.<br><br>
+              <strong>Granallado:</strong> Emplea una rueda de turbina para lanzar abrasivos, proporcionando una cobertura más amplia y uniforme, adecuado para limpiar y preparar superficies metálicas resistentes.<br><br>
+              La elección entre uno u otro depende del tipo de superficie y del acabado deseado.
+            </div>
+          </details>
+
+          <!-- FAQ 4 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Qué ventajas ofrecen sus sistemas de granallado en comparación con otros métodos?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              Existen diversos métodos para preparar la superficie antes de aplicar el recubrimiento. Los dos métodos generales son el pretratamiento químico y la limpieza mecánica, también conocida como granallado.<br><br>
+              El granallado permite eliminar impurezas como óxido, escoria y rebabas de soldadura, aceites, refrigerantes, y recubrimientos preexistentes, así como alcanzar un perfil para el anclaje de la pintura.
+            </div>
+          </details>
+
+          <!-- FAQ 5 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Cómo maximizar la vida útil de un equipo de granallado?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              Para maximizar la vida útil de un equipo de granallado, es fundamental implementar un programa de mantenimiento preventivo que incluya inspecciones regulares y reemplazo oportuno de componentes desgastados. Es recomendable realizar revisiones periódicas del impulsor y las correas, verificando su tensión y desgaste, así como inspecciones mensuales de reductores y cadenas de transmisión para asegurar niveles adecuados de lubricación y tensión. Además, mantener el revestimiento interno del gabinete en buenas condiciones es esencial para evitar pérdidas de granalla y garantizar una operación eficiente.
+            </div>
+          </details>
+
+          <!-- FAQ 6 -->
+          <details
+            name="faq"
+            class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md"
+          >
+            <summary
+              class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none"
+            >
+              <span>¿Cuál es la importancia de los sistemas de granallado?</span>
+              <span
+                class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"
+              ></span>
+            </summary>
+            <div
+              class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal"
+            >
+              Los sistemas de granallado son fundamentales en diversas industrias debido a su capacidad para limpiar, fortalecer y preparar superficies metálicas. Este proceso elimina eficazmente impurezas como óxido, corrosión y pintura vieja, garantizando una limpieza completa y uniforme que mejora la adherencia de recubrimientos posteriores. Además, el granallado induce tensiones residuales de compresión en la superficie de las piezas, lo que incrementa su resistencia a la fatiga y prolonga su vida útil. Por estas razones, el granallado es esencial en sectores como el automotriz, aeroespacial y de construcción, donde la calidad y durabilidad de los componentes son prioritarias.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. GALERÍA DE PROYECTOS -->
+    <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+      <div class="container mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+          <span
+            class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
+            >Galería</span
+          >
+          <h2
+            class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4"
+          >
+            Proyectos e Instalaciones Reales
+          </h2>
+          <p class="text-gray-600 mt-4 font-light">
+            Ejemplos de cuartos, equipos y sistemas de granallado llave en mano implementados en plantas del país.
+          </p>
+        </div>
+
+        <!-- Grid layout -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid"
+        >
+          <div
+            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+          >
+            <img
+              src="/images/soluciones/granallado/anaerobia-granallado-img-09.jpg"
+              alt="Sistema de granallado en operación"
+              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <div
+              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p
+                class="text-white text-xs font-semibold uppercase tracking-wider"
+              >
+                Cuarto de Granallado
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+          >
+            <img
+              src="/images/soluciones/granallado/anaerobia-granallado-img-10.jpg"
+              alt="Detalle de turbina de granallado"
+              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <div
+              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p
+                class="text-white text-xs font-semibold uppercase tracking-wider"
+              >
+                Turbinas de Alto Rendimiento
+              </p>
+            </div>
+          </div>
+          <div
+            class="relative overflow-hidden rounded-lg shadow group border border-gray-200"
+          >
+            <img
+              src="/images/soluciones/granallado/anaerobia-granallado-img-05.jpg"
+              alt="Piezas tratadas"
+              class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+            <div
+              class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <p
+                class="text-white text-xs font-semibold uppercase tracking-wider"
+              >
+                Sistemas de Curado y Secado
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <!-- CDNs y Configuración de Animación Scroll / Lenis -->
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Inicializar Lenis (Smooth Scroll)
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+
+      // 2. Conectar GSAP con Lenis y animar
+      if (typeof gsap !== "undefined") {
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // Actualizar ScrollTrigger con Lenis scroll
+        if (typeof ScrollTrigger !== "undefined") {
+          lenis.on("scroll", ScrollTrigger.update);
+        }
+
+        // Animación Hero al cargar
+        gsap.from(".hero-section-text > *", {
+          y: 35,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+        });
+
+        // Animaciones al hacer scroll con ScrollTrigger
+        if (typeof ScrollTrigger !== "undefined") {
+          // Animación Introducción
+          gsap.from(".intro-text > *", {
+            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+          });
+          gsap.from(".intro-image", {
+            scrollTrigger: { trigger: "#introduccion", start: "top 80%" },
+            x: 40,
+            opacity: 0,
+            duration: 0.9,
+            ease: "power2.out",
+          });
+
+          // Pain points grid
+          gsap.from(".pain-points-grid > div", {
+            scrollTrigger: { trigger: ".pain-points-grid", start: "top 85%" },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+          });
+
+          // Ingeniería grid
+          gsap.from("#ingenieria .grid > div", {
+            scrollTrigger: { trigger: "#ingenieria", start: "top 80%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+            clearProps: "all",
+          });
+
+          // Diferenciadores grid
+          gsap.from(".diferenciadores-grid > div", {
+            scrollTrigger: {
+              trigger: ".diferenciadores-grid",
+              start: "top 85%",
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+          });
+
+          // Especificaciones
+          gsap.from("#datos-tecnicos table, #datos-tecnicos .grid > div", {
+            scrollTrigger: { trigger: "#datos-tecnicos", start: "top 80%" },
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+          });
+
+          // Ventajas grid
+          gsap.from(".advantages-grid > div", {
+            scrollTrigger: { trigger: ".advantages-grid", start: "top 85%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.15,
+            ease: "power2.out",
+          });
+
+          // Normativas text
+          gsap.from(".norms-text > *", {
+            scrollTrigger: { trigger: "#normas", start: "top 80%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power2.out",
+          });
+
+          // Normativas grid items
+          gsap.from(".norms-grid > div", {
+            scrollTrigger: { trigger: ".norms-grid", start: "top 85%" },
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            clearProps: "opacity,transform",
+          });
+
+          // FAQ list
+          gsap.from("#faq details", {
+            scrollTrigger: { trigger: "#faq", start: "top 80%" },
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            clearProps: "opacity,transform",
+          });
+
+          // Gallery grid
+          gsap.from(".gallery-grid > div", {
+            scrollTrigger: { trigger: ".gallery-grid", start: "top 85%" },
+            y: 30,
+            opacity: 0,
+            duration: 0.7,
+            stagger: 0.12,
+            ease: "power2.out",
+            clearProps: "opacity,transform",
+          });
+        }
+      }
+
+      // 3. Inicializar Marquee Swiper
+      if (typeof Swiper !== "undefined") {
+        new Swiper(".marquee-swiper", {
+          loop: true,
+          speed: 3000,
+          autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+          },
+          slidesPerView: "auto",
+          spaceBetween: 10,
+          allowTouchMove: false,
+          freeMode: true,
+        });
+      }
+
+      // 5. Controlador de Tabs Técnicos
+      const tabBtns = document.querySelectorAll(".tech-tab-btn");
+      const tabPanels = document.querySelectorAll(".tech-tab-panel");
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const targetTabId = btn.getAttribute("data-tab");
+
+          tabBtns.forEach((b) => {
+            b.classList.remove(
+              "active",
+              "border-brand-lime",
+              "text-brand-lime",
+              "bg-brand-lime/10"
+            );
+            b.classList.add(
+              "border-transparent",
+              "text-gray-400",
+              "bg-transparent"
+            );
+          });
+
+          btn.classList.add(
+            "active",
+            "border-brand-lime",
+            "text-brand-lime",
+            "bg-brand-lime/10"
+          );
+          btn.classList.remove(
+            "border-transparent",
+            "text-gray-400",
+            "bg-transparent"
+          );
+
+          tabPanels.forEach((panel) => {
+            panel.classList.add("hidden", "opacity-0", "translate-y-4");
+            panel.classList.remove("opacity-100", "translate-y-0");
+          });
+
+          const activePanel = document.getElementById(targetTabId);
+          if (activePanel) {
+            activePanel.classList.remove("hidden");
+            setTimeout(() => {
+              activePanel.classList.remove("opacity-0", "translate-y-4");
+              activePanel.classList.add("opacity-100", "translate-y-0");
+            }, 20);
+          }
+
+          if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+          }
+        });
+      });
+    });
+
+    // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
+    window.addEventListener("load", () => {
+      if (typeof ScrollTrigger !== "undefined") {
+        ScrollTrigger.refresh();
+      }
+    });
+  </script>
+</Layout>
