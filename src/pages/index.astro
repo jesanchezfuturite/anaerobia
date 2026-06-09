@@ -134,13 +134,15 @@ const arrowColors = [
 ];
 
 const infographicItems = [
-  { index: 4, side: "left", cardTop: "20%", anchorY: 27, x: 25, y: 45, color: "lime", num: "01" },
-  { index: 2, side: "left", cardTop: "45%", anchorY: 52, x: 60, y: 57, color: "navy", num: "02" },
-  { index: 0, side: "left", cardTop: "70%", anchorY: 77, x: 53, y: 33, color: "lime", num: "03" },
-  { index: 5, side: "right", cardTop: "20%", anchorY: 27, x: 65, y: 38, color: "blue", num: "04" },
-  { index: 1, side: "right", cardTop: "45%", anchorY: 52, x: 62, y: 42, color: "blue", num: "05" },
-  { index: 3, side: "right", cardTop: "70%", anchorY: 77, x: 78, y: 46, color: "lime", num: "06" },
-  { index: 3, side: "right", cardTop: "70%", anchorY: 77, x: 25, y: 59, color: "lime", num: "06", isExtra: true }
+  { index: 4, side: "left", cardTop: "26%", anchorY: 33, x: 25, y: 45, color: "lime", num: "01" },
+  { index: 2, side: "left", cardTop: "42%", anchorY: 49, x: 60, y: 57, color: "navy", num: "02" },
+  { index: 3, side: "left", cardTop: "58%", anchorY: 65, x: 78, y: 46, color: "lime", num: "03" },
+  { index: 1, side: "left", cardTop: "74%", anchorY: 81, x: 62, y: 42, color: "blue", num: "04" },
+  { index: 0, side: "right", cardTop: "26%", anchorY: 33, x: 53, y: 33, color: "lime", num: "05" },
+  { index: 6, side: "right", cardTop: "42%", anchorY: 49, x: 47, y: 49, color: "navy", num: "06" },
+  { index: 7, side: "right", cardTop: "58%", anchorY: 65, x: 25, y: 59, color: "lime", num: "07" },
+  { index: 5, side: "right", cardTop: "74%", anchorY: 81, x: 65, y: 38, color: "blue", num: "08" },
+  { index: 5, side: "right", cardTop: "74%", anchorY: 81, x: 48, y: 37, color: "blue", num: "08", isExtra: true }
 ];
 ---
 
@@ -506,13 +508,13 @@ const infographicItems = [
                 const card = data.soluciones.cards[item.index];
                 return (
                   <button
-                    class="absolute w-8 h-8 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
+                    class="absolute w-6 h-6 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
                     style={`left: ${item.x}%; top: ${item.y}%; transform: translate(-50%, -50%);`}
                     data-target={`mob-card-${item.index}`}
                     aria-label={`Ver ${card.title}`}
                   >
                     <span class="absolute inline-flex h-full w-full rounded-full bg-[var(--color-brand-lime)] opacity-75 animate-ping"></span>
-                    <span class="relative inline-flex rounded-full h-7 w-7 shadow-md border border-white bg-[var(--color-brand-navy)] text-[10px] font-bold text-[var(--color-brand-lime)] flex items-center justify-center">
+                    <span class="relative inline-flex rounded-full h-5 w-5 shadow-md border border-white bg-[var(--color-brand-navy)] text-[9px] font-bold text-[var(--color-brand-lime)] flex items-center justify-center">
                       {item.num}
                     </span>
                   </button>
@@ -591,8 +593,8 @@ const infographicItems = [
             const card = data.soluciones.cards[item.index];
             return (
               <div
-                class="absolute w-[22%] bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
-                style={`left: 0%; top: ${item.cardTop};`}
+                class="absolute w-[22%] -translate-y-1/2 bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
+                style={`left: 0%; top: ${item.anchorY}%;`}
                 data-index={item.index}
                 data-color={item.color}
               >
@@ -628,7 +630,7 @@ const infographicItems = [
                     aria-label={`Ver detalle de ${card.title}`}
                   >
                     <span class="absolute inline-flex h-full w-full rounded-full opacity-50 animate-ping transition-colors duration-300 hotspot-ping bg-[var(--color-brand-lime)]"></span>
-                    <span class="relative inline-flex rounded-full h-8 w-8 lg:h-10 lg:w-10 shadow-md border-2 border-[var(--color-brand-lime)] transition-all duration-300 hotspot-core bg-[var(--color-brand-navy)] text-white font-bold text-xs lg:text-sm items-center justify-center font-saira">
+                    <span class="relative inline-flex rounded-full h-5 w-5 lg:h-[26px] lg:w-[26px] shadow-md border-2 border-[var(--color-brand-lime)] transition-all duration-300 hotspot-core bg-[var(--color-brand-navy)] text-white font-bold text-[8px] lg:text-[10px] items-center justify-center font-saira">
                       {item.num}
                     </span>
                   </button>
@@ -642,8 +644,8 @@ const infographicItems = [
             const card = data.soluciones.cards[item.index];
             return (
               <div
-                class="absolute w-[22%] bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
-                style={`right: 0%; top: ${item.cardTop};`}
+                class="absolute w-[22%] -translate-y-1/2 bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
+                style={`right: 0%; top: ${item.anchorY}%;`}
                 data-index={item.index}
                 data-color={item.color}
               >

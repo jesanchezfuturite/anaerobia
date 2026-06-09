@@ -15,12 +15,12 @@
     "sectionSubtitle": "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
     "cards": [
       {
-        "title": "Sistemas de pintura en polvo",
+        "title": "Cabina de pintura en polvo",
         "description": "Integramos sistemas completos de pintura en polvo que ofrecen mayor calidad a tus productos.",
         "image": "/images/home/soluciones/cards/0/image.webp"
       },
       {
-        "title": "Sistemas de pintura líquida",
+        "title": "Cabina de pintura líquida",
         "description": "Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficies complejas.",
         "image": "/images/home/soluciones/cards/1/image.jpg"
       },
@@ -31,7 +31,7 @@
         "image": "/images/home/soluciones/cards/5/image.webp"
       },
       {
-        "title": "Hornos de curado y secado",
+        "title": "Horno de Secado",
         "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
         "image": "/images/home/soluciones/cards/6/image.webp"
       },
@@ -44,6 +44,16 @@
         "title": "Filtros",
         "description": "Mejora la calidad del aire dentro de áreas de aplicación de recubrimientos para optimizar los procesos de producción, cumplir con normativas y garantizar la seguridad del personal operativo.",
         "image": "/images/home/soluciones/cards/8/image.jpeg"
+      },
+      {
+        "title": "Robot de Manipulación y Pintura",
+        "description": "Automatización avanzada para la aplicación precisa y eficiente de recubrimientos mediante robots de alta tecnología.",
+        "image": "/images/home/soluciones/cards/2/image.webp"
+      },
+      {
+        "title": "Horno de Curado",
+        "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
+        "image": "/images/home/soluciones/cards/6/image.jpeg"
       }
     ]
   },
