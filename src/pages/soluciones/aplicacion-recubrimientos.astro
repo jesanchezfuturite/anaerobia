@@ -1,0 +1,917 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import { getEntry } from 'astro:content'
+
+// Obtener datos de la página de inicio para reutilizar logos de normativas
+const homepageEntry = await getEntry('homepage', 'index')
+const homepageData = homepageEntry?.data || {}
+const certificados = homepageData.normativas?.certificados || [
+    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
+    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
+    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
+    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
+    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
+]
+
+// SEO Metadata
+const seoTitle = 'Sistemas de Aplicación de Recubrimientos | Anaerobia'
+const seoDescription = 'Nos especializamos en ofrecer soluciones en aplicación de recubrimientos, equipos para suministro y aplicación de fluidos para la industria.'
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <!-- 01. HEADER / HERO -->
+        <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+            <!-- Background Image with Overlay -->
+            <div class="absolute inset-0 z-0">
+                <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-1.webp" alt="Sistemas de Aplicación de Recubrimientos" class="w-full h-full object-cover opacity-60 scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl hero-section-text">
+                    <!-- Breadcrumbs -->
+                    <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                        <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                        <span>/</span>
+                        <span class="text-gray-400">Soluciones</span>
+                        <span>/</span>
+                        <span class="text-brand-lime">Aplicación de Recubrimientos</span>
+                    </nav>
+
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES </span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Sistemas de Aplicación de Recubrimientos</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">Nos especializamos en ofrecer soluciones en aplicación de recubrimientos, equipos para suministro y aplicación de fluidos para diferentes sectores de la industria de acabados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. INTRODUCCIÓN -->
+        <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden" id="introduccion">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 intro-text">
+                        <div>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Tecnología de Fluidos</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">¿Qué es un sistema de aplicación de recubrimientos?</h2>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
+                                Un sistema de aplicación de recubrimientos consiste en un conjunto de tecnologías, herramientas y procesos que se utilizan para aplicar diferentes tipos de recubrimientos, como pinturas, barnices, esmaltes, adhesivos, entre otros, sobre una amplia gama de superficies
+                                y materiales. Nuestras soluciones también permiten trasvasar fluidos, lubricar, aplicar adhesivos, sellar o pintar.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg mt-4">
+                                El diseño de un sistema para aplicación de recubrimientos depende de las características particulares de cada producto. Tomar en cuenta estas condiciones es importante para una correcta aplicación, ya que nos dará distintos beneficios, que van desde mejorar el
+                                rendimiento, reducir el desperdicio de material, evitar la repetición de trabajos y proporcionar una aplicación uniforme.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg mt-4">ANAEROBIA integra equipos para aplicación de recubrimientos de las principales marcas del mercado, tanto para sistemas manuales como sistemas automáticos.</p>
+                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4">Mejoramos la industria del mundo con ingeniería especializada y alta tecnología.</p>
+                        </div>
+
+                        <!-- Key pillars (Experiencia, Soporte local, Normativa) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-gray-100">
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-lime/10 text-brand-lime">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Experiencia</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestro equipo cuenta con la preparación y experiencia necesaria para afrontar los desafíos de la industria.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-blue/10 text-brand-blue">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Soporte Nacional</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Estamos presentes en los centros industriales del país para dar acompañamiento cercano y puntual a nuestros clientes.</p>
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-center w-10 h-10 rounded bg-brand-navy/10 text-brand-navy">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-base uppercase">Normativa</h3>
+                                <p class="text-xs text-gray-500 leading-relaxed">Nuestros equipos cumplen con normativas internacionales y nacionales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intro Image -->
+                    <div class="relative intro-image group">
+                        <div class="relative rounded-lg overflow-hidden shadow-2xl">
+                            <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-2.webp" alt="Instalación de Sistemas de Recubrimiento" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03. IMPORTANCIA / BENEFICIOS CLAVE -->
+        <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Importancia</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">¿Por qué es importante un sistema de aplicación de recubrimientos?</h2>
+                    <p class="text-gray-600 mt-4 font-light">El diseño de un sistema para aplicación de recubrimientos depende de las características particulares de cada producto. Tomar en cuenta estas condiciones es importante para una correcta aplicación, ya que nos dará distintos beneficios:</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-8 lg:h-[700px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
+                    <!-- Column 1: Image (45%) -->
+                    <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
+                        <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-3.webp" alt="Ventajas del Sistema de Recubrimiento" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
+                    </div>
+
+                    <!-- Column 2: Cards (20%) -->
+                    <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
+                        <!-- Card 1 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Calidad y precisión en el acabado</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Seguridad para los operadores</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Cumplimiento de normativas</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
+                            <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">Eficiencia en el proceso</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Content (35%) -->
+                    <div class="w-full lg:w-[35%] flex flex-col justify-between space-y-4 shrink-0 lg:pl-2 h-full py-2">
+                        <!-- Item 1 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Calidad y precisión en el acabado</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">
+                                Las cabinas y sistemas de aplicación protegen las superficies de agentes externos, como polvo y partículas, lo que permite obtener acabados uniformes y duraderos. La pintura aplicada en condiciones controladas tiene mejor adherencia, lo que incrementa la resistencia
+                                contra factores ambientales y mecánicos.
+                            </p>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Seguridad para los operadores</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">
+                                Durante el proceso de pintura, los trabajadores pueden exponerse a vapores y productos químicos tóxicos, especialmente si se trabaja con solventes. La cabina de pintura permite contener y extraer estos vapores de forma controlada, minimizando el riesgo de intoxicación
+                                o daños a la salud.
+                            </p>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Cumplimiento de normativas ambientales</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">
+                                Nuestras soluciones permiten cumplir de forma ágil con las regulaciones industriales de seguridad, como las de la Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA) y Environmental Protection Agency (EPA), garantizando
+                                condiciones limpias.
+                            </p>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="space-y-2 flex-1 flex flex-col justify-center">
+                            <div class="flex items-center gap-3">
+                                <div class="text-brand-lime shrink-0">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">Eficiencia en el proceso</h3>
+                            </div>
+                            <p class="text-sm text-gray-600 leading-relaxed font-light">
+                                Al tener un espacio controlado y optimizado para la aplicación, se mejora notablemente la eficiencia operativa, permitiendo obtener resultados consistentes lote tras lote y minimizando la repetición de procesos por imperfecciones en el acabado.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04. PRIMER CTA PERSONALIZADO -->
+        <section class="py-16 bg-brand-navy relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
+            <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-left">
+                    <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">¿Requieres optimizar tus procesos con sistemas de aplicación a la medida?</h2>
+                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl">Diseñamos un sistema adaptado a la viscosidad y alcances específicos de tu producción.</p>
+                </div>
+                <a href="/contacto?solucion=aplicacion-recubrimientos" class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"> Solicitar Cotización </a>
+            </div>
+        </section>
+
+        <!-- 05. SOLUCIÓN ANAEROBIA (NUESTRA INGENIERÍA - BENTO GRID) -->
+        <section class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden" id="ingenieria">
+            <div class="container mx-auto">
+                <div class="max-w-5xl mb-10 section-solucion-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Integrador Especializado</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Nuestra Solución en Ingeniería de Suministro y Aplicación</h2>
+                    <p class="text-gray-600 font-light mt-4">Diseñamos y fabricamos sistemas modulares de aplicación, combinando tecnologías de bombeo de precisión, control electrostático y automatización llave en mano.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
+                    <!-- Bento Card 1 (Large Left) -->
+                    <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
+                        <!-- Image background -->
+                        <div class="absolute inset-0 bg-[url('/images/soluciones/aplicacion-recubrimientos/recubrimientos-hero.png')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                        <!-- Overlay azul -->
+                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                        <!-- Decorative background element -->
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+
+                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                            </svg>
+                        </div>
+                        <div class="relative z-10 mt-auto">
+                            <div>
+                                <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">Sistemas de Aspersión Manual y Automática</h3>
+                                <p class="text-lg text-gray-200 font-light leading-relaxed">Proveemos equipos con tecnologías Airless, Air Assisted Airless y sistemas de aspersión con aire HVLP y convencionales. Adecuados para la integración en líneas continuas o cabinas batch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column for Bento Cards 2 & 3 -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Bento Card 2 -->
+                        <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+                            <!-- Image background -->
+                            <div class="absolute inset-0 bg-[url('/images/soluciones/aplicacion-recubrimientos/recubrimientos-manual.png')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <!-- Overlay azul -->
+                            <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                            <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                                </svg>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Dosificación y Dispensado de Fluidos</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed">Equipos para trasvasar fluidos, lubricar, dosificar adhesivos, ceras o selladores con tolerancias exactas y alta repetibilidad para todo tipo de componentes.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bento Card 3 -->
+                        <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
+                            <!-- Image background -->
+                            <div class="absolute inset-0 bg-[url('/images/soluciones/aplicacion-recubrimientos/recubrimientos-intro.png')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <!-- Overlay azul -->
+                            <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
+
+                            <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
+                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <div class="relative z-10">
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Integración Multimarca de Alta Gama</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed">Integramos componentes originales de marcas líderes en el mercado (Graco, Nordson, Binks, etc.), garantizando la compatibilidad con tus procesos y fácil acceso a refacciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06. DIFERENCIADORES / TIPOS DE APLICACIÓN -->
+        <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="diferenciadores">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Procesos</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Tipos de aplicaciones y fluidos</h2>
+                    <p class="text-gray-600 font-light mt-4">Nos especializamos en ofrecer soluciones para aplicación de recubrimientos, equipos para suministro de pintura y aplicación de fluidos para diferentes sectores de la industria:</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 diferenciadores-grid">
+                    {
+                        [
+                            { title: 'Airless', desc: 'Sistemas sin aire a alta presión, ideales para viscosidades elevadas y altos micrajes.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Airless.svg' },
+                            { title: 'Air Assisted Airless', desc: 'Combinación de bombeo a alta presión y asistencia neumática para acabados finos.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Air-Assisted.svg' },
+                            { title: 'HVLP / LVLP / Convencional', desc: 'Tecnologías de atomización por aire para un control de espesor preciso y uniforme.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-HVLP.svg' },
+                            { title: 'Electroestático Líquido', desc: 'Pulverización con carga electrostática para máxima transferencia y nulo overspray.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Electrostatic.svg' },
+                            { title: 'Aspersión de Poliuretano', desc: 'Mezcla y aspersión exacta de poliuretanos y espumas bicomponentes.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Poliuretano.svg' },
+                            { title: 'Adhesivos', desc: 'Dosificación exacta de adhesivos líquidos y hot melt en líneas de ensamble.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Adhesivos.webp' },
+                            { title: 'Sello', desc: 'Aplicación automatizada o manual de cordones y selladores industriales.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Sellos.webp' },
+                            { title: 'Cera', desc: 'Suministro y rociado de ceras protectoras contra la corrosión de metales.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Cera.webp' },
+                            { title: 'Lubricantes y Gasolina', desc: 'Sistemas de llenado y lubricación precisa en líneas de producción continua.', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Lubricantes.webp' },
+                            { title: 'Dosificación y Dispensado', desc: 'Equipos para dosificar fluidos simples o multicomponentes (2K/3K).', icon: '/images/soluciones/aplicacion-recubrimientos/icon-Dosificacion.webp' },
+                        ].map((app, index) => (
+                            <div class="bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 flex flex-col justify-between hover:shadow-md transition-shadow duration-300">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="w-10 h-10 rounded-xl bg-brand-navy/5 flex items-center justify-center p-2">
+                                            <img src={app.icon} alt={app.title} class="w-full h-full object-contain" />
+                                        </div>
+                                    </div>
+                                    <h3 class="font-saira font-semibold italic text-brand-navy text-lg uppercase mb-3 leading-tight">{app.title}</h3>
+                                    <p class="text-xs text-gray-500 leading-relaxed font-light">{app.desc}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- 07. INFORMACIÓN TÉCNICA (SISTEMAS - TABS) -->
+        <section class="py-16 bg-brand-lime/5 px-6 md:px-12 border-y border-gray-200/50 relative overflow-hidden" id="datos-tecnicos">
+            <!-- Logo de fondo -->
+            <img src="/images/soluciones/fondo-seccion.png" alt="" class="absolute top-1/2 -translate-y-1/2 -right-32 lg:-right-20 w-[400px] lg:w-[600px] opacity-10 invert mix-blend-multiply object-contain pointer-events-none z-0" />
+
+            <div class="container mx-auto relative z-10">
+                <div class="max-w-5xl mb-10 section-solucion-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Sistemas de Aplicación</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Clasificación de Sistemas de Aspersión y Aplicación</h2>
+                    <p class="text-gray-600 font-light mt-4">Estructuramos nuestras propuestas técnicas en base a tres niveles de automatización:</p>
+                </div>
+
+                <!-- Tabs Navigation -->
+                <div class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto" id="tech-tabs-nav">
+                    <button
+                        class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                        data-tab="tab-manual"
+                    >
+                        <span class="text-3xl font-light not-italic font-sans">01</span>
+                        <span>Sistemas Manuales</span>
+                    </button>
+                    <button
+                        class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                        data-tab="tab-semiautomatico"
+                    >
+                        <span class="text-3xl font-light not-italic font-sans">02</span>
+                        <span>Sistemas Semiautomáticos</span>
+                    </button>
+                    <button
+                        class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
+                        data-tab="tab-automatico"
+                    >
+                        <span class="text-3xl font-light not-italic font-sans">03</span>
+                        <span>Sistemas Automáticos</span>
+                    </button>
+                </div>
+
+                <!-- Tabs Content Panels -->
+                <div id="tech-tabs-content" class="relative w-full">
+                    <!-- Panel 1: Manual -->
+                    <div id="tab-manual" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
+                                <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-10.webp" alt="Sistemas Manuales de Aspersión" class="w-full h-full object-cover absolute inset-0" />
+                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                            </div>
+                            <div class="flex flex-col pb-8">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">Sistemas Manuales</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">Los sistemas manuales son ideales para líneas batch o de volumen medio donde se requiere flexibilidad y control directo del operador:</p>
+                                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Sistemas de aspersión con aire:</strong> Suministro de aire a presión hasta la pistola para formar una atomización fina y proyectarla a la superficie.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Sistemas Airless:</strong> Involucran bombas de alta presión. Ideales para lograr altos micrajes y pulverizar productos de viscosidad elevada sin necesidad de aire.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Sistemas Air Assisted Airless:</strong> Combinan la pulverización por bombeo a alta presión y el aporte de presión neumática para un acabado ultra fino.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Sistemas electroestáticos:</strong> Las partículas reciben una carga electrostática de alto voltaje y baja intensidad para "envolverse" sobre la pieza, reduciendo el overspray.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Semiautomático -->
+                    <div id="tab-semiautomatico" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
+                                <img src="/images/soluciones/aplicacion-recubrimientos/cabina-pintura-24.webp" alt="Sistemas Semiautomáticos de Aspersión" class="w-full h-full object-cover absolute inset-0" />
+                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                            </div>
+                            <div class="flex flex-col pb-8">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">Sistemas Semiautomáticos</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">Integran dispositivos de aspersión automática fijos o móviles con activación programada:</p>
+                                <ul class="space-y-4 text-gray-600 font-light text-sm">
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Sistemas de aspersión con pistolas automáticas:</strong> Ofrecen un control total de la presión del aire de atomización, el aire del puerto lateral, el flujo de fluido y los patrones de rociado en configuraciones de alta y baja producción.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                        <span><strong>Tecnología de atomización:</strong> Logra acabados uniformes y finos al rociar una amplia gama de recubrimientos industriales. Las pistolas automáticas se ofrecen en tres tecnologías de atomización diferentes: HVLP, LVLP y Convencional.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Automático -->
+                    <div id="tab-automatico" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
+                                <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-4.webp" alt="Sistemas Automáticos de Aplicación" class="w-full h-full object-cover absolute inset-0" />
+                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
+                            </div>
+                            <div class="flex flex-col pb-8">
+                                <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">Sistemas Automáticos</h3>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">La automatización completa ofrece ventajas sobresalientes en la producción en serie de altos volúmenes, superando ampliamente la inversión inicial. Los cinco beneficios principales son:</p>
+                                <ul class="space-y-3 text-gray-600 font-light text-sm mb-6">
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded bg-brand-lime/10 text-brand-lime flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                                        <span><strong>Reducción de costos de producción:</strong> Menos desperdicio de recubrimiento por ciclo.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded bg-brand-lime/10 text-brand-lime flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                                        <span><strong>Mejora de la calidad:</strong> Espesor homogéneo constante Clase A libre de error humano.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded bg-brand-lime/10 text-brand-lime flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                                        <span><strong>Reducción de residuos:</strong> Control exacto del overspray y recirculación óptima.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded bg-brand-lime/10 text-brand-lime flex items-center justify-center font-bold text-xs shrink-0">4</span>
+                                        <span><strong>Aumento de la flexibilidad:</strong> Programación multipieza en reciprocadores o brazos robóticos.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded bg-brand-lime/10 text-brand-lime flex items-center justify-center font-bold text-xs shrink-0">5</span>
+                                        <span><strong>Ahorro de costos de mano de obra:</strong> Automatización segura en entornos con alta concentración de vapores.</span>
+                                    </li>
+                                </ul>
+                                <p class="text-sm text-gray-500 font-light italic">Nuestros sistemas automáticos están equipados con tecnología avanzada e innovadora, adaptándose de manera específica a las necesidades individuales de cada cliente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08. COMPONENTES Y ELEMENTOS DE APLICACIÓN -->
+        <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="componentes">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 components-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Componentes</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Equipos y elementos para la aplicación de recubrimientos</h2>
+                    <p class="text-gray-600 font-light mt-4">Los equipos y métodos de aplicación son muy variados y el tipo de recubrimiento será el factor principal por el cual se selecciona el método de aplicación, así como los componentes a utilizar:</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {
+                        [
+                            { name: 'Equipo Pulverizador Multicomponente', desc: 'Dosificación y mezcla precisa bicomponente (2K) de recubrimientos antes de la aplicación.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-equipo-pulverizador.webp' },
+                            { name: 'Pressure Pot', desc: 'Tanques de presión de acero inoxidable que garantizan un flujo constante y libre de pulsos.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-pressure-pot.webp' },
+                            { name: 'Pistola de Aspersión', desc: 'Pistolas manuales y automáticas con boquillas calibradas de alta gama para acabados finos.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-pistola-aspersion.webp' },
+                            { name: 'Regulador de Aire', desc: 'Manómetros de alta precisión para el balance de aire de atomización y aire de abanico.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-regulador-aire.webp' },
+                            { name: 'Mangueras', desc: 'Mangueras conductoras especiales para fluidos agresivos, solventes y aire de atomización.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-mangueras.webp' },
+                            { name: 'Filtros', desc: 'Filtros en línea para fluidos y aire comprimido, evitando impurezas en el acabado.', image: '/images/soluciones/aplicacion-recubrimientos/cmp-filtros.webp' },
+                        ].map((comp) => (
+                            <div class="bg-gray-50 rounded-2xl border border-gray-200/50 overflow-hidden flex flex-col justify-between hover:bg-white hover:shadow-xl transition-all duration-300 group">
+                                <div class="relative h-48 w-full overflow-hidden">
+                                    <img src={comp.image} alt={comp.name} class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                                </div>
+                                <div class="p-8 space-y-4 flex-1 flex flex-col justify-between">
+                                    <div class="space-y-4">
+                                        <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">{comp.name}</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed font-light">{comp.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- 09. RESULTADOS Y VENTAJAS (CONCLUSIÓN) -->
+        <section class="py-20 bg-industrial-gray px-6 md:px-12" id="conclusion">
+            <div class="container mx-auto max-w-5xl">
+                <div class="bg-gradient-to-br from-brand-navy to-brand-blue/90 text-white rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden border border-white/10">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-lime/10 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
+
+                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
+                        <div class="shrink-0 text-brand-lime">
+                            <svg class="w-16 h-16 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+                            </svg>
+                        </div>
+                        <div class="space-y-6">
+                            <h3 class="text-brand-lime font-saira font-bold uppercase tracking-widest text-xs">Conclusión Técnica</h3>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200">
+                                Los sistemas de aplicación son herramientas esenciales en la industria moderna, ya que optimizan las condiciones para la aplicación de recubrimientos de alta calidad, garantizan la seguridad de los trabajadores y minimizan el impacto ambiental.
+                            </p>
+                            <p class="text-base md:text-lg font-light leading-relaxed text-gray-300 border-t border-white/10 pt-6">
+                                Invertir en un sistema de aplicación adecuado no solo mejora la eficiencia del proceso de pintado, sino que también asegura el cumplimiento de normativas y proporciona un retorno de inversión a través del ahorro de material y la reducción de retrabajos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. SEGUNDO CTA -->
+        <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
+            <img src="/img/parallax_bg.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
+
+            <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">Envíanos las especificaciones de tus piezas y fluidos</h2>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">Nuestros ingenieros estructurarán la propuesta técnica con los diagramas y componentes óptimos para tu planta.</p>
+                <div class="pt-8">
+                    <a href="/contacto?solucion=aplicacion-recubrimientos" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Solicitar Propuesta Técnica </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. NORMATIVIDAD -->
+        <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div class="lg:w-1/2 space-y-6 norms-text">
+                        <div>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Cumplimiento de Estándares de Seguridad en la Aplicación de Fluidos</h2>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4">
+                                El diseño de nuestros sistemas de aplicación se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.
+                            </p>
+                        </div>
+                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación de manera segura.</p>
+                    </div>
+
+                    <div class="lg:w-1/2 w-full">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 norms-grid">
+                            {
+                                certificados.map((cert) => (
+                                    <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
+                                        <div class="h-14 w-full flex items-center justify-center mb-2">
+                                            <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
+                                        </div>
+                                        <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. ALIANZAS / PARTNERS -->
+        <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"> Tecnología respaldada por aliados globales: </span>
+                <div class="swiper marquee-swiper w-full">
+                    <div class="swiper-wrapper items-center">
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                        </div>
+                        <!-- Duplicados para ciclo continuo -->
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
+                        </div>
+                        <div class="swiper-slide !w-auto px-8">
+                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. PREGUNTAS FRECUENTES -->
+        <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50" id="faq">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-16 faq-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Preguntas Técnicas</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Preguntas Frecuentes</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open>
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Qué es un sistema de aplicación de recubrimientos?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Es un conjunto de herramientas, tecnologías y consolas diseñadas para dosificar y proyectar fluidos como pinturas, adhesivos, ceras o lubricantes de forma uniforme y a presiones controladas sobre cualquier tipo de superficie.
+                        </div>
+                    </details>
+
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Cuál es la diferencia entre aspersión Airless y Air Assisted Airless?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            Airless pulveriza el recubrimiento únicamente a través de la alta presión hidráulica de una bomba, ideal para viscosidades altas y micrajes gruesos. Air Assisted Airless añade un aporte de aire comprimido a baja presión en la boquilla, logrando una atomización más fina y
+                            controlada.
+                        </div>
+                    </details>
+
+                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
+                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                            <span>¿Qué ventajas ofrece un sistema electrostático?</span>
+                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
+                        </summary>
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
+                            El sistema carga eléctricamente las partículas de pintura para que sean atraídas por la pieza (que actúa como tierra). Esto reduce drásticamente el overspray, maximiza el rendimiento del recubrimiento y garantiza un acabado uniforme en caras traseras y bordes.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. GALERÍA DE PROYECTOS -->
+        <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Galería</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Proyectos</h2>
+                    <p class="text-gray-600 mt-4 font-light">Casos de éxito de sistemas de suministro y dosificación instalados.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gallery-grid">
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-7.webp" alt="Instalación de Aplicación Automática" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-8.webp" alt="Consola de Control de Fluidos" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                        <img src="/images/soluciones/aplicacion-recubrimientos/recubrimientos-6.webp" alt="Robots de Aspersión de Precisión" class="w-full h-64 object-cover transform hover:scale-105 transition-transform duration-500" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CDNs y Configuración de Animación Scroll / Lenis -->
+    <script is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Inicializar Lenis (Smooth Scroll)
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smoothWheel: true,
+            })
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+            requestAnimationFrame(raf)
+
+            // 2. Conectar GSAP con Lenis y animar
+            if (typeof gsap !== 'undefined') {
+                gsap.ticker.add((time) => {
+                    lenis.raf(time * 1000)
+                })
+                gsap.ticker.lagSmoothing(0)
+
+                // Actualizar ScrollTrigger con Lenis scroll
+                if (typeof ScrollTrigger !== 'undefined') {
+                    lenis.on('scroll', ScrollTrigger.update)
+                }
+
+                // Animación Hero al cargar
+                gsap.from('.hero-section-text > *', {
+                    y: 35,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.15,
+                    ease: 'power3.out',
+                })
+
+                // Animaciones al hacer scroll con ScrollTrigger
+                if (typeof ScrollTrigger !== 'undefined') {
+                    // Animación Introducción
+                    gsap.from('.intro-text > *', {
+                        scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                    })
+                    gsap.from('.intro-image', {
+                        scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
+                        x: 40,
+                        opacity: 0,
+                        duration: 0.9,
+                        ease: 'power2.out',
+                    })
+
+                    // Pain points grid
+                    gsap.from('.pain-points-grid > div', {
+                        scrollTrigger: { trigger: '.pain-points-grid', start: 'top 85%' },
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
+
+                    // Ingeniería grid
+                    gsap.from('#ingenieria .grid > div', {
+                        scrollTrigger: { trigger: '#ingenieria', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                        clearProps: 'all',
+                    })
+
+                    // Diferenciadores grid
+                    gsap.from('.diferenciadores-grid > div', {
+                        scrollTrigger: {
+                            trigger: '.diferenciadores-grid',
+                            start: 'top 85%',
+                        },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
+
+                    // Especificaciones
+                    gsap.from('#datos-tecnicos table, #datos-tecnicos .grid > div', {
+                        scrollTrigger: { trigger: '#datos-tecnicos', start: 'top 80%' },
+                        y: 40,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.15,
+                        ease: 'power2.out',
+                    })
+
+                    // Conclusión
+                    gsap.from('#conclusion > div', {
+                        scrollTrigger: { trigger: '#conclusion', start: 'top 85%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                    })
+
+                    // Normativas text
+                    gsap.from('.norms-text > *', {
+                        scrollTrigger: { trigger: '#normas', start: 'top 80%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                    })
+
+                    // Normativas grid items
+                    gsap.from('.norms-grid > div', {
+                        scrollTrigger: { trigger: '.norms-grid', start: 'top 85%' },
+                        y: 20,
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
+
+                    // FAQ list
+                    gsap.from('#faq details', {
+                        scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+                        y: 20,
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.1,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
+
+                    // Gallery grid
+                    gsap.from('.gallery-grid > div', {
+                        scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.12,
+                        ease: 'power2.out',
+                        clearProps: 'opacity,transform',
+                    })
+                }
+            }
+
+            // 3. Inicializar Marquee Swiper
+            if (typeof Swiper !== 'undefined') {
+                new Swiper('.marquee-swiper', {
+                    loop: true,
+                    speed: 3000,
+                    autoplay: {
+                        delay: 0,
+                        disableOnInteraction: false,
+                    },
+                    slidesPerView: 'auto',
+                    spaceBetween: 10,
+                    allowTouchMove: false,
+                    freeMode: true,
+                })
+            }
+
+            // 5. Controlador de Tabs Técnicos
+            const tabBtns = document.querySelectorAll('.tech-tab-btn')
+            const tabPanels = document.querySelectorAll('.tech-tab-panel')
+
+            tabBtns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const targetTabId = btn.getAttribute('data-tab')
+
+                    tabBtns.forEach((b) => {
+                        b.classList.remove('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                        b.classList.add('border-transparent', 'text-gray-400', 'bg-transparent')
+                    })
+
+                    btn.classList.add('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
+                    btn.classList.remove('border-transparent', 'text-gray-400', 'bg-transparent')
+
+                    tabPanels.forEach((panel) => {
+                        panel.classList.add('hidden', 'opacity-0', 'translate-y-4')
+                        panel.classList.remove('opacity-100', 'translate-y-0')
+                    })
+
+                    const activePanel = document.getElementById(targetTabId)
+                    if (activePanel) {
+                        activePanel.classList.remove('hidden')
+                        setTimeout(() => {
+                            activePanel.classList.remove('opacity-0', 'translate-y-4')
+                            activePanel.classList.add('opacity-100', 'translate-y-0')
+                        }, 20)
+                    }
+
+                    if (typeof ScrollTrigger !== 'undefined') {
+                        ScrollTrigger.refresh()
+                    }
+                })
+            })
+        })
+
+        // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
+        window.addEventListener('load', () => {
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh()
+            }
+        })
+    </script>
+</Layout>
