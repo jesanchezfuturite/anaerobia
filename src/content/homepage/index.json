@@ -168,7 +168,41 @@
   },
   "mapa": {
     "sectionTitle": "Sistema de Acabados",
-    "mapImage": "/images/home/mapa/mapImage.webp"
+    "mapImage": "/images/home/mapa/mapImage.webp",
+    "cards": [
+      {
+        "title": "Transportadores / Conveyors",
+        "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente."
+      },
+      {
+        "title": "Pretratamiento / Granallado",
+        "description": "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento: el pretratamiento químico y el pretratamiento mecánico."
+      },
+      {
+        "title": "Horno de Secado",
+        "description": "Elimina la humedad residual de las piezas después del pretratamiento químico, garantizando una superficie completamente seca antes de pintar."
+      },
+      {
+        "title": "Cabinas de Pintura Líquida",
+        "description": "Sistemas completos de aplicación de pintura líquida diseñados para acabados estéticos de alta precisión y control de emisiones."
+      },
+      {
+        "title": "Cabinas de Pintura en Polvo",
+        "description": "Cabinas y sistemas de aplicación electrostática de polvo con alta eficiencia de transferencia y recuperación inteligente."
+      },
+      {
+        "title": "Robots de Pintura y Manipulación",
+        "description": "Automatización avanzada con robots industriales para pintura, dosificación y manipulación de piezas con repetibilidad y precisión."
+      },
+      {
+        "title": "Horno de Curado",
+        "description": "Proporciona el calor necesario para polimerizar la pintura en polvo o secar el recubrimiento líquido, asegurando la máxima resistencia y adherencia."
+      },
+      {
+        "title": "Filtros y Recolección de Polvo",
+        "description": "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
+      }
+    ]
   },
   "contacto": {
     "heading": "¿Listo para mejorar tu proceso de acabados superficiales?",

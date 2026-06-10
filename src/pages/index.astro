@@ -76,7 +76,41 @@ const data = homepageEntry?.data || {
   },
   mapa: {
     sectionTitle: "Sistema de Acabados",
-    mapImage: "/images/home/mapa/proceso_line.webp"
+    mapImage: "/images/home/mapa/proceso_line.webp",
+    cards: [
+      {
+        title: "Transportadores / Conveyors",
+        description: "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente."
+      },
+      {
+        title: "Pretratamiento / Granallado",
+        description: "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento: el pretratamiento químico y el pretratamiento mecánico."
+      },
+      {
+        title: "Horno de Secado",
+        description: "Elimina la humedad residual de las piezas después del pretratamiento químico, garantizando una superficie completamente seca antes de pintar."
+      },
+      {
+        title: "Cabinas de Pintura Líquida",
+        description: "Sistemas completos de aplicación de pintura líquida diseñados para acabados estéticos de alta precisión y control de emisiones."
+      },
+      {
+        title: "Cabinas de Pintura en Polvo",
+        description: "Cabinas y sistemas de aplicación electrostática de polvo con alta eficiencia de transferencia y recuperación inteligente."
+      },
+      {
+        title: "Robots de Pintura y Manipulación",
+        description: "Automatización avanzada con robots industriales para pintura, dosificación y manipulación de piezas con repetibilidad y precisión."
+      },
+      {
+        title: "Horno de Curado",
+        description: "Proporciona el calor necesario para polimerizar la pintura en polvo o secar el recubrimiento líquido, asegurando la máxima resistencia y adherencia."
+      },
+      {
+        title: "Filtros y Recolección de Polvo",
+        description: "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
+      }
+    ]
   }
 };
 
@@ -134,15 +168,15 @@ const arrowColors = [
 ];
 
 const infographicItems = [
-  { index: 4, side: "left", cardTop: "26%", anchorY: 33, x: 25, y: 45, color: "lime", num: "01" },
-  { index: 2, side: "left", cardTop: "42%", anchorY: 49, x: 60, y: 57, color: "navy", num: "02" },
-  { index: 3, side: "left", cardTop: "58%", anchorY: 65, x: 78, y: 46, color: "lime", num: "03" },
-  { index: 1, side: "left", cardTop: "74%", anchorY: 81, x: 62, y: 42, color: "blue", num: "04" },
-  { index: 0, side: "right", cardTop: "26%", anchorY: 33, x: 53, y: 33, color: "lime", num: "05" },
-  { index: 6, side: "right", cardTop: "42%", anchorY: 49, x: 47, y: 49, color: "navy", num: "06" },
-  { index: 7, side: "right", cardTop: "58%", anchorY: 65, x: 25, y: 59, color: "lime", num: "07" },
-  { index: 5, side: "right", cardTop: "74%", anchorY: 81, x: 65, y: 38, color: "blue", num: "08" },
-  { index: 5, side: "right", cardTop: "74%", anchorY: 81, x: 48, y: 37, color: "blue", num: "08", isExtra: true }
+  { index: 0, side: "left", cardTop: "26%", anchorY: 33, x: 42, y: 66, color: "lime", num: "01" },
+  { index: 1, side: "left", cardTop: "42%", anchorY: 49, x: 60, y: 57, color: "navy", num: "02" },
+  { index: 2, side: "left", cardTop: "58%", anchorY: 65, x: 78, y: 46, color: "lime", num: "03" },
+  { index: 3, side: "left", cardTop: "74%", anchorY: 81, x: 65, y: 38, color: "blue", num: "04" },
+  { index: 4, side: "right", cardTop: "26%", anchorY: 33, x: 53, y: 33, color: "lime", num: "05" },
+  { index: 5, side: "right", cardTop: "42%", anchorY: 49, x: 47, y: 49, color: "navy", num: "06" },
+  { index: 6, side: "right", cardTop: "58%", anchorY: 65, x: 25, y: 59, color: "lime", num: "07" },
+  { index: 7, side: "right", cardTop: "74%", anchorY: 81, x: 62, y: 42, color: "blue", num: "08" },
+  { index: 7, side: "right", cardTop: "74%", anchorY: 81, x: 48, y: 37, color: "blue", num: "08", isExtra: true }
 ];
 ---
 
@@ -505,7 +539,7 @@ const infographicItems = [
             <div class="relative w-full max-w-2xl aspect-[4/3]">
               <img src={data.mapa.mapImage} alt="Proceso de Pintura" class="w-full h-full object-contain" />
               {infographicItems.map((item) => {
-                const card = data.soluciones.cards[item.index];
+                const card = data.mapa.cards[item.index];
                 return (
                   <button
                     class="absolute w-6 h-6 flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 active:scale-95 mobile-hotspot"
@@ -526,7 +560,7 @@ const infographicItems = [
           <!-- Cards Scroll Area or Accordion/Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {infographicItems.filter(item => !item.isExtra).map((item) => {
-              const card = data.soluciones.cards[item.index];
+              const card = data.mapa.cards[item.index];
               return (
                 <div
                   id={`mob-card-${item.index}`}
@@ -590,7 +624,7 @@ const infographicItems = [
 
           <!-- Left Column Cards -->
           {infographicItems.filter(item => item.side === 'left' && !item.isExtra).map((item) => {
-            const card = data.soluciones.cards[item.index];
+            const card = data.mapa.cards[item.index];
             return (
               <div
                 class="absolute w-[22%] -translate-y-1/2 bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"
@@ -620,7 +654,7 @@ const infographicItems = [
               />
 
               {infographicItems.map((item) => {
-                const card = data.soluciones.cards[item.index];
+                const card = data.mapa.cards[item.index];
                 return (
                   <button
                     class="absolute flex items-center justify-center cursor-pointer group focus:outline-none z-30 transition-transform duration-300 hover:scale-110 desktop-hotspot"
@@ -641,7 +675,7 @@ const infographicItems = [
 
           <!-- Right Column Cards -->
           {infographicItems.filter(item => item.side === 'right' && !item.isExtra).map((item) => {
-            const card = data.soluciones.cards[item.index];
+            const card = data.mapa.cards[item.index];
             return (
               <div
                 class="absolute w-[22%] -translate-y-1/2 bg-[#f8fafc] border border-gray-100 hover:border-gray-300 hover:bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer z-20 flex flex-col justify-center min-h-[90px] group/card info-card"

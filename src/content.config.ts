@@ -60,7 +60,11 @@ const homepage = defineCollection({
     }),
     mapa: z.object({
       sectionTitle: z.string(),
-      mapImage: z.string().optional().nullable()
+      mapImage: z.string().optional().nullable(),
+      cards: z.array(z.object({
+        title: z.string(),
+        description: z.string()
+      })).optional()
     })
   })
 });

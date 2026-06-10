@@ -109,6 +109,13 @@ export default config({
             directory: 'public/images/home',
             publicPath: '/images/home/',
           }),
+          cards: fields.array(
+            fields.object({
+              title: fields.text({ label: 'Título de la Tarjeta' }),
+              description: fields.text({ label: 'Descripción', multiline: true }),
+            }),
+            { label: 'Tarjetas de la Infografía (Puntos 01-08)', itemLabel: props => props.fields.title.value }
+          ),
         }, { label: 'Sección Mapa' }),
 
         contacto: fields.object({
