@@ -167,7 +167,7 @@
     ]
   },
   "mapa": {
-    "sectionTitle": "Sistema de Acabados",
+    "sectionTitle": "LÍNEA DE PINTURA",
     "mapImage": "/images/home/mapa/mapImage.webp",
     "cards": [
       {
@@ -191,7 +191,7 @@
         "description": "Cabinas y sistemas de aplicación electrostática de polvo con alta eficiencia de transferencia y recuperación inteligente."
       },
       {
-        "title": "Robots de Pintura y Manipulación",
+        "title": "Robots de Manipulación y Pintura",
         "description": "Automatización avanzada con robots industriales para pintura, dosificación y manipulación de piezas con repetibilidad y precisión."
       },
       {
@@ -199,7 +199,7 @@
         "description": "Proporciona el calor necesario para polimerizar la pintura en polvo o secar el recubrimiento líquido, asegurando la máxima resistencia y adherencia."
       },
       {
-        "title": "Filtros y Recolección de Polvo",
+        "title": "Filtros",
         "description": "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
       }
     ]

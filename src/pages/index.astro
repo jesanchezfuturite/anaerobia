@@ -171,7 +171,7 @@ const infographicItems = [
   { index: 0, side: "left", cardTop: "26%", anchorY: 33, x: 42, y: 66, color: "lime", num: "01" },
   { index: 1, side: "left", cardTop: "42%", anchorY: 49, x: 60, y: 57, color: "navy", num: "02" },
   { index: 2, side: "left", cardTop: "58%", anchorY: 65, x: 78, y: 46, color: "lime", num: "03" },
-  { index: 3, side: "left", cardTop: "74%", anchorY: 81, x: 65, y: 38, color: "blue", num: "04" },
+  { index: 3, side: "left", cardTop: "74%", anchorY: 81, x: 67, y: 41, color: "blue", num: "04" },
   { index: 4, side: "right", cardTop: "26%", anchorY: 33, x: 53, y: 33, color: "lime", num: "05" },
   { index: 5, side: "right", cardTop: "42%", anchorY: 49, x: 47, y: 49, color: "navy", num: "06" },
   { index: 6, side: "right", cardTop: "58%", anchorY: 65, x: 25, y: 59, color: "lime", num: "07" },
@@ -525,7 +525,7 @@ const infographicItems = [
     <!-- INFOGRAFÍA INTERACTIVA (PRESENCIA NACIONAL) -->
     <section id="mapa" class="scroll-mt-24 md:scroll-mt-28 pt-12 pb-12 xl:pb-0 bg-white px-6 md:px-12 overflow-hidden">
       <div class="container mx-auto max-w-7xl">
-        <div class="text-center mb-12 xl:mb-0">
+        <div class="text-center mb-2 xl:-mb-32 relative z-20 pointer-events-none">
           <h2 class="text-3xl md:text-5xl font-saira font-semibold italic text-[var(--color-brand-navy)] mb-4">{data.mapa.sectionTitle}</h2>
           <p class="text-gray-600 text-lg max-w-3xl mx-auto">
             Ingeniería inteligente integrada en los sistemas de producción más exigentes.
@@ -580,7 +580,7 @@ const infographicItems = [
         </div>
 
         <!-- ESCRITORIO LAYOUT (>= xl) -->
-        <div class="hidden xl:block relative w-full aspect-[16/10] select-none" id="desktop-infographic">
+        <div class="hidden xl:block relative w-full aspect-[16/10] select-none -mb-16" id="desktop-infographic">
           <!-- Base lines connecting the sides to center -->
           <svg class="absolute inset-0 pointer-events-none w-full h-full z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
             {infographicItems.map((item) => {
