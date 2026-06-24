@@ -249,7 +249,7 @@ const infographicItems = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[480px]">
           {data.soluciones.cards.map((card, index) => (
-            <div class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer bg-white ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''}`}>
+            <a href={card.url} class={`bento-card group overflow-hidden relative rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] cursor-pointer bg-white ${index === 5 ? '-translate-y-4 md:translate-y-0' : ''} block`}>
               <img src={card.image || "https://loremflickr.com/800/600/industry?lock=" + index} alt={card.title} class={`object-cover h-full w-full transform transition-transform duration-700 group-hover:scale-110 ${index === 4 || index === 5 ? 'object-center' : ''}`} />
               <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-brand-navy)]/95 via-[var(--color-brand-navy)]/40 to-transparent"></div>
               <div class="absolute bottom-0 left-0 p-8 pb-16 w-full">
@@ -260,7 +260,7 @@ const infographicItems = [
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>

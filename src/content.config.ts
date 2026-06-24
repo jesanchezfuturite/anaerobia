@@ -19,7 +19,8 @@ const homepage = defineCollection({
       cards: z.array(z.object({
         title: z.string(),
         description: z.string(),
-        image: z.string().optional().nullable()
+        image: z.string().optional().nullable(),
+        url: z.string().optional().nullable()
       }))
     }),
     mantenimiento: z.object({

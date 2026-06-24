@@ -42,6 +42,7 @@ export default config({
                 directory: 'public/images/home',
                 publicPath: '/images/home/',
               }),
+              url: fields.text({ label: 'Enlace (URL)' }),
             }),
             { label: 'Tarjetas de Soluciones', itemLabel: props => props.fields.title.value }
           ),

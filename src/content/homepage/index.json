@@ -17,47 +17,56 @@
       {
         "title": "Sistemas de pintura en polvo",
         "description": "Integramos sistemas completos de pintura en polvo que ofrecen mayor calidad a tus productos.",
-        "image": "/images/home/soluciones/cards/0/image.webp"
+        "image": "/images/home/soluciones/cards/0/image.webp",
+        "url": "/soluciones/pintura-en-polvo"
       },
       {
         "title": "Sistemas de pintura líquida",
         "description": "Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficies complejas.",
-        "image": "/images/home/soluciones/cards/1/image.jpg"
+        "image": "/images/home/soluciones/cards/1/image.jpg",
+        "url": "/soluciones/pintura-liquida"
       },
       {
         "title": "Sistemas de aplicación de recubrimientos",
         "description": "Integramos equipos de las principales marcas del mercado, tanto para sistemas manuales como sistemas automáticos.",
-        "image": "/images/home/soluciones/cards/2/image.webp"
+        "image": "/images/home/soluciones/cards/2/image.webp",
+        "url": "/soluciones/aplicacion-recubrimientos"
       },
       {
         "title": "Cabinas de pintura",
         "description": "Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.",
-        "image": "/images/home/soluciones/cards/3/image.webp"
+        "image": "/images/home/soluciones/cards/3/image.webp",
+        "url": "/soluciones/cabinas-pintura"
       },
       {
         "title": "Sistemas de pretratamiento",
         "description": "Ofrecemos soluciones de pretratamiento que optimizan la preparación de tus superficies y garantizan un acabado duradero y de alta calidad.",
-        "image": "/images/home/soluciones/cards/4/image.webp"
+        "image": "/images/home/soluciones/cards/4/image.webp",
+        "url": "/soluciones/sistemas-de-pretratamiento"
       },
       {
         "title": "Pretratamiento / granallado",
         "description": "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento; el pretratamiento químico y el pretratamiento mecánico, también conocido como granallado.",
-        "image": "/images/home/soluciones/cards/5/image.webp"
+        "image": "/images/home/soluciones/cards/5/image.webp",
+        "url": "/soluciones/granallado"
       },
       {
         "title": "Hornos de curado y secado",
         "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
-        "image": "/images/home/soluciones/cards/6/image.webp"
+        "image": "/images/home/soluciones/cards/6/image.webp",
+        "url": "/soluciones/hornos-secado-curado"
       },
       {
         "title": "Transportadores / conveyors",
         "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente.",
-        "image": "/images/home/soluciones/cards/7/image.webp"
+        "image": "/images/home/soluciones/cards/7/image.webp",
+        "url": "/soluciones/conveyors"
       },
       {
         "title": "Filtros",
         "description": "Mejora la calidad del aire dentro de áreas de aplicación de recubrimientos para optimizar los procesos de producción, cumplir con normativas y garantizar la seguridad del personal operativo.",
-        "image": "/images/home/soluciones/cards/8/image.jpeg"
+        "image": "/images/home/soluciones/cards/8/image.jpeg",
+        "url": "/soluciones/filtros"
       }
     ]
   },
