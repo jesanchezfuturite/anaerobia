@@ -4,266 +4,44 @@ import Layout from "../layouts/Layout.astro";
 const seoTitle = "Proyectos | Anaerobia Surface Finishing";
 const seoDescription = "Galería de proyectos ejecutados de sistemas de pintura y acabado, cabinas y hornos implementados por Anaerobia.";
 
-const filters = [
-  { id: "todos", label: "Todos" },
-  { id: "liquida", label: "Pintura Líquida" },
-  { id: "polvo", label: "Pintura en Polvo" },
-  { id: "cabinas", label: "Cabinas" },
-  { id: "hornos", label: "Hornos" },
-  { id: "pretratamiento", label: "Pretratamiento" },
-  { id: "granallado", label: "Granallado" },
-  { id: "conveyors", label: "Conveyors" },
-  { id: "filtros", label: "Filtros" },
-  { id: "aplicacion", label: "Aplicación" },
+const industries = [
+  { title: "Agricultura", image: "/images/proyectos/galeria_industria/Agricultura.jpg" },
+  { title: "Automotriz", image: "/images/proyectos/galeria_industria/Automotriz.JPG" },
+  { title: "Automotriz", image: "/images/proyectos/galeria_industria/Automotriz2.jpg" },
+  { title: "Electrodomésticos y Muebles", image: "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg" },
+  { title: "Energía", image: "/images/proyectos/galeria_industria/Energia.jpg" },
+  { title: "Equipo Pesado", image: "/images/proyectos/galeria_industria/Equipo_Pesado.png" },
+  { title: "Ferroviaria", image: "/images/proyectos/galeria_industria/Ferroviaria.jpg" },
+  { title: "Industria General", image: "/images/proyectos/galeria_industria/Industria_general.jpg" },
+  { title: "Metalmecánica", image: "/images/proyectos/galeria_industria/Metalmecanica.jpg" },
+  { title: "Vehículos Recreacionales", image: "/images/proyectos/galeria_industria/Recreational_Vehicles.jpg" }
 ];
 
-const projects = [
+
+const caseStudies = [
   {
-    id: 1,
-    title: "Plenum de Inyección Filtros Tacky",
-    category: "filtros",
-    categoryLabel: "Filtros",
-    image: "/images/soluciones/filtros/filtro-11.webp",
+    title: "Caso de Éxito: Optimización de Línea Automotriz",
+    description: "Conoce cómo ayudamos a una armadora líder a reducir sus tiempos de ciclo en un 30% implementando cabinas de pintura de última generación con control de humedad.",
+    image: "/images/proyectos/galeria_industria/Automotriz2.jpg",
+    category: "Automotriz",
+    documentUrl: "/images/proyectos/casos_de_estudio/ejemplo_caso_estudio.pdf"
   },
   {
-    id: 2,
-    title: "Instalación de Colector de Polvos",
-    category: "filtros",
-    categoryLabel: "Filtros",
-    image: "/images/soluciones/filtros/filtro-9.webp",
+    title: "Eficiencia Energética en Hornos de Curado",
+    description: "Descubre los ahorros energéticos logrados en la industria metalmecánica tras la actualización de hornos convencionales a sistemas infrarrojos catalíticos.",
+    image: "/images/proyectos/galeria_industria/Metalmecanica.jpg",
+    category: "Industrial",
+    documentUrl: "#"
   },
   {
-    id: 3,
-    title: "Módulo Colector de Lijado Autolimpiable",
-    category: "filtros",
-    categoryLabel: "Filtros",
-    image: "/images/soluciones/filtros/filtro-13.webp",
-  },
-  {
-    id: 4,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-11.webp",
-  },
-  {
-    id: 5,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-12.webp",
-  },
-  {
-    id: 6,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-3.webp",
-  },
-  {
-    id: 7,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-6.webp",
-  },
-  {
-    id: 8,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-5.webp",
-  },
-  {
-    id: 9,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-4.webp",
-  },
-  {
-    id: 10,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-23.webp",
-  },
-  {
-    id: 11,
-    title: "Proyecto de cabina de pintura",
-    category: "cabinas",
-    categoryLabel: "Cabinas",
-    image: "/images/soluciones/cabinas-pintura/cabina-pintura-8.webp",
-  },
-  {
-    id: 12,
-    title: "Cabina automática de pintura en polvo",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-10.webp",
-  },
-  {
-    id: 13,
-    title: "Horno de curado por convección",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-11.webp",
-  },
-  {
-    id: 14,
-    title: "Centro de polvo inteligente",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-12.webp",
-  },
-  {
-    id: 15,
-    title: "Ciclón de recuperación de polvo",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-13.webp",
-  },
-  {
-    id: 16,
-    title: "Línea automática con transportador",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-14.webp",
-  },
-  {
-    id: 17,
-    title: "Pistolas electrostáticas automáticas",
-    category: "polvo",
-    categoryLabel: "Pintura en Polvo",
-    image: "/images/soluciones/pintura-polvo/pintura-polvo-15.webp",
-  },
-  {
-    id: 18,
-    title: "Túnel de aspersión",
-    category: "pretratamiento",
-    categoryLabel: "Pretratamiento",
-    image: "/images/soluciones/sistema-pretratamiento/MG_2967.webp",
-  },
-  {
-    id: 19,
-    title: "Tinas de inmersión",
-    category: "pretratamiento",
-    categoryLabel: "Pretratamiento",
-    image: "/images/soluciones/sistema-pretratamiento/MG_2998.webp",
-  },
-  {
-    id: 20,
-    title: "Proceso Químico",
-    category: "pretratamiento",
-    categoryLabel: "Pretratamiento",
-    image: "/images/soluciones/sistema-pretratamiento/MG_3035.webp",
-  },
-  {
-    id: 21,
-    title: "Sistema de granallado en operación",
-    category: "granallado",
-    categoryLabel: "Granallado",
-    image: "/images/soluciones/granallado/anaerobia-granallado-img-09.jpg",
-  },
-  {
-    id: 22,
-    title: "Detalle de turbina de granallado",
-    category: "granallado",
-    categoryLabel: "Granallado",
-    image: "/images/soluciones/granallado/anaerobia-granallado-img-10.jpg",
-  },
-  {
-    id: 23,
-    title: "Piezas tratadas",
-    category: "granallado",
-    categoryLabel: "Granallado",
-    image: "/images/soluciones/granallado/granallado-2.webp",
-  },
-  {
-    id: 24,
-    title: "Instalación de Aplicación Automática",
-    category: "aplicacion",
-    categoryLabel: "Aplicación",
-    image: "/images/soluciones/aplicacion-recubrimientos/recubrimientos-7.webp",
-  },
-  {
-    id: 25,
-    title: "Consola de Control de Fluidos",
-    category: "aplicacion",
-    categoryLabel: "Aplicación",
-    image: "/images/soluciones/aplicacion-recubrimientos/recubrimientos-8.webp",
-  },
-  {
-    id: 26,
-    title: "Robots de Aspersión de Precisión",
-    category: "aplicacion",
-    categoryLabel: "Aplicación",
-    image: "/images/soluciones/aplicacion-recubrimientos/recubrimientos-6.webp",
-  },
-  {
-    id: 27,
-    title: "Cabina de pintura líquida industrial",
-    category: "liquida",
-    categoryLabel: "Pintura Líquida",
-    image: "/images/soluciones/pintura-liquida/cabina-pintura-7.webp",
-  },
-  {
-    id: 28,
-    title: "Robot de aplicación de pintura",
-    category: "liquida",
-    categoryLabel: "Pintura Líquida",
-    image: "/images/soluciones/pintura-liquida/cabina-pintura-10.webp",
-  },
-  {
-    id: 29,
-    title: "Horno de curado industrial",
-    category: "liquida",
-    categoryLabel: "Pintura Líquida",
-    image: "/images/soluciones/pintura-liquida/horno-11.webp",
-  },
-  {
-    id: 30,
-    title: "Hornos de Secado y Curado Industriales",
-    category: "hornos",
-    categoryLabel: "Hornos",
-    image: "/images/soluciones/hornos-secado-curado/horno-9.webp",
-  },
-  {
-    id: 31,
-    title: "Horno industrial por infrarrojos",
-    category: "hornos",
-    categoryLabel: "Hornos",
-    image: "/images/soluciones/hornos-secado-curado/horno-11.webp",
-  },
-  {
-    id: 32,
-    title: "Horno industrial de pintura líquida",
-    category: "hornos",
-    categoryLabel: "Hornos",
-    image: "/images/soluciones/hornos-secado-curado/horno-12.webp",
-  },
-  {
-    id: 33,
-    title: "Sistemas aéreos de cadena continua",
-    category: "conveyors",
-    categoryLabel: "Conveyors",
-    image: "/images/soluciones/conveyors/conveyor-9.webp",
-  },
-  {
-    id: 34,
-    title: "Líneas Power & Free automatizadas",
-    category: "conveyors",
-    categoryLabel: "Conveyors",
-    image: "/images/soluciones/conveyors/conveyor-11.webp",
-  },
-  {
-    id: 35,
-    title: "Transportadores robustos a piso",
-    category: "conveyors",
-    categoryLabel: "Conveyors",
-    image: "/images/soluciones/conveyors/conveyor-12.webp",
-  },
+    title: "Sostenibilidad en Pintura en Polvo",
+    description: "Un fabricante de electrodomésticos logró cero emisiones de VOCs y recuperó el 98% del material excedente gracias a nuestra tecnología de aplicación en polvo.",
+    image: "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg",
+    category: "Electrodomésticos",
+    documentUrl: "#"
+  }
 ];
+
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -272,7 +50,7 @@ const projects = [
     <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
-        <img src="/images/home/galeria/factory_gallery_2_1780332570757.png" alt="Proyectos Anaerobia" class="w-full h-full object-cover object-center opacity-50 scale-105" />
+        <img src="/images/proyectos/hero_proyectos.webp" alt="Proyectos Anaerobia" class="w-full h-full object-cover object-center opacity-50 scale-105" />
         <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-brand-navy/60"></div>
       </div>
 
@@ -285,79 +63,104 @@ const projects = [
             <span class="text-brand-lime">Proyectos</span>
           </nav>
 
-          <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">
-            Galería
-          </span>
           <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
             Proyectos
           </h1>
           <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">
-            Explora nuestra galería de soluciones implementadas. Cada proyecto es testimonio de nuestra capacidad de ingeniería, tecnología y diseño especializado.
+            Gracias a nuestra experiencia en diferentes sectores somos capaces de ofrecer soluciones adaptadas a las necesidades de cada cliente.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- 02. FILTERS & MASONRY GALLERY -->
+
+    
+
+    <!-- 02. MASONRY GALLERY (INDUSTRIES) -->
     <section class="py-16 md:py-24 px-6 md:px-12 relative bg-white min-h-screen">
       <div class="container mx-auto">
+        <h2 class="text-3xl md:text-5xl font-saira font-bold text-center text-brand-navy mb-12 uppercase">
+          Proyectos por Industria
+        </h2>
         
-        <!-- Filtros -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12 md:mb-16" id="filter-buttons">
-          {filters.map((filter) => (
-            <button 
-              data-filter={filter.id} 
-              class={`filter-btn px-6 py-2 rounded-full font-semibold text-sm uppercase tracking-wider transition-all duration-300 border-2 
-                ${filter.id === 'todos' 
-                  ? 'bg-brand-navy border-brand-lime text-white shadow-lg' 
-                  : 'bg-transparent border-gray-200 text-gray-500 hover:border-brand-lime hover:text-brand-navy'}`}
-            >
-              {filter.label}
-            </button>
-          ))}
-        </div>
-
         <!-- Masonry Grid -->
         <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" id="masonry-gallery">
-          {projects.map((project) => (
-            <div 
-              class="gallery-item relative group break-inside-avoid rounded-xl overflow-hidden shadow-md cursor-pointer bg-gray-100"
-              data-category={project.category}
-            >
+          {industries.map((item) => (
+            <div class="gallery-item relative group break-inside-avoid rounded-xl overflow-hidden shadow-md cursor-pointer bg-gray-100">
               <img 
-                src={project.image} 
-                alt={project.title} 
+                src={item.image} 
+                alt={item.title} 
                 loading="lazy"
                 class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <!-- Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                <span class="text-brand-lime text-xs font-bold uppercase tracking-widest mb-2 inline-block transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  {project.categoryLabel}
-                </span>
-                <h3 class="text-white font-saira font-bold text-xl md:text-2xl leading-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                  {project.title}
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                <h3 class="text-white font-saira font-bold text-xl md:text-2xl leading-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {item.title}
                 </h3>
               </div>
             </div>
           ))}
         </div>
-        
-        <!-- Empty State (Hidden by default) -->
-        <div id="empty-state" class="hidden text-center py-20">
-          <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          <p class="text-gray-500 font-light text-lg">No hay proyectos en esta categoría por el momento.</p>
-        </div>
-
       </div>
     </section>
 
-    <!-- 03. CTA BOTTOM -->
-    <section class="relative min-h-[350px] flex items-center py-20 overflow-hidden">
-      <!-- Background Image with Overlay -->
+    
+
+    <!-- 03. CASOS DE ESTUDIO -->
+    <section class="py-16 px-6 md:px-12 relative bg-gray-50">
+      <div class="container mx-auto max-w-7xl">
+        <h2 class="text-3xl md:text-5xl font-saira font-bold text-center text-brand-navy mb-12 uppercase">
+          Casos de Estudio
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {caseStudies.map((caso) => (
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-2 group border border-gray-100">
+              <!-- Top Image -->
+              <div class="relative h-64 overflow-hidden">
+                <img 
+                  src={caso.image} 
+                  alt={caso.title} 
+                  loading="lazy"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span class="absolute top-4 right-4 bg-brand-navy/80 text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full backdrop-blur-sm">
+                  {caso.category}
+                </span>
+              </div>
+              
+              <!-- Content -->
+              <div class="p-8 flex flex-col flex-grow">
+                <h3 class="text-xl md:text-2xl font-saira font-bold text-brand-navy mb-4 leading-tight">
+                  {caso.title}
+                </h3>
+                <p class="text-gray-600 mb-8 font-light flex-grow leading-relaxed">
+                  {caso.description}
+                </p>
+                
+                <!-- Download Button -->
+                <a 
+                  href={caso.documentUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-brand-lime font-bold uppercase tracking-widest text-sm hover:text-brand-navy transition-colors mt-auto group-hover:underline decoration-2 underline-offset-4"
+                >
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                  Descargar Documento
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. CTA BOTTOM -->
+    <section class="py-24 relative overflow-hidden" id="contacto-cta">
       <div class="absolute inset-0 z-0">
-        <img src="/img/parallax_bg.webp" alt="Instalaciones Anaerobia" class="w-full h-full object-cover scale-[1.02]" />
-        <div class="absolute inset-0 bg-brand-navy/85 mix-blend-multiply"></div>
+        <img src="/images/proyectos/bg_cta_proyectos.webp" alt="Instalaciones Anaerobia" class="w-full h-full object-cover scale-[1.02]" />
+        <div class="absolute inset-0 bg-brand-navy/90 mix-blend-multiply"></div>
         <div class="absolute inset-0 bg-[#001c29]/75"></div>
       </div>
 
@@ -381,57 +184,6 @@ const projects = [
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const emptyState = document.getElementById('empty-state');
-    const masonryGallery = document.getElementById('masonry-gallery');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Remove active styling from all buttons
-        filterBtns.forEach(b => {
-          b.classList.remove('bg-brand-navy', 'border-brand-navy', 'text-white', 'shadow-lg');
-          b.classList.add('bg-transparent', 'border-gray-200', 'text-gray-500', 'hover:border-brand-lime', 'hover:text-brand-navy');
-        });
-
-        // Add active styling to clicked button
-        btn.classList.remove('bg-transparent', 'border-gray-200', 'text-gray-500', 'hover:border-brand-lime', 'hover:text-brand-navy');
-        btn.classList.add('bg-brand-navy', 'border-brand-lime', 'text-white', 'shadow-lg');
-
-        const filterValue = btn.getAttribute('data-filter');
-        let visibleCount = 0;
-
-        // Filter items
-        galleryItems.forEach(item => {
-          const category = item.getAttribute('data-category');
-          
-          if (filterValue === 'todos' || category === filterValue) {
-            item.style.display = 'block';
-            visibleCount++;
-            // A simple fade in effect
-            item.animate([
-              { opacity: 0, transform: 'scale(0.95)' },
-              { opacity: 1, transform: 'scale(1)' }
-            ], {
-              duration: 400,
-              easing: 'ease-out'
-            });
-          } else {
-            item.style.display = 'none';
-          }
-        });
-
-        // Show empty state if no items match
-        if (visibleCount === 0) {
-          emptyState.classList.remove('hidden');
-          masonryGallery.classList.add('hidden');
-        } else {
-          emptyState.classList.add('hidden');
-          masonryGallery.classList.remove('hidden');
-        }
-      });
-    });
-
     // Hero GSAP animations
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.from('.hero-section-text > *', {
@@ -441,15 +193,6 @@ const projects = [
         stagger: 0.1,
         ease: 'power3.out',
         delay: 0.2
-      });
-      
-      gsap.from('.gallery-item', {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.05,
-        ease: 'power3.out',
-        delay: 0.4
       });
     }
   });
