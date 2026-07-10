@@ -763,37 +763,6 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                 </div>
             </div>
         </section>
-
-        <!-- 13. GALERÍA DE PROYECTOS -->
-        <section class="py-16 bg-white px-6 md:px-12" id="galeria">
-            <div class="container mx-auto">
-                <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Galería</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Proyectos</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
-                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
-                        <img src="/images/soluciones/hornos-secado-curado/horno-9.webp" alt="Hornos de Secado y Curado Industriales" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-xs font-semibold uppercase tracking-wider">Hornos de Secado y Curado Industriales</p>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
-                        <img src="/images/soluciones/hornos-secado-curado/horno-11.webp" alt="Horno industrial por infrarrojos" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-xs font-semibold uppercase tracking-wider">Horno industrial por infrarrojos</p>
-                        </div>
-                    </div>
-                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
-                        <img src="/images/soluciones/hornos-secado-curado/horno-12.webp" alt="Horno industrial de pintura líquida" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
-                        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <p class="text-white text-xs font-semibold uppercase tracking-wider">Horno industrial de pintura líquida</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 </Layout>
 
@@ -933,17 +902,6 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                 opacity: 0,
                 duration: 0.6,
                 stagger: 0.1,
-                ease: 'power2.out',
-                clearProps: 'opacity,transform',
-            })
-
-            // Gallery grid
-            gsap.from('.gallery-grid > div', {
-                scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
-                y: 30,
-                opacity: 0,
-                duration: 0.7,
-                stagger: 0.12,
                 ease: 'power2.out',
                 clearProps: 'opacity,transform',
             })
