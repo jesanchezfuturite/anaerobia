@@ -585,8 +585,8 @@ const seoDescription = 'Suministramos filtros de extracción, inyección, filtro
                         </p>
                     </div>
 
-                    <div class="lg:w-1/2 w-full">
-                        <div class="grid grid-cols-2 gap-4 md:gap-6 norms-grid">
+                    <div class="w-full">
+                        <div class="grid grid-cols-3 gap-4 md:gap-6 norms-grid">
                             {
                                 certificados.map((cert) => (
                                     <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg transition-transform duration-300 hover:-translate-y-1 border border-transparent hover:border-brand-lime group">
@@ -594,7 +594,7 @@ const seoDescription = 'Suministramos filtros de extracción, inyección, filtro
                                             <img
                                                 src={cert.logo}
                                                 alt={`Certificación ${cert.name}`}
-                                                class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all"
+                                                class="max-h-full max-w-full object-contain transition-all"
                                                 onerror="this.outerHTML='<span class=\'text-lg font-bold text-gray-400\'>' + this.alt.split(' ')[1] + '</span>'"
                                             />
                                         </div>
