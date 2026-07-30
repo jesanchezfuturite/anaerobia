@@ -2,7 +2,7 @@
     "slug": "filtros",
     "name": "Filtros",
     "seo": {
-        "title": "Filtros Industriales y Colectores de Polvo | Anaerobia",
+        "title": "Filtros y Recolección de Polvo | Anaerobia",
         "description": "Suministramos filtros de extracción, inyección, filtros de bolsa, cartuchos y sistemas colectores de polvo para cabinas de pintura y procesos de acabado."
     },
     "hero": {
@@ -14,8 +14,12 @@
     "intro": {
         "title": "¿Por qué es crítica la filtración industrial?",
         "paragraphs": [
-            { "text": "En los procesos industriales de aplicación de acabados y pinturas, el aire es el principal portador de contaminantes. Un sistema de filtración ineficiente no solo daña el acabado final de las piezas (generando retrabajos costosos), sino que pone en riesgo la salud del personal operativo y el cumplimiento de las normativas ambientales locales e internacionales." },
-            { "text": "ANAEROBIA ofrece una gama completa de filtros para cabina de pintura de alta eficiencia (como la línea exclusiva GFS Wave), filtros tacky de inyección para contención de micropartículas, y colectores de polvos para lijado y granallado diseñados a la medida de tu planta." }
+            {
+                "text": "En los procesos industriales de aplicación de acabados y pinturas, el aire es el principal portador de contaminantes. Un sistema de filtración ineficiente no solo daña el acabado final de las piezas (generando retrabajos costosos), sino que pone en riesgo la salud del personal operativo y el cumplimiento de las normativas ambientales locales e internacionales."
+            },
+            {
+                "text": "ANAEROBIA ofrece una gama completa de filtros para cabina de pintura de alta eficiencia (como la línea exclusiva GFS Wave), filtros tacky de inyección para contención de micropartículas, y colectores de polvos para lijado y granallado diseñados a la medida de tu planta."
+            }
         ],
         "image": "/images/soluciones/filtros/filtro-2.webp",
         "highlight": "Garantizamos aire libre de impurezas bajo estrictos estándares normativos."
@@ -26,16 +30,36 @@
         "description": "Un sistema de filtración inadecuado o saturado desencadena múltiples complicaciones críticas en tu producción:",
         "image": "/images/soluciones/filtros/filtro-4.webp",
         "tarjetas": [
-            { "text": "Contaminación en el Acabado" },
-            { "text": "Incumplimiento de Normas" },
-            { "text": "Saturación y Desgaste" },
-            { "text": "Riesgos Explosivos e Incendios" }
+            {
+                "text": "Contaminación en el Acabado"
+            },
+            {
+                "text": "Incumplimiento de Normas"
+            },
+            {
+                "text": "Saturación y Desgaste"
+            },
+            {
+                "text": "Riesgos Explosivos e Incendios"
+            }
         ],
         "items": [
-            { "title": "Contaminación en el Acabado", "description": "La acumulación de motas, polvo y fibras en el flujo de aire compromete la calidad Clase A del pintado. Las impurezas se incrustan en la pintura húmeda, forzando costosos procesos de pulido y repintado de las piezas." },
-            { "title": "Incumplimiento de Normas y Multas", "description": "La emisión incontrolada de partículas y compuestos químicos peligrosos (como residuos de cromato) fuera de la cabina infringe las normativas NFPA 33 y las directrices ambientales de la EPA, acarreando costosas sanciones." },
-            { "title": "Saturación y Pérdida de Presión", "description": "Filtros saturados elevan drásticamente la resistencia al flujo de aire (caída de presión), provocando que los extractores trabajen forzados. Esto incrementa el consumo eléctrico y disminuye la capacidad de arrastre en la cabina." },
-            { "title": "Riesgos Explosivos e Incendios", "description": "La acumulación excesiva de overspray inflamable en el plenum de extracción y los ductos eleva gravemente el riesgo de ignición. La filtración certificada es obligatoria según la NFPA 33 para evitar catástrofes." }
+            {
+                "title": "Contaminación en el Acabado",
+                "description": "La acumulación de motas, polvo y fibras en el flujo de aire compromete la calidad Clase A del pintado. Las impurezas se incrustan en la pintura húmeda, forzando costosos procesos de pulido y repintado de las piezas."
+            },
+            {
+                "title": "Incumplimiento de Normas y Multas",
+                "description": "La emisión incontrolada de partículas y compuestos químicos peligrosos (como residuos de cromato) fuera de la cabina infringe las normativas NFPA 33 y las directrices ambientales de la EPA, acarreando costosas sanciones."
+            },
+            {
+                "title": "Saturación y Pérdida de Presión",
+                "description": "Filtros saturados elevan drásticamente la resistencia al flujo de aire (caída de presión), provocando que los extractores trabajen forzados. Esto incrementa el consumo eléctrico y disminuye la capacidad de arrastre en la cabina."
+            },
+            {
+                "title": "Riesgos Explosivos e Incendios",
+                "description": "La acumulación excesiva de overspray inflamable en el plenum de extracción y los ductos eleva gravemente el riesgo de ignición. La filtración certificada es obligatoria según la NFPA 33 para evitar catástrofes."
+            }
         ]
     },
     "cta1": {
@@ -49,9 +73,21 @@
         "title": "Ingeniería en Filtración y Colección de Polvos",
         "description": "No solo vendemos filtros, evaluamos las caídas de presión de tus sistemas, el flujo volumétrico (CFM) requerido y las características físicas del recubrimiento para suministrar la solución idónea.",
         "cards": [
-            { "title": "Línea de Filtros de Alta Eficiencia Wave GFS", "description": "Línea exclusiva de extracción con una superficie corrugada patentada que duplica la superficie de captura. Logra un 99.83% de eficiencia y extiende notablemente la vida útil del plenum de la cabina.", "image": "/images/soluciones/filtros/filtro-3.webp" },
-            { "title": "Filtros Tacky de Inyección con Marco Interno", "description": "Filtros sintéticos tacky que capturan partículas superiores a 5 micras. Su marco interno de acero sólido soldada garantiza un sello hermético que evita derivaciones de aire no filtrado.", "image": "/images/soluciones/filtros/filtro-5.webp" },
-            { "title": "Cabinas y Colectores de Polvo a la Medida", "description": "Diseñamos e integramos cabinas de colección de polvo para lijado y desbastado. Empleamos colectores de cartucho y bolsa autolimpiables por chorro de pulso (Pulse Jet) de alto desempeño.", "image": "/images/soluciones/filtros/filtro-7.webp" }
+            {
+                "title": "Línea de Filtros de Alta Eficiencia Wave GFS",
+                "description": "Línea exclusiva de extracción con una superficie corrugada patentada que duplica la superficie de captura. Logra un 99.83% de eficiencia y extiende notablemente la vida útil del plenum de la cabina.",
+                "image": "/images/soluciones/filtros/filtro-3.webp"
+            },
+            {
+                "title": "Filtros Tacky de Inyección con Marco Interno",
+                "description": "Filtros sintéticos tacky que capturan partículas superiores a 5 micras. Su marco interno de acero sólido soldada garantiza un sello hermético que evita derivaciones de aire no filtrado.",
+                "image": "/images/soluciones/filtros/filtro-5.webp"
+            },
+            {
+                "title": "Cabinas y Colectores de Polvo a la Medida",
+                "description": "Diseñamos e integramos cabinas de colección de polvo para lijado y desbastado. Empleamos colectores de cartucho y bolsa autolimpiables por chorro de pulso (Pulse Jet) de alto desempeño.",
+                "image": "/images/soluciones/filtros/filtro-7.webp"
+            }
         ]
     },
     "tipos": {
@@ -65,9 +101,18 @@
                 "description": "Medios filtrantes de alto rendimiento para el control del flujo de salida de aire en cabinas de pintura y retención de overspray:",
                 "image": "/images/soluciones/filtros/filtro-8.webp",
                 "items": [
-                    { "title": "Filtro Wave", "description": "Línea exclusiva GFS. Su superficie tridimensional captura y retiene el exceso de pulverización (overspray), asegurando mayor vida útil, emisiones de partículas mínimas, 99.83% de eficiencia y cumplimiento con NFPA 33, OSHA y UL 900." },
-                    { "title": "Filtros de Poliéster CPA", "description": "Diseñados para líneas de alta producción con gran capacidad y eficiencia de captura. Poseen un espesor nominal de 1”." },
-                    { "title": "Filtros de Fibra de Vidrio", "description": "Con un patrón de tejido abierto que permite que las partículas penetren en una profundidad de 2” de almohadilla. Aprobados por la lista UL, Clase 2." }
+                    {
+                        "title": "Filtro Wave",
+                        "description": "Línea exclusiva GFS. Su superficie tridimensional captura y retiene el exceso de pulverización (overspray), asegurando mayor vida útil, emisiones de partículas mínimas, 99.83% de eficiencia y cumplimiento con NFPA 33, OSHA y UL 900."
+                    },
+                    {
+                        "title": "Filtros de Poliéster CPA",
+                        "description": "Diseñados para líneas de alta producción con gran capacidad y eficiencia de captura. Poseen un espesor nominal de 1”."
+                    },
+                    {
+                        "title": "Filtros de Fibra de Vidrio",
+                        "description": "Con un patrón de tejido abierto que permite que las partículas penetren en una profundidad de 2” de almohadilla. Aprobados por la lista UL, Clase 2."
+                    }
                 ]
             },
             {
@@ -76,9 +121,18 @@
                 "description": "Medios filtrantes de alto rendimiento para el control del flujo de entrada de aire limpio en cabinas de pintura:",
                 "image": "/images/soluciones/filtros/filtro-6.webp",
                 "items": [
-                    { "title": "Inyección Alta Temperatura con Marco", "description": "Eliminan más del 90% de partículas > 5 micras. Cuentan con sello de temperatura y costuras de fijación para prevenir el aleteo. Estructura interna de acero sólido para un fácil ajuste hermético. Listados UL Clase 2." },
-                    { "title": "Filtros Tacky (con y sin marco)", "description": "Fibra sintética económica de alto rendimiento unida con un adhesivo especial. El marco de acero soldado interno permite un ajuste hermético rápido gracias a la junta de cierre automático. UL Clase 2." },
-                    { "title": "Filtros Alta Temperatura Micro Clean", "description": "Medios filtrantes de poliéster unidos con aglutinante de cloruro de polivinilo, adecuados para sistemas de media y alta temperatura. Disponibles en rollos precortados y a granel." }
+                    {
+                        "title": "Inyección Alta Temperatura con Marco",
+                        "description": "Eliminan más del 90% de partículas > 5 micras. Cuentan con sello de temperatura y costuras de fijación para prevenir el aleteo. Estructura interna de acero sólido para un fácil ajuste hermético. Listados UL Clase 2."
+                    },
+                    {
+                        "title": "Filtros Tacky (con y sin marco)",
+                        "description": "Fibra sintética económica de alto rendimiento unida con un adhesivo especial. El marco de acero soldado interno permite un ajuste hermético rápido gracias a la junta de cierre automático. UL Clase 2."
+                    },
+                    {
+                        "title": "Filtros Alta Temperatura Micro Clean",
+                        "description": "Medios filtrantes de poliéster unidos con aglutinante de cloruro de polivinilo, adecuados para sistemas de media y alta temperatura. Disponibles en rollos precortados y a granel."
+                    }
                 ]
             },
             {
@@ -87,8 +141,14 @@
                 "description": "Filtros secos de cartón y de algodón/sintético estructurados para retener sólidos en suspensión:",
                 "image": "/images/soluciones/filtros/filtro-12.webp",
                 "items": [
-                    { "title": "Filtros Plisados", "description": "Eficiencia media fabricados con material no tejido de algodón / sintético. Paneles corrugados con una densidad de 16 pliegues por pie lineal. Disponibles en profundidades de 1”, 2” y 4” con diferentes clasificaciones MERV. Aprobados UL Clase 1 o Clase 2." },
-                    { "title": "Filtros de Malla de Papel-Poliéster", "description": "Altamente eficientes para la retención de pintura. Construidos con siete capas de papel expandido y un soporte de poliéster blanco de alta densidad para máxima acumulación de carga sólida sin colmatar el flujo de aire." }
+                    {
+                        "title": "Filtros Plisados",
+                        "description": "Eficiencia media fabricados con material no tejido de algodón / sintético. Paneles corrugados con una densidad de 16 pliegues por pie lineal. Disponibles en profundidades de 1”, 2” y 4” con diferentes clasificaciones MERV. Aprobados UL Clase 1 o Clase 2."
+                    },
+                    {
+                        "title": "Filtros de Malla de Papel-Poliéster",
+                        "description": "Altamente eficientes para la retención de pintura. Construidos con siete capas de papel expandido y un soporte de poliéster blanco de alta densidad para máxima acumulación de carga sólida sin colmatar el flujo de aire."
+                    }
                 ]
             },
             {
@@ -97,9 +157,18 @@
                 "description": "Componentes e insumos destinados a la captación de partículas secas, polvos de lijado y recuperación de pintura electrostática en polvo:",
                 "image": "/images/soluciones/filtros/filtro-18.webp",
                 "items": [
-                    { "title": "Filtros de Bolsa", "description": "Diseñados con bordes individuales y barras divisorias internas termoselladas que evitan el colapso del medio. Ofrecen una alta capacidad de retención de polvo fino y una prolongada vida útil en sistemas de inyección forzada y colectores." },
-                    { "title": "Filtros de Malla de Papel", "description": "Construidos mediante numerosas capas superpuestas de papel expandido de trama calibrada para retención de partículas sólidas. Aprobación UL Clase 2." },
-                    { "title": "Filtros de Cartucho", "description": "Filtros cilíndricos plisados de poliéster, celulosa o spunbond. Indispensables en las cabinas de recuperación de pintura en polvo (powder coating), colectores de polvos de lijado y desbastado, y cabinas batch." }
+                    {
+                        "title": "Filtros de Bolsa",
+                        "description": "Diseñados con bordes individuales y barras divisorias internas termoselladas que evitan el colapso del medio. Ofrecen una alta capacidad de retención de polvo fino y una prolongada vida útil en sistemas de inyección forzada y colectores."
+                    },
+                    {
+                        "title": "Filtros de Malla de Papel",
+                        "description": "Construidos mediante numerosas capas superpuestas de papel expandido de trama calibrada para retención de partículas sólidas. Aprobación UL Clase 2."
+                    },
+                    {
+                        "title": "Filtros de Cartucho",
+                        "description": "Filtros cilíndricos plisados de poliéster, celulosa o spunbond. Indispensables en las cabinas de recuperación de pintura en polvo (powder coating), colectores de polvos de lijado y desbastado, y cabinas batch."
+                    }
                 ]
             },
             {
@@ -126,19 +195,40 @@
         "badge": "Preguntas Frecuentes",
         "title": "Preguntas Frecuentes",
         "items": [
-            { "question": "¿Cuál es la ventaja del Filtro Wave de GFS frente a un filtro de fibra de vidrio tradicional?", "answer": "El Filtro Wave cuenta con un patrón corrugado en ondas que duplica la superficie de captura útil en el mismo tamaño de marco. Esto resulta en una eficiencia del 99.83%, mayor capacidad de retención de pintura líquida y en polvo antes de saturarse, menor caída de presión inicial y una vida útil sustancialmente mayor, reduciendo el número de paros y cambios de filtro." },
-            { "question": "¿Por qué es obligatorio un filtro de 3 etapas en la captura de cromatos?", "answer": "Los cromatos son compuestos químicos altamente tóxicos y regulados por agencias de salud y medio ambiente (como OSHA y EPA). Para garantizar su contención absoluta, la norma NESHAP Método 319 exige un sistema de filtración progresivo de 3 etapas (Wave, filtro plisado de media eficiencia MEPT, y filtro de bolsa final de alta eficiencia) para detener partículas ultrafinas." },
-            { "question": "¿Qué diferencia hay entre los filtros tacky con y sin marco interno?", "answer": "Los filtros tacky sin marco se suministran en rollo o almohadillas sueltas y requieren de un marco de rejilla exterior de la cabina para sujetarse. Los filtros con marco de acero soldado interno son unidades autónomas rígidas que se deslizan o sujetan directamente en el plenum, proporcionando una junta hermética de cierre automático que elimina las derivaciones de aire sucio." },
-            { "question": "¿Cómo funciona la limpieza automática Pulse Jet en los colectores de polvo?", "answer": "El sistema Pulse Jet monitorea la diferencia de presión en los cartuchos filtrantes. Cuando la presión supera un límite establecido por saturación de polvo, el sistema dispara un pulso de aire comprimido a alta presión en sentido inverso en el interior del cartucho. Esto sacude el cartucho y hace caer el polvo acumulado en la tolva de recolección inferior, limpiándolo sin interrumpir la operación de la cabina." }
+            {
+                "question": "¿Cuál es la ventaja del Filtro Wave de GFS frente a un filtro de fibra de vidrio tradicional?",
+                "answer": "El Filtro Wave cuenta con un patrón corrugado en ondas que duplica la superficie de captura útil en el mismo tamaño de marco. Esto resulta en una eficiencia del 99.83%, mayor capacidad de retención de pintura líquida y en polvo antes de saturarse, menor caída de presión inicial y una vida útil sustancialmente mayor, reduciendo el número de paros y cambios de filtro."
+            },
+            {
+                "question": "¿Por qué es obligatorio un filtro de 3 etapas en la captura de cromatos?",
+                "answer": "Los cromatos son compuestos químicos altamente tóxicos y regulados por agencias de salud y medio ambiente (como OSHA y EPA). Para garantizar su contención absoluta, la norma NESHAP Método 319 exige un sistema de filtración progresivo de 3 etapas (Wave, filtro plisado de media eficiencia MEPT, y filtro de bolsa final de alta eficiencia) para detener partículas ultrafinas."
+            },
+            {
+                "question": "¿Qué diferencia hay entre los filtros tacky con y sin marco interno?",
+                "answer": "Los filtros tacky sin marco se suministran en rollo o almohadillas sueltas y requieren de un marco de rejilla exterior de la cabina para sujetarse. Los filtros con marco de acero soldado interno son unidades autónomas rígidas que se deslizan o sujetan directamente en el plenum, proporcionando una junta hermética de cierre automático que elimina las derivaciones de aire sucio."
+            },
+            {
+                "question": "¿Cómo funciona la limpieza automática Pulse Jet en los colectores de polvo?",
+                "answer": "El sistema Pulse Jet monitorea la diferencia de presión en los cartuchos filtrantes. Cuando la presión supera un límite establecido por saturación de polvo, el sistema dispara un pulso de aire comprimido a alta presión en sentido inverso en el interior del cartucho. Esto sacude el cartucho y hace caer el polvo acumulado en la tolva de recolección inferior, limpiándolo sin interrumpir la operación de la cabina."
+            }
         ]
     },
     "galeria": {
         "badge": "Galería",
         "title": "Proyectos",
         "images": [
-            { "image": "/images/soluciones/filtros/filtro-11.webp", "alt": "Plenum de Inyección Filtros Tacky" },
-            { "image": "/images/soluciones/filtros/filtro-9.webp", "alt": "Instalación de Colector de Polvos" },
-            { "image": "/images/soluciones/filtros/filtro-13.webp", "alt": "Módulo Colector de Lijado Autolimpiable" }
+            {
+                "image": "/images/soluciones/filtros/filtro-11.webp",
+                "alt": "Plenum de Inyección Filtros Tacky"
+            },
+            {
+                "image": "/images/soluciones/filtros/filtro-9.webp",
+                "alt": "Instalación de Colector de Polvos"
+            },
+            {
+                "image": "/images/soluciones/filtros/filtro-13.webp",
+                "alt": "Módulo Colector de Lijado Autolimpiable"
+            }
         ]
     },
     "extras": {
@@ -147,10 +237,22 @@
             "title": "Valor Añadido en Filtración ANAEROBIA",
             "description": "Nuestra propuesta garantiza un rendimiento óptimo de tus cabinas:",
             "cards": [
-                { "title": "Certificación de Seguridad", "description": "Suministramos exclusivamente productos aprobados por UL, garantizando retardancia a la flama de acuerdo con la norma NFPA 33." },
-                { "title": "Ingeniería Multimarca", "description": "Nuestros filtros se adaptan físicamente a cabinas de cualquier fabricante, respetando los flujos de aire y dimensiones de marcos." },
-                { "title": "Reducción de Consumos", "description": "Seleccionamos medios filtrantes con menor resistencia inicial, permitiendo reducir la carga eléctrica en motores de extracción." },
-                { "title": "Disponibilidad de Stock", "description": "Contamos con stock de entrega rápida para refacciones, consumibles críticos y repuestos de filtros tacky, plisados y bolsas." }
+                {
+                    "title": "Certificación de Seguridad",
+                    "description": "Suministramos exclusivamente productos aprobados por UL, garantizando retardancia a la flama de acuerdo con la norma NFPA 33."
+                },
+                {
+                    "title": "Ingeniería Multimarca",
+                    "description": "Nuestros filtros se adaptan físicamente a cabinas de cualquier fabricante, respetando los flujos de aire y dimensiones de marcos."
+                },
+                {
+                    "title": "Reducción de Consumos",
+                    "description": "Seleccionamos medios filtrantes con menor resistencia inicial, permitiendo reducir la carga eléctrica en motores de extracción."
+                },
+                {
+                    "title": "Disponibilidad de Stock",
+                    "description": "Contamos con stock de entrega rápida para refacciones, consumibles críticos y repuestos de filtros tacky, plisados y bolsas."
+                }
             ]
         },
         "componentes": {
@@ -158,28 +260,61 @@
             "title": "Sistemas de Colección de Polvo y Lijado",
             "description": "Nuestras cabinas colectoras de polvo de lijado y desbastado están diseñadas a la medida para captar los residuos sólidos generados en las actividades mecánicas de preparación:",
             "cards": [
-                { "title": "Cabinas de Lijado", "description": "Espacios cerrados o semi-abiertos equipados con paredes de filtración seca y rejillas de colección en el piso para arrastre de partículas metálicas o plásticas." },
-                { "title": "Cabinas de Desbastado", "description": "Módulos construidos con paneles de chapa de acero galvanizado y deflectores de flujo para contener las proyecciones de esmerilado." },
-                { "title": "Cabinas de Granallado", "description": "Estructuras robustas de alta resistencia preparadas para el desgaste por abrasión, integrando colectores de polvo y sistemas de recirculación del abrasivo." },
-                { "title": "Módulo Colector de Polvos", "description": "Unidades autónomas compactas con cartuchos de poliéster y sistema de autolimpieza automática por pulsos de aire comprimido." },
-                { "title": "Colector de Alta Producción", "description": "Sistemas centralizados para conectar múltiples estaciones de trabajo simultáneas, garantizando presión estática constante en toda la planta." },
-                { "title": "Filtro para Limpiar el Aire", "description": "Unidades de filtración final de inyección de aire para asegurar que las áreas de colección de polvos mantengan un flujo de aire libre de partículas externas." }
+                {
+                    "title": "Cabinas de Lijado",
+                    "description": "Espacios cerrados o semi-abiertos equipados con paredes de filtración seca y rejillas de colección en el piso para arrastre de partículas metálicas o plásticas."
+                },
+                {
+                    "title": "Cabinas de Desbastado",
+                    "description": "Módulos construidos con paneles de chapa de acero galvanizado y deflectores de flujo para contener las proyecciones de esmerilado."
+                },
+                {
+                    "title": "Cabinas de Granallado",
+                    "description": "Estructuras robustas de alta resistencia preparadas para el desgaste por abrasión, integrando colectores de polvo y sistemas de recirculación del abrasivo."
+                },
+                {
+                    "title": "Módulo Colector de Polvos",
+                    "description": "Unidades autónomas compactas con cartuchos de poliéster y sistema de autolimpieza automática por pulsos de aire comprimido."
+                },
+                {
+                    "title": "Colector de Alta Producción",
+                    "description": "Sistemas centralizados para conectar múltiples estaciones de trabajo simultáneas, garantizando presión estática constante en toda la planta."
+                },
+                {
+                    "title": "Filtro para Limpiar el Aire",
+                    "description": "Unidades de filtración final de inyección de aire para asegurar que las áreas de colección de polvos mantengan un flujo de aire libre de partículas externas."
+                }
             ]
         },
         "multifuncional_etapas": {
             "title": "Filtro de 3 Etapas (Captura de Cromatos)",
             "description": "Diseñado específicamente para la recolección de residuos de pintura que contienen cromatos en la industria aeroespacial y de defensa. Cumple y supera los rigurosos requisitos de la norma NESHAP Método 319:",
             "items": [
-                { "title": "Etapa 1", "description": "Pre-filtración Wave para capturar las partículas gruesas y líquidos suspendidos." },
-                { "title": "Etapa 2", "description": "Filtros de media eficiencia plisados (MEPT) que retienen partículas intermedias." },
-                { "title": "Etapa 3", "description": "Filtro de bolsa final de alta eficiencia para asegurar la captura del polvo fino de cromatos." }
+                {
+                    "title": "Etapa 1",
+                    "description": "Pre-filtración Wave para capturar las partículas gruesas y líquidos suspendidos."
+                },
+                {
+                    "title": "Etapa 2",
+                    "description": "Filtros de media eficiencia plisados (MEPT) que retienen partículas intermedias."
+                },
+                {
+                    "title": "Etapa 3",
+                    "description": "Filtro de bolsa final de alta eficiencia para asegurar la captura del polvo fino de cromatos."
+                }
             ]
         },
         "multifuncional_colectores": {
             "title": "Filtros y Cabinas Colectoras de Polvo",
             "items": [
-                { "title": "Limpieza del Aire de Inyección", "description": "Filtros diseñados para purificar el aire de alimentación a los sistemas colectores y evitar contaminantes externos en la zona operativa." },
-                { "title": "Ofrecemos diversos tipos de Cabinas de Colección de Polvo", "description": "Cabinas de lijado, Cabinas de lijado y desbastado, Cabina de granallado, Módulos colectores y Colectores de polvo de alta producción. Proporcionan un ambiente seguro y limpio." }
+                {
+                    "title": "Limpieza del Aire de Inyección",
+                    "description": "Filtros diseñados para purificar el aire de alimentación a los sistemas colectores y evitar contaminantes externos en la zona operativa."
+                },
+                {
+                    "title": "Ofrecemos diversos tipos de Cabinas de Colección de Polvo",
+                    "description": "Cabinas de lijado, Cabinas de lijado y desbastado, Cabina de granallado, Módulos colectores y Colectores de polvo de alta producción. Proporcionan un ambiente seguro y limpio."
+                }
             ]
         }
     }

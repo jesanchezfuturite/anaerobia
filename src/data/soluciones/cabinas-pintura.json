@@ -2,7 +2,7 @@
     "slug": "cabinas-pintura",
     "name": "Cabinas de Pintura",
     "seo": {
-        "title": "Cabinas de Pintura Industriales | Anaerobia",
+        "title": "Cabinas de Pintura | Anaerobia",
         "description": "Nuestras cabinas de pintura integran tecnología de vanguardia para garantizar una buena calidad en el acabado, optimizando el consumo de material y asegurando el cumplimiento estricto de las normativas de protección ambiental más exigentes del mercado internacional."
     },
     "hero": {
@@ -15,8 +15,12 @@
         "badge": "Ingeniería y Tecnología",
         "title": "¿Qué es una cabina de pintura?",
         "paragraphs": [
-            { "text": "Las cabinas de pintura son instalaciones especializadas diseñadas para proporcionar un entorno controlado y seguro durante la aplicación de pintura en diversas ramas industriales, tales como la automotriz, aeronáutica, metalúrgica, de electrodomésticos, mobiliarios, etc." },
-            { "text": "Estas cabinas integran sistemas avanzados de filtración, ventilación mecánica y control térmico. Su función principal es mover el flujo de aire de forma calculada a través de una cámara de trabajo y un sistema de escape para capturar eficazmente la sobre pulverización y los vapores nocivos generados durante el proceso." }
+            {
+                "text": "Las cabinas de pintura son instalaciones especializadas diseñadas para proporcionar un entorno controlado y seguro durante la aplicación de pintura en diversas ramas industriales, tales como la automotriz, aeronáutica, metalúrgica, de electrodomésticos, mobiliarios, etc."
+            },
+            {
+                "text": "Estas cabinas integran sistemas avanzados de filtración, ventilación mecánica y control térmico. Su función principal es mover el flujo de aire de forma calculada a través de una cámara de trabajo y un sistema de escape para capturar eficazmente la sobre pulverización y los vapores nocivos generados durante el proceso."
+            }
         ],
         "highlight": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología.",
         "image": "/images/soluciones/cabinas-pintura/cabina-pintura-20.webp"
@@ -27,16 +31,36 @@
         "description": "Cuando un proceso industrial de acabado opera sin una cabina de pintura de alta ingeniería, se enfrenta a riesgos que impactan directamente en la calidad de la pieza final",
         "image": "/images/soluciones/cabinas-pintura/cabina-pintura-2.webp",
         "tarjetas": [
-            { "text": "Defectos superficiales y poca precisión en el acabado" },
-            { "text": "Exposición y riesgos para los operadores" },
-            { "text": "Sanciones por incumplimiento normativo" },
-            { "text": "Riesgo de incendios" }
+            {
+                "text": "Defectos superficiales y poca precisión en el acabado"
+            },
+            {
+                "text": "Exposición y riesgos para los operadores"
+            },
+            {
+                "text": "Sanciones por incumplimiento normativo"
+            },
+            {
+                "text": "Riesgo de incendios"
+            }
         ],
         "items": [
-            { "title": "Defectos superficiales y poca precisión en el acabado", "description": "La falta de un entorno aislado expone las piezas a agentes externos como polvo y partículas que afectan la uniformidad del acabado, debilitan el desempeño del recubrimiento y comprometen la resistencia de la capa de pintura a factores ambientales y mecánicos." },
-            { "title": "Exposición y riesgos para los operadores", "description": "Durante la aplicación, el personal queda expuesto directamente a vapores y productos químicos tóxicos especialmente en sistemas con solventes. La ausencia de una extracción controlada y dirigida eleva drásticamente los riesgos de intoxicación o daños en la salud de los trabajadores." },
-            { "title": "Sanciones por incumplimiento de normativas ambientales y de seguridad", "description": "Operar sin el cumplimiento de regulaciones industriales de seguridad como la de Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA), Environmental Protection Agency (EPA) en estados Unidos y otras normativas internacionales, coloca a la empresa en una posición vulnerable a costosas sanciones, multas o clausuras de líneas de producción." },
-            { "title": "Riesgo de incendios", "description": "Sin un sistema de ventilación efectivo, la planta en general queda expuesta a siniestros, incendios o explosiones que ponen en peligro no solo el área de acabado, sino toda la infraestructura y continuidad del negocio." }
+            {
+                "title": "Defectos superficiales y poca precisión en el acabado",
+                "description": "La falta de un entorno aislado expone las piezas a agentes externos como polvo y partículas que afectan la uniformidad del acabado, debilitan el desempeño del recubrimiento y comprometen la resistencia de la capa de pintura a factores ambientales y mecánicos."
+            },
+            {
+                "title": "Exposición y riesgos para los operadores",
+                "description": "Durante la aplicación, el personal queda expuesto directamente a vapores y productos químicos tóxicos especialmente en sistemas con solventes. La ausencia de una extracción controlada y dirigida eleva drásticamente los riesgos de intoxicación o daños en la salud de los trabajadores."
+            },
+            {
+                "title": "Sanciones por incumplimiento de normativas ambientales y de seguridad",
+                "description": "Operar sin el cumplimiento de regulaciones industriales de seguridad como la de Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA), Environmental Protection Agency (EPA) en estados Unidos y otras normativas internacionales, coloca a la empresa en una posición vulnerable a costosas sanciones, multas o clausuras de líneas de producción."
+            },
+            {
+                "title": "Riesgo de incendios",
+                "description": "Sin un sistema de ventilación efectivo, la planta en general queda expuesta a siniestros, incendios o explosiones que ponen en peligro no solo el área de acabado, sino toda la infraestructura y continuidad del negocio."
+            }
         ]
     },
     "cta1": {
@@ -50,9 +74,21 @@
         "title": "Nuestra Solución en Ingeniería de Cabinas de Pintura",
         "description": "Diseñamos, fabricamos e instalamos cabinas de aplicación a la medida, garantizando la contención eficiente de partículas, flujos de aire controlados y cumplimiento estricto de normativas internacionales",
         "cards": [
-            { "title": "Diseño y Dimensionamiento a la Medida", "description": "Configuramos las dimensiones de la cabina según la geometría de tus productos y tu volumen de producción. Desde equipos tipo batch para procesos manuales hasta sistemas completamente automatizados integrados a líneas de transporte continuo.", "image": "/images/soluciones/cabinas-pintura/cabina-pintura-3.webp" },
-            { "title": "Sistemas de Filtración Avanzada", "description": "Integramos etapas de filtrado en seco o por cortina de agua de alta eficiencia. Capturamos la sobre pulverización (overspray) de forma óptima para mantener un entorno limpio y cumplir con normativas ambientales de emisiones", "image": "/images/soluciones/cabinas-pintura/cabina-pintura-4.webp" },
-            { "title": "Distribución y gestión del flujo de aire", "description": "Administrar el flujo de aire es probablemente el elemento más importante de una cabina de pintura y su diseño. Calculamos rigurosamente los sistemas de ventilación para crear una envoltura de flujo de aire laminar en el área de pulverización a una velocidad de ingeniería exacta.", "image": "/images/soluciones/cabinas-pintura/cabina-pintura-5.webp" }
+            {
+                "title": "Diseño y Dimensionamiento a la Medida",
+                "description": "Configuramos las dimensiones de la cabina según la geometría de tus productos y tu volumen de producción. Desde equipos tipo batch para procesos manuales hasta sistemas completamente automatizados integrados a líneas de transporte continuo.",
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-3.webp"
+            },
+            {
+                "title": "Sistemas de Filtración Avanzada",
+                "description": "Integramos etapas de filtrado en seco o por cortina de agua de alta eficiencia. Capturamos la sobre pulverización (overspray) de forma óptima para mantener un entorno limpio y cumplir con normativas ambientales de emisiones",
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-4.webp"
+            },
+            {
+                "title": "Distribución y gestión del flujo de aire",
+                "description": "Administrar el flujo de aire es probablemente el elemento más importante de una cabina de pintura y su diseño. Calculamos rigurosamente los sistemas de ventilación para crear una envoltura de flujo de aire laminar en el área de pulverización a una velocidad de ingeniería exacta.",
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-5.webp"
+            }
         ]
     },
     "tipos": {
@@ -64,15 +100,33 @@
                 "label": "Cabinas de pintura líquida",
                 "description": "En ANAEROBIA somos expertos en el diseño, fabricación e instalación de cabinas de pintura líquida con un alto nivel de ingeniería especializada y tecnología avanzada. Las cabinas de pintura líquida se pueden distinguir de acuerdo con su diseño y configuración del flujo de aire y sistema de filtración:",
                 "cards": [
-                    { "title": "Filtro seco", "description": "Utilizan filtros secos para capturar el polvo y las partículas en el aire. Estas cabinas se clasifican de acuerdo con el tipo de flujo de aire." },
-                    { "title": "Cortina de agua", "description": "Estas cabinas emplean cortinas de agua para capturar partículas de pintura y evitar que se dispersen. Son adecuadas para procesos industriales de alta velocidad y de alto volumen de producción en serie." }
+                    {
+                        "title": "Filtro seco",
+                        "description": "Utilizan filtros secos para capturar el polvo y las partículas en el aire. Estas cabinas se clasifican de acuerdo con el tipo de flujo de aire."
+                    },
+                    {
+                        "title": "Cortina de agua",
+                        "description": "Estas cabinas emplean cortinas de agua para capturar partículas de pintura y evitar que se dispersen. Son adecuadas para procesos industriales de alta velocidad y de alto volumen de producción en serie."
+                    }
                 ],
                 "image": "/images/soluciones/cabinas-pintura/cabina-pintura-23.webp",
                 "items": [
-                    { "title": "Diseño Downdraft", "description": "Generalmente aceptadas como las cabinas con el mejor flujo de aire, proporcionan un excelente manejo del exceso de pintura y de contaminantes. El aire ingresa a la cabina a través de un plenum de techo filtrado de longitud completa y fluye verticalmente sobre la pieza y dentro del pozo de escape filtrado en el piso." },
-                    { "title": "Diseño Side Downdraft", "description": "Una solución económica e ideal para plantas que no pueden o no desean tener un pozo de escape. El aire ingresa a la cabina a través de una cámara de techo filtrada de longitud completa y fluye hacia abajo sobre el producto; al llegar al piso, el flujo es dirigido hacia las cámaras de escape filtradas a nivel del suelo en ambos lados de la cabina." },
-                    { "title": "Diseño Semi-Downdraft", "description": "Un sistema híbrido que combina características de las cabinas de tiro cruzado y tiro descendente. El aire es introducido a la cabina a través del techo o una cámara de admisión en el primer 25% a 30% de la cabina, moviéndose a través de la cámara de trabajo sobre la pieza y hacia la cámara de escape filtrada en la parte trasera de la cabina." },
-                    { "title": "Diseño Crossdraft", "description": "La configuración más simple y rentable. Al no requerir una fosa de extracción, se integra fácilmente a líneas existentes. El flujo de aire comienza en la parte delantera ingresando por puertas de producto filtradas o una cámara de admisión, moviéndose de forma horizontal (paralela al piso) sobre la pieza hacia el área de extracción trasera." }
+                    {
+                        "title": "Diseño Downdraft",
+                        "description": "Generalmente aceptadas como las cabinas con el mejor flujo de aire, proporcionan un excelente manejo del exceso de pintura y de contaminantes. El aire ingresa a la cabina a través de un plenum de techo filtrado de longitud completa y fluye verticalmente sobre la pieza y dentro del pozo de escape filtrado en el piso."
+                    },
+                    {
+                        "title": "Diseño Side Downdraft",
+                        "description": "Una solución económica e ideal para plantas que no pueden o no desean tener un pozo de escape. El aire ingresa a la cabina a través de una cámara de techo filtrada de longitud completa y fluye hacia abajo sobre el producto; al llegar al piso, el flujo es dirigido hacia las cámaras de escape filtradas a nivel del suelo en ambos lados de la cabina."
+                    },
+                    {
+                        "title": "Diseño Semi-Downdraft",
+                        "description": "Un sistema híbrido que combina características de las cabinas de tiro cruzado y tiro descendente. El aire es introducido a la cabina a través del techo o una cámara de admisión en el primer 25% a 30% de la cabina, moviéndose a través de la cámara de trabajo sobre la pieza y hacia la cámara de escape filtrada en la parte trasera de la cabina."
+                    },
+                    {
+                        "title": "Diseño Crossdraft",
+                        "description": "La configuración más simple y rentable. Al no requerir una fosa de extracción, se integra fácilmente a líneas existentes. El flujo de aire comienza en la parte delantera ingresando por puertas de producto filtradas o una cámara de admisión, moviéndose de forma horizontal (paralela al piso) sobre la pieza hacia el área de extracción trasera."
+                    }
                 ]
             },
             {
@@ -80,9 +134,18 @@
                 "description": "Las cabinas de pintura en polvo se diseñan para cumplir con altos niveles de eficiencia, permitiendo producir acabados de alta calidad. Las cabinas de pintura en polvo pueden distinguirse principalmente en las siguientes tres categorías:",
                 "image": "/images/soluciones/cabinas-pintura/cabina-pintura-19.webp",
                 "items": [
-                    { "title": "Recuperación con cartucho", "description": "Son ideales para aplicaciones de pintura en polvo de pequeño a mediano tamaño. Un sistema de autolimpieza de pulsos limpia continuamente los filtros de cartucho, lo que alarga su vida útil. El polvo no utilizado puede ser recuperado para futuras aplicaciones de pintura en polvo." },
-                    { "title": "Cambio rápido de color", "description": "Las cabinas de pintura en polvo de cambio rápido de color son sistemas diseñados para facilitar y agilizar el proceso de cambio de color entre lotes de producción, lo que es especialmente útil en aplicaciones de recubrimiento en polvo donde se requieren cambios frecuentes de color para diferentes productos o proyectos. Estas cabinas están diseñadas para minimizar el tiempo y el esfuerzo necesarios para limpiar y reconfigurar el equipo entre los cambios de color, lo que permite una mayor eficiencia y reducción de tiempos de inactividad." },
-                    { "title": "Sin recuperación", "description": "Las cabinas de pintura en polvo sin recuperación son una solución de alto rendimiento para aplicaciones en lotes pequeños. Estas cabinas se pueden encontrar en diseños open face, con sistema de filtración de tres etapas y un ventilador de bajo ruido y de gran capacidad." }
+                    {
+                        "title": "Recuperación con cartucho",
+                        "description": "Son ideales para aplicaciones de pintura en polvo de pequeño a mediano tamaño. Un sistema de autolimpieza de pulsos limpia continuamente los filtros de cartucho, lo que alarga su vida útil. El polvo no utilizado puede ser recuperado para futuras aplicaciones de pintura en polvo."
+                    },
+                    {
+                        "title": "Cambio rápido de color",
+                        "description": "Las cabinas de pintura en polvo de cambio rápido de color son sistemas diseñados para facilitar y agilizar el proceso de cambio de color entre lotes de producción, lo que es especialmente útil en aplicaciones de recubrimiento en polvo donde se requieren cambios frecuentes de color para diferentes productos o proyectos. Estas cabinas están diseñadas para minimizar el tiempo y el esfuerzo necesarios para limpiar y reconfigurar el equipo entre los cambios de color, lo que permite una mayor eficiencia y reducción de tiempos de inactividad."
+                    },
+                    {
+                        "title": "Sin recuperación",
+                        "description": "Las cabinas de pintura en polvo sin recuperación son una solución de alto rendimiento para aplicaciones en lotes pequeños. Estas cabinas se pueden encontrar en diseños open face, con sistema de filtración de tres etapas y un ventilador de bajo ruido y de gran capacidad."
+                    }
                 ]
             }
         ]
@@ -104,13 +167,34 @@
         "badge": "Preguntas Técnicas",
         "title": "Preguntas Frecuentes",
         "items": [
-            { "question": "¿Qué es una cabina de pintura?", "answer": "Es un espacio diseñado específicamente para aplicar recubrimientos de pintura a una variedad de productos, desde piezas pequeñas hasta vehículos y componentes industriales. Estas cabinas están equipadas con sistemas de filtración y ventilación para controlar las partículas de pintura y proporcionar un entorno de trabajo seguro." },
-            { "question": "¿Cuál es la importancia de las cabinas de pintura?", "answer": "Son esenciales para lograr acabados de alta calidad y duraderos en productos industriales. Proporcionan un entorno controlado que evita la contaminación de partículas, polvo y contaminantes en la pintura, lo que garantiza resultados consistentes y la adherencia adecuada de la pintura." },
-            { "question": "¿Cuáles son los tipos de cabinas más comunes?", "answer": "Los tipos más comunes son las cabinas de pintura líquida y las cabinas de pintura en polvo. Además, existen cabinas diseñadas dependiendo del sector industrial. Otro criterio importante en la clasificación de cabinas es el tipo de filtrado." },
-            { "question": "¿Cómo se garantiza la seguridad y el control en las cabinas de pintura?", "answer": "En ANAEROBIA diseñamos y fabricamos cabinas de pintura de acuerdo con los lineamientos de normativas nacionales e internacionales. Además, nuestro departamento especializado, ANSERVICE, ofrece programas de mantenimiento para asegurar la continuidad de tu equipo." },
-            { "question": "¿Cuál es la importancia de la filtración en una cabina?", "answer": "La filtración es esencial para capturar partículas de pintura y polvo en suspensión en el aire. Esto evita que estas partículas contaminen la superficie de las piezas recién pintadas y mantiene la calidad de los acabados, así como la salud de los trabajadores y el cuidado del medio ambiente." },
-            { "question": "¿Se pueden personalizar las cabinas para aplicaciones específicas?", "answer": "Sí, muchas se pueden personalizar para adaptarse a aplicaciones específicas. Esto incluye ajustes en el tamaño, el sistema de filtración, la disposición de las luces y la temperatura y humedad para satisfacer las necesidades de pintura particulares de una industria o empresa." },
-            { "question": "¿Cuál es la vida útil típica de las cabinas de pintura?", "answer": "La vida útil depende del mantenimiento adecuado y del uso. Con un mantenimiento regular, una cabina bien construida puede durar décadas. Sin embargo, es importante seguir las recomendaciones del fabricante y realizar el mantenimiento preventivo para prolongar su vida útil." }
+            {
+                "question": "¿Qué es una cabina de pintura?",
+                "answer": "Es un espacio diseñado específicamente para aplicar recubrimientos de pintura a una variedad de productos, desde piezas pequeñas hasta vehículos y componentes industriales. Estas cabinas están equipadas con sistemas de filtración y ventilación para controlar las partículas de pintura y proporcionar un entorno de trabajo seguro."
+            },
+            {
+                "question": "¿Cuál es la importancia de las cabinas de pintura?",
+                "answer": "Son esenciales para lograr acabados de alta calidad y duraderos en productos industriales. Proporcionan un entorno controlado que evita la contaminación de partículas, polvo y contaminantes en la pintura, lo que garantiza resultados consistentes y la adherencia adecuada de la pintura."
+            },
+            {
+                "question": "¿Cuáles son los tipos de cabinas más comunes?",
+                "answer": "Los tipos más comunes son las cabinas de pintura líquida y las cabinas de pintura en polvo. Además, existen cabinas diseñadas dependiendo del sector industrial. Otro criterio importante en la clasificación de cabinas es el tipo de filtrado."
+            },
+            {
+                "question": "¿Cómo se garantiza la seguridad y el control en las cabinas de pintura?",
+                "answer": "En ANAEROBIA diseñamos y fabricamos cabinas de pintura de acuerdo con los lineamientos de normativas nacionales e internacionales. Además, nuestro departamento especializado, ANSERVICE, ofrece programas de mantenimiento para asegurar la continuidad de tu equipo."
+            },
+            {
+                "question": "¿Cuál es la importancia de la filtración en una cabina?",
+                "answer": "La filtración es esencial para capturar partículas de pintura y polvo en suspensión en el aire. Esto evita que estas partículas contaminen la superficie de las piezas recién pintadas y mantiene la calidad de los acabados, así como la salud de los trabajadores y el cuidado del medio ambiente."
+            },
+            {
+                "question": "¿Se pueden personalizar las cabinas para aplicaciones específicas?",
+                "answer": "Sí, muchas se pueden personalizar para adaptarse a aplicaciones específicas. Esto incluye ajustes en el tamaño, el sistema de filtración, la disposición de las luces y la temperatura y humedad para satisfacer las necesidades de pintura particulares de una industria o empresa."
+            },
+            {
+                "question": "¿Cuál es la vida útil típica de las cabinas de pintura?",
+                "answer": "La vida útil depende del mantenimiento adecuado y del uso. Con un mantenimiento regular, una cabina bien construida puede durar décadas. Sin embargo, es importante seguir las recomendaciones del fabricante y realizar el mantenimiento preventivo para prolongar su vida útil."
+            }
         ]
     },
     "galeria": {
@@ -118,14 +202,38 @@
         "title": "Proyectos",
         "description": "Ejemplos de cabinas de pintura llave en mano implementadas en plantas del país.",
         "images": [
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-11.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-12.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-3.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-6.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-5.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-4.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-23.webp", "alt": "Proyecto de cabina de pintura" },
-            { "image": "/images/soluciones/cabinas-pintura/cabina-pintura-8.webp", "alt": "Proyecto de cabina de pintura" }
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-11.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-12.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-3.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-6.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-5.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-4.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-23.webp",
+                "alt": "Proyecto de cabina de pintura"
+            },
+            {
+                "image": "/images/soluciones/cabinas-pintura/cabina-pintura-8.webp",
+                "alt": "Proyecto de cabina de pintura"
+            }
         ]
     },
     "extras": {
@@ -134,19 +242,41 @@
             "title": "Beneficios o ventajas de las cabinas de pintura",
             "description": "Invertir en una cabina de pintura de alta ingeniería no es solo un requerimiento operativo; es una solución necesaria en todos los procesos de acabado para garantizar la rentabilidad de su planta.",
             "cards": [
-                { "title": "Mayor control de calidad", "description": "Al proporcionar un entorno libre de polvo y contaminantes, las cabinas de pintura garantizan que la pintura se aplique de manera uniforme y sin imperfecciones, mejorando significativamente la apariencia y durabilidad del acabado." },
-                { "title": "Ahorro de tiempo y material", "description": "La sobre pulverización (overspray) se reduce considerablemente en una cabina bien diseñada, lo que optimiza el uso de pintura y disminuye los costos. Además, los sistemas de secado integrados aceleran los tiempos de proceso." },
-                { "title": "Protección para la planta y el operador", "description": "La ventilación adecuada y los filtros retienen los vapores nocivos y las partículas suspendidas, protegiendo la salud de los pintores y reduciendo riesgos de incendios o explosiones." },
-                { "title": "Cumplimiento de estándares", "description": "Las cabinas de pintura de calidad ayudan a cumplir con las normas ambientales locales e internacionales en cuanto a emisiones y seguridad laboral (como NFPA 33, OSHA, etc.)." },
-                { "title": "Versatilidad", "description": "Pueden adaptarse a diferentes tipos de piezas, desde componentes pequeños hasta estructuras de gran tamaño, y son compatibles con sistemas automáticos o manuales." },
-                { "title": "Correcta iluminación durante el proceso", "description": "Una óptima iluminación elimina sombras y distorsiones de color en la zona de aplicación. Garantizando una buena visibilidad para detectar al instante variaciones o imperfecciones, asegurando un acabado estético uniforme y piezas con calidad libre de defectos." }
+                {
+                    "title": "Mayor control de calidad",
+                    "description": "Al proporcionar un entorno libre de polvo y contaminantes, las cabinas de pintura garantizan que la pintura se aplique de manera uniforme y sin imperfecciones, mejorando significativamente la apariencia y durabilidad del acabado."
+                },
+                {
+                    "title": "Ahorro de tiempo y material",
+                    "description": "La sobre pulverización (overspray) se reduce considerablemente en una cabina bien diseñada, lo que optimiza el uso de pintura y disminuye los costos. Además, los sistemas de secado integrados aceleran los tiempos de proceso."
+                },
+                {
+                    "title": "Protección para la planta y el operador",
+                    "description": "La ventilación adecuada y los filtros retienen los vapores nocivos y las partículas suspendidas, protegiendo la salud de los pintores y reduciendo riesgos de incendios o explosiones."
+                },
+                {
+                    "title": "Cumplimiento de estándares",
+                    "description": "Las cabinas de pintura de calidad ayudan a cumplir con las normas ambientales locales e internacionales en cuanto a emisiones y seguridad laboral (como NFPA 33, OSHA, etc.)."
+                },
+                {
+                    "title": "Versatilidad",
+                    "description": "Pueden adaptarse a diferentes tipos de piezas, desde componentes pequeños hasta estructuras de gran tamaño, y son compatibles con sistemas automáticos o manuales."
+                },
+                {
+                    "title": "Correcta iluminación durante el proceso",
+                    "description": "Una óptima iluminación elimina sombras y distorsiones de color en la zona de aplicación. Garantizando una buena visibilidad para detectar al instante variaciones o imperfecciones, asegurando un acabado estético uniforme y piezas con calidad libre de defectos."
+                }
             ]
         },
         "conclusion": {
             "title": "Conclusión ANAEROBIA:",
             "items": [
-                { "text": "En la manufactura moderna, la integración de una cabina de pintura de alta ingeniería va más allá de una necesidad operativa, es el estándar estratégico para asegurar la calidad de los acabados, proteger la salud de su personal y blindar sus instalaciones bajo normativas internacionales como OSHA y NFPA." },
-                { "text": "Invertir en una cabina adecuada no solo mejora la eficiencia del proceso de pintado, sino que también asegura el cumplimiento de normativas y proporciona un retorno de inversión a través del ahorro de material y la reducción de retrabajos. En Anaerobia, transformamos su área de acabado en un centro de máxima eficiencia." }
+                {
+                    "text": "En la manufactura moderna, la integración de una cabina de pintura de alta ingeniería va más allá de una necesidad operativa, es el estándar estratégico para asegurar la calidad de los acabados, proteger la salud de su personal y blindar sus instalaciones bajo normativas internacionales como OSHA y NFPA."
+                },
+                {
+                    "text": "Invertir en una cabina adecuada no solo mejora la eficiencia del proceso de pintado, sino que también asegura el cumplimiento de normativas y proporciona un retorno de inversión a través del ahorro de material y la reducción de retrabajos. En Anaerobia, transformamos su área de acabado en un centro de máxima eficiencia."
+                }
             ]
         }
     }

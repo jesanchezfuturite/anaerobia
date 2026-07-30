@@ -2,7 +2,7 @@
     "slug": "sistemas-de-pretratamiento",
     "name": "Sistemas de Pretratamiento",
     "seo": {
-        "title": "Equipos de Pretratamiento Superficial y Sistemas de Lavado Industrial | Anaerobia",
+        "title": "Equipos de Pretratamiento Superficial Químico y Lavado Superficial | Anaerobia",
         "description": "Diseñamos y fabricamos sistemas completos de pretratamiento químico y mecánico para acondicionar superficies antes de la pintura. Túneles continuos y tinas de inmersión."
     },
     "hero": {
@@ -14,7 +14,9 @@
     "intro": {
         "title": "¿Qué es el pretratamiento Químico?",
         "paragraphs": [
-            { "text": "El pretratamiento químico de superficies es la fase fundamental en cualquier proceso de recubrimiento industrial. Consiste en la preparación y acondicionamiento controlado de los sustratos metálicos mediante soluciones químicas formuladas para remover aceite, óxidos, grasas y diversos contaminantes derivados de las etapas previas de manufactura. Un acondicionamiento deficiente conducirá inevitablemente a desprendimientos prematuros, defectos superficiales en la pintura y corrosión interna acelerada bajo la capa de recubrimiento." }
+            {
+                "text": "El pretratamiento químico de superficies es la fase fundamental en cualquier proceso de recubrimiento industrial. Consiste en la preparación y acondicionamiento controlado de los sustratos metálicos mediante soluciones químicas formuladas para remover aceite, óxidos, grasas y diversos contaminantes derivados de las etapas previas de manufactura. Un acondicionamiento deficiente conducirá inevitablemente a desprendimientos prematuros, defectos superficiales en la pintura y corrosión interna acelerada bajo la capa de recubrimiento."
+            }
         ],
         "image": "/images/soluciones/sistema-pretratamiento/image.webp"
     },
@@ -24,14 +26,29 @@
         "description": "No contar con el equipo ideal para el pretratamiento químico, compromete la calidad de las piezas y la rentabilidad de tu producción. Los principales retos a los que se enfrentan las empresas sin un sistema adecuado son:",
         "image": "/images/soluciones/sistema-pretratamiento/MG_2998_v2.webp",
         "tarjetas": [
-            { "text": "Corrosión y degradación del acabado" },
-            { "text": "Deficiencias en la Adherencia Química" },
-            { "text": "Costos Operativos Elevados por Retrabajos" }
+            {
+                "text": "Corrosión y degradación del acabado"
+            },
+            {
+                "text": "Deficiencias en la Adherencia Química"
+            },
+            {
+                "text": "Costos Operativos Elevados por Retrabajos"
+            }
         ],
         "items": [
-            { "title": "Corrosión y degradación del acabado", "description": "Los metales expuestos a la humedad y al oxígeno se degradan con rapidez. Sin un sistema capaz de aplicar con precisión las capas de conversión química pasivamente, el avance de la oxidación es inevitable, afectando la calidad del acabado y provocando corrosión debajo de la pintura." },
-            { "title": "Deficiencias en la Adherencia Química", "description": "La presencia de grasas de maquinado y aceites de troquelado bloquean el contacto molecular entre la superficie y el recubrimiento. Al no contar con una etapa eficaz de pretratamiento que remueva estos contaminantes y genere la micro-rugosidad requerida, la adherencia falla, afectando directamente la calidad del acabado." },
-            { "title": "Costos Operativos Elevados por Retrabajos", "description": "La ausencia de un pretratamiento industrial de alta eficiencia aumenta el porcentaje de defectos cosméticos, retrabajos y desperdicio de energía, afectando directamente a la productividad general de toda la línea de producción." }
+            {
+                "title": "Corrosión y degradación del acabado",
+                "description": "Los metales expuestos a la humedad y al oxígeno se degradan con rapidez. Sin un sistema capaz de aplicar con precisión las capas de conversión química pasivamente, el avance de la oxidación es inevitable, afectando la calidad del acabado y provocando corrosión debajo de la pintura."
+            },
+            {
+                "title": "Deficiencias en la Adherencia Química",
+                "description": "La presencia de grasas de maquinado y aceites de troquelado bloquean el contacto molecular entre la superficie y el recubrimiento. Al no contar con una etapa eficaz de pretratamiento que remueva estos contaminantes y genere la micro-rugosidad requerida, la adherencia falla, afectando directamente la calidad del acabado."
+            },
+            {
+                "title": "Costos Operativos Elevados por Retrabajos",
+                "description": "La ausencia de un pretratamiento industrial de alta eficiencia aumenta el porcentaje de defectos cosméticos, retrabajos y desperdicio de energía, afectando directamente a la productividad general de toda la línea de producción."
+            }
         ]
     },
     "cta1": {
@@ -45,10 +62,26 @@
         "title": "Configuraciones de Soluciones de Pretratamiento Anaerobia",
         "description": "Diseñamos, fabricamos e instalamos soluciones de pretratamiento químico que optimizan el acondicionamiento de sus superficies, asegurando un acabado duradero y de alta calidad. Nuestros sistemas están diseñados para maximizar la eficiencia y asegurar que tu proceso de recubrimiento sea bueno.",
         "cards": [
-            { "title": "Túneles de Aspersión Continuos", "description": "Diseñados para líneas de alto volumen integradas a transportadores continuos. Las piezas atraviesan etapas encapsuladas con boquillas industriales de alta presión garantizando máxima limpieza y adherencia.", "image": "/images/soluciones/sistema-pretratamiento/MG_2967.webp" },
-            { "title": "Sistemas integrados de limpieza química y desengrase", "description": "Nuestras tecnologías de limpieza y desengrase se adaptan a una amplia variedad de necesidades industriales, eliminando contaminantes de manera eficiente y segura.", "image": "/images/soluciones/sistema-pretratamiento/MG_2979.webp" },
-            { "title": "Sistemas de fosfatado avanzados", "description": "Ofrecemos equipos para los procesos de fosfatado de zinc, hierro, entre otros, según las necesidades específicas de tu proyecto. Estos procesos aseguran que las superficies metálicas estén preparadas para resistir los efectos de la corrosión y mejorar la adherencia del recubrimiento.", "image": "/images/soluciones/sistema-pretratamiento/MG_2921_2.webp" },
-            { "title": "Pasivación personalizada", "description": "Diseñamos soluciones para los procesos de pasivación que protegen sus piezas metálicas en el tiempo previo al pintado, asegurando una mayor durabilidad y resistencia a largo plazo.", "image": "/images/soluciones/sistema-pretratamiento/MG_2998.webp" }
+            {
+                "title": "Túneles de Aspersión Continuos",
+                "description": "Diseñados para líneas de alto volumen integradas a transportadores continuos. Las piezas atraviesan etapas encapsuladas con boquillas industriales de alta presión garantizando máxima limpieza y adherencia.",
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2967.webp"
+            },
+            {
+                "title": "Sistemas integrados de limpieza química y desengrase",
+                "description": "Nuestras tecnologías de limpieza y desengrase se adaptan a una amplia variedad de necesidades industriales, eliminando contaminantes de manera eficiente y segura.",
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2979.webp"
+            },
+            {
+                "title": "Sistemas de fosfatado avanzados",
+                "description": "Ofrecemos equipos para los procesos de fosfatado de zinc, hierro, entre otros, según las necesidades específicas de tu proyecto. Estos procesos aseguran que las superficies metálicas estén preparadas para resistir los efectos de la corrosión y mejorar la adherencia del recubrimiento.",
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2921_2.webp"
+            },
+            {
+                "title": "Pasivación personalizada",
+                "description": "Diseñamos soluciones para los procesos de pasivación que protegen sus piezas metálicas en el tiempo previo al pintado, asegurando una mayor durabilidad y resistencia a largo plazo.",
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2998.webp"
+            }
         ]
     },
     "tipos": {
@@ -61,8 +94,14 @@
                 "description": "Los metales a menudo están cubiertos por aceites o grasas utilizados durante los procesos de fabricación. Estos residuos pueden afectar negativamente la adherencia de la pintura. Para eliminarlos, se emplean soluciones desengrasantes que eliminan todos estos contaminantes.",
                 "image": "/images/soluciones/sistema-pretratamiento/DSC_5359.webp",
                 "items": [
-                    { "title": "Desengrasado Alcalino:", "description": "Una solución alcalina se utiliza para romper los enlaces grasos y eliminarlos de la superficie." },
-                    { "title": "Desengrasado por Inmersión o Pulverización:", "description": "Dependiendo del tamaño y la forma del metal, se puede optar por un sistema de inmersión en soluciones desengrasantes o por la pulverización de estos agentes limpiadores." }
+                    {
+                        "title": "Desengrasado Alcalino:",
+                        "description": "Una solución alcalina se utiliza para romper los enlaces grasos y eliminarlos de la superficie."
+                    },
+                    {
+                        "title": "Desengrasado por Inmersión o Pulverización:",
+                        "description": "Dependiendo del tamaño y la forma del metal, se puede optar por un sistema de inmersión en soluciones desengrasantes o por la pulverización de estos agentes limpiadores."
+                    }
                 ]
             },
             {
@@ -71,8 +110,14 @@
                 "description": "Este proceso se utiliza para remover óxidos, incrustaciones y otras impurezas mediante el uso de soluciones ácidas, como el ácido fosfórico o el ácido sulfúrico. Este paso es crucial para preparar adecuadamente la superficie del metal, eliminando cualquier oxidación o capa superficial que pueda debilitar la unión de la pintura.",
                 "image": "/images/soluciones/sistema-pretratamiento/56A1134.webp",
                 "items": [
-                    { "title": "Ácido Fosfórico:", "description": "Popular por su capacidad de generar una capa pasivante que mejora la resistencia a la corrosión." },
-                    { "title": "Ácido Sulfúrico o Clorhídrico:", "description": "Más agresivos, utilizados en casos donde hay incrustaciones más fuertes u óxidos más persistentes." }
+                    {
+                        "title": "Ácido Fosfórico:",
+                        "description": "Popular por su capacidad de generar una capa pasivante que mejora la resistencia a la corrosión."
+                    },
+                    {
+                        "title": "Ácido Sulfúrico o Clorhídrico:",
+                        "description": "Más agresivos, utilizados en casos donde hay incrustaciones más fuertes u óxidos más persistentes."
+                    }
                 ]
             },
             {
@@ -81,9 +126,18 @@
                 "description": "El fosfatado es un tratamiento común en metales ferrosos que aplica una capa de fosfato en la superficie del metal. Esta capa no solo mejora la adherencia del recubrimiento, sino que también proporciona una primera barrera contra la corrosión. Existen diferentes tipos de fosfatado dependiendo de las necesidades:",
                 "image": "/images/soluciones/sistema-pretratamiento/DSC_0847.webp",
                 "items": [
-                    { "title": "Fosfatado de Zinc:", "description": "Es el más común, usado para mejorar la resistencia a la corrosión en la mayoría de las superficies metálicas." },
-                    { "title": "Fosfatado de Manganeso:", "description": "Ideal para superficies que se enfrentan a condiciones extremas de desgaste y temperatura." },
-                    { "title": "Fosfatado de Hierro:", "description": "Aunque proporciona menor protección contra la corrosión, es útil en procesos que requieren una capa más fina." }
+                    {
+                        "title": "Fosfatado de Zinc:",
+                        "description": "Es el más común, usado para mejorar la resistencia a la corrosión en la mayoría de las superficies metálicas."
+                    },
+                    {
+                        "title": "Fosfatado de Manganeso:",
+                        "description": "Ideal para superficies que se enfrentan a condiciones extremas de desgaste y temperatura."
+                    },
+                    {
+                        "title": "Fosfatado de Hierro:",
+                        "description": "Aunque proporciona menor protección contra la corrosión, es útil en procesos que requieren una capa más fina."
+                    }
                 ]
             },
             {
@@ -92,9 +146,15 @@
                 "description": "La pasivación es un proceso químico que, tras el fosfatado, busca neutralizar las reacciones químicas residuales y proteger la superficie del metal contra la corrosión en el tiempo que pasa antes de la aplicación de la pintura. Además, minimiza la formación de óxidos y mejora la durabilidad del recubrimiento.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_3195.webp",
                 "items": [
-                    { "description": "Busca neutralizar las reacciones químicas residuales tras el fosfatado." },
-                    { "description": "Protege la superficie del metal contra la corrosión antes de la pintura." },
-                    { "description": "Minimiza la formación de óxidos y mejora la durabilidad del recubrimiento." }
+                    {
+                        "description": "Busca neutralizar las reacciones químicas residuales tras el fosfatado."
+                    },
+                    {
+                        "description": "Protege la superficie del metal contra la corrosión antes de la pintura."
+                    },
+                    {
+                        "description": "Minimiza la formación de óxidos y mejora la durabilidad del recubrimiento."
+                    }
                 ]
             },
             {
@@ -103,9 +163,15 @@
                 "description": "Para finalizar el pretratamiento, la superficie debe enjuagarse completamente con agua desmineralizada o desionizada para remover cualquier residuo de las soluciones químicas utilizadas anteriormente. Este paso es vital para evitar que estos residuos afecten la adherencia del recubrimiento. Posteriormente, la pieza se seca completamente para garantizar que no haya humedad en la superficie.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_3035.webp",
                 "items": [
-                    { "description": "Enjuague completo con agua desmineralizada o desionizada." },
-                    { "description": "Remoción de residuos químicos para no afectar la adherencia." },
-                    { "description": "Secado de la pieza para garantizar que no haya humedad en la superficie." }
+                    {
+                        "description": "Enjuague completo con agua desmineralizada o desionizada."
+                    },
+                    {
+                        "description": "Remoción de residuos químicos para no afectar la adherencia."
+                    },
+                    {
+                        "description": "Secado de la pieza para garantizar que no haya humedad en la superficie."
+                    }
                 ]
             }
         ]
@@ -115,12 +181,24 @@
         "title": "Beneficios Operativos y Protección Anticorrosiva",
         "description": "Un sistema de pretratamiento correctamente diseñado impacta directamente la rentabilidad de la planta, reduciendo fallas cosméticas y extendiendo significativamente la vida útil del recubrimiento industrial.",
         "cards": [
-            { "text": "Mayor adherencia" },
-            { "text": "Protección contra la corrosión" },
-            { "text": "Menos retrabajos" },
-            { "text": "Menor desperdicio" },
-            { "text": "Mayor vida útil del recubrimiento" },
-            { "text": "Menos costos energéticos y de mantenimiento" }
+            {
+                "text": "Mayor adherencia"
+            },
+            {
+                "text": "Protección contra la corrosión"
+            },
+            {
+                "text": "Menos retrabajos"
+            },
+            {
+                "text": "Menor desperdicio"
+            },
+            {
+                "text": "Mayor vida útil del recubrimiento"
+            },
+            {
+                "text": "Menos costos energéticos y de mantenimiento"
+            }
         ]
     },
     "cta2": {
@@ -135,25 +213,45 @@
         "title": "Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental",
         "description": "El diseño de nuestros sistemas de pretratamiento se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.",
         "bullets": [
-            { "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual." }
+            {
+                "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual."
+            }
         ]
     },
     "faqs": {
         "badge": "Preguntas Técnicas",
         "title": "Preguntas Frecuentes",
         "items": [
-            { "question": "¿Qué son los equipos de pretratamiento químico y cómo se utilizan?", "answer": "Los equipos de pretratamiento se utilizan para preparar superficies antes de la aplicación de recubrimiento, eliminando contaminantes como grasa, óxido o cascarilla. Este proceso incluye etapas como lavado, enjuague, decapado, fosfatado y secado, y garantiza una limpieza profunda que mejora la eficacia del tratamiento superficial.\n\nEstos equipos de pretratamiento de superficies optimizan la calidad del proceso, reducen el desgaste y aseguran una mejor adhesión de recubrimientos posteriores." },
-            { "question": "¿Qué tipo de industrias utilizan equipos de pretratamiento?", "answer": "Los equipos de pretratamiento son utilizados en industrias como la automotriz, aeronáutica, metalmecánica, construcción, naval, electrodomésticos y transporte pesado, donde se requiere preparar superficies metálicas antes de procesos de pintura o recubrimientos. Estas industrias los emplean para asegurar una limpieza profunda, mejorar la adhesión de recubrimientos y garantizar una mayor durabilidad de las piezas." },
-            { "question": "¿Cómo elegir el equipo de pretratamiento adecuado para mi empresa?", "answer": "Para elegir el equipo de pretratamiento adecuado, considera el tipo de material, el volumen de producción, el nivel de limpieza requerido y el tipo de recubrimiento que aplicarás. También evalúa si necesitas un sistema manual o automatizado, el espacio disponible y las normativas que debes cumplir. Elegir un proveedor confiable con soporte técnico como ANAEROBIA para tu sistema de pretratamiento es clave para asegurar calidad y eficiencia a largo plazo." }
+            {
+                "question": "¿Qué son los equipos de pretratamiento químico y cómo se utilizan?",
+                "answer": "Los equipos de pretratamiento se utilizan para preparar superficies antes de la aplicación de recubrimiento, eliminando contaminantes como grasa, óxido o cascarilla. Este proceso incluye etapas como lavado, enjuague, decapado, fosfatado y secado, y garantiza una limpieza profunda que mejora la eficacia del tratamiento superficial.\n\nEstos equipos de pretratamiento de superficies optimizan la calidad del proceso, reducen el desgaste y aseguran una mejor adhesión de recubrimientos posteriores."
+            },
+            {
+                "question": "¿Qué tipo de industrias utilizan equipos de pretratamiento?",
+                "answer": "Los equipos de pretratamiento son utilizados en industrias como la automotriz, aeronáutica, metalmecánica, construcción, naval, electrodomésticos y transporte pesado, donde se requiere preparar superficies metálicas antes de procesos de pintura o recubrimientos. Estas industrias los emplean para asegurar una limpieza profunda, mejorar la adhesión de recubrimientos y garantizar una mayor durabilidad de las piezas."
+            },
+            {
+                "question": "¿Cómo elegir el equipo de pretratamiento adecuado para mi empresa?",
+                "answer": "Para elegir el equipo de pretratamiento adecuado, considera el tipo de material, el volumen de producción, el nivel de limpieza requerido y el tipo de recubrimiento que aplicarás. También evalúa si necesitas un sistema manual o automatizado, el espacio disponible y las normativas que debes cumplir. Elegir un proveedor confiable con soporte técnico como ANAEROBIA para tu sistema de pretratamiento es clave para asegurar calidad y eficiencia a largo plazo."
+            }
         ]
     },
     "galeria": {
         "badge": "Galería",
         "title": "Proyectos",
         "images": [
-            { "image": "/images/soluciones/sistema-pretratamiento/MG_2967.webp", "alt": "Túnel de aspersión" },
-            { "image": "/images/soluciones/sistema-pretratamiento/MG_2998.webp", "alt": "Tinas de inmersión" },
-            { "image": "/images/soluciones/sistema-pretratamiento/MG_3035.webp", "alt": "Proceso Químico" }
+            {
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2967.webp",
+                "alt": "Túnel de aspersión"
+            },
+            {
+                "image": "/images/soluciones/sistema-pretratamiento/MG_2998.webp",
+                "alt": "Tinas de inmersión"
+            },
+            {
+                "image": "/images/soluciones/sistema-pretratamiento/MG_3035.webp",
+                "alt": "Proceso Químico"
+            }
         ]
     },
     "extras": {
@@ -162,10 +260,22 @@
             "title": "Diferenciadores de Anaerobia en Sistemas de Pretratamiento",
             "description": "Nuestra ingeniería destaca por resolver los desafíos más exigentes en preparación de superficies y pretratamiento con un enfoque integral.",
             "cards": [
-                { "title": "Acabados resistentes a la corrosión", "description": "Nuestros sistemas garantizan que el metal tratado esté adecuadamente protegido contra el óxido y otros factores que podrían comprometer la calidad del producto final." },
-                { "title": "Optimización del tiempo de producción", "description": "Nuestros equipos están diseñados para eliminar los riesgos de defectos en el recubrimiento minimizando los repintados y retrabajos, lo que se traduce en procesos de producción más eficientes." },
-                { "title": "Reducción de costos de mantenimiento", "description": "Entendemos que cada proyecto tiene necesidades únicas, por lo que ofrecemos sistemas de pretratamiento personalizados, garantizando que obtengas los mejores resultados en tu línea de producción." },
-                { "title": "Cumplimiento y adaptación a requisitos químicos", "description": "Diseñamos y fabricamos cada sistema de acuerdo con las características y fichas técnicas del compuesto químico que requiera su línea de producción. Nos apegamos estrictamente a los requerimientos de tiempo, temperatura y materiales indicados por su proveedor para garantizar la compatibilidad absoluta y el rendimiento óptimo de su equipo." }
+                {
+                    "title": "Acabados resistentes a la corrosión",
+                    "description": "Nuestros sistemas garantizan que el metal tratado esté adecuadamente protegido contra el óxido y otros factores que podrían comprometer la calidad del producto final."
+                },
+                {
+                    "title": "Optimización del tiempo de producción",
+                    "description": "Nuestros equipos están diseñados para eliminar los riesgos de defectos en el recubrimiento minimizando los repintados y retrabajos, lo que se traduce en procesos de producción más eficientes."
+                },
+                {
+                    "title": "Reducción de costos de mantenimiento",
+                    "description": "Entendemos que cada proyecto tiene necesidades únicas, por lo que ofrecemos sistemas de pretratamiento personalizados, garantizando que obtengas los mejores resultados en tu línea de producción."
+                },
+                {
+                    "title": "Cumplimiento y adaptación a requisitos químicos",
+                    "description": "Diseñamos y fabricamos cada sistema de acuerdo con las características y fichas técnicas del compuesto químico que requiera su línea de producción. Nos apegamos estrictamente a los requerimientos de tiempo, temperatura y materiales indicados por su proveedor para garantizar la compatibilidad absoluta y el rendimiento óptimo de su equipo."
+                }
             ]
         },
         "sectores": {
@@ -173,24 +283,48 @@
             "title": "Industrias que Impulsamos y Sectores de Aplicación",
             "description": "Nuestros sistemas de pretratamiento son indispensables en industrias donde la adherencia, resistencia a corrosión y calidad cosmética representan estándares críticos de manufactura.",
             "items": [
-                { "text": "Automotriz y autopartes" },
-                { "text": "Aeroespacial" },
-                { "text": "Metalmecánica" },
-                { "text": "Construcción" },
-                { "text": "Electrodomésticos" },
-                { "text": "Manufactura pesada" }
+                {
+                    "text": "Automotriz y autopartes"
+                },
+                {
+                    "text": "Aeroespacial"
+                },
+                {
+                    "text": "Metalmecánica"
+                },
+                {
+                    "text": "Construcción"
+                },
+                {
+                    "text": "Electrodomésticos"
+                },
+                {
+                    "text": "Manufactura pesada"
+                }
             ]
         },
         "guia_tecnica": {
             "title": "Ingeniería de diseño ¿Qué Evaluamos para su Sistema de Pretratamiento?",
             "description": "Nuestro equipo de ingeniería analiza variables químicas, operativas y dimensionales para diseñar sistemas de pretratamiento optimizados para productividad, eficiencia energética y cumplimiento ambiental.",
             "items": [
-                { "text": "Tipo de sustrato metálico" },
-                { "text": "Volumen de producción" },
-                { "text": "Nivel de automatización" },
-                { "text": "Resistencia requerida" },
-                { "text": "Espacio disponible" },
-                { "text": "Objetivos ambientales" }
+                {
+                    "text": "Tipo de sustrato metálico"
+                },
+                {
+                    "text": "Volumen de producción"
+                },
+                {
+                    "text": "Nivel de automatización"
+                },
+                {
+                    "text": "Resistencia requerida"
+                },
+                {
+                    "text": "Espacio disponible"
+                },
+                {
+                    "text": "Objetivos ambientales"
+                }
             ]
         }
     }
