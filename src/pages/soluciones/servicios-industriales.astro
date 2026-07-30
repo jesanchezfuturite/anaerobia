@@ -1,6 +1,9 @@
 ---
+export const prerender = false
+
 import Layout from '../../layouts/Layout.astro'
 import { getEntry } from 'astro:content'
+import fallback from '../../data/soluciones/servicios-industriales.json'
 
 // Obtener datos de la página de inicio para reutilizar logos de normativas
 const homepageEntry = await getEntry('homepage', 'index')
@@ -13,9 +16,28 @@ const certificados = homepageData.normativas?.certificados || [
     { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
 ]
 
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let d = fallback
+try {
+    const res = await fetch(`${API_URL}/api/v1/soluciones/servicios-industriales`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) d = (await res.json()).data
+} catch {
+    // API no disponible: la página se sirve con el contenido de respaldo
+}
+
 // SEO Metadata
-const seoTitle = 'Servicio Industrial y Refaccionamiento | Anaerobia'
-const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción.'
+const seoTitle = d.seo?.title
+const seoDescription = d.seo?.description
+
+// Iconos (SVG paths) de las tarjetas de "La importancia del servicio industrial"
+const importanciaIcons = [
+    'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    'M13 10V3L4 14h7v7l9-11h-7z',
+    'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+]
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -24,7 +46,7 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="/images/soluciones/servicios_industriales/Servicio Industrial.webp" alt="Servicio Industrial y Refaccionamiento" class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -39,9 +61,9 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                         <span class="text-brand-lime">Servicio Industrial</span>
                     </nav>
 
-                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> Posventa y Refaccionamiento </span>
-                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Servicio Industrial y Refaccionamiento</h1>
-                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción.</p>
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">{d.hero.description}</p>
                     <div class="pt-8">
                         <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg"> Cotizar </a>
                     </div>
@@ -55,49 +77,31 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="space-y-8 intro-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ingeniería y Tecnología</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">Esta área atiende todas las necesidades de servicio, posventa y refacciones</h2>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.extras.servicios.badge}</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">{d.extras.servicios.title}</h2>
                             <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
-                                Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de los equipos, para mantenerlos en óptimas condiciones. Si necesitas una asesoría no dudes en contactar a nuestros expertos.
+                                {d.extras.servicios.description}
                             </p>
                         </div>
 
                         <ul class="space-y-4 text-gray-600 font-light text-sm md:text-base">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Elaboración de planes de conservación y mantenimiento preventivo.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Suministro de paquetes de refacciones y filtros.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Valoración del estatus o condición de sus instalaciones y/o equipos.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Servicio de balance de flujos de aire para cabinas de aplicación y hornos.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Capacitación y entrenamiento para operadores de producción y mantenimiento (TPM).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Inspecciones y reportes periódicos de sus instalaciones.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente.</span>
-                            </li>
+                            {
+                                d.extras.servicios.items.map((item) => (
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>{item.text}</span>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
 
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src="/images/soluciones/servicios_industriales/DSC03097.webp" alt="Servicio industrial en planta" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.extras.servicios.image} alt="Servicio industrial en planta" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
@@ -108,53 +112,37 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
         <section class="py-16 bg-gray-50 px-6 md:px-12 relative overflow-hidden" id="importancia">
             <div class="container mx-auto max-w-6xl">
                 <div class="text-center mb-12 pain-points-header">
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-4 leading-tight">La importancia del servicio industrial</h2>
-                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto">Un mantenimiento adecuado es clave para el desempeño y la vida útil de sus equipos.</p>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-4 leading-tight">{d.desafios.title}</h2>
+                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto">{d.desafios.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Item 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Extiende la vida útil de sus equipos</h3>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Minimiza pérdidas por paros o fallas</h3>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Garantiza procesos y calidad óptima</h3>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Mayor tranquilidad y confianza</h3>
-                    </div>
+                    {
+                        d.desafios.tarjetas.map((t, i) => (
+                            <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
+                                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
+                                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d={importanciaIcons[i] ?? importanciaIcons[0]} />
+                                    </svg>
+                                </div>
+                                <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">{t.text}</h3>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
 
         <!-- 04. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-            <img src="/images/soluciones/servicios_industriales/DSC03104.webp" alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
-                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">¿Requiere información adicional sobre servicio industrial y refaccionamiento?</h2>
-                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de sus equipos, para mantenerlos en óptimas condiciones.</p>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.cta1.title}</h2>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">{d.cta1.description}</p>
                 <div class="pt-8">
-                    <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Solicitar Más Información </a>
+                    <a href={d.cta1.button_url} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta1.button_label}</a>
                 </div>
             </div>
         </section>
@@ -165,14 +153,14 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div class="lg:w-1/2 space-y-6 norms-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Servicio bajo estándares de seguridad e impacto ambiental</h2>
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.normatividad.badge}</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{d.normatividad.title}</h2>
                             <p class="text-gray-300 font-light leading-relaxed mt-4">
-                                Nuestros servicios de mantenimiento y refaccionamiento cumplen o exceden todos los códigos y normativas relacionados con el equipo, trabajando bajo los lineamientos de seguridad industrial y protección ambiental que nuestros clientes exigen.
+                                {d.normatividad.description}
                             </p>
                         </div>
 
-                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">Contamos con un equipo de ingenieros calificados para liderar el mantenimiento, la inspección y el refaccionamiento de sus equipos de manera segura y puntual.</p>
+                        {d.normatividad.bullets.map((b) => <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">{b.text}</p>)}
                     </div>
 
                     <div class="lg:w-1/2 w-full">

@@ -181,7 +181,7 @@ Pruebas del admin: `php artisan test` dentro de `anaerobia-admin` (API, páginas
 ## 9. Estado y hoja de ruta
 
 - [x] **Fase 1 — Piloto Conveyors**: modelo, seeder, API, formulario Filament, SSR con fallback, pruebas
-- [ ] **Fase 2 — Réplica**: las otras 9 páginas de soluciones (mismo modelo; un seeder y un JSON de respaldo por página)
+- [x] **Fase 2 — Réplica**: las 10 páginas de soluciones administrables (un seeder + JSON de respaldo por página; formulario Filament dinámico que se adapta a las secciones de cada página; contenido verificado idéntico contra el sitio original)
 - [ ] **Fase 3 — Homepage y navegación**: migrarlas de Keystatic al admin; retirar Keystatic
 - [ ] **Fase 4 — Páginas restantes**: nosotros, proyectos y casos de estudio
 - [ ] **Fase 5 — Despliegue**: hosting del admin (MySQL, token de API, backups) y sitio Astro con adapter SSR; definir dominio para las imágenes

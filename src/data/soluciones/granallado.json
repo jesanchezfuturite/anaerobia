@@ -1,0 +1,122 @@
+{
+    "slug": "granallado",
+    "name": "Granallado",
+    "seo": {
+        "title": "Sistemas de Granallado | Anaerobia",
+        "description": "Optimiza tus procesos con nuestros sistemas de granallado. Alta eficiencia en limpieza y preparación de superficies. Soluciones llave en mano."
+    },
+    "hero": {
+        "image": "/images/soluciones/granallado/granallado-3.webp",
+        "badge": "SISTEMAS DE PREPARACIÓN DE SUPERFICIES",
+        "title": "PRETRATAMIENTO / GRANALLADO",
+        "description": "Prepara tus piezas para la aplicación de pintura mediante el pretratamiento mecánico, también conocido como granallado. Soluciones integrales para optimizar tus procesos y aumentar la calidad del acabado."
+    },
+    "intro": {
+        "title": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología",
+        "paragraphs": [
+            { "text": "Un sistema de granallado es un conjunto de equipos y procesos de tratamiento de superficies en el cual, mediante herramientas y tecnologías especializadas, se dispara una corriente de partículas abrasivas (granalla) a alta velocidad sobre una superficie. Este proceso permite eliminar óxidos, pinturas, suciedad, y otros materiales no deseados, dejando la superficie limpia, rugosa y lista para tratamientos posteriores como pintura y otros revestimientos. Estos sistemas pueden utilizar diferentes tipos de granalla (metálicas, de vidrio, cerámicas, etc.), según las necesidades del material y el acabado deseado." }
+        ],
+        "image": "/images/soluciones/granallado/anaerobia-granallado-img-08.jpg"
+    },
+    "desafios": {
+        "badge": "Desafíos",
+        "title": "Desafíos en la Preparación de Superficies",
+        "description": "La correcta preparación de la superficie es crucial; de lo contrario, se presentan fallas prematuras en el recubrimiento que elevan los costos de retrabajo.",
+        "image": "/images/soluciones/granallado/anaerobia-granallado-img-10.jpg",
+        "tarjetas": [
+            { "text": "Desprendimiento prematuro del recubrimiento" },
+            { "text": "Corrosión bajo la pintura por limpieza deficiente" },
+            { "text": "Perfil de anclaje inadecuado para la especificación" }
+        ],
+        "items": [
+            { "title": "Contaminación Residual", "description": "La presencia de aceites, óxido o cascarilla de laminación impide la correcta adherencia de la pintura, causando fallas catastróficas a corto plazo." },
+            { "title": "Falta de Rugosidad", "description": "Una superficie demasiado lisa no permite el anclaje mecánico del recubrimiento, resultando en desprendimientos ante impactos o flexión." },
+            { "title": "Consumo Excesivo de Abrasivo", "description": "El uso de equipos ineficientes o sin recuperación provoca un gasto excesivo en granalla y altos costos operativos, además de problemas de limpieza." }
+        ]
+    },
+    "cta1": {
+        "title": "¿Requieres automatizar o diseñar tu línea de pintura líquida?",
+        "description": "Diseñamos un sistema a la medida adaptado a los alcances específicos de tu producción.",
+        "button_label": "Solicitar Cotización",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "ingenieria": {
+        "badge": "Integrador Especializado",
+        "title": "Nuestra Solución en Sistemas de Granallado",
+        "description": "Diseñamos y fabricamos sistemas de granallado \"llave en mano\" adaptados a los requisitos físicos de tu planta y las especificaciones de preparación de tus piezas.",
+        "cards": [
+            { "title": "Granallado a Presión", "description": "Equipos diseñados para aplicaciones manuales en cabinas cerradas, ideales para piezas de geometrías complejas o producción en lotes pequeños donde se requiere control detallado por parte del operador.", "image": "/images/soluciones/granallado/anaerobia-granallado-img-06.jpg" },
+            { "title": "Máquinas Automáticas", "description": "Sistemas de turbinas para altos volúmenes de producción, donde las piezas pasan continuamente a través de la máquina mediante transportadores, logrando una limpieza uniforme y eficiente sin intervención manual constante.", "image": "/images/soluciones/granallado/anaerobia-granallado-img-07.jpg" },
+            { "title": "Equipos Portátiles", "description": "Soluciones móviles para granallado in-situ y estructuras de gran tamaño, permitiendo la preparación de superficies en campo o astilleros con alta eficiencia de recuperación del abrasivo.", "image": "/images/soluciones/granallado/anaerobia-granallado-img-08.jpg" }
+        ]
+    },
+    "tipos": {
+        "badge": "Especificaciones Técnicas",
+        "title": "Fases del Proceso de Granallado",
+        "tabs": [
+            { "label": "Preparación", "title": "Preparación de la superficie", "description": "Se evalúa la condición de la superficie y el tipo de limpieza necesaria, considerando factores como óxido, pintura o contaminantes adheridos.", "image": "/images/soluciones/granallado/granallado_phase_1.webp" },
+            { "label": "Selección", "title": "Selección de la granalla", "description": "Se elige el tipo de granalla adecuado (acero, vidrio, cerámica, etc.) según el acabado requerido y la dureza de la superficie.", "image": "/images/soluciones/granallado/granallado_phase_2.webp" },
+            { "label": "Ajuste", "title": "Ajuste del equipo", "description": "Se configuran los parámetros de la máquina de granallado, como la presión y el ángulo de proyección de la granalla, para garantizar un tratamiento eficaz.", "image": "/images/soluciones/granallado/granallado_phase_3.webp" },
+            { "label": "Proceso", "title": "Proceso de granallado", "description": "La máquina proyecta la granalla a alta velocidad sobre la superficie, logrando el acabado deseado.", "image": "/images/soluciones/granallado/granallado_phase_4.webp" },
+            { "label": "Inspección", "title": "Inspección post-granallado", "description": "Se revisa la superficie para verificar que se haya logrado el nivel de limpieza y rugosidad requeridos, sin dañar el material base.", "image": "/images/soluciones/granallado/granallado_phase_5.webp" },
+            { "label": "Recuperación", "title": "Recuperación de granalla", "description": "Los sistemas suelen contar con mecanismos de recuperación para reutilizar la granalla, mejorando la eficiencia y reduciendo costos.", "image": "/images/soluciones/granallado/granallado_phase_6.webp" }
+        ]
+    },
+    "cta2": {
+        "image": "/images/soluciones/granallado/granallado-cta.webp",
+        "title": "Envíanos las especificaciones de tus piezas y producción",
+        "description": "Nuestros ingenieros estructurarán la propuesta técnica con los diagramas y capacidades de flujo de aire que optimicen la aplicación de pintura en tu planta.",
+        "button_label": "Solicitar Propuesta Técnica",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "normatividad": {
+        "badge": "Cumplimiento Legal y de Seguridad",
+        "title": "Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental",
+        "description": "El diseño de nuestros sistemas de pintura líquida se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional."
+    },
+    "faqs": {
+        "badge": "Preguntas Técnicas",
+        "title": "Preguntas Técnicas",
+        "items": [
+            { "question": "¿Qué tipos de abrasivos se usan en el sistema de granallado?", "answer": "En el granallado se emplean diversos abrasivos según la aplicación y el acabado deseado. Los más comunes incluyen la granalla de acero, utilizada para limpiar y preparar superficies metálicas; el óxido de aluminio, efectivo para eliminar contaminantes y preparar superficies duras; las microesferas de vidrio, ideales para acabados suaves sin dañar materiales delicados; y abrasivos orgánicos como la cáscara de nuez, empleados en trabajos que requieren mínima abrasión. La elección del abrasivo depende del material de la pieza y del resultado final deseado." },
+            { "question": "¿Qué mantenimiento requiere un sistema de granallado?", "answer": "Para mantener un sistema de granallado en óptimas condiciones, es esencial realizar inspecciones diarias que detecten desgastes en componentes, verificar el estado de mangueras y conexiones para evitar fugas, y asegurar niveles adecuados de abrasivo sin obstrucciones. Además, se recomienda limpiar profundamente el equipo al finalizar cada jornada, eliminando residuos de abrasivos y partículas acumuladas, y revisar la lubricación de cojinetes, incluyendo los del motor, añadiendo grasa nueva según sea necesario." },
+            { "question": "¿Qué diferencia hay entre granallado y sandblasting?", "answer": "El granallado y el sandblasting son procesos de preparación de superficies que utilizan materiales abrasivos para limpiar o preparar superficies. La principal diferencia radica en la técnica de aplicación:<br /><br /> <strong>Sandblasting:</strong> Utiliza aire comprimido para proyectar abrasivos, permitiendo mayor precisión y control, ideal para superficies delicadas o con oxidación leve.<br /><br /> <strong>Granallado:</strong> Emplea una rueda de turbina para lanzar abrasivos, proporcionando una cobertura más amplia y uniforme, adecuado para limpiar y preparar superficies metálicas resistentes.<br /><br /> La elección entre uno u otro depende del tipo de superficie y del acabado deseado." },
+            { "question": "¿Qué ventajas ofrecen sus sistemas de granallado en comparación con otros métodos?", "answer": "Existen diversos métodos para preparar la superficie antes de aplicar el recubrimiento. Los dos métodos generales son el pretratamiento químico y la limpieza mecánica, también conocida como granallado.<br /><br /> El granallado permite eliminar impurezas como óxido, escoria y rebabas de soldadura, aceites, refrigerantes, y recubrimientos preexistentes, así como alcanzar un perfil para el anclaje de la pintura." },
+            { "question": "¿Cómo maximizar la vida útil de un equipo de granallado?", "answer": "Para maximizar la vida útil de un equipo de granallado, es fundamental implementar un programa de mantenimiento preventivo que incluya inspecciones regulares y reemplazo oportuno de componentes desgastados. Es recomendable realizar revisiones periódicas del impulsor y las correas, verificando su tensión y desgaste, así como inspecciones mensuales de reductores y cadenas de transmisión para asegurar niveles adecuados de lubricación y tensión. Además, mantener el revestimiento interno del gabinete en buenas condiciones es esencial para evitar pérdidas de granalla y garantizar una operación eficiente." },
+            { "question": "¿Cuál es la importancia de los sistemas de granallado?", "answer": "Los sistemas de granallado son fundamentales en diversas industrias debido a su capacidad para limpiar, fortalecer y preparar superficies metálicas. Este proceso elimina eficazmente impurezas como óxido, corrosión y pintura vieja, garantizando una limpieza completa y uniforme que mejora la adherencia de recubrimientos posteriores. Además, el granallado induce tensiones residuales de compresión en la superficie de las piezas, lo que incrementa su resistencia a la fatiga y prolonga su vida útil. Por estas razones, el granallado es esencial en sectores como el automotriz, aeroespacial y de construcción, donde la calidad y durabilidad de los componentes son prioritarias." }
+        ]
+    },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "images": [
+            { "image": "/images/soluciones/granallado/anaerobia-granallado-img-09.jpg", "alt": "Sistema de granallado en operación" },
+            { "image": "/images/soluciones/granallado/anaerobia-granallado-img-10.jpg", "alt": "Detalle de turbina de granallado" },
+            { "image": "/images/soluciones/granallado/granallado-2.webp", "alt": "Piezas tratadas" }
+        ]
+    },
+    "extras": {
+        "diferenciadores": {
+            "badge": "Ventajas Competitivas",
+            "title": "Diferenciadores de Anaerobia en Granallado",
+            "description": "Nuestra tecnología en sistemas de granallado destaca por resolver los desafíos más exigentes en preparación de superficies, garantizando resultados óptimos con un enfoque sustentable e integral.",
+            "items": [
+                { "title": "Eficiencia en la limpieza", "description": "Permiten una limpieza profunda de la superficie en un tiempo reducido." },
+                { "title": "Calidad en el acabado", "description": "Permite a una mejor adherencia por el anclaje mecánico que produce al limpiar la superficie." },
+                { "title": "Reducción de costos de mantenimiento", "description": "Al eliminar óxido y suciedad, se previenen problemas de corrosión y deterioro, reduciendo la necesidad de reparaciones." },
+                { "title": "Versatilidad de aplicaciones", "description": "Es adecuado para múltiples industrias y se adapta a diferentes tipos de materiales y acabados deseados." },
+                { "title": "Impacto ambiental reducido", "description": "La granalla es reciclable, lo cual disminuye la generación de residuos y es más amigable con el medio ambiente." }
+            ]
+        },
+        "ventajas": {
+            "badge": "Beneficios del Sistema",
+            "title": "Ventajas del Granallado",
+            "description": "La importancia del sistema de granallado radica en los múltiples beneficios que ofrece para la industria. Algunas razones por las cuales este sistema es crucial incluyen:",
+            "items": [
+                { "title": "Preparación de superficies", "description": "El granallado permite limpiar y dejar una textura adecuada en la superficie, optimizando la adherencia de recubrimientos." },
+                { "title": "Aumento de la vida útil de las piezas", "description": "Al eliminar óxidos y contaminantes, el granallado reduce los puntos débiles en los materiales que pueden propiciar la corrosión." },
+                { "title": "Uniformidad en el acabado", "description": "Las máquinas de granallado proporcionan un acabado consistente, eliminando las irregularidades y defectos superficiales que puedan afectar la calidad visual y funcional del producto final." }
+            ]
+        }
+    }
+}

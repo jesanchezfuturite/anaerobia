@@ -1,0 +1,180 @@
+{
+    "slug": "pintura-liquida",
+    "name": "Pintura Líquida",
+    "seo": {
+        "title": "Sistemas de Pintura Líquida Industriales | Anaerobia",
+        "description": "Diseño, fabricación e instalación de sistemas integrales de pintura líquida manuales y automatizados. Soluciones llave en mano de alto volumen."
+    },
+    "hero": {
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-2.webp",
+        "badge": "INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES",
+        "title": "Sistemas de Pintura Líquida",
+        "description": "Líneas de pintura líquida a la medida de tu producción. Traducimos ingeniería avanzada en soluciones rentables. Diseñamos e instalamos desde cabinas manuales hasta sistemas completamente automatizados y programables, listos para elevar la calidad de tus acabados y acelerar tu productividad."
+    },
+    "intro": {
+        "badge": "Ingeniería y Tecnología",
+        "title": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología",
+        "paragraphs": [
+            { "text": "Un sistema de pintura líquida es el conjunto de todos los equipos y medios que permiten a una empresa llevar una pieza desde su estado en bruto hasta tener una mejor apariencia o protección y cumplir con otros requisitos funcionales rigurosos de los productos terminados en cualquier industria." }
+        ],
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-1.webp"
+    },
+    "desafios": {
+        "badge": "Desafíos",
+        "title": "Retos críticos en las líneas de pintura",
+        "description": "Las operaciones de manufactura a menudo enfrentan variables ocultas que elevan el costo por pieza y comprometen la calidad del acabado final.",
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-3.webp",
+        "tarjetas": [
+            { "text": "Alto desperdicio de pintura en el proceso" },
+            { "text": "Sobrecosto operativo y de energía" },
+            { "text": "Variabilidad en la calidad y retrabajos" }
+        ],
+        "items": [
+            { "title": "Baja eficiencia de transferencia", "description": "La aplicación de pintura líquida es altamente propensa a pérdidas cuando depende enteramente del factor humano, generando un exceso de desperdicio (overspray) lo que eleva tus costos operativos y satura los sistemas de filtración de forma acelerada." },
+            { "title": "Altos costos de energía", "description": "Operar con equipos mal diseñados, cabinas desbalanceadas o sistemas que no retienen correctamente el calor provoca fugas constantes de recursos. Esto dispara el consumo general de gas y electricidad en la planta, impactando directamente en los costos." },
+            { "title": "Defectos en el acabado", "description": "La falta de consistencia en los espesores y los defectos por contaminación derivan en costosos retrabajos y en la incapacidad de alcanzar las normativas de acabado que los clientes finales exigen, elevando la tasa de rechazo." }
+        ]
+    },
+    "cta1": {
+        "title": "¿Buscas ingeniería a la medida para tu línea de pintura?",
+        "description": "Desde el diseño conceptual hasta la puesta en marcha, creamos el sistema de pintura exacto para los objetivos de su operación.",
+        "button_label": "Solicitar propuesta técnica",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "ingenieria": {
+        "badge": "Integrador Especializado",
+        "title": "Nuestra Solución en Ingeniería de Pintura Líquida",
+        "description": "Diseñamos y fabricamos soluciones llave en mano adaptadas a los requisitos físicos de tu planta, la geometría de tus piezas y los estándares químicos del recubrimiento.",
+        "cards": [
+            { "title": "Diseño completo del sistema de pintura", "description": "Desde cabinas de aplicación por lotes hasta sistemas automatizados con transportadores (conveyors) de velocidad variable y reciprocantes o aplicación robótica para altos volúmenes de producción.", "image": "/images/soluciones/pintura-liquida/DSC_08422.webp" },
+            { "title": "Control ambiental de cabinas", "description": "Garantizamos el acabado requerido integrando cabinas de pintura líquida presurizadas con flujo de aire laminar y sistemas de climatización (AMU o HVAC) para controlar de forma eficiente la temperatura y humedad relativa.", "image": "/images/soluciones/pintura-liquida/DSC02513.webp" },
+            { "title": "Mezcla y suministro eficiente", "description": "Integramos cocinas de pintura y cuartos de mezcla con sistemas de almacenamiento y bombeo neumático o eléctrico, incorporando cambiadores rápidos de color y dosificadores electrónicos multicomponentes (2K, 3K) de alta precisión.", "image": "/images/soluciones/pintura-liquida/DSC03109.webp" },
+            { "title": "Suministro de aire balanceado", "description": "Nuestro diseño de autobalanceo evita el desperdicio de energía, reduce la demanda térmica y eléctrica de la planta, optimizando una de las variables más costosas del proceso.", "image": "/images/soluciones/pintura-liquida/DSC_0820.webp" }
+        ]
+    },
+    "tipos": {
+        "badge": "Especificaciones Técnicas",
+        "title": "Fases de un Sistema de Pintura Líquida y Parámetros",
+        "tabs": [
+            {
+                "label": "PRETRATAMIENTO",
+                "title": "Pretratamiento de Superficies",
+                "description": "El pretratamiento es esencial para garantizar una buena adherencia, durabilidad y apariencia del acabado final. Existen dos métodos generales que se implementan según las condiciones del metal:",
+                "image": "/images/soluciones/pintura-liquida/pretratamiento-1.webp",
+                "items": [
+                    {
+                        "title": "Pretratamiento Químico",
+                        "bullets": [
+                            { "text": "Elimina aceites, lubricantes y grasas." },
+                            { "text": "Gran versatilidad del proceso (aspersión, inmersión)." },
+                            { "text": "Sistemas programables que permiten un gran control de temperatura y tiempos." },
+                            { "text": "Permite aplicar sello antioxidante protector." }
+                        ]
+                    },
+                    {
+                        "title": "Pretratamiento Mecánico",
+                        "bullets": [
+                            { "text": "Permite utilizar diversos materiales abrasivos (granalla metálica u otros materiales)." },
+                            { "text": "Elimina defectos superficiales." },
+                            { "text": "Permite alcanzar y controlar el perfil de anclaje (rugosidad) deseado." }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "CABINAS DE APLICACIÓN",
+                "title": "Especificaciones de Cabinas",
+                "description": "La cabina proporciona un espacio de confinamiento controlado y seguro para la aplicación de pintura, asegurando desde acabados simples hasta clase A mediante:",
+                "image": "/images/soluciones/pintura-liquida/cabina-pintura-23.webp",
+                "items": [
+                    { "title": "Ventilación Controlada" },
+                    { "title": "Filtros de Aire" },
+                    { "title": "Iluminación Específica" },
+                    { "title": "Paredes y Pisos Resistentes" },
+                    { "title": "Puertas Herméticas" },
+                    { "title": "Seguridad del operador" }
+                ]
+            },
+            {
+                "label": "HORNOS DE SECADO Y CURADO",
+                "title": "Curado de la Capa de Pintura",
+                "description": "Es posible secar piezas de pintura líquida al aire libre, pero dependerá de factores climáticos (humedad y temperatura) que añaden variabilidad e incrementan el tiempo de ciclo. El curado con un horno especializado asegura que la capa de pintura alcance de manera acelerada la polimerización exacta, garantizando las propiedades mecánicas y químicas de resistencia, durabilidad y adherencia certificadas por el fabricante.",
+                "image": "/images/soluciones/pintura-liquida/horno-10.webp",
+                "cards": [
+                    { "title": "Recomendación ANAEROBIA", "description": "Siga estrictamente las recomendaciones del fabricante de la pintura en cuanto a la rampa de temperatura y el tiempo de residencia para un mejor acabado." }
+                ]
+            },
+            {
+                "label": "MANEJO DEL PRODUCTO (Conveyor)",
+                "title": "Manejo del producto (conveyor)",
+                "description": "Diseñamos e integramos sistemas de transporte continuo adaptados por completo al espacio disponible de su planta, el volumen de su producción y las dimensiones o peso de sus piezas. Nos encargamos de configurar las velocidades y trayectos óptimos para automatizar el flujo de su proceso.",
+                "image": "/images/soluciones/conveyors/conveyor-1.webp",
+                "items": [
+                    { "title": "Agilidad y repetitividad", "description": "Automatizan el traslado continuo de piezas entre estaciones, garantizando un flujo constante y ordenado." },
+                    { "title": "Máximo rendimiento", "description": "Optimizan los tiempos de ciclo, reducen los costos operativos y eliminan los cuellos de botella." },
+                    { "title": "Movimiento versátil", "description": "Ingeniería flexible que se adapta a trayectos rectos, curvos, cambios de nivel o inclinaciones según su espacio." },
+                    { "title": "Seguridad en planta", "description": "Reducen drásticamente el riesgo de accidentes al eliminar la manipulación manual de materiales pesados o continuos." }
+                ]
+            }
+        ]
+    },
+    "resultados": {
+        "badge": "Beneficios del Sistema",
+        "title": "¿Por qué invertir en un sistema de pintura líquida?",
+        "description": "Beneficios mecánicos y financieros que obtiene su planta al integrar un sistema diseñado a la medida. Deja atrás la variabilidad, maximiza el rendimiento y alcanza el volumen de producción que tu negocio demanda.",
+        "cards": [
+            { "title": "Variedad de Acabados", "description": "La pintura líquida está disponible en una amplia gama de colores y acabados, dependiendo del grado de automatización, lo que permite una personalización significativa según los requisitos estéticos y funcionales del producto final." },
+            { "title": "Costos de Inversión Inicial", "description": "En comparación con algunos métodos de recubrimiento más avanzados, los sistemas de pintura líquida suelen tener costos iniciales más bajos." },
+            { "title": "Reparación y Retoque", "description": "En caso de daños o necesidad de retoques, la pintura líquida permite reparaciones más sencillas y locales en comparación con algunos otros métodos de recubrimiento." }
+        ]
+    },
+    "cta2": {
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-cta.webp",
+        "title": "Diseñemos a la medida su línea de pintura.",
+        "description": "Nuestro equipo de ingeniería analizará sus requerimientos para estructurar una propuesta técnica personalizada, incluyendo los diagramas de flujo y las capacidades de aire óptimas para la realidad de su planta.",
+        "button_label": "Enviar especificaciones del proyecto",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "normatividad": {
+        "badge": "Cumplimiento Legal y de Seguridad",
+        "title": "Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental",
+        "description": "El diseño de nuestros sistemas de pintura líquida se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.",
+        "bullets": [
+            { "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual." }
+        ]
+    },
+    "faqs": {
+        "badge": "Preguntas Técnicas",
+        "title": "Preguntas Frecuentes de Pintura Líquida",
+        "items": [
+            { "question": "¿Qué es la pintura líquida y cómo se aplica?", "answer": "La pintura líquida es un recubrimiento aplicado en forma de líquido (por aspersión mediante pistolas atomizadoras) que se seca a través de un proceso de evaporación de solventes o mediante un curado térmico controlado en hornos, proporcionando una película protectora, uniforme y de alta calidad estética sobre las piezas." },
+            { "question": "¿Qué materiales pueden ser cubiertos con pintura líquida?", "answer": "Se puede aplicar en una gran variedad de sustratos como metales (acero, aluminio), plásticos automotrices, madera, fibra de vidrio y materiales compuestos, siempre y cuando se aplique el pretratamiento mecánico o químico adecuado para asegurar la adherencia molecular." },
+            { "question": "¿Cuál es el proceso de preparación de la superficie antes de la pintura líquida?", "answer": "La superficie debe limpiarse a fondo mediante lavado químico (desengrase y fosfatizado) o de forma mecánica (granallado) para eliminar impurezas, rebabas o cascarillas. Posteriormente, en muchos casos, se requiere aplicar una imprimación (primer) para garantizar un anclaje molecular óptimo." },
+            { "question": "¿Qué tipo de mantenimiento requieren los sistemas de pintura líquida?", "answer": "Requieren una limpieza rigurosa regular. Las pistolas atomizadoras, boquillas y mangueras deben lavarse al final de cada turno para evitar acumulaciones. Además, es crítico el reemplazo programado de los filtros de aire en las cabinas para mantener el flujo laminar balanceado de ventilación y proteger los extractores de la acumulación de sólidos." },
+            { "question": "¿Qué dimensiones o espacio físico requiere la instalación de una cabina de pintura líquida?", "answer": "El tamaño de la cabina se determina por completo bajo las necesidades de su planta. En Anaerobia no trabajamos con medidas estándar, desarrollamos ingeniería a la medida. Analizamos tanto las dimensiones de las piezas que requiere pintar como el espacio físico disponible en su planta para diseñar, fabricar e instalar una estructura optimizada que se adapte perfectamente a su distribución actual." }
+        ]
+    },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "description": "Ejemplos de cabinas, túneles de pretratamiento y líneas de pintura líquida llave en mano implementadas en plantas del país.",
+        "images": [
+            { "image": "/images/soluciones/pintura-liquida/cabina-pintura-7.webp", "alt": "Cabina de pintura líquida industrial" },
+            { "image": "/images/soluciones/pintura-liquida/cabina-pintura-10.webp", "alt": "Robot de aplicación de pintura" },
+            { "image": "/images/soluciones/pintura-liquida/horno-11.webp", "alt": "Horno de curado industrial" }
+        ]
+    },
+    "extras": {
+        "diferenciadores": {
+            "badge": "Ventajas Competitivas",
+            "title": "¿Por qué la industria mexicana confía su producción a ANAEROBIA?",
+            "description": "Somos el socio estratégico de su planta, desarrollamos soluciones integrales donde la ingeniería avanzada y el diseño a la medida se combinan para resolver los desafíos más exigentes en acabados industriales.",
+            "cards": [
+                { "title": "Soluciones llave en mano", "description": "Diseñamos, fabricamos e instalamos de manera centralizada. Un solo punto de contacto para todo tu proyecto de pintura." },
+                { "title": "Respaldo postventa", "description": "Respuesta técnica local inmediata y refaccionamiento garantizado para asegurar la continuidad de tu operación." },
+                { "title": "Ingeniería especializada", "description": "Integramos robótica de pintura y manipulación (FANUC) y sistemas automáticos de dosificación 2K/3K (Graco, Binks) de última generación." },
+                { "title": "Eficiencia Energética", "description": "Sistemas diseñados para reducir al mínimo el desperdicio de pintura y optimizar el consumo de gas y electricidad en todos los equipos." }
+            ]
+        }
+    }
+}
