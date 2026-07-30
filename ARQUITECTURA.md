@@ -10,8 +10,8 @@ un push al admin jamás dispara el deploy del sitio en Vercel, y viceversa.
 
 | Repositorio | Contenido | Deploy |
 |---|---|---|
-| `anaerobia` (rama `adminLaravel`) | Sitio Astro | Vercel (automático al hacer push) |
-| `anaerobia-admin` | Admin Laravel + Filament + API | Webserver PHP (independiente) |
+| [`jesanchezfuturite/anaerobia`](https://github.com/jesanchezfuturite/anaerobia) (rama `adminLaravel`) | Sitio Astro | Vercel (automático al hacer push) |
+| [`selenebriones/anaerobia-admin`](https://github.com/selenebriones/anaerobia-admin) | Admin Laravel + Filament + API | Webserver PHP (independiente) |
 
 El contrato entre ambos es la **API REST** (sección 5) y el modelo de contenido (sección 4).
 Un cambio que modifique el modelo requiere commits coordinados en los dos repos.
