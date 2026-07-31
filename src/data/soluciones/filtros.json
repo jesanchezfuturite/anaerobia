@@ -175,7 +175,38 @@
                 "label": "Multifuncional y Cromatos",
                 "title": "Sistemas Multifuncionales y Especiales",
                 "description": "Equipamiento especializado y filtración de 3 etapas para procesos críticos y control de emisión de contaminantes peligrosos:",
-                "image": "/images/soluciones/filtros/filtro-10.webp"
+                "image": "/images/soluciones/filtros/filtro-10.webp",
+                "etapas": {
+                    "title": "Filtro de 3 Etapas (Captura de Cromatos)",
+                    "description": "Diseñado específicamente para la recolección de residuos de pintura que contienen cromatos en la industria aeroespacial y de defensa. Cumple y supera los rigurosos requisitos de la norma NESHAP Método 319:",
+                    "items": [
+                        {
+                            "title": "Etapa 1",
+                            "description": "Pre-filtración Wave para capturar las partículas gruesas y líquidos suspendidos."
+                        },
+                        {
+                            "title": "Etapa 2",
+                            "description": "Filtros de media eficiencia plisados (MEPT) que retienen partículas intermedias."
+                        },
+                        {
+                            "title": "Etapa 3",
+                            "description": "Filtro de bolsa final de alta eficiencia para asegurar la captura del polvo fino de cromatos."
+                        }
+                    ]
+                },
+                "colectores": {
+                    "title": "Filtros y Cabinas Colectoras de Polvo",
+                    "items": [
+                        {
+                            "title": "Limpieza del Aire de Inyección",
+                            "description": "Filtros diseñados para purificar el aire de alimentación a los sistemas colectores y evitar contaminantes externos en la zona operativa."
+                        },
+                        {
+                            "title": "Ofrecemos diversos tipos de Cabinas de Colección de Polvo",
+                            "description": "Cabinas de lijado, Cabinas de lijado y desbastado, Cabina de granallado, Módulos colectores y Colectores de polvo de alta producción. Proporcionan un ambiente seguro y limpio."
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -283,37 +314,6 @@
                 {
                     "title": "Filtro para Limpiar el Aire",
                     "description": "Unidades de filtración final de inyección de aire para asegurar que las áreas de colección de polvos mantengan un flujo de aire libre de partículas externas."
-                }
-            ]
-        },
-        "multifuncional_etapas": {
-            "title": "Filtro de 3 Etapas (Captura de Cromatos)",
-            "description": "Diseñado específicamente para la recolección de residuos de pintura que contienen cromatos en la industria aeroespacial y de defensa. Cumple y supera los rigurosos requisitos de la norma NESHAP Método 319:",
-            "items": [
-                {
-                    "title": "Etapa 1",
-                    "description": "Pre-filtración Wave para capturar las partículas gruesas y líquidos suspendidos."
-                },
-                {
-                    "title": "Etapa 2",
-                    "description": "Filtros de media eficiencia plisados (MEPT) que retienen partículas intermedias."
-                },
-                {
-                    "title": "Etapa 3",
-                    "description": "Filtro de bolsa final de alta eficiencia para asegurar la captura del polvo fino de cromatos."
-                }
-            ]
-        },
-        "multifuncional_colectores": {
-            "title": "Filtros y Cabinas Colectoras de Polvo",
-            "items": [
-                {
-                    "title": "Limpieza del Aire de Inyección",
-                    "description": "Filtros diseñados para purificar el aire de alimentación a los sistemas colectores y evitar contaminantes externos en la zona operativa."
-                },
-                {
-                    "title": "Ofrecemos diversos tipos de Cabinas de Colección de Polvo",
-                    "description": "Cabinas de lijado, Cabinas de lijado y desbastado, Cabina de granallado, Módulos colectores y Colectores de polvo de alta producción. Proporcionan un ambiente seguro y limpio."
                 }
             ]
         }

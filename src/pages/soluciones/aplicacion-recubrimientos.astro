@@ -39,6 +39,9 @@ const desafioIcons = [
     'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
     'M13 10V3L4 14h7v7l9-11h-7z',
 ]
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -277,32 +280,39 @@ const desafioIcons = [
 
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto" id="tech-tabs-nav">
+                    {d.tipos.tabs[0].active !== false && (
                     <button
                         class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-manual"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">01</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[0]}</span>
                         <span>{d.tipos.tabs[0].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[1].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-semiautomatico"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">02</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[1]}</span>
                         <span>{d.tipos.tabs[1].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[2].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-automatico"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">03</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[2]}</span>
                         <span>{d.tipos.tabs[2].label}</span>
                     </button>
+                    )}
                 </div>
 
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     <!-- Panel 1: Manual -->
+                    {d.tipos.tabs[0].active !== false && (
                     <div id="tab-manual" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -329,8 +339,10 @@ const desafioIcons = [
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 2: Semiautomático -->
+                    {d.tipos.tabs[1].active !== false && (
                     <div id="tab-semiautomatico" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -357,8 +369,10 @@ const desafioIcons = [
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 3: Automático -->
+                    {d.tipos.tabs[2].active !== false && (
                     <div id="tab-automatico" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -384,6 +398,7 @@ const desafioIcons = [
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         </section>
@@ -781,5 +796,13 @@ const desafioIcons = [
                 ScrollTrigger.refresh()
             }
         })
-    </script>
+    
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
+        }
+    })
+</script>
 </Layout>

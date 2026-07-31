@@ -70,6 +70,9 @@ const resultadoIcons = [
     '<circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path>',
     '<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>',
 ]
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -320,16 +323,16 @@ const resultadoIcons = [
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto" id="tech-tabs-nav">
                     {
-                        d.tipos.tabs.map((tab, i) => (
+                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
                             <button
                                 class={
-                                    i === 0
+                                    tabNums[i] === '01'
                                         ? 'tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]'
                                         : 'tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]'
                                 }
                                 data-tab={`tab-${i}`}
                             >
-                                <span class="text-3xl font-light not-italic font-sans">{String(i + 1).padStart(2, '0')}</span>
+                                <span class="text-3xl font-light not-italic font-sans">{tabNums[i]}</span>
                                 <span>{tab.label}</span>
                             </button>
                         ))
@@ -339,8 +342,8 @@ const resultadoIcons = [
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     {
-                        d.tipos.tabs.map((tab, tabIndex) => (
-                            <div id={`tab-${tabIndex}`} class={tabIndex === 0 ? 'tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0' : 'tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4'}>
+                        d.tipos.tabs.map((tab, tabIndex) => tab.active !== false && (
+                            <div id={`tab-${tabIndex}`} class={tabNums[tabIndex] === '01' ? 'tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0' : 'tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4'}>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                                     <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
                                         <img src={tab.image} alt={tab.title} class={`w-full h-full object-cover absolute inset-0${tabIndex === 1 ? ' scale-[1.3]' : ''}`} />
@@ -392,10 +395,10 @@ const resultadoIcons = [
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
                     {
                         d.resultados.metrics.map((metric, i) => (
-                            <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60">
+                            <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center gap-4 shadow-lg min-h-60">
                                 <svg class="w-14 h-14 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={resultadoIcons[i] ?? resultadoIcons[0]} />
-                                <h4 class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300">{metric.label}</h4>
-                                <p class="text-xs text-gray-400 font-light">{metric.description}</p>
+                                <h4 class="font-saira font-semibold uppercase italic text-lg tracking-wider text-white">{metric.label}</h4>
+                                <p class="text-base text-gray-300 font-light leading-relaxed">{metric.description}</p>
                             </div>
                         ))
                     }
@@ -514,6 +517,28 @@ const resultadoIcons = [
                                 </summary>
                                 <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">{faq.answer}</div>
                             </details>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. GALERÍA DE PROYECTOS -->
+        <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.galeria.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.galeria.title}</h2>
+                    <p class="text-gray-600 mt-4 font-light">Ejemplos de hornos de convección, sistemas catalíticos e infrarrojos para secado y curado implementados en plantas del país.</p>
+                </div>
+
+                <!-- Grid layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+                    {
+                        d.galeria.images.map((img) => (
+                            <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                                <img src={img.image} alt={img.alt} class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                            </div>
                         ))
                     }
                 </div>
@@ -661,6 +686,17 @@ const resultadoIcons = [
                 ease: 'power2.out',
                 clearProps: 'opacity,transform',
             })
+
+            // Gallery grid
+            gsap.from('.gallery-grid > div', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
         }
 
         // 3. Controlador de Tabs Técnicos
@@ -717,6 +753,14 @@ const resultadoIcons = [
     window.addEventListener('load', () => {
         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh()
+        }
+    })
+
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
         }
     })
 </script>

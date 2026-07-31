@@ -216,6 +216,24 @@
             }
         ]
     },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "images": [
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-9.webp",
+                "alt": "Hornos de Secado y Curado Industriales"
+            },
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-11.webp",
+                "alt": "Horno industrial por infrarrojos"
+            },
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-12.webp",
+                "alt": "Horno industrial de pintura líquida"
+            }
+        ]
+    },
     "extras": {
         "diferenciadores": {
             "badge": "Ventajas Competitivas",

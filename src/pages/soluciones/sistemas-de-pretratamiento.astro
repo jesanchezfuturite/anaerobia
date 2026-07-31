@@ -64,6 +64,9 @@ const beneficioIcons = [
 ]
 // Ids de las pestañas de Especificaciones Técnicas (diseño fijo, usados por el script de tabs)
 const tabIds = ['tab-desengrasado', 'tab-decapado', 'tab-fosfatado', 'tab-pasivacion', 'tab-enjuague-secado']
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -339,12 +342,12 @@ const tabIds = ['tab-desengrasado', 'tab-decapado', 'tab-fosfatado', 'tab-pasiva
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto snap-x hide-scrollbar" id="tech-tabs-nav">
                     {
-                        d.tipos.tabs.map((tab, i) => (
+                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
                             <button
-                                class={`tech-tab-btn ${i === 0 ? 'active ' : ''}snap-start flex-1 py-4 px-2 border-b-2 ${i === 0 ? 'border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime' : 'border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5'} flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]`}
+                                class={`tech-tab-btn ${tabNums[i] === '01' ? 'active ' : ''}snap-start flex-1 py-4 px-2 border-b-2 ${tabNums[i] === '01' ? 'border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime' : 'border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5'} flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-sm md:text-base uppercase tracking-wider transition-colors min-w-[140px]`}
                                 data-tab={tabIds[i]}
                             >
-                                <span class="text-2xl md:text-3xl font-light not-italic font-sans">{String(i + 1).padStart(2, '0')}</span>
+                                <span class="text-2xl md:text-3xl font-light not-italic font-sans">{tabNums[i]}</span>
                                 <span>{tab.label}</span>
                             </button>
                         ))
@@ -354,8 +357,8 @@ const tabIds = ['tab-desengrasado', 'tab-decapado', 'tab-fosfatado', 'tab-pasiva
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     {
-                        d.tipos.tabs.map((tab, i) => (
-                            <div id={tabIds[i]} class={`tech-tab-panel transition-all duration-500 ${i === 0 ? 'opacity-100 transform translate-y-0 relative z-10' : 'opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none'}`}>
+                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
+                            <div id={tabIds[i]} class={`tech-tab-panel transition-all duration-500 ${tabNums[i] === '01' ? 'opacity-100 transform translate-y-0 relative z-10' : 'opacity-0 transform translate-y-4 absolute top-0 left-0 w-full z-0 pointer-events-none'}`}>
                                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                                     <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px]">
                                         <img src={tab.image} alt={tab.title} class="w-full h-full object-cover absolute inset-0" />
@@ -758,5 +761,13 @@ const tabIds = ['tab-desengrasado', 'tab-decapado', 'tab-fosfatado', 'tab-pasiva
                 })
             }
         })
-    </script>
+    
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
+        }
+    })
+</script>
 </Layout>

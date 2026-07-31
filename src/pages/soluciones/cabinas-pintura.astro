@@ -56,6 +56,9 @@ const tipoCardIcons = [
     'M3 4.5h18M6 4.5v6.44a3 3 0 00.879 2.121l3.242 3.242a3 3 0 01.879 2.122V19.5m4-15v6.44a3 3 0 01-.879 2.121l-3.242 3.242a3 3 0 00-.879 2.122V19.5',
     'M12 21c-4.142 0-7.5-3.358-7.5-7.5 0-3.5 4.5-9 7.5-11.5 3 2.5 7.5 8 7.5 11.5 0 4.142-3.358 7.5-7.5 7.5z',
 ]
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -305,25 +308,30 @@ const tipoCardIcons = [
 
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto" id="tech-tabs-nav">
+                    {d.tipos.tabs[0].active !== false && (
                     <button
                         class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-liquida"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">01</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[0]}</span>
                         <span>{d.tipos.tabs[0].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[1].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-polvo"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">02</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[1]}</span>
                         <span>{d.tipos.tabs[1].label}</span>
                     </button>
+                    )}
                 </div>
 
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     <!-- Panel 1: Líquida -->
+                    {d.tipos.tabs[0].active !== false && (
                     <div id="tab-liquida" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
                         <!-- Intro Content -->
                         <div class="mb-12">
@@ -378,8 +386,10 @@ const tipoCardIcons = [
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 2: Polvo -->
+                    {d.tipos.tabs[1].active !== false && (
                     <div id="tab-polvo" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <!-- Intro Content -->
                         <div class="mb-12">
@@ -414,6 +424,7 @@ const tipoCardIcons = [
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         </section>
@@ -791,5 +802,13 @@ const tipoCardIcons = [
                 ScrollTrigger.refresh()
             }
         })
-    </script>
+    
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
+        }
+    })
+</script>
 </Layout>

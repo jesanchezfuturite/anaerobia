@@ -66,6 +66,9 @@ const ventajaIcons = [
 ]
 // Ids de los paneles de pestañas técnicas (deben coincidir con los paneles del HTML)
 const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conveyor']
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -338,14 +341,14 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto" id="tech-tabs-nav">
                     {
-                        d.tipos.tabs.map((tab, i) => (
+                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
                             <button
                                 class={`tech-tab-btn ${
-                                    i === 0 ? 'active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime' : 'flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5'
+                                    tabNums[i] === '01' ? 'active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime' : 'flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5'
                                 } flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]`}
                                 data-tab={techTabIds[i]}
                             >
-                                <span class="text-3xl font-light not-italic font-sans">{String(i + 1).padStart(2, '0')}</span>
+                                <span class="text-3xl font-light not-italic font-sans">{tabNums[i]}</span>
                                 <span>{tab.label}</span>
                             </button>
                         ))
@@ -355,6 +358,7 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     <!-- Panel 1: Pretratamiento -->
+                    {d.tipos.tabs[0].active !== false && (
                     <div id="tab-pretratamiento" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
@@ -401,8 +405,10 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 2: Cabina -->
+                    {d.tipos.tabs[1].active !== false && (
                     <div id="tab-cabina" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
@@ -433,8 +439,10 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 3: Curado -->
+                    {d.tipos.tabs[2].active !== false && (
                     <div id="tab-curado" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
@@ -464,8 +472,10 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 4: Conveyor -->
+                    {d.tipos.tabs[3].active !== false && (
                     <div id="tab-conveyor" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
@@ -501,6 +511,7 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         </section>
@@ -879,6 +890,14 @@ const techTabIds = ['tab-pretratamiento', 'tab-cabina', 'tab-curado', 'tab-conve
     window.addEventListener('load', () => {
         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh()
+        }
+    })
+
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
         }
     })
 </script>

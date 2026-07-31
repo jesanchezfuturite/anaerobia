@@ -30,6 +30,9 @@ try {
 // SEO Metadata
 const seoTitle = d.seo?.title
 const seoDescription = d.seo?.description
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -263,46 +266,57 @@ const seoDescription = d.seo?.description
 
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-8 overflow-x-auto" id="tech-tabs-nav">
+                    {d.tipos.tabs[0].active !== false && (
                     <button
                         class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-extraccion"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">01</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[0]}</span>
                         <span>{d.tipos.tabs[0].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[1].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-inyeccion"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">02</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[1]}</span>
                         <span>{d.tipos.tabs[1].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[2].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-papel"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">03</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[2]}</span>
                         <span>{d.tipos.tabs[2].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[3].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-recoleccion"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">04</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[3]}</span>
                         <span>{d.tipos.tabs[3].label}</span>
                     </button>
+                    )}
+                    {d.tipos.tabs[4].active !== false && (
                     <button
                         class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
                         data-tab="tab-multifuncional"
                     >
-                        <span class="text-3xl font-light not-italic font-sans">05</span>
+                        <span class="text-3xl font-light not-italic font-sans">{tabNums[4]}</span>
                         <span>{d.tipos.tabs[4].label}</span>
                     </button>
+                    )}
                 </div>
 
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
                     <!-- Panel 1: Filtros de Extracción -->
+                    {d.tipos.tabs[0].active !== false && (
                     <div id="tab-extraccion" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -326,8 +340,10 @@ const seoDescription = d.seo?.description
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 2: Filtros de Inyección -->
+                    {d.tipos.tabs[1].active !== false && (
                     <div id="tab-inyeccion" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -351,8 +367,10 @@ const seoDescription = d.seo?.description
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 2: Filtros Plisados y de Papel -->
+                    {d.tipos.tabs[2].active !== false && (
                     <div id="tab-papel" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -375,8 +393,10 @@ const seoDescription = d.seo?.description
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 3: Recolección de Polvo y Bolsas -->
+                    {d.tipos.tabs[3].active !== false && (
                     <div id="tab-recoleccion" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -399,8 +419,10 @@ const seoDescription = d.seo?.description
                             </div>
                         </div>
                     </div>
+                    )}
 
                     <!-- Panel 4: Multifuncional y Cromatos -->
+                    {d.tipos.tabs[4].active !== false && (
                     <div id="tab-multifuncional" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px]">
@@ -411,11 +433,11 @@ const seoDescription = d.seo?.description
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{d.tipos.tabs[4].title}</h3>
                                 <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[4].description}</p>
 
-                                <h4 class="font-saira font-bold text-brand-blue uppercase text-lg mb-3">{d.extras.multifuncional_etapas.title}</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed font-light mb-4">{d.extras.multifuncional_etapas.description}</p>
+                                <h4 class="font-saira font-bold text-brand-blue uppercase text-lg mb-3">{d.tipos.tabs[4].etapas.title}</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed font-light mb-4">{d.tipos.tabs[4].etapas.description}</p>
                                 <ul class="space-y-2 text-gray-600 font-light text-sm mb-6 pl-4 border-l-2 border-brand-lime">
                                     {
-                                        d.extras.multifuncional_etapas.items.map((item) => (
+                                        d.tipos.tabs[4].etapas.items.map((item) => (
                                             <li>
                                                 <strong>{item.title}:</strong> {item.description}
                                             </li>
@@ -423,10 +445,10 @@ const seoDescription = d.seo?.description
                                     }
                                 </ul>
 
-                                <h4 class="font-saira font-bold text-brand-blue uppercase text-lg mb-3">{d.extras.multifuncional_colectores.title}</h4>
+                                <h4 class="font-saira font-bold text-brand-blue uppercase text-lg mb-3">{d.tipos.tabs[4].colectores.title}</h4>
                                 <ul class="space-y-3 text-gray-600 font-light text-sm">
                                     {
-                                        d.extras.multifuncional_colectores.items.map((item) => (
+                                        d.tipos.tabs[4].colectores.items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
                                                 <span><strong>{item.title}:</strong> {item.description}</span>
@@ -437,6 +459,7 @@ const seoDescription = d.seo?.description
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         </section>
@@ -777,6 +800,11 @@ const seoDescription = d.seo?.description
                     }
                 })
             })
+
+            // Si la primera pestaña está inactiva, activar la primera visible
+            if (tabBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+                tabBtns[0].click()
+            }
         })
     </script>
 </Layout>
