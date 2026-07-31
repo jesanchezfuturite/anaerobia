@@ -89,7 +89,7 @@ El contenido vive en dos tablas:
 | Tabla | Qué guarda | Forma |
 |---|---|---|
 | `solution_pages` | Las 10 páginas de soluciones | Una columna JSON por sección |
-| `site_pages` | Resto del sitio: `homepage`, `navigation` | Una sola columna `data` con todas las secciones |
+| `site_pages` | Resto del sitio: `homepage`, `navigation`, `nosotros`, `proyectos`, `caso-ingenieria-alta-precision` | Una sola columna `data` con todas las secciones |
 
 Una fila por página en la tabla `solution_pages`. Cada sección del diseño es una **columna JSON**
 con estructura fija; el admin edita los valores, nunca la estructura ni las clases CSS.
@@ -117,7 +117,12 @@ solution_pages
 site_pages
 ├── key = "homepage"   → data { hero, soluciones, mantenimiento, gestion360,
 │                               industrias, normativas, mapa, contacto }
-└── key = "navigation" → data { links[{label, url, hasSubmenu, submenu[{label,url}]}] }
+├── key = "navigation" → data { links[{label, url, hasSubmenu, submenu[{label,url}]}] }
+├── key = "nosotros"   → data { seo, hero, intro, pilares, valores, esg, normas, alianzas }
+├── key = "proyectos"  → data { seo, hero, industrias, casos_estudio, cta }
+└── key = "caso-ingenieria-alta-precision"
+                       → data { seo, hero, intro, reto, galeria, solucion,
+                                resultado, aprendizajes, cta, volver }
 ```
 
 Reglas del modelo:
@@ -209,6 +214,6 @@ Pruebas del admin: `php artisan test` dentro de `anaerobia-admin` (API, páginas
 - [x] **Fase 1 — Piloto Conveyors**: modelo, seeder, API, formulario Filament, SSR con fallback, pruebas
 - [x] **Fase 2 — Réplica**: las 10 páginas de soluciones administrables (un seeder + JSON de respaldo por página; formulario Filament dinámico que se adapta a las secciones de cada página; contenido verificado idéntico contra el sitio original)
 - [x] **Fase 3 — Homepage y navegación**: migradas al admin (tabla `site_pages`), Keystatic retirado por completo y todo el sitio en SSR para que los cambios de menú se vean al instante en cualquier página
-- [ ] **Fase 4 — Páginas restantes**: nosotros, proyectos y casos de estudio
+- [x] **Fase 4 — Páginas restantes**: nosotros, proyectos y el caso de estudio, administrables desde la misma tabla `site_pages`
 - [ ] **Fase 5 — Despliegue**: hosting del admin (MySQL, token de API, backups) y sitio Astro con adapter SSR; definir dominio para las imágenes
 - [ ] **Fase 6 — Endurecimiento**: roles de usuario, conversión automática a WebP y tamaños responsivos al subir imágenes

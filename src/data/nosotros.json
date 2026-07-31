@@ -1,0 +1,121 @@
+{
+    "seo": {
+        "title": "Nosotros | Anaerobia Surface Finishing",
+        "description": "Nuestra especialidad es el diseño, fabricación e instalación de sistemas de pintura y acabado en general. Mejoramos la industria del mundo con ingeniería especializada."
+    },
+    "hero": {
+        "image": "/images/nosotros/bg_hero_nosotros.webp",
+        "imageAlt": "Acerca de Anaerobia",
+        "badge": "Conoce a Anaerobia",
+        "title": "Tu aliado en proyectos de acabado superficial",
+        "paragraphs": [
+            {
+                "text": "Nuestra especialidad es el diseño, fabricación e instalación de sistemas de pintura y acabado en general. Tenemos una división especializada en manejo de fluidos, equipos para suministro y aplicación en la industria."
+            },
+            {
+                "text": "Contamos con un área de servicio posventa para atenderte y con nuestro centro de distribución que permite entregar todo tipo de componentes utilizados en nuestros sistemas de manera directa o a través de nuestros distribuidores."
+            }
+        ]
+    },
+    "intro": {
+        "image": "/images/nosotros/img_1_nosotros.webp",
+        "imageAlt": "Equipo Anaerobia",
+        "badge": "Nuestro Propósito",
+        "title": "MEJORAMOS LA INDUSTRIA DEL MUNDO CON INGENIERÍA ESPECIALIZADA Y ALTA TECNOLOGÍA",
+        "items": [
+            {
+                "title": "NUESTRA MISIÓN",
+                "description": "Ejecutar proyectos con un alto contenido de ingeniería y tecnología para la industria, integrando un equipo de colaboradores dinámico y experimentado, contribuyendo con el crecimiento de la empresa y la satisfacción de nuestros clientes."
+            }
+        ]
+    },
+    "pilares": {
+        "title": "LOS PILARES DE NUESTRO TRABAJO",
+        "description": "Nuestros fundamentos que garantizan el éxito en cada proyecto de principio a fin.",
+        "cards": [
+            {
+                "title": "Gestión Integral"
+            },
+            {
+                "title": "Ingeniería a la medida"
+            },
+            {
+                "title": "Cumplimiento normativo"
+            },
+            {
+                "title": "Presencia nacional"
+            }
+        ]
+    },
+    "valores": {
+        "title": "NUESTROS VALORES",
+        "image": "/images/nosotros/icono_principal_logo.png",
+        "imageAlt": "Valores Anaerobia",
+        "items": [
+            {
+                "title": "La familia",
+                "subtitle": "es base"
+            },
+            {
+                "title": "Crecimiento de",
+                "subtitle": "talento humano"
+            },
+            {
+                "title": "Respeto al individuo",
+                "subtitle": "y a la organización"
+            },
+            {
+                "title": "La integridad",
+                "subtitle": "nos importa"
+            },
+            {
+                "title": "La lealtad",
+                "subtitle": "se demuestra"
+            },
+            {
+                "title": "Trabajando en equipo",
+                "subtitle": "llegamos lejos"
+            }
+        ]
+    },
+    "esg": {
+        "image": "/images/nosotros/bg_GESTION_ESG.webp",
+        "imageAlt": "Fondo ESG",
+        "title": "GESTIÓN",
+        "titleHighlight": "ESG",
+        "description": "Hemos decidido alinear la gestión estratégica de la compañía con principios en favor de la sostenibilidad social y ambiental, desarrollando nuestras actividades dentro de un marco ético, que promueva el crecimiento de nuestros colaboradores y busque de manera constante la mejora de procesos que nos permitan desempeñar nuestras funciones.",
+        "cards": [
+            {
+                "title": "ENVIRONMENT",
+                "description": "Prácticas sobre la gestión de recursos naturales, cambio climático y relación con el planeta."
+            },
+            {
+                "title": "SOCIAL",
+                "description": "Derechos Humanos, normas laborales, diversidad, igualdad, inclusión y relaciones con la sociedad y comunidades locales."
+            },
+            {
+                "title": "GOVERNANCE",
+                "description": "Estructura y buen gobierno de la empresa, ética empresarial, lucha contra la corrupción, transparencia y toma de decisiones."
+            }
+        ],
+        "logos": [
+            {
+                "image": "/img/un_global_compact.png",
+                "alt": "UN Global Compact"
+            },
+            {
+                "image": "/img/logo_esr.png",
+                "alt": "Empresa Socialmente Responsable"
+            }
+        ]
+    },
+    "normas": {
+        "badge": "Cumplimiento Legal y de Seguridad",
+        "title": "Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental",
+        "description": "Nuestros productos cumplen o exceden todos los códigos y normativas relacionados con el equipo, además nuestra empresa trabaja bajo los lineamientos de seguridad industrial y protección ambiental que nuestros clientes exigen.",
+        "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual."
+    },
+    "alianzas": {
+        "title": "Tecnología respaldada por aliados globales:"
+    }
+}

@@ -3,47 +3,25 @@ export const prerender = false
 
 import Layout from "../layouts/Layout.astro";
 
-const seoTitle = "Proyectos | Anaerobia Surface Finishing";
-const seoDescription = "Galería de proyectos ejecutados de sistemas de pintura y acabado, cabinas y hornos implementados por Anaerobia.";
+import fallback from '../data/proyectos.json'
 
-const industries = [
-  { title: "Agricultura", image: "/images/proyectos/galeria_industria/Agricultura.jpg" },
-  { title: "Automotriz", image: "/images/proyectos/galeria_industria/Automotriz.JPG" },
-  { title: "Automotriz", image: "/images/proyectos/galeria_industria/Automotriz2.jpg" },
-  { title: "Electrodomésticos y Muebles", image: "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg" },
-  { title: "Energía", image: "/images/proyectos/galeria_industria/Energia.jpg" },
-  { title: "Equipo Pesado", image: "/images/proyectos/galeria_industria/Equipo_Pesado.png" },
-  { title: "Ferroviaria", image: "/images/proyectos/galeria_industria/Ferroviaria.jpg" },
-  { title: "Industria General", image: "/images/proyectos/galeria_industria/Industria_general.jpg" },
-  { title: "Metalmecánica", image: "/images/proyectos/galeria_industria/Metalmecanica.jpg" },
-  { title: "Vehículos Recreacionales", image: "/images/proyectos/galeria_industria/Recreational_Vehicles.jpg" }
-];
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let d = fallback
+try {
+  const res = await fetch(`${API_URL}/api/v1/paginas/proyectos`, { signal: AbortSignal.timeout(5000) })
+  if (res.ok) d = (await res.json()).data
+} catch {
+  // API no disponible: la página se sirve con el contenido de respaldo
+}
 
+// SEO Metadata
+const seoTitle = d.seo?.title
+const seoDescription = d.seo?.description
 
-const caseStudies = [
-  {
-    title: "Ingeniería de alta precisión en espacios reducidos: cómo convertir una limitación en ventaja operativa",
-    description: "Cuando una planta industrial se queda sin espacio para crecer, la respuesta más obvia suele ser una ampliación física. Sin embargo, no siempre es la opción más viable: modificar estructuras, detener operaciones o rediseñar instalaciones completas puede elevar costos, tiempos y riesgos...",
-    image: "/images/proyectos/casos_de_estudio/caso1/img_1.jpg",
-    category: "Industrial",
-    documentUrl: "/casos-de-estudio/ingenieria-alta-precision",
-    isPageLink: true
-  },
-  {
-    title: "Eficiencia Energética en Hornos de Curado",
-    description: "Descubre los ahorros energéticos logrados en la industria metalmecánica tras la actualización de hornos convencionales a sistemas infrarrojos catalíticos.",
-    image: "/images/proyectos/galeria_industria/Metalmecanica.jpg",
-    category: "Industrial",
-    documentUrl: "#"
-  },
-  {
-    title: "Sostenibilidad en Pintura en Polvo",
-    description: "Un fabricante de electrodomésticos logró cero emisiones de VOCs y recuperó el 98% del material excedente gracias a nuestra tecnología de aplicación en polvo.",
-    image: "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg",
-    category: "Electrodomésticos",
-    documentUrl: "#"
-  }
-];
+const industries = d.industrias?.items ?? []
+const caseStudies = d.casos_estudio?.cards ?? []
 
 ---
 
@@ -53,7 +31,7 @@ const caseStudies = [
     <section class="relative min-h-[50vh] md:min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
       <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
-        <img src="/images/proyectos/hero_proyectos.webp" alt="Proyectos Anaerobia" class="w-full h-full object-cover object-center opacity-50 scale-105" />
+        <img src={d.hero.image} alt={d.hero.alt} class="w-full h-full object-cover object-center opacity-50 scale-105" />
         <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/80 to-brand-navy/60"></div>
       </div>
 
@@ -67,10 +45,10 @@ const caseStudies = [
           </nav>
 
           <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-            Proyectos
+            {d.hero.title}
           </h1>
           <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">
-            Gracias a nuestra experiencia en diferentes sectores somos capaces de ofrecer soluciones adaptadas a las necesidades de cada cliente.
+            {d.hero.description}
           </p>
         </div>
       </div>
@@ -83,7 +61,7 @@ const caseStudies = [
     <section class="py-16 md:py-24 px-6 md:px-12 relative bg-white min-h-screen">
       <div class="container mx-auto">
         <h2 class="text-3xl md:text-5xl font-saira font-bold text-center text-brand-navy mb-12 uppercase">
-          Proyectos por Industria
+          {d.industrias.sectionTitle}
         </h2>
         
         <!-- Masonry Grid -->
@@ -114,7 +92,7 @@ const caseStudies = [
     <section class="py-16 px-6 md:px-12 relative bg-gray-50">
       <div class="container mx-auto max-w-7xl">
         <h2 class="text-3xl md:text-5xl font-saira font-bold text-center text-brand-navy mb-12 uppercase">
-          Casos de Estudio
+          {d.casos_estudio.sectionTitle}
         </h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -172,21 +150,21 @@ const caseStudies = [
     <!-- 04. CTA BOTTOM -->
     <section class="py-24 relative overflow-hidden" id="contacto-cta">
       <div class="absolute inset-0 z-0">
-        <img src="/images/proyectos/bg_cta_proyectos.webp" alt="Instalaciones Anaerobia" class="w-full h-full object-cover scale-[1.02]" />
+        <img src={d.cta.image} alt={d.cta.alt} class="w-full h-full object-cover scale-[1.02]" />
         <div class="absolute inset-0 bg-brand-navy/90 mix-blend-multiply"></div>
         <div class="absolute inset-0 bg-[#001c29]/75"></div>
       </div>
 
       <div class="container mx-auto px-6 relative z-10 text-center max-w-5xl">
         <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-saira italic font-bold text-white uppercase mb-5 tracking-wider">
-          ¿Listo para iniciar tu próximo proyecto?
+          {d.cta.title}
         </h2>
         <p class="text-base md:text-lg text-gray-300 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-          Contacta a nuestros expertos y diseñemos juntos el sistema ideal para optimizar los procesos de tu planta.
+          {d.cta.description}
         </p>
         <div class="flex justify-center">
-          <a href="/contacto" class="inline-flex items-center justify-center px-10 py-4 font-bold text-brand-navy text-sm md:text-base uppercase tracking-widest bg-brand-lime hover:bg-[#8da31c] transition-colors rounded-sm shadow-xl">
-            Hablemos de tu Proyecto
+          <a href={d.cta.button_url} class="inline-flex items-center justify-center px-10 py-4 font-bold text-brand-navy text-sm md:text-base uppercase tracking-widest bg-brand-lime hover:bg-[#8da31c] transition-colors rounded-sm shadow-xl">
+            {d.cta.button_label}
           </a>
         </div>
       </div>
