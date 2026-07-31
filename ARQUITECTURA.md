@@ -55,7 +55,9 @@ flowchart LR
 | API de contenido | Laravel (rutas `routes/api.php`, solo lectura) | `anaerobia-admin` |
 | Base de datos | SQLite en local (MySQL al desplegar, solo cambia el `.env`) | `anaerobia-admin` |
 | Imágenes | Disco `public` de Laravel + `storage:link` | `anaerobia-admin` |
-| CMS legado | Keystatic (solo homepage y navegación; se retirará al final) | `anaerobia` |
+
+Todo el contenido editable vive en el admin: el sitio ya no usa ningún CMS adicional
+(Keystatic fue retirado al completar la Fase 3).
 
 ## 3. Flujo de edición (cambios al instante)
 
@@ -82,6 +84,13 @@ No hay rebuilds ni deploys: el cambio guardado en el admin se ve en la siguiente
 
 ## 4. Modelo de contenido
 
+El contenido vive en dos tablas:
+
+| Tabla | Qué guarda | Forma |
+|---|---|---|
+| `solution_pages` | Las 10 páginas de soluciones | Una columna JSON por sección |
+| `site_pages` | Resto del sitio: `homepage`, `navigation` | Una sola columna `data` con todas las secciones |
+
 Una fila por página en la tabla `solution_pages`. Cada sección del diseño es una **columna JSON**
 con estructura fija; el admin edita los valores, nunca la estructura ni las clases CSS.
 
@@ -104,19 +113,36 @@ solution_pages
 └── galeria      { badge, title, images[{image, alt}] }
 ```
 
+```
+site_pages
+├── key = "homepage"   → data { hero, soluciones, mantenimiento, gestion360,
+│                               industrias, normativas, mapa, contacto }
+└── key = "navigation" → data { links[{label, url, hasSubmenu, submenu[{label,url}]}] }
+```
+
 Reglas del modelo:
 
 - **Los iconos SVG, alturas, animaciones GSAP y clases Tailwind viven en el código Astro**, no en la BD.
-- Las imágenes se guardan como ruta relativa al disco `public` (`soluciones/uploads/...`);
-  el modelo `SolutionPage::toApiPayload()` las convierte a URL absoluta al servir la API.
-- El formulario de Filament (`SolutionPageForm`) tiene 11 pestañas que espejean estas secciones.
+  Excepción: los iconos de la sección Industrias del inicio son marcado SVG guardado en los datos;
+  se conservan al guardar pero no se exponen como campo editable en el panel.
+- Las imágenes y videos se guardan como ruta relativa al disco `public` (`soluciones/uploads/...`);
+  el trait `ResolvesMediaUrls` las convierte a URL absoluta al servir la API.
+- Los formularios de Filament son **dinámicos**: `App\Filament\Support\DynamicFields` construye las
+  pestañas y campos a partir de la forma del JSON de cada página, por lo que no hay que programar un
+  formulario por página. El catálogo de páginas es fijo: no se pueden crear ni eliminar desde el panel.
 
 ## 5. API REST
 
 | Método | Ruta | Descripción |
 |---|---|---|
-| GET | `/api/v1/soluciones` | Lista de páginas publicadas (slug, nombre, fecha) |
+| GET | `/api/v1/soluciones` | Lista de páginas de soluciones publicadas (slug, nombre, fecha) |
 | GET | `/api/v1/soluciones/{slug}` | Contenido completo de una página; 404 si no existe o no está publicada |
+| GET | `/api/v1/paginas` | Lista de páginas del sitio publicadas (inicio, navegación) |
+| GET | `/api/v1/paginas/{key}` | Contenido completo de una página del sitio; 404 si no existe o no está publicada |
+
+El payload de cada solución incluye además `certificados`: los logos de certificaciones son
+contenido compartido (se editan una sola vez en Inicio) y viajan en la misma respuesta para
+que la sección de normatividad no necesite una segunda llamada.
 
 - Solo lectura y sin autenticación por ahora (local). Al desplegar se puede endurecer con un token estático en header.
 - El sitio la consume **del lado del servidor** (SSR), por lo que no hay problemas de CORS ni se expone la URL interna al navegador.
@@ -182,7 +208,7 @@ Pruebas del admin: `php artisan test` dentro de `anaerobia-admin` (API, páginas
 
 - [x] **Fase 1 — Piloto Conveyors**: modelo, seeder, API, formulario Filament, SSR con fallback, pruebas
 - [x] **Fase 2 — Réplica**: las 10 páginas de soluciones administrables (un seeder + JSON de respaldo por página; formulario Filament dinámico que se adapta a las secciones de cada página; contenido verificado idéntico contra el sitio original)
-- [ ] **Fase 3 — Homepage y navegación**: migrarlas de Keystatic al admin; retirar Keystatic
+- [x] **Fase 3 — Homepage y navegación**: migradas al admin (tabla `site_pages`), Keystatic retirado por completo y todo el sitio en SSR para que los cambios de menú se vean al instante en cualquier página
 - [ ] **Fase 4 — Páginas restantes**: nosotros, proyectos y casos de estudio
 - [ ] **Fase 5 — Despliegue**: hosting del admin (MySQL, token de API, backups) y sitio Astro con adapter SSR; definir dominio para las imágenes
 - [ ] **Fase 6 — Endurecimiento**: roles de usuario, conversión automática a WebP y tamaños responsivos al subir imágenes

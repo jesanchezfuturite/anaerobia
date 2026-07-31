@@ -2,19 +2,7 @@
 export const prerender = false
 
 import Layout from '../../layouts/Layout.astro'
-import { getEntry } from 'astro:content'
 import fallback from '../../data/soluciones/sistemas-de-pretratamiento.json'
-
-// Obtener datos de la página de inicio para reutilizar logos de normativas si se ocupan
-const homepageEntry = await getEntry('homepage', 'index')
-const homepageData = homepageEntry?.data || {}
-const certificados = homepageData.normativas?.certificados || [
-    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
-    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
-    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
-    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
-    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
-]
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
 // visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
@@ -26,6 +14,10 @@ try {
 } catch {
     // API no disponible: la página se sirve con el contenido de respaldo
 }
+
+// Logos de certificaciones: contenido compartido del sitio que llega en el
+// mismo payload de la API (se editan una sola vez en la página de Inicio).
+const certificados = d.certificados ?? fallback.certificados ?? []
 
 // SEO Metadata
 const seoTitle = d.seo?.title

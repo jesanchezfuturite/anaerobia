@@ -1,27 +1,17 @@
 ---
-import { getEntry } from 'astro:content';
-// Footer.astro - Reusable footer component for Anaerobia
+import fallback from '../data/navigation.json'
 
-const navigationEntry = await getEntry('navigation', 'index');
-const navItems = navigationEntry?.data?.links || [
-  { label: 'Nosotros', url: '/', hasSubmenu: false, submenu: [] },
-  { label: 'Soluciones', url: '#' },
-  { label: 'Proyectos', url: '/proyectos', hasSubmenu: false, submenu: [] },
-  { 
-    label: 'Partes y Filtros', 
-    url: '#', 
-    hasSubmenu: true, 
-    submenu: [
-      { label: 'Pintura en polvo', url: '#' },
-      { label: 'Filtros', url: '#' },
-      { label: 'Pintura líquida', url: '#' },
-      { label: 'Lámparas infrarrojas', url: '#' },
-      { label: 'Refacciones', url: '#' }
-    ] 
-  },
-  { label: 'Blog', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Contacto', url: '/contacto', hasSubmenu: false, submenu: [] },
-];
+// Menú administrable: se consulta la API del Admin en cada visita (SSR).
+// Si la API no responde, se usa el respaldo local.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let nav = fallback
+try {
+  const res = await fetch(`${API_URL}/api/v1/paginas/navigation`, { signal: AbortSignal.timeout(5000) })
+  if (res.ok) nav = (await res.json()).data
+} catch {
+  // API no disponible: el menú se sirve con el contenido de respaldo
+}
+const navItems = nav.links
 const footerNavItems = navItems.filter((item) => item.label !== 'Soluciones');
 const solucionesItem = navItems.find((item) => item.label === 'Soluciones');
 const solucionesSubmenu = solucionesItem?.submenu || [];

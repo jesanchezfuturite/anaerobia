@@ -1,17 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getEntry } from "astro:content";
+export const prerender = false
 
-// Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry("homepage", "index");
-const homepageData = homepageEntry?.data || {};
-const certificados = homepageData.normativas?.certificados || [
-  { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
-  { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
-  { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
-  { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
-  { name: "OSHA", logo: "/images/home/certificaciones/osha.png" },
-];
+import Layout from "../layouts/Layout.astro";
+import homeFallback from '../data/homepage.json';
+
+// Logos de certificaciones: se editan en la página de Inicio del admin.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000';
+let home = homeFallback;
+try {
+  const res = await fetch(`${API_URL}/api/v1/paginas/homepage`, { signal: AbortSignal.timeout(5000) });
+  if (res.ok) home = (await res.json()).data;
+} catch {
+  // API no disponible: se usan los logos de respaldo
+}
+const certificados = home.normativas?.certificados ?? [];
 
 const seoTitle = "Nosotros | Anaerobia Surface Finishing";
 const seoDescription = "Nuestra especialidad es el diseño, fabricación e instalación de sistemas de pintura y acabado en general. Mejoramos la industria del mundo con ingeniería especializada.";

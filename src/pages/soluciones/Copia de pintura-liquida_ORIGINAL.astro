@@ -1,11 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
-import { getEntry } from "astro:content";
+import homeFallback from '../../data/homepage.json'
 
 // Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry("homepage", "index");
-const homepageData = homepageEntry?.data || {};
+const homepageData = homeFallback
 const certificados = homepageData.normativas?.certificados || [
   { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
   { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },

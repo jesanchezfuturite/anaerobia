@@ -228,5 +228,31 @@
                 }
             ]
         }
-    }
+    },
+    "certificados": [
+        {
+            "name": "NFPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+        },
+        {
+            "name": "EPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+        },
+        {
+            "name": "ETL",
+            "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+        },
+        {
+            "name": "ICC",
+            "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+        },
+        {
+            "name": "OSHA",
+            "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+        },
+        {
+            "name": "ATEX",
+            "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
+        }
+    ]
 }

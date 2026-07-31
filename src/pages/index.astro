@@ -1,118 +1,21 @@
 ---
+export const prerender = false
+
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
 
-import { getEntry } from 'astro:content';
+import fallback from '../data/homepage.json'
 
-const homepageEntry = await getEntry('homepage', 'index');
-// Datos por defecto en caso de que Keystatic no haya generado el archivo aún
-const data = homepageEntry?.data || {
-  hero: {
-    title: "Ingeniería Inteligente en Sistemas de Pintura y Acabado.",
-    subtitle: "Diseñamos e integramos proyectos 'llave en mano' para manufactura de clase mundial.",
-    buttons: [
-      { label: "Hablar con un Ingeniero", url: "#contacto" },
-      { label: "Ver Proyectos", url: "#proyectos" }
-    ]
-  },
-  soluciones: {
-    sectionTitle: "Soluciones Industriales Altamente Especializadas en Acabados Superficiales",
-    sectionSubtitle: "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
-    cards: [
-      { title: "Pintura en Polvo", description: "Cabinas y sistemas eficientes para recubrimientos impecables de piezas metálicas con alta durabilidad.", image: "https://loremflickr.com/800/600/industry,factory?lock=1" },
-      { title: "Pintura Líquida", description: "Acabados estéticos de clase A con sistemas automatizados robotizados para la industria automotriz.", image: "https://loremflickr.com/800/600/industry,robot?lock=2" },
-      { title: "Pretratamiento", description: "Equipos de lavado de etapas múltiples asegurando la adherencia ideal antes del recubrimiento.", image: "https://loremflickr.com/600/800/industry,welding?lock=3" },
-      { title: "Hornos de Secado y Curado", description: "Hornos de convección e infrarrojos diseñados térmicamente para eficiencia energética superlativa.", image: "https://loremflickr.com/800/600/industry,oven,metal?lock=4" },
-      { title: "Transportadores / Conveyors", description: "Desde sistemas overhead hasta floor conveyors. Movimiento exacto y fluido para tus piezas.", image: "https://loremflickr.com/800/600/industry,conveyor?lock=5" },
-      { title: "Partes y Filtros", description: "Suministro de componentes críticos, refacciones y consumibles de alto rendimiento para tus equipos.", image: "https://loremflickr.com/800/600/industrial,engine,part?lock=45" }
-    ]
-  },
-  mantenimiento: {
-    sectionTitle: "Servicio Industrial",
-    sectionSubtitle: "Garantizamos el funcionamiento ininterrumpido en tu inversión, mediante inspecciones detalladas, intervenciones programadas y respuesta inmediata a necesidades de servicio industrial.",
-    backgroundVideo: "/videos/mantenimiento.mp4",
-    cards: [
-      { title: "Inspección Técnica", description: "Auditorías a cabinas, hornos, conveyors y sistemas de pretratamiento para prever desgaste de piezas." },
-      { title: "Pólizas de Mantenimiento", description: "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados." },
-      { title: "Refacciones Originales", description: "Asesoría e integración rápida de partes críticas de marcas como GRACO, FANUC, NORDSON y asociadas." }
-    ]
-  },
-  contacto: {
-    heading: "¿Listo para mejorar tu proceso de acabados superficiales?",
-    description: "Nuestro equipo de ingeniería está listo para diseñar la solución exacta que tu línea de producción requiere.",
-    phone: "52 222 283 9604",
-    email: "info@anaerobia.com"
-  },
-  gestion360: {
-    sectionTitle: "Gestión 360°",
-    sectionSubtitle: "Acompañamiento total en cada etapa del proyecto",
-    steps: ["Alcances y Necesidades", "Propuesta Técnico-Comercial", "Fabricación e Instalación", "Puesta en Marcha y Entrega Final", "Servicio Post-Venta"]
-  },
-  industrias: {
-    sectionTitle: "Industrias",
-    sectionSubtitle: "Soluciones especializadas para diversos sectores",
-    items: [
-      { name: "Ferroviaria", icon: "" },
-      { name: "Tractocamión y equipo pesado", icon: "" },
-      { name: "Automotriz", icon: "" },
-      { name: "Aeroespacial", icon: "" },
-      { name: "Agricultura y construcción", icon: "" },
-      { name: "Metalmecánica", icon: "" },
-      { name: "Electrodomésticos", icon: "" },
-      { name: "Eléctrica y energía", icon: "" },
-      { name: "Recreational vehicles", icon: "" },
-      { name: "Industria en general", icon: "" }
-    ]
-  },
-  normativas: {
-    sectionTitle: "Normativas",
-    certificados: [
-      { name: "NFPA", logo: "/images/home/certificaciones/nfpa.png" },
-      { name: "EPA", logo: "/images/home/certificaciones/epa.svg" },
-      { name: "ETL", logo: "/images/home/certificaciones/etl.png" },
-      { name: "ICC", logo: "/images/home/certificaciones/icc.png" },
-      { name: "OSHA", logo: "/images/home/certificaciones/osha.png" }
-    ]
-  },
-  mapa: {
-    sectionTitle: "Sistema de Acabados",
-    mapImage: "/images/home/mapa/proceso_line.webp",
-    cards: [
-      {
-        title: "Transportadores / Conveyors",
-        description: "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente."
-      },
-      {
-        title: "Pretratamiento / Granallado",
-        description: "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento: el pretratamiento químico y el pretratamiento mecánico."
-      },
-      {
-        title: "Horno de Secado",
-        description: "Elimina la humedad residual de las piezas después del pretratamiento químico, garantizando una superficie completamente seca antes de pintar."
-      },
-      {
-        title: "Cabinas de Pintura Líquida",
-        description: "Sistemas completos de aplicación de pintura líquida diseñados para acabados estéticos de alta precisión y control de emisiones."
-      },
-      {
-        title: "Cabinas de Pintura en Polvo",
-        description: "Cabinas y sistemas de aplicación electrostática de polvo con alta eficiencia de transferencia y recuperación inteligente."
-      },
-      {
-        title: "Robots de Pintura y Manipulación",
-        description: "Automatización avanzada con robots industriales para pintura, dosificación y manipulación de piezas con repetibilidad y precisión."
-      },
-      {
-        title: "Horno de Curado",
-        description: "Proporciona el calor necesario para polimerizar la pintura en polvo o secar el recubrimiento líquido, asegurando la máxima resistencia y adherencia."
-      },
-      {
-        title: "Filtros y Recolección de Polvo",
-        description: "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
-      }
-    ]
-  }
-};
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let data = fallback
+try {
+  const res = await fetch(`${API_URL}/api/v1/paginas/homepage`, { signal: AbortSignal.timeout(5000) })
+  if (res.ok) data = (await res.json()).data
+} catch {
+  // API no disponible: la página se sirve con el contenido de respaldo
+}
 
 const defaultIcons = [
   `<svg class="w-12 h-12 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">

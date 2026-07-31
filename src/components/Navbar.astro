@@ -1,42 +1,17 @@
 ---
-import { getEntry } from 'astro:content';
+import fallback from '../data/navigation.json'
 
-const navigationEntry = await getEntry('navigation', 'index');
-const navItems = navigationEntry?.data?.links || [
-  { label: 'Nosotros', url: '/nosotros', hasSubmenu: false, submenu: [] },
-  {
-    label: 'Soluciones',
-    url: '#',
-    hasSubmenu: true,
-    submenu: [
-            { label: 'Sistemas de pintura líquida', url: '/soluciones/pintura-liquida' },
-      { label: 'Sistemas de pintura en polvo', url: '/soluciones/pintura-en-polvo' },
-      { label: 'Sistemas de aplicación de recubrimientos', url: '/soluciones/aplicacion-recubrimientos' },
-      { label: 'Equipos de pretratamiento', url: '/soluciones/sistemas-de-pretratamiento' },
-      { label: 'Equipos de granallado', url: '/soluciones/granallado' },
-      { label: 'Cabinas de pintura', url: '/soluciones/cabinas-pintura' },
-      { label: 'Hornos', url: '/soluciones/hornos-secado-curado' },
-      { label: 'Conveyors', url: '/soluciones/conveyors' },
-      { label: 'Filtros de aire', url: '/soluciones/filtros' },
-      { label: 'Servicio Industrial', url: '/soluciones/servicios-industriales' }
-    ]
-  },
-  { label: 'Proyectos', url: '/proyectos', hasSubmenu: false, submenu: [] },
-  { 
-    label: 'Partes y Filtros', 
-    url: '#', 
-    hasSubmenu: true, 
-    submenu: [
-      { label: 'Pintura en polvo', url: '#' },
-      { label: 'Filtros', url: '#' },
-      { label: 'Pintura líquida', url: '#' },
-      { label: 'Lámparas infrarrojas', url: '#' },
-      { label: 'Refacciones', url: '#' }
-    ] 
-  },
-  { label: 'Blog', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Contacto', url: '/contacto', hasSubmenu: false, submenu: [] },
-];
+// Menú administrable: se consulta la API del Admin en cada visita (SSR).
+// Si la API no responde, se usa el respaldo local.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let nav = fallback
+try {
+    const res = await fetch(`${API_URL}/api/v1/paginas/navigation`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) nav = (await res.json()).data
+} catch {
+    // API no disponible: el menú se sirve con el contenido de respaldo
+}
+const navItems = nav.links
 ---
 
 <header class="fixed w-full z-50 transition-all duration-300" id="main-nav">
