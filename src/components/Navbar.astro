@@ -11,7 +11,9 @@ try {
 } catch {
     // API no disponible: el menú se sirve con el contenido de respaldo
 }
-const navItems = nav.links
+// Los enlaces ocultos desde el panel (visible: false) no se renderizan
+const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
+const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
 ---
 
 <header class="fixed w-full z-50 transition-all duration-300" id="main-nav">

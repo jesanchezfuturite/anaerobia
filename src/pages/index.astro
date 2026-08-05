@@ -113,12 +113,12 @@ const infographicItems = [
           </p>
           <div class="flex flex-wrap gap-4">
             {data.hero.buttons.length > 0 && (
-              <a href={data.hero.buttons[0]?.url || "#"} class="bg-[var(--color-brand-lime)] text-[var(--color-brand-navy)] font-semibold px-8 py-4 rounded hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
+              <a href="#contacto" data-scroll-contacto class="bg-[var(--color-brand-lime)] text-[var(--color-brand-navy)] font-semibold px-8 py-4 rounded hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
                 {data.hero.buttons[0]?.label}
               </a>
             )}
             {data.hero.buttons.length > 1 && (
-              <a href={data.hero.buttons[1]?.url || "#"} class="flex items-center gap-2 border border-white text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-all duration-300 backdrop-blur-sm group">
+              <a href="#contacto" data-scroll-contacto class="flex items-center gap-2 border border-white text-white font-medium px-8 py-4 rounded hover:bg-white/10 transition-all duration-300 backdrop-blur-sm group">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white group-hover:text-[var(--color-brand-lime)] transition-colors" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
                 </svg>
@@ -788,11 +788,36 @@ const infographicItems = [
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true
       });
-      function raf(time) { 
-        lenis.raf(time); 
-        requestAnimationFrame(raf); 
+      // Lenis debe tener un ÚNICO motor de animación: si GSAP está disponible lo
+      // conduce su ticker (más abajo), y solo si no lo está usamos un rAF propio.
+      // Con dos motores los deltas de tiempo se contradicen y lenis.scrollTo()
+      // deja de funcionar.
+      if (typeof gsap === 'undefined') {
+        const raf = (time) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
       }
-      requestAnimationFrame(raf);
+
+      // 1.b Botones del Hero: deslizamiento suave hasta el formulario de contacto.
+      // El href se conserva para que el ancla siga funcionando sin JavaScript.
+      document.querySelectorAll('[data-scroll-contacto]').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          const destino = document.querySelector('#contacto');
+          if (!destino) return;
+          e.preventDefault();
+          lenis.scrollTo(destino, {
+            // Compensa la altura del navbar fijo (scroll-mt-24 / md:scroll-mt-28)
+            offset: window.innerWidth >= 768 ? -112 : -96,
+            duration: 1.2,
+            // Curva pareja (easeInOutCubic): acelera y frena de forma simétrica.
+            // La curva global de Lenis es exponencial-out y en un recorrido tan
+            // largo arranca de golpe y termina arrastrándose.
+            easing: (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2),
+          });
+        });
+      });
 
       // 2. Conectar GSAP con Lenis solo si están cargados
       if (typeof gsap !== 'undefined') {

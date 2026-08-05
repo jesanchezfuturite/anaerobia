@@ -4,7 +4,8 @@
             "label": "Nosotros",
             "url": "/nosotros",
             "hasSubmenu": false,
-            "submenu": []
+            "submenu": [],
+            "visible": true
         },
         {
             "label": "Soluciones",
@@ -13,51 +14,63 @@
             "submenu": [
                 {
                     "label": "Sistemas de pintura líquida",
-                    "url": "/soluciones/pintura-liquida"
+                    "url": "/soluciones/pintura-liquida",
+                    "visible": true
                 },
                 {
                     "label": "Sistemas de pintura en polvo",
-                    "url": "/soluciones/pintura-en-polvo"
+                    "url": "/soluciones/pintura-en-polvo",
+                    "visible": true
                 },
                 {
                     "label": "Sistemas de aplicación de recubrimientos",
-                    "url": "/soluciones/aplicacion-recubrimientos"
+                    "url": "/soluciones/aplicacion-recubrimientos",
+                    "visible": true
                 },
                 {
                     "label": "Equipos de pretratamiento",
-                    "url": "/soluciones/sistemas-de-pretratamiento"
+                    "url": "/soluciones/sistemas-de-pretratamiento",
+                    "visible": true
                 },
                 {
                     "label": "Equipos de granallado",
-                    "url": "/soluciones/granallado"
+                    "url": "/soluciones/granallado",
+                    "visible": true
                 },
                 {
                     "label": "Cabinas de pintura",
-                    "url": "/soluciones/cabinas-pintura"
+                    "url": "/soluciones/cabinas-pintura",
+                    "visible": true
                 },
                 {
                     "label": "Hornos",
-                    "url": "/soluciones/hornos-secado-curado"
+                    "url": "/soluciones/hornos-secado-curado",
+                    "visible": true
                 },
                 {
                     "label": "Conveyors",
-                    "url": "/soluciones/conveyors"
+                    "url": "/soluciones/conveyors",
+                    "visible": true
                 },
                 {
                     "label": "Filtros de aire",
-                    "url": "/soluciones/filtros"
+                    "url": "/soluciones/filtros",
+                    "visible": true
                 },
                 {
                     "label": "Servicio Industrial",
-                    "url": "/soluciones/servicios-industriales"
+                    "url": "/soluciones/servicios-industriales",
+                    "visible": true
                 }
-            ]
+            ],
+            "visible": true
         },
         {
             "label": "Proyectos",
             "url": "/proyectos",
             "hasSubmenu": false,
-            "submenu": []
+            "submenu": [],
+            "visible": true
         },
         {
             "label": "Partes y Filtros",
@@ -66,37 +79,45 @@
             "submenu": [
                 {
                     "label": "Pintura en polvo",
-                    "url": "#"
+                    "url": "#",
+                    "visible": true
                 },
                 {
                     "label": "Filtros",
-                    "url": "#"
+                    "url": "#",
+                    "visible": true
                 },
                 {
                     "label": "Pintura líquida",
-                    "url": "#"
+                    "url": "#",
+                    "visible": true
                 },
                 {
                     "label": "Lámparas infrarrojas",
-                    "url": "#"
+                    "url": "#",
+                    "visible": true
                 },
                 {
                     "label": "Refacciones",
-                    "url": "#"
+                    "url": "#",
+                    "visible": true
                 }
-            ]
+            ],
+            "visible": true
         },
         {
             "label": "Blog",
             "url": "/blog",
             "hasSubmenu": false,
-            "submenu": []
+            "submenu": [],
+            "visible": true
         },
         {
             "label": "Contacto",
             "url": "/contacto",
             "hasSubmenu": false,
-            "submenu": []
+            "submenu": [],
+            "visible": true
         }
     ]
 }

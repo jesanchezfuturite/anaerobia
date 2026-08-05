@@ -5,8 +5,7 @@
         "backgroundVideo": "/videos/hero/hero/backgroundVideo.mp4",
         "buttons": [
             {
-                "label": "Hablar con un Ingeniero",
-                "url": "https://wa.me/"
+                "label": "Hablar con un Ingeniero"
             }
         ]
     },
