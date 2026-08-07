@@ -92,11 +92,21 @@
         "sectionTitle": "Gestión 360°",
         "sectionSubtitle": "Acompañamiento total en cada etapa del proyecto",
         "steps": [
-            "Alcances y Necesidades",
-            "Propuesta Técnico-Comercial",
-            "Fabricación e Instalación",
-            "Puesta en Marcha y Entrega Final",
-            "Servicio Post-Venta"
+            {
+                "text": "Alcances y Necesidades"
+            },
+            {
+                "text": "Propuesta Técnico-Comercial"
+            },
+            {
+                "text": "Fabricación e Instalación"
+            },
+            {
+                "text": "Puesta en Marcha y Entrega Final"
+            },
+            {
+                "text": "Servicio Post-Venta"
+            }
         ]
     },
     "industrias": {
