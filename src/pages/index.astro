@@ -303,11 +303,11 @@ const infographicItems = [
                       </div>
                       
                       <div class="h-24 md:h-20 flex items-center justify-center">
-                        {index === 4 ? (
-                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[160px] md:max-w-[140px] max-h-16 md:max-h-14 object-contain" />
+                        {step.icon && !esIconoSvg(step.icon) ? (
+                          <img src={step.icon} alt={step.text} class="max-w-[160px] md:max-w-[140px] max-h-16 md:max-h-14 object-contain" />
                         ) : (
                           <div class={`w-20 h-20 md:w-16 md:h-16 flex items-center justify-center ${textColors[idxMod]} [&>svg]:w-full [&>svg]:h-full`}>
-                            <Fragment set:html={defaultIcons[idxMod]} />
+                            <Fragment set:html={step.icon ?? defaultIcons[idxMod]} />
                           </div>
                         )}
                       </div>
@@ -348,11 +348,11 @@ const infographicItems = [
                       </div>
                       
                       <div class="h-20 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
-                        {index === 4 ? (
-                          <img src="/img/logo_anservice.png" alt="Anservice" class="max-w-[160px] max-h-14 object-contain" />
+                        {step.icon && !esIconoSvg(step.icon) ? (
+                          <img src={step.icon} alt={step.text} class="max-w-[160px] max-h-14 object-contain" />
                         ) : (
                           <div class={`w-16 h-16 flex items-center justify-center ${textColors[idxMod]} [&>svg]:w-full [&>svg]:h-full`}>
-                            <Fragment set:html={defaultIcons[idxMod]} />
+                            <Fragment set:html={step.icon ?? defaultIcons[idxMod]} />
                           </div>
                         )}
                       </div>
