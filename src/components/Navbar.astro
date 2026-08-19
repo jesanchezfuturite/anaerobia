@@ -1,16 +1,11 @@
 ---
-import fallback from '../data/navigation.json'
+import { getGeneral } from '../lib/general.js'
 
-// Menú administrable: se consulta la API del Admin en cada visita (SSR).
-// Si la API no responde, se usa el respaldo local.
-const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
-let nav = fallback
-try {
-    const res = await fetch(`${API_URL}/api/v1/paginas/navigation`, { signal: AbortSignal.timeout(5000) })
-    if (res.ok) nav = (await res.json()).data
-} catch {
-    // API no disponible: el menú se sirve con el contenido de respaldo
-}
+const general = await getGeneral()
+
+// El menú vive en la pestaña «Menú de Navegación» de «General».
+const nav = general.navigation ?? { links: [] }
+
 // Los enlaces ocultos desde el panel (visible: false) no se renderizan
 const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
 const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
@@ -22,7 +17,7 @@ const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles
     <div class="flex items-center justify-between h-24 md:h-28">
       <!-- Logo Oficial -->
       <a href="/" class="flex items-center relative z-30">
-        <img src="https://anaerobia.com/wp-content/uploads/2023/02/AnaerobiaLogo-Horizontal-1.png" alt="Anaerobia Logo" class="w-48 md:w-56 lg:w-64 xl:w-80 h-auto object-contain transition-all duration-300" />
+        <img src={general.logo?.image} alt={general.logo?.alt ?? "Anaerobia"} class="w-48 md:w-56 lg:w-64 xl:w-80 h-auto object-contain transition-all duration-300" />
       </a>
 
       <!-- Desktop Menu -->
