@@ -1,0 +1,391 @@
+---
+export const prerender = false
+
+import Layout from '../../layouts/Layout.astro'
+import { getArticulo } from '../../lib/blog.js'
+
+const { slug } = Astro.params
+const ficha = await getArticulo(slug)
+
+if (!ficha) {
+    return Astro.redirect('/blog', 404)
+}
+
+const articulo = ficha.data
+const relacionados = ficha.relacionados ?? []
+
+const fecha = (iso) =>
+    iso ? new Date(`${iso}T12:00:00`).toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }) : ''
+
+// El cierre del artículo: siempre el contacto y, si se eligió una, la
+// solución de la que habla.
+const solucion = articulo.solution_slug ? `/soluciones/${articulo.solution_slug}` : null
+
+// Galería del final del artículo: se administra en el panel y se muestra
+// como cuadrícula o carrusel.
+const galeria = articulo.gallery?.images ?? []
+const galeriaEsCarrusel = articulo.gallery?.layout === 'slider'
+
+// Datos estructurados: es lo que permite a Google mostrar fecha, autor e
+// imagen del artículo en los resultados.
+const canonica = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
+
+const datosEstructurados = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: articulo.title,
+    description: articulo.seo?.description ?? articulo.excerpt ?? '',
+    image: articulo.cover ? [articulo.cover] : undefined,
+    datePublished: articulo.published_at,
+    dateModified: articulo.published_at,
+    author: {
+        '@type': 'Organization',
+        name: articulo.author?.name ?? 'Anaerobia',
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: 'Anaerobia',
+        url: new URL('/', Astro.site ?? Astro.url.origin).href,
+    },
+    mainEntityOfPage: canonica,
+    articleSection: articulo.category?.name,
+}
+---
+
+<Layout title={articulo.seo?.title ?? articulo.title} description={articulo.seo?.description ?? ''} image={articulo.cover}>
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} is:inline />
+
+    <main class="bg-white min-h-screen text-brand-navy">
+        <!-- PORTADA -->
+        <article>
+            <header class="relative pt-[12.96rem] pb-[5.76rem] bg-brand-navy overflow-hidden">
+                {articulo.cover && (
+                    <div class="absolute inset-0 z-0">
+                        <img src={articulo.cover} alt={articulo.cover_alt ?? articulo.title} class="w-full h-full object-cover opacity-60" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/40"></div>
+                    </div>
+                )}
+
+                <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+                    <nav class="flex flex-wrap items-center gap-2 text-xs text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                        <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
+                        <span>/</span>
+                        <a href="/blog" class="hover:text-brand-lime transition-colors">Blog</a>
+                        {articulo.category && (
+                            <>
+                                <span>/</span>
+                                <a href={`/blog?categoria=${articulo.category.slug}`} class="text-brand-lime hover:text-white transition-colors">
+                                    {articulo.category.name}
+                                </a>
+                            </>
+                        )}
+                    </nav>
+
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-3xl sm:text-4xl md:text-5xl leading-[1.15] mb-6">
+                        {articulo.title}
+                    </h1>
+
+                    <div class="flex flex-wrap items-center gap-4 text-sm text-gray-300 font-light">
+                        {articulo.author?.photo && (
+                            <img src={articulo.author.photo} alt={articulo.author.name} class="w-10 h-10 rounded-full object-cover" />
+                        )}
+                        <div>
+                            {articulo.author && <span class="text-white font-semibold">{articulo.author.name}</span>}
+                            {articulo.author?.role && <span class="text-gray-400"> · {articulo.author.role}</span>}
+                        </div>
+                        <span class="text-gray-500">•</span>
+                        <span>{fecha(articulo.published_at)}</span>
+                        <span class="text-gray-500">•</span>
+                        <span>{articulo.reading_minutes} min de lectura</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CUERPO -->
+            <div class="py-16 px-6 md:px-12">
+                <div class="container mx-auto max-w-3xl">
+                    {articulo.excerpt && (
+                        <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed border-l-4 border-brand-lime pl-6 mb-12 whitespace-pre-wrap">
+                            {articulo.excerpt}
+                        </p>
+                    )}
+
+                    <div class="articulo" set:html={articulo.content} />
+
+                    <!-- GALERÍA -->
+                    {galeria.length > 0 && (
+                        <div class="mt-14">
+                            {galeriaEsCarrusel ? (
+                                <div class="swiper blog-galeria-swiper rounded-2xl overflow-hidden">
+                                    <div class="swiper-wrapper">
+                                        {galeria.map((img) => (
+                                            <div class="swiper-slide">
+                                                <img src={img.image} alt={img.alt ?? ''} loading="lazy" class="w-full aspect-16/10 object-cover" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+                                </div>
+                            ) : (
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {galeria.map((img) => (
+                                        <img src={img.image} alt={img.alt ?? ''} loading="lazy" class="w-full aspect-16/10 object-cover rounded-2xl" />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    <!-- CIERRE -->
+                    <div class="mt-16 pt-10 border-t border-gray-200 grid gap-4 sm:grid-cols-2">
+                        <a
+                            href="/contacto"
+                            class="flex items-center justify-between gap-4 rounded-2xl bg-brand-navy px-6 py-5 text-white transition-colors hover:bg-brand-blue"
+                        >
+                            <span class="font-saira font-bold uppercase tracking-wider text-sm">Habla con un ingeniero</span>
+                            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+
+                        {solucion && (
+                            <a
+                                href={solucion}
+                                class="flex items-center justify-between gap-4 rounded-2xl border border-brand-lime/40 bg-brand-lime/10 px-6 py-5 text-brand-navy transition-colors hover:bg-brand-lime/20"
+                            >
+                                <span class="font-saira font-bold uppercase tracking-wider text-sm">Ver la solución relacionada</span>
+                                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                </svg>
+                            </a>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- RELACIONADOS -->
+        {relacionados.length > 0 && (
+            <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200">
+                <div class="container mx-auto max-w-7xl">
+                    <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-8">Sigue leyendo</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {relacionados.map((a) => (
+                            <a href={`/blog/${a.slug}`} class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
+                                <div class="aspect-16/10 overflow-hidden bg-industrial-gray">
+                                    {a.cover && <img src={a.cover} alt={a.cover_alt ?? a.title} loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
+                                </div>
+                                <div class="p-6">
+                                    {a.category && <span class="text-[10px] font-bold uppercase tracking-widest text-brand-lime mb-2 block">{a.category.name}</span>}
+                                    <h3 class="font-saira font-semibold italic uppercase text-brand-navy text-base leading-tight group-hover:text-brand-blue transition-colors">{a.title}</h3>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )}
+    </main>
+</Layout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Carrusel de la galería (solo si la galería se configuró así).
+        if (typeof Swiper !== 'undefined' && document.querySelector('.blog-galeria-swiper')) {
+            new Swiper('.blog-galeria-swiper', {
+                loop: true,
+                spaceBetween: 16,
+                // Arranca solo, igual que las galerías del resto del sitio.
+                // Se pausa al pasar el cursor y sigue corriendo aunque el
+                // visitante use las flechas.
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            })
+        }
+    })
+</script>
+
+<style is:global>
+    /* Tipografía de lectura del artículo. El contenido viene del panel, así
+       que los estilos se aplican por etiqueta, no por clase. */
+    .articulo {
+        color: #4b5563;
+        font-weight: 300;
+        line-height: 1.8;
+        font-size: 1.05rem;
+    }
+
+    .articulo > * + * {
+        margin-top: 1.25rem;
+    }
+
+    .articulo h2 {
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: 600;
+        font-style: italic;
+        text-transform: uppercase;
+        color: var(--color-brand-navy);
+        font-size: 1.75rem;
+        line-height: 1.2;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .articulo h3 {
+        font-family: 'Saira Condensed', sans-serif;
+        font-weight: 600;
+        color: var(--color-brand-navy);
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .articulo strong {
+        font-weight: 600;
+        color: var(--color-brand-navy);
+    }
+
+    .articulo a {
+        color: var(--color-brand-blue);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .articulo a:hover {
+        color: var(--color-brand-lime);
+    }
+
+    .articulo ul,
+    .articulo ol {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .articulo ul li {
+        position: relative;
+        padding-left: 1.75rem;
+    }
+
+    .articulo ul li::before {
+        content: "";
+        position: absolute;
+        left: 0.25rem;
+        top: 0.7rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 9999px;
+        background-color: var(--color-brand-lime);
+    }
+
+    .articulo ol {
+        counter-reset: paso;
+    }
+
+    .articulo ol li {
+        position: relative;
+        padding-left: 2rem;
+        counter-increment: paso;
+    }
+
+    .articulo ol li::before {
+        content: counter(paso) ".";
+        position: absolute;
+        left: 0.25rem;
+        color: var(--color-brand-lime);
+        font-weight: 700;
+    }
+
+    /* Las imágenes van centradas: el editor las inserta como bloque y su
+       alineación no se puede fijar desde la barra de herramientas. */
+    .articulo img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        margin: 2rem auto;
+        display: block;
+    }
+
+    /* Columnas del editor: es la forma de poner imágenes lado a lado sin
+       usar una tabla. El editor guarda el reparto en «--cols» y «--col-span».
+       En móvil se apilan siempre. */
+    .articulo .grid-layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    @media (min-width: 768px) {
+        .articulo .grid-layout[data-from-breakpoint="default"],
+        .articulo .grid-layout[data-from-breakpoint="sm"],
+        .articulo .grid-layout[data-from-breakpoint="md"] {
+            grid-template-columns: var(--cols, repeat(2, minmax(0, 1fr)));
+        }
+
+        .articulo .grid-layout[data-from-breakpoint="default"] > .grid-layout-col,
+        .articulo .grid-layout[data-from-breakpoint="sm"] > .grid-layout-col,
+        .articulo .grid-layout[data-from-breakpoint="md"] > .grid-layout-col {
+            grid-column: var(--col-span, auto);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .articulo .grid-layout {
+            grid-template-columns: var(--cols, repeat(2, minmax(0, 1fr)));
+        }
+
+        .articulo .grid-layout > .grid-layout-col {
+            grid-column: var(--col-span, auto);
+        }
+    }
+
+    .articulo .grid-layout img {
+        margin: 0;
+        width: 100%;
+    }
+
+    .articulo .grid-layout > * > * + * {
+        margin-top: 1rem;
+    }
+
+    .articulo blockquote {
+        border-left: 4px solid var(--color-brand-lime);
+        padding-left: 1.5rem;
+        font-style: italic;
+        color: var(--color-brand-navy);
+    }
+
+    .articulo figure figcaption {
+        font-size: 0.85rem;
+        color: #9ca3af;
+        text-align: center;
+        margin-top: -1rem;
+    }
+
+    .articulo table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+    }
+
+    .articulo table td,
+    .articulo table th {
+        border: 1px solid #e5e7eb;
+        padding: 0.6rem 0.8rem;
+    }
+
+    /* Carrusel de la galería, en el color de la marca. */
+    .blog-galeria-swiper {
+        --swiper-theme-color: var(--color-brand-lime);
+        --swiper-navigation-size: 1.75rem;
+    }
+</style>
