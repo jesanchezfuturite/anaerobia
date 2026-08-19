@@ -6,6 +6,26 @@
   <!-- Campo Oculto Origen -->
   <input type="hidden" name="origen" value="">
 
+  <!-- Producto del catálogo desde el que se pidió la cotización (si aplica) -->
+  <input type="hidden" name="producto" value="">
+  <input type="hidden" name="parte" value="">
+
+  <!-- Atribución de campaña (utm_*): se rellenan desde sessionStorage al enviar -->
+  <input type="hidden" name="utm_source" value="">
+  <input type="hidden" name="utm_medium" value="">
+  <input type="hidden" name="utm_campaign" value="">
+  <input type="hidden" name="utm_term" value="">
+  <input type="hidden" name="utm_content" value="">
+
+  <div id="avisoProducto" class="hidden items-start gap-3 rounded-xl border border-[var(--color-brand-lime)]/40 bg-[var(--color-brand-lime)]/10 px-4 py-3">
+    <svg class="w-5 h-5 text-[var(--color-brand-lime)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <p class="text-sm text-[var(--color-brand-navy)]">
+      Cotización de <strong id="avisoProductoNombre" class="font-semibold"></strong><span id="avisoProductoParte" class="text-gray-500"></span>
+    </p>
+  </div>
+
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="group">
       <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Nombre Completo</label>
@@ -69,8 +89,51 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Escuchar el evento submit del formulario
     const forms = document.querySelectorAll('#contactoForm');
+
+    // Cotización desde el catálogo: la ficha del producto llega como
+    // ?producto=&parte=&categoria= y se precarga aquí, para que el lead
+    // identifique qué parte se está pidiendo.
+    const parametros = new URLSearchParams(window.location.search);
+    const producto = parametros.get('producto');
+    const parte = parametros.get('parte');
+    const categoria = parametros.get('categoria');
+
+    if (producto) {
+      forms.forEach((form) => {
+        const campo = (nombre) => form.querySelector(`[name="${nombre}"]`);
+
+        if (campo('producto')) campo('producto').value = producto;
+        if (campo('parte')) campo('parte').value = parte ?? '';
+
+        // El select de soluciones ya trae las categorías del catálogo.
+        const solucion = campo('solucion');
+        if (solucion && categoria) {
+          const opcion = Array.from(solucion.options).find(
+            (o) => o.value.toLowerCase() === categoria.toLowerCase(),
+          );
+          if (opcion) solucion.value = opcion.value;
+        }
+
+        const requerimiento = campo('requerimiento');
+        if (requerimiento && !requerimiento.value.trim()) {
+          requerimiento.value = parte
+            ? `Solicito cotización de: ${producto} (parte ${parte}).`
+            : `Solicito cotización de: ${producto}.`;
+        }
+
+        const aviso = form.querySelector('#avisoProducto');
+        if (aviso) {
+          aviso.classList.remove('hidden');
+          aviso.classList.add('flex');
+          form.querySelector('#avisoProductoNombre').textContent = producto;
+          if (parte) form.querySelector('#avisoProductoParte').textContent = ` · parte ${parte}`;
+        }
+      });
+
+      // El formulario suele estar más abajo: se lleva la vista hasta él.
+      document.querySelector('#contactoForm')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
     
     forms.forEach((form) => {
       form.addEventListener('submit', async (e) => {
@@ -90,15 +153,22 @@
           origenInput.value = window.location.origin;
         }
 
+        // Atribución de campaña: guardada en sessionStorage por Layout.astro
+        // desde que se detectaron los utm_* en la URL, en esta página o antes.
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach((clave) => {
+          const campo = form.querySelector(`[name="${clave}"]`);
+          const valor = sessionStorage.getItem(clave);
+          if (campo && valor) campo.value = valor;
+        });
+
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
         try {
-          const response = await fetch('https://n8n.ongoing.mx/webhook-test/c68e1d2a-8718-441a-a49f-336d4e57140e', {
+          const response = await fetch('/api/lead', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json',
-              'anaerobia': 'Huo0lpaw.'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
           });
