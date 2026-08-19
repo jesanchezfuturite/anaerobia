@@ -27,6 +27,10 @@ const certificados = d.certificados ?? fallback.certificados ?? []
 // vacío, la sección no se dibuja.
 const ctaServicios = d.extras?.cta_servicios ?? null
 
+// Preguntas frecuentes: se administran en la pestaña «FAQs» del panel. Si se
+// dejan vacías, la sección no se dibuja.
+const faqs = d.faqs?.items?.length ? d.faqs : null
+
 // SEO Metadata
 const seoTitle = d.seo?.title
 const seoDescription = d.seo?.description
@@ -194,7 +198,36 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 07. ALIANZAS / PARTNERS -->
+        <!-- 07. PREGUNTAS FRECUENTES (FAQ) -->
+        {
+            faqs && (
+                <section class="py-16 bg-white px-6 md:px-12" id="faq">
+                    <div class="container mx-auto max-w-4xl">
+                        <div class="text-center mb-16">
+                            {faqs.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{faqs.badge}</span>}
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{faqs.title}</h2>
+                            {faqs.description && <p class="text-gray-600 mt-4 font-light">{faqs.description}</p>}
+                        </div>
+
+                        <div class="space-y-4">
+                            {
+                                (faqs.items ?? []).map((faq, i) => (
+                                    <details class="group border border-gray-200 rounded-2xl bg-gray-50 transition-all duration-300 open:bg-white open:shadow-xl [&_summary::-webkit-details-marker]:hidden" open={i === 0}>
+                                        <summary class="flex items-center justify-between p-6 cursor-pointer focus:outline-none">
+                                            <h3 class="font-saira font-semibold italic text-brand-navy text-lg md:text-xl uppercase tracking-wide">{faq.question}</h3>
+                                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']" />
+                                        </summary>
+                                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed whitespace-pre-wrap">{faq.answer}</div>
+                                    </details>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- 08. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
