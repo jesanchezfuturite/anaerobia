@@ -31,6 +31,10 @@ const ctaServicios = d.extras?.cta_servicios ?? null
 // dejan vacías, la sección no se dibuja.
 const faqs = d.faqs?.items?.length ? d.faqs : null
 
+// Galería de proyectos: se administra en la pestaña «Galería» del panel. Si se
+// deja vacía, la sección no se dibuja.
+const galeria = d.galeria?.images?.length ? d.galeria : null
+
 // SEO Metadata
 const seoTitle = d.seo?.title
 const seoDescription = d.seo?.description
@@ -227,7 +231,32 @@ const importanciaIcons = [
             )
         }
 
-        <!-- 08. ALIANZAS / PARTNERS -->
+        <!-- 08. GALERÍA DE PROYECTOS -->
+        {
+            galeria && (
+                <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100" id="galeria">
+                    <div class="container mx-auto">
+                        <div class="text-center max-w-3xl mx-auto mb-16">
+                            {galeria.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{galeria.badge}</span>}
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{galeria.title}</h2>
+                            {galeria.description && <p class="text-gray-600 mt-4 font-light">{galeria.description}</p>}
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                            {
+                                (galeria.images ?? []).map((img) => (
+                                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                                        <img src={img.image} alt={img.alt} class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- 09. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>

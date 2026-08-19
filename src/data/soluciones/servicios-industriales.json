@@ -65,6 +65,24 @@
       }
     ]
   },
+  "galeria": {
+    "badge": "Galería",
+    "title": "Servicio en Planta",
+    "images": [
+      {
+        "image": "/images/soluciones/servicios_industriales/12.webp",
+        "alt": "Ajuste de componentes en equipo de aplicación"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+        "alt": "Inspección de cabina de aplicación en operación"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+        "alt": "Recorrido de valoración en una línea de acabado"
+      }
+    ]
+  },
   "extras": {
     "servicios": {
       "badge": "Ingeniería y Tecnología",
