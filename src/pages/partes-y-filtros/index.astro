@@ -1,0 +1,182 @@
+---
+export const prerender = false
+
+import Layout from '../../layouts/Layout.astro'
+import { getCatalogo } from '../../lib/catalogo.js'
+
+// El catálogo es un escaparate: los filtros viajan en la URL para que
+// cualquier vista se pueda compartir y la indexen los buscadores.
+const parametros = Astro.url.searchParams
+const categoria = parametros.get('categoria') ?? ''
+const marca = parametros.get('marca') ?? ''
+const buscar = parametros.get('buscar') ?? ''
+const pagina = Math.max(1, Number(parametros.get('pagina') ?? 1))
+
+const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria, marca, buscar, pagina })
+
+const categoriaActual = categorias.find((c) => c.slug === categoria)
+const marcaActual = marcas.find((m) => m.slug === marca)
+
+const seoTitle = categoriaActual
+    ? `${categoriaActual.name} | Partes y Filtros | Anaerobia`
+    : 'Partes y Filtros | Componentes para sistemas de pintura industrial'
+const seoDescription =
+    categoriaActual?.description ??
+    'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.'
+
+/** Conserva los filtros vigentes al construir un enlace. */
+const enlace = (cambios) => {
+    const p = new URLSearchParams()
+    const valores = { categoria, marca, buscar, ...cambios }
+
+    for (const [clave, valor] of Object.entries(valores)) {
+        if (valor && !(clave === 'pagina' && valor === 1)) p.set(clave, String(valor))
+    }
+
+    const cadena = p.toString()
+    return cadena ? `/partes-y-filtros?${cadena}` : '/partes-y-filtros'
+}
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <!-- ENCABEZADO -->
+        <section class="relative pt-36 pb-12 bg-brand-navy overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-blue/40"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                    <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                    <span>/</span>
+                    <span class="text-brand-lime">Partes y Filtros</span>
+                </nav>
+
+                <h1 class="text-white font-saira italic font-semibold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-4">
+                    {categoriaActual ? categoriaActual.name : 'Partes y Filtros'}
+                </h1>
+                <p class="text-gray-300 text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
+                    {categoriaActual?.description ??
+                        'Componentes, consumibles y refacciones para líneas de acabado. Consulta las presentaciones disponibles y cotiza con nuestro equipo.'}
+                </p>
+            </div>
+        </section>
+
+        <section class="py-12 px-6 md:px-12">
+            <div class="container mx-auto max-w-7xl">
+                <!-- BUSCADOR -->
+                <form method="get" action="/partes-y-filtros" class="mb-8 flex flex-col sm:flex-row gap-3">
+                    {categoria && <input type="hidden" name="categoria" value={categoria} />}
+                    {marca && <input type="hidden" name="marca" value={marca} />}
+                    <div class="relative flex-1">
+                        <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                        </svg>
+                        <input
+                            type="search"
+                            name="buscar"
+                            value={buscar}
+                            placeholder="Buscar por nombre o número de parte"
+                            class="w-full rounded-full border border-gray-200 bg-white pl-12 pr-5 py-3 text-sm text-brand-navy shadow-sm focus:border-brand-lime focus:outline-none"
+                        />
+                    </div>
+                    <button type="submit" class="rounded-full bg-brand-navy px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-brand-blue">
+                        Buscar
+                    </button>
+                </form>
+
+                <!-- CATEGORÍAS -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <a
+                        href={enlace({ categoria: '', pagina: 1 })}
+                        class={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${!categoria ? 'bg-brand-navy text-white' : 'bg-white text-gray-500 hover:text-brand-navy border border-gray-200'}`}
+                    >
+                        Todo
+                    </a>
+                    {categorias.map((c) => (
+                        <a
+                            href={enlace({ categoria: c.slug, pagina: 1 })}
+                            class={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${categoria === c.slug ? 'bg-brand-navy text-white' : 'bg-white text-gray-500 hover:text-brand-navy border border-gray-200'}`}
+                        >
+                            {c.name} <span class="opacity-60">({c.total})</span>
+                        </a>
+                    ))}
+                </div>
+
+                <!-- MARCAS -->
+                <div class="flex flex-wrap items-center gap-2 mb-8 pb-8 border-b border-gray-200">
+                    <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mr-1">Marca</span>
+                    <a
+                        href={enlace({ marca: '', pagina: 1 })}
+                        class={`rounded px-3 py-1.5 text-xs transition-colors ${!marca ? 'bg-brand-lime/15 text-brand-navy font-semibold' : 'text-gray-500 hover:text-brand-navy'}`}
+                    >
+                        Todas
+                    </a>
+                    {marcas.map((m) => (
+                        <a
+                            href={enlace({ marca: m.slug, pagina: 1 })}
+                            class={`rounded px-3 py-1.5 text-xs transition-colors ${marca === m.slug ? 'bg-brand-lime/15 text-brand-navy font-semibold' : 'text-gray-500 hover:text-brand-navy'}`}
+                        >
+                            {m.name}
+                        </a>
+                    ))}
+                </div>
+
+                <!-- RESULTADOS -->
+                <p class="text-sm text-gray-500 mb-6">
+                    {meta.total === 0 ? 'Sin resultados' : `${meta.total} ${meta.total === 1 ? 'producto' : 'productos'}`}
+                    {buscar && <span> para «{buscar}»</span>}
+                    {marcaActual && <span> de {marcaActual.name}</span>}
+                </p>
+
+                {meta.total === 0 ? (
+                    <div class="rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center">
+                        <p class="text-gray-500 font-light">
+                            No encontramos partes con esos criterios. Prueba con otro término o
+                            <a href="/contacto" class="text-brand-blue font-semibold hover:text-brand-lime"> escríbenos</a> y te ayudamos a ubicar la refacción.
+                        </p>
+                    </div>
+                ) : (
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {productos.map((p) => (
+                            <a
+                                href={`/partes-y-filtros/${p.slug}`}
+                                class="group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]"
+                            >
+                                <div class="aspect-4/3 bg-white flex items-center justify-center p-6 overflow-hidden">
+                                    {p.image ? (
+                                        <img src={p.image} alt={p.name} loading="lazy" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                                    ) : (
+                                        <span class="text-xs text-gray-300 uppercase tracking-widest">Sin imagen</span>
+                                    )}
+                                </div>
+                                <div class="flex flex-col flex-1 border-t border-gray-100 p-5">
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-lime mb-2">
+                                        {p.brand?.name ?? p.category?.name}
+                                    </span>
+                                    <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-base leading-tight mb-2 group-hover:text-brand-blue transition-colors">
+                                        {p.name}
+                                    </h2>
+                                    {p.summary && <p class="text-xs text-gray-500 font-light leading-relaxed line-clamp-3 whitespace-pre-wrap">{p.summary}</p>}
+                                    {p.sku && <span class="mt-3 text-[10px] uppercase tracking-widest text-gray-400">Parte {p.sku}</span>}
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                )}
+
+                <!-- PAGINACIÓN -->
+                {meta.paginas > 1 && (
+                    <nav class="mt-12 flex items-center justify-center gap-2">
+                        {Array.from({ length: meta.paginas }, (_, i) => i + 1).map((n) => (
+                            <a
+                                href={enlace({ pagina: n })}
+                                class={`min-w-10 rounded-lg px-3 py-2 text-center text-sm font-semibold transition-colors ${n === meta.pagina ? 'bg-brand-navy text-white' : 'bg-white text-gray-500 border border-gray-200 hover:text-brand-navy'}`}
+                            >
+                                {n}
+                            </a>
+                        ))}
+                    </nav>
+                )}
+            </div>
+        </section>
+    </main>
+</Layout>

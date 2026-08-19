@@ -1,0 +1,25 @@
+---
+export const prerender = false
+
+import { getCatalogo } from '../../lib/catalogo.js'
+
+// Categorías y marcas del catálogo anterior: /categoria-producto/filtros,
+// /categoria-producto/filtros/andreae … Se mandan al catálogo nuevo con el
+// filtro que corresponde; lo que no se reconozca, al catálogo completo.
+const { slug } = Astro.params
+const ultima = (slug ?? '').split('/').filter(Boolean).at(-1) ?? ''
+
+const { categorias, marcas } = await getCatalogo()
+
+const categoria = categorias.find((c) => c.slug === ultima)
+if (categoria) {
+    return Astro.redirect(`/partes-y-filtros?categoria=${categoria.slug}`, 301)
+}
+
+const marca = marcas.find((m) => m.slug === ultima)
+if (marca) {
+    return Astro.redirect(`/partes-y-filtros?marca=${marca.slug}`, 301)
+}
+
+return Astro.redirect('/partes-y-filtros', 301)
+---

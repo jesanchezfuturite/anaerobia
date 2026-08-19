@@ -1,0 +1,218 @@
+---
+export const prerender = false
+
+import Layout from '../../layouts/Layout.astro'
+import { getProducto } from '../../lib/catalogo.js'
+
+const { slug } = Astro.params
+const ficha = await getProducto(slug)
+
+if (!ficha) {
+    return Astro.redirect('/partes-y-filtros', 404)
+}
+
+const producto = ficha.data
+const relacionados = ficha.relacionados ?? []
+
+const seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
+const seoDescription = producto.seo?.description ?? producto.summary?.split('\n')[0] ?? ''
+
+// El catálogo no vende: el botón lleva al formulario con el producto ya
+// identificado, para que el equipo sepa de qué parte se pide cotización.
+//
+// El desplegable de «Soluciones» del formulario usa los rótulos del menú, que
+// no siempre coinciden con el nombre de la categoría en el catálogo.
+const CATEGORIA_EN_FORMULARIO = {
+    'filtros': 'Filtros',
+    'refacciones': 'Refacciones',
+    'pintura-en-polvo': 'Pintura en polvo',
+    'lamparas-infrarrojas': 'Lámparas infrarrojas',
+    'equipos-para-aplicacion-de-pintura': 'Pintura líquida',
+}
+
+const cotizar = new URLSearchParams({ producto: producto.name })
+if (producto.sku) cotizar.set('parte', producto.sku)
+if (CATEGORIA_EN_FORMULARIO[producto.category?.slug]) {
+    cotizar.set('categoria', CATEGORIA_EN_FORMULARIO[producto.category.slug])
+}
+
+const enlaceCotizar = `/contacto?${cotizar}`
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <section class="pt-32 pb-16 px-6 md:px-12">
+            <div class="container mx-auto max-w-7xl">
+                <nav class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-500 font-semibold uppercase tracking-widest mb-8">
+                    <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
+                    <span>/</span>
+                    <a href="/partes-y-filtros" class="hover:text-brand-lime transition-colors">Partes y Filtros</a>
+                    {producto.category && (
+                        <>
+                            <span>/</span>
+                            <a href={`/partes-y-filtros?categoria=${producto.category.slug}`} class="hover:text-brand-lime transition-colors">
+                                {producto.category.name}
+                            </a>
+                        </>
+                    )}
+                </nav>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- IMÁGENES -->
+                    <div class="space-y-4">
+                        <div class="rounded-3xl bg-white border border-gray-100 shadow-lg p-8 flex items-center justify-center aspect-square overflow-hidden">
+                            {producto.images?.[0] ? (
+                                <img id="imagen-principal" src={producto.images[0]} alt={producto.name} class="max-h-full max-w-full object-contain" />
+                            ) : (
+                                <span class="text-xs text-gray-300 uppercase tracking-widest">Sin imagen</span>
+                            )}
+                        </div>
+
+                        {producto.images?.length > 1 && (
+                            <div class="grid grid-cols-4 gap-3">
+                                {producto.images.map((imagen, i) => (
+                                    <button
+                                        type="button"
+                                        data-imagen={imagen}
+                                        class="miniatura rounded-xl bg-white border border-gray-100 p-2 aspect-square flex items-center justify-center hover:border-brand-lime transition-colors"
+                                        aria-label={`Ver imagen ${i + 1}`}
+                                    >
+                                        <img src={imagen} alt="" loading="lazy" class="max-h-full max-w-full object-contain" />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
+                    <!-- FICHA -->
+                    <div class="flex flex-col">
+                        <div class="flex flex-wrap items-center gap-3 mb-4">
+                            {producto.brand && (
+                                <a href={`/partes-y-filtros?marca=${producto.brand.slug}`} class="rounded-full bg-brand-lime/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-lime hover:bg-brand-lime/20 transition-colors">
+                                    {producto.brand.name}
+                                </a>
+                            )}
+                            {producto.sku && <span class="text-xs uppercase tracking-widest text-gray-400">Parte {producto.sku}</span>}
+                        </div>
+
+                        <h1 class="font-saira font-semibold italic uppercase text-brand-navy text-3xl md:text-4xl leading-tight mb-6">
+                            {producto.name}
+                        </h1>
+
+                        {producto.summary && (
+                            <p class="text-base text-gray-600 font-light leading-relaxed whitespace-pre-wrap mb-8">{producto.summary}</p>
+                        )}
+
+                        <!-- PRESENTACIONES -->
+                        {producto.attributes?.length > 0 && (
+                            <div class="space-y-5 mb-8">
+                                {producto.attributes.map((atributo) => (
+                                    <div>
+                                        <h2 class="font-saira font-bold uppercase text-xs tracking-widest text-brand-navy mb-3">{atributo.name}</h2>
+                                        <div class="flex flex-wrap gap-2">
+                                            {atributo.options.map((opcion) => (
+                                                <span class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs text-gray-600">{opcion}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <a
+                            href={enlaceCotizar}
+                            class="inline-flex items-center justify-center gap-3 rounded-full bg-brand-lime px-8 py-4 font-saira font-bold uppercase tracking-wider text-brand-navy transition-transform hover:-translate-y-0.5 hover:bg-brand-lime/90 w-fit"
+                        >
+                            Cotizar esta parte
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                        </a>
+
+                        <p class="mt-4 text-xs text-gray-400 font-light">
+                            Te respondemos con disponibilidad, tiempos de entrega y precio vigente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DESCRIPCIÓN COMPLETA -->
+                {producto.description && (
+                    <div class="mt-16 max-w-4xl">
+                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-6">Detalles</h2>
+                        <div class="contenido-producto text-base text-gray-600 font-light leading-relaxed" set:html={producto.description} />
+                    </div>
+                )}
+
+                <!-- RELACIONADOS -->
+                {relacionados.length > 0 && (
+                    <div class="mt-20 border-t border-gray-200 pt-12">
+                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-8">También en {producto.category?.name}</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {relacionados.map((p) => (
+                                <a href={`/partes-y-filtros/${p.slug}`} class="group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
+                                    <div class="aspect-4/3 flex items-center justify-center p-6 overflow-hidden">
+                                        {p.image && <img src={p.image} alt={p.name} loading="lazy" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />}
+                                    </div>
+                                    <div class="border-t border-gray-100 p-5">
+                                        <h3 class="font-saira font-semibold italic uppercase text-brand-navy text-sm leading-tight group-hover:text-brand-blue transition-colors">{p.name}</h3>
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style is:global>
+    .contenido-producto p {
+        margin-bottom: 1rem;
+    }
+
+    .contenido-producto ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contenido-producto ul li {
+        position: relative;
+        padding-left: 1.5rem;
+    }
+
+    .contenido-producto ul li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.55rem;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-radius: 9999px;
+        background-color: var(--color-brand-lime);
+    }
+
+    .contenido-producto strong {
+        font-weight: 600;
+        color: var(--color-brand-navy);
+    }
+
+    .contenido-producto img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+    }
+</style>
+
+<script>
+    // Miniaturas: cambian la imagen principal sin recargar.
+    const principal = document.getElementById('imagen-principal')
+
+    document.querySelectorAll('.miniatura').forEach((boton) => {
+        boton.addEventListener('click', () => {
+            if (principal) principal.src = boton.dataset.imagen
+        })
+    })
+</script>
