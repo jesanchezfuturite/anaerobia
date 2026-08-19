@@ -35,6 +35,20 @@ const faqs = d.faqs?.items?.length ? d.faqs : null
 // deja vacía, la sección no se dibuja.
 const galeria = d.galeria?.images?.length ? d.galeria : null
 
+// «Alcance del Servicio»: tarjetas oscuras con foto de fondo, se administran en
+// la pestaña del mismo nombre. Si no hay tarjetas, la sección no se dibuja.
+const alcance = d.extras?.alcance?.cards?.length ? d.extras.alcance : null
+
+// Un icono subido como SVG se incrusta (hereda el color de la marca); si es una
+// imagen, se muestra tal cual.
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
+// Iconos por omisión de las tarjetas de alcance, si el panel no tiene uno.
+const alcanceIcons = [
+    'M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z',
+    'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99',
+]
+
 // SEO Metadata
 const seoTitle = d.seo?.title
 const seoDescription = d.seo?.description
@@ -155,7 +169,64 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 05. CTA PERSONALIZADO -->
+        <!-- 05. ALCANCE DEL SERVICIO -->
+        {
+            alcance && (
+                <section class="py-16 bg-white px-6 md:px-12" id="alcance">
+                    <div class="container mx-auto max-w-6xl">
+                        {(alcance.badge || alcance.title) && (
+                            <div class="text-center mb-12 alcance-header">
+                                {alcance.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{alcance.badge}</span>}
+                                {alcance.title && <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 leading-tight">{alcance.title}</h2>}
+                                {alcance.description && <p class="text-gray-600 font-light mt-4 max-w-2xl mx-auto whitespace-pre-wrap">{alcance.description}</p>}
+                            </div>
+                        )}
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch alcance-grid">
+                            {
+                                alcance.cards.map((card, i) => (
+                                    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[420px] h-full">
+                                        {card.image && <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${card.image}')`} />}
+                                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500" />
+                                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700" />
+
+                                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
+                                            {card.icon && !esIconoSvg(card.icon) ? (
+                                                <img src={card.icon} alt={card.title} class="w-10 h-10 object-contain" />
+                                            ) : card.icon ? (
+                                                <Fragment set:html={card.icon} />
+                                            ) : (
+                                                <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d={alcanceIcons[i] ?? alcanceIcons[0]} />
+                                                </svg>
+                                            )}
+                                        </div>
+
+                                        <div class="relative z-10 mt-auto pr-24">
+                                            <h3 class="font-saira font-semibold italic text-white text-2xl md:text-3xl uppercase mb-4 leading-tight">{card.title}</h3>
+                                            {card.description && <p class="text-base md:text-lg text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{card.description}</p>}
+
+                                            {card.items?.length > 0 && (
+                                                <ul class="mt-5 space-y-2 text-gray-200 font-light text-base">
+                                                    {card.items.map((item) => (
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="w-1.5 h-1.5 rounded-full bg-brand-lime shrink-0 mt-2.5" />
+                                                            <span class="whitespace-pre-wrap">{item.text}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- 06. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
             <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
@@ -169,7 +240,7 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 06. NORMATIVIDAD -->
+        <!-- 07. NORMATIVIDAD -->
         <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
             <div class="container mx-auto max-w-6xl">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -202,7 +273,7 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 07. ALIANZAS / PARTNERS -->
+        <!-- 08. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
@@ -217,7 +288,7 @@ const importanciaIcons = [
                 </div>
             </div>
         </section>
-        <!-- 08. PREGUNTAS FRECUENTES (FAQ) -->
+        <!-- 09. PREGUNTAS FRECUENTES (FAQ) -->
         {
             faqs && (
                 <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
@@ -246,7 +317,7 @@ const importanciaIcons = [
             )
         }
 
-        <!-- 09. GALERÍA DE PROYECTOS -->
+        <!-- 10. GALERÍA DE PROYECTOS -->
         {
             galeria && (
                 <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100" id="galeria">
@@ -327,6 +398,27 @@ const importanciaIcons = [
                 opacity: 0,
                 duration: 0.6,
                 stagger: 0.1,
+            })
+
+            // Alcance del servicio
+            gsap.from('.alcance-header > *', {
+                scrollTrigger: { trigger: '.alcance-header', start: 'top 85%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            gsap.from('.alcance-grid > div', {
+                scrollTrigger: { trigger: '.alcance-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
             })
 
             // Preguntas frecuentes

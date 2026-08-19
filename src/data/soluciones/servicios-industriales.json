@@ -111,6 +111,55 @@
           "text": "Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente."
         }
       ]
+    },
+    "alcance": {
+      "badge": "Alcance del Servicio",
+      "title": "Qué incluye nuestro servicio industrial",
+      "cards": [
+        {
+          "title": "Pólizas de mantenimiento",
+          "description": "Nuestras pólizas de mantenimiento permiten garantizar el funcionamiento adecuado de tus equipos en todo momento y evitar fallas imprevistas y paros inesperados:",
+          "image": "/images/soluciones/servicios_industriales/13.webp",
+          "icon": "",
+          "items": [
+            {
+              "text": "Inspección: Mediciones, pruebas y diagnóstico"
+            },
+            {
+              "text": "Mantenimiento: Limpieza, lubricación, ajustes y reemplazo"
+            },
+            {
+              "text": "Reparación: Rehabilitación de fallas identificadas"
+            }
+          ]
+        },
+        {
+          "title": "Actualización de equipos",
+          "description": "A través de nuestro servicio industrial aseguramos que tus equipos y tu producción se mantengan vigentes ante la evolución de la industria:",
+          "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+          "icon": "",
+          "items": [
+            {
+              "text": "Por cambios en dimensiones y pesos de su producto"
+            },
+            {
+              "text": "Reubicación de equipos o líneas de pintura"
+            },
+            {
+              "text": "Implementación de nuevas tecnologías"
+            },
+            {
+              "text": "Ahorro de energía"
+            },
+            {
+              "text": "Sistemas de transporte"
+            },
+            {
+              "text": "Sistemas eléctricos y control LPC"
+            }
+          ]
+        }
+      ]
     }
   },
   "certificados": [
