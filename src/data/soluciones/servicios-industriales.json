@@ -84,6 +84,33 @@
     ]
   },
   "extras": {
+    "anservice": {
+      "description": "Nuestra división ANSERVICE ofrece soluciones tanto para el mantenimiento preventivo y correctivo, como para modificaciones y actualizaciones de tus equipos.",
+      "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+      "items": [
+        {
+          "text": "Elaboración de planes de conservación y mantenimiento preventivo."
+        },
+        {
+          "text": "Suministro de paquetes de refacciones y filtros."
+        },
+        {
+          "text": "Valoración del estatus o condición de sus instalaciones y/o equipos."
+        },
+        {
+          "text": "Servicio de balance de flujos de aire para cabinas de aplicación y hornos."
+        },
+        {
+          "text": "Capacitación y entrenamiento para operadores de producción y mantenimiento (TPM)."
+        },
+        {
+          "text": "Inspecciones y reportes periódicos de sus instalaciones."
+        },
+        {
+          "text": "Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente."
+        }
+      ]
+    },
     "servicios": {
       "title": "Esta área atiende todas las necesidades de servicio, posventa y refacciones",
       "description": "Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de los equipos, para mantenerlos en óptimas condiciones. Si necesitas una asesoría no dudes en contactar a nuestros expertos.",
