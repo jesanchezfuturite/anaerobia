@@ -75,19 +75,19 @@
         "backgroundVideo": "/videos/mantenimiento/backgroundVideo.mp4",
         "cards": [
             {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>",
                 "title": "Inspección técnica",
-                "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos.",
-                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>"
+                "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos."
             },
             {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"></path></svg>",
                 "title": "Pólizas de Mantenimiento",
-                "description": "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados.",
-                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"></path></svg>"
+                "description": "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados."
             },
             {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4\"></path></svg>",
                 "title": "Refacciones Originales",
-                "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas.",
-                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4\"></path></svg>"
+                "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas."
             }
         ]
     },
@@ -163,35 +163,6 @@
             }
         ]
     },
-    "normativas": {
-        "sectionTitle": "Normativas",
-        "certificados": [
-            {
-                "name": "NFPA",
-                "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
-            },
-            {
-                "name": "EPA",
-                "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
-            },
-            {
-                "name": "ETL",
-                "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
-            },
-            {
-                "name": "ICC",
-                "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
-            },
-            {
-                "name": "OSHA",
-                "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
-            },
-            {
-                "name": "ATEX",
-                "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
-            }
-        ]
-    },
     "mapa": {
         "sectionTitle": "LÍNEA DE PINTURA",
         "mapImage": "/images/home/mapa/mapImage.webp",
@@ -227,6 +198,73 @@
             {
                 "title": "Filtros",
                 "description": "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
+            }
+        ]
+    },
+    "presencia": {
+        "sectionTitle": "PRESENCIA NACIONAL",
+        "sectionSubtitle": "Realizamos proyectos en los centros industriales más importantes del país.",
+        "mapImage": "/images/home/mapa/mapa_mex_bco.svg",
+        "estados": [
+            {
+                "name": "Baja California",
+                "image": "/images/home/galeria/factory_baja_california_1780415126940.png",
+                "showGallery": true
+            },
+            {
+                "name": "Chihuahua",
+                "image": "/images/home/galeria/factory_chihuahua_1780415139658.png",
+                "showGallery": true
+            },
+            {
+                "name": "Nuevo León",
+                "image": "/images/home/galeria/factory_nuevo_leon_1780415151799.png",
+                "showGallery": true
+            },
+            {
+                "name": "Coahuila",
+                "image": "/images/home/galeria/factory_coahuila_1780415163948.png",
+                "showGallery": true
+            },
+            {
+                "name": "Aguascalientes",
+                "image": "/images/home/galeria/factory_aguascalientes_1780415191136.png",
+                "showGallery": true
+            },
+            {
+                "name": "Guanajuato",
+                "image": "/images/home/galeria/factory_guanajuato_1780415203114.png",
+                "showGallery": true
+            },
+            {
+                "name": "Jalisco",
+                "image": "/images/home/galeria/factory_jalisco_1780415214181.png",
+                "showGallery": true
+            },
+            {
+                "name": "Guerrero",
+                "image": "/images/home/galeria/factory_guerrero_1780415226495.png",
+                "showGallery": true
+            },
+            {
+                "name": "Puebla",
+                "image": "/images/home/galeria/factory_puebla_1780415271527.png",
+                "showGallery": true
+            },
+            {
+                "name": "Ciudad de México",
+                "image": "/images/home/galeria/factory_cdmx_1780415283579.png",
+                "showGallery": true
+            },
+            {
+                "name": "Estado de México",
+                "image": "/images/home/galeria/factory_edomex_1780415296200.png",
+                "showGallery": true
+            },
+            {
+                "name": "Yucatán",
+                "image": "/images/home/galeria/factory_yucatan_1780415309425.png",
+                "showGallery": true
             }
         ]
     },

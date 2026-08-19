@@ -33,34 +33,28 @@
         "title": "¿Por qué es importante un sistema de aplicación de recubrimientos?",
         "description": "El diseño de un sistema para aplicación de recubrimientos depende de las características particulares de cada producto. Tomar en cuenta estas condiciones es importante para una correcta aplicación, ya que nos dará distintos beneficios:",
         "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-3.webp",
-        "tarjetas": [
-            {
-                "text": "Calidad y precisión en el acabado"
-            },
-            {
-                "text": "Seguridad para los operadores"
-            },
-            {
-                "text": "Cumplimiento de normativas"
-            },
-            {
-                "text": "Eficiencia en el proceso"
-            }
-        ],
         "items": [
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"/></svg>",
+                "text": "Calidad y precisión en el acabado",
                 "title": "Calidad y precisión en el acabado",
                 "description": "Las cabinas y sistemas de aplicación protegen las superficies de agentes externos, como polvo y partículas, lo que permite obtener acabados uniformes y duraderos. La pintura aplicada en condiciones controladas tiene mejor adherencia, lo que incrementa la resistencia contra factores ambientales y mecánicos."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z\"/></svg>",
+                "text": "Seguridad para los operadores",
                 "title": "Seguridad para los operadores",
                 "description": "Durante el proceso de pintura, los trabajadores pueden exponerse a vapores y productos químicos tóxicos, especialmente si se trabaja con solventes. La cabina de pintura permite contener y extraer estos vapores de forma controlada, minimizando el riesgo de intoxicación o daños a la salud."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"/></svg>",
+                "text": "Cumplimiento de normativas",
                 "title": "Cumplimiento de normativas ambientales",
                 "description": "Nuestras soluciones permiten cumplir de forma ágil con las regulaciones industriales de seguridad, como las de la Administración de Seguridad y Salud Ocupacional (OSHA), National Fire Protection Association (NFPA) y Environmental Protection Agency (EPA), garantizando condiciones limpias."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Eficiencia en el proceso",
                 "title": "Eficiencia en el proceso",
                 "description": "Al tener un espacio controlado y optimizado para la aplicación, se mejora notablemente la eficiencia operativa, permitiendo obtener resultados consistentes lote tras lote y minimizando la repetición de procesos por imperfecciones en el acabado."
             }
@@ -78,16 +72,19 @@
         "description": "Diseñamos y fabricamos sistemas modulares de aplicación, combinando tecnologías de bombeo de precisión, control electrostático y automatización llave en mano.",
         "cards": [
             {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon> <polyline points=\"2 12 12 17 22 12\"></polyline> <polyline points=\"2 17 12 22 22 17\"></polyline> </svg>",
                 "title": "Sistemas de Aspersión Manual y Automática",
                 "description": "Proveemos equipos con tecnologías Airless, Air Assisted Airless y sistemas de aspersión con aire HVLP y convencionales. Adecuados para la integración en líneas continuas o cabinas batch.",
                 "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-2.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3\"></polygon> </svg>",
                 "title": "Dosificación y Dispensado de Fluidos",
                 "description": "Equipos para trasvasar fluidos, lubricar, dosificar adhesivos, ceras o selladores con tolerancias exactas y alta repetibilidad para todo tipo de componentes.",
                 "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-1.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon> </svg>",
                 "title": "Integración Multimarca de Alta Gama",
                 "description": "Integramos componentes originales de marcas líderes en el mercado (Graco, Nordson, Binks, etc.), garantizando la compatibilidad con tus procesos y fácil acceso a refacciones.",
                 "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-3.webp"
@@ -102,71 +99,20 @@
             {
                 "label": "Sistemas Manuales",
                 "title": "Sistemas Manuales",
-                "description": "Los sistemas manuales son ideales para líneas batch o de volumen medio donde se requiere flexibilidad y control directo del operador:",
-                "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-10.webp",
-                "items": [
-                    {
-                        "title": "Sistemas de aspersión con aire",
-                        "description": "Suministro de aire a presión hasta la pistola para formar una atomización fina y proyectarla a la superficie."
-                    },
-                    {
-                        "title": "Sistemas Airless",
-                        "description": "Involucran bombas de alta presión. Ideales para lograr altos micrajes y pulverizar productos de viscosidad elevada sin necesidad de aire."
-                    },
-                    {
-                        "title": "Sistemas Air Assisted Airless",
-                        "description": "Combinan la pulverización por bombeo a alta presión y el aporte de presión neumática para un acabado ultra fino."
-                    },
-                    {
-                        "title": "Sistemas electroestáticos",
-                        "description": "Las partículas reciben una carga electrostática de alto voltaje y baja intensidad para \"envolverse\" sobre la pieza, reduciendo el overspray."
-                    }
-                ]
+                "content": "<p>Los sistemas manuales son ideales para líneas batch o de volumen medio donde se requiere flexibilidad y control directo del operador:</p><ul><li><strong>Sistemas de aspersión con aire:</strong> Suministro de aire a presión hasta la pistola para formar una atomización fina y proyectarla a la superficie.</li><li><strong>Sistemas Airless:</strong> Involucran bombas de alta presión. Ideales para lograr altos micrajes y pulverizar productos de viscosidad elevada sin necesidad de aire.</li><li><strong>Sistemas Air Assisted Airless:</strong> Combinan la pulverización por bombeo a alta presión y el aporte de presión neumática para un acabado ultra fino.</li><li><strong>Sistemas electroestáticos:</strong> Las partículas reciben una carga electrostática de alto voltaje y baja intensidad para &quot;envolverse&quot; sobre la pieza, reduciendo el overspray.</li></ul>",
+                "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-10.webp"
             },
             {
                 "label": "Sistemas Semiautomáticos",
                 "title": "Sistemas Semiautomáticos",
-                "description": "Integran dispositivos de aspersión automática fijos o móviles con activación programada:",
-                "image": "/images/soluciones/aplicacion-recubrimientos/cabina-pintura-24.webp",
-                "items": [
-                    {
-                        "title": "Sistemas de aspersión con pistolas automáticas",
-                        "description": "Ofrecen un control total de la presión del aire de atomización, el aire del puerto lateral, el flujo de fluido y los patrones de rociado en configuraciones de alta y baja producción."
-                    },
-                    {
-                        "title": "Tecnología de atomización",
-                        "description": "Logra acabados uniformes y finos al rociar una amplia gama de recubrimientos industriales. Las pistolas automáticas se ofrecen en tres tecnologías de atomización diferentes: HVLP, LVLP y Convencional."
-                    }
-                ]
+                "content": "<p>Integran dispositivos de aspersión automática fijos o móviles con activación programada:</p><ul><li><strong>Sistemas de aspersión con pistolas automáticas:</strong> Ofrecen un control total de la presión del aire de atomización, el aire del puerto lateral, el flujo de fluido y los patrones de rociado en configuraciones de alta y baja producción.</li><li><strong>Tecnología de atomización:</strong> Logra acabados uniformes y finos al rociar una amplia gama de recubrimientos industriales. Las pistolas automáticas se ofrecen en tres tecnologías de atomización diferentes: HVLP, LVLP y Convencional.</li></ul>",
+                "image": "/images/soluciones/aplicacion-recubrimientos/cabina-pintura-24.webp"
             },
             {
                 "label": "Sistemas Automáticos",
                 "title": "Sistemas Automáticos",
-                "description": "La automatización completa ofrece ventajas sobresalientes en la producción en serie de altos volúmenes, superando ampliamente la inversión inicial. Los cinco beneficios principales son:",
-                "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-4.webp",
-                "items": [
-                    {
-                        "title": "Reducción de costos de producción",
-                        "description": "Menos desperdicio de recubrimiento por ciclo."
-                    },
-                    {
-                        "title": "Mejora de la calidad",
-                        "description": "Espesor homogéneo constante Clase A libre de error humano."
-                    },
-                    {
-                        "title": "Reducción de residuos",
-                        "description": "Control exacto del overspray y recirculación óptima."
-                    },
-                    {
-                        "title": "Aumento de la flexibilidad",
-                        "description": "Programación multipieza en reciprocadores o brazos robóticos."
-                    },
-                    {
-                        "title": "Ahorro de costos de mano de obra",
-                        "description": "Automatización segura en entornos con alta concentración de vapores."
-                    }
-                ],
-                "note": "Nuestros sistemas automáticos están equipados con tecnología avanzada e innovadora, adaptándose de manera específica a las necesidades individuales de cada cliente."
+                "content": "<p>La automatización completa ofrece ventajas sobresalientes en la producción en serie de altos volúmenes, superando ampliamente la inversión inicial. Los cinco beneficios principales son:</p><ol><li><strong>Reducción de costos de producción:</strong> Menos desperdicio de recubrimiento por ciclo.</li><li><strong>Mejora de la calidad:</strong> Espesor homogéneo constante Clase A libre de error humano.</li><li><strong>Reducción de residuos:</strong> Control exacto del overspray y recirculación óptima.</li><li><strong>Aumento de la flexibilidad:</strong> Programación multipieza en reciprocadores o brazos robóticos.</li><li><strong>Ahorro de costos de mano de obra:</strong> Automatización segura en entornos con alta concentración de vapores.</li></ol><p><em>Nuestros sistemas automáticos están equipados con tecnología avanzada e innovadora, adaptándose de manera específica a las necesidades individuales de cada cliente.</em></p>",
+                "image": "/images/soluciones/aplicacion-recubrimientos/recubrimientos-4.webp"
             }
         ]
     },
@@ -231,54 +177,54 @@
             "description": "Nos especializamos en ofrecer soluciones para aplicación de recubrimientos, equipos para suministro de pintura y aplicación de fluidos para diferentes sectores de la industria:",
             "cards": [
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Airless.svg",
                     "title": "Airless",
-                    "description": "Sistemas sin aire a alta presión, ideales para viscosidades elevadas y altos micrajes.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Airless.svg"
+                    "description": "Sistemas sin aire a alta presión, ideales para viscosidades elevadas y altos micrajes."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Air-Assisted.svg",
                     "title": "Air Assisted Airless",
-                    "description": "Combinación de bombeo a alta presión y asistencia neumática para acabados finos.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Air-Assisted.svg"
+                    "description": "Combinación de bombeo a alta presión y asistencia neumática para acabados finos."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-HVLP.svg",
                     "title": "HVLP / LVLP / Convencional",
-                    "description": "Tecnologías de atomización por aire para un control de espesor preciso y uniforme.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-HVLP.svg"
+                    "description": "Tecnologías de atomización por aire para un control de espesor preciso y uniforme."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Electrostatic.svg",
                     "title": "Electroestático Líquido",
-                    "description": "Pulverización con carga electrostática para máxima transferencia y nulo overspray.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Electrostatic.svg"
+                    "description": "Pulverización con carga electrostática para máxima transferencia y nulo overspray."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Poliuretano.svg",
                     "title": "Aspersión de Poliuretano",
-                    "description": "Mezcla y aspersión exacta de poliuretanos y espumas bicomponentes.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Poliuretano.svg"
+                    "description": "Mezcla y aspersión exacta de poliuretanos y espumas bicomponentes."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Adhesivos.webp",
                     "title": "Adhesivos",
-                    "description": "Dosificación exacta de adhesivos líquidos y hot melt en líneas de ensamble.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Adhesivos.webp"
+                    "description": "Dosificación exacta de adhesivos líquidos y hot melt en líneas de ensamble."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Sellos.webp",
                     "title": "Sello",
-                    "description": "Aplicación automatizada o manual de cordones y selladores industriales.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Sellos.webp"
+                    "description": "Aplicación automatizada o manual de cordones y selladores industriales."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Cera.webp",
                     "title": "Cera",
-                    "description": "Suministro y rociado de ceras protectoras contra la corrosión de metales.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Cera.webp"
+                    "description": "Suministro y rociado de ceras protectoras contra la corrosión de metales."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Lubricantes.webp",
                     "title": "Lubricantes y Gasolina",
-                    "description": "Sistemas de llenado y lubricación precisa en líneas de producción continua.",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Lubricantes.webp"
+                    "description": "Sistemas de llenado y lubricación precisa en líneas de producción continua."
                 },
                 {
+                    "icon": "/images/soluciones/aplicacion-recubrimientos/icon-Dosificacion.webp",
                     "title": "Dosificación y Dispensado",
-                    "description": "Equipos para dosificar fluidos simples o multicomponentes (2K/3K).",
-                    "image": "/images/soluciones/aplicacion-recubrimientos/icon-Dosificacion.webp"
+                    "description": "Equipos para dosificar fluidos simples o multicomponentes (2K/3K)."
                 }
             ]
         },

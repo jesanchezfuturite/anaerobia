@@ -89,7 +89,7 @@ El contenido vive en dos tablas:
 | Tabla | Qué guarda | Forma |
 |---|---|---|
 | `solution_pages` | Las 10 páginas de soluciones | Una columna JSON por sección |
-| `site_pages` | Resto del sitio: `homepage`, `navigation`, `nosotros`, `proyectos`, `caso-ingenieria-alta-precision` | Una sola columna `data` con todas las secciones |
+| `site_pages` | Resto del sitio: `general`, `homepage`, `nosotros`, `proyectos`, `caso-ingenieria-alta-precision` | Una sola columna `data` con todas las secciones |
 
 Una fila por página en la tabla `solution_pages`. Cada sección del diseño es una **columna JSON**
 con estructura fija; el admin edita los valores, nunca la estructura ni las clases CSS.
@@ -114,11 +114,60 @@ solution_pages
 ```
 
 ```
+blog_categories   → esquema propio (Cabinas de pintura, Hornos y curado, …);
+                    las del WordPress anterior no se heredaron
+blog_authors      → firma de los artículos (hoy solo «Anaerobia»)
+blog_posts        → title, slug, excerpt, content (HTML), cover, categoría,
+                    autor, published, featured, published_at, seo_title,
+                    seo_description, solution_slug (enlace opcional al final)
+
+  Solo se migraron las entradas de la categoría «Blog» del sitio anterior; el
+  resto eran otro tipo de contenido. Los slugs se conservan tal cual, así que
+  las URLs /blog/{slug} no necesitan redirección.
+  Se importa con `php artisan blog:importar` (lee storage/app/import/entradas.xml,
+  limpia el andamiaje de WPBakery y descarga las imágenes del cuerpo).
+  Un artículo con fecha futura se publica solo ese día.
+```
+
+```
+catalog_categories  → Filtros, Refacciones, Equipos para aplicación de pintura,
+                      Lámparas infrarrojas, Pintura en polvo
+catalog_brands      → GFS, Binks, Andreae, AJ Dralle, … (eje independiente de
+                      la categoría: se usa como filtro, no como subcategoría)
+catalog_products    → name, slug, categoría, marca, sku, summary, description,
+                      attributes[{name, options[]}], images[], seo_description,
+                      published, legacy_slug (para las redirecciones 301)
+
+  Escaparate «Partes y Filtros»: sin precio, inventario ni carrito. El CTA
+  de cada ficha lleva al formulario de contacto con el producto identificado.
+  Se importa del WooCommerce anterior con `php artisan catalogo:importar`
+  (idempotente, lee storage/app/import/productos.csv y productos.xml).
+
+  Las URLs del catálogo anterior se redirigen con 301 desde el sitio:
+  /tienda/{slug} → /partes-y-filtros/{slug} (la API resuelve el slug viejo
+  con «legacy_slug») y /categoria-producto/{slug} → el filtro que toque.
+```
+
+```
 site_pages
+├── key = "general"    → data { navigation{links[{label, url, hasSubmenu,
+│                                                submenu[{label, url}], visible}]},
+│                               logo{image, alt},
+│                               normas{sectionTitle, badge, title, description, text,
+│                                      bullets[{text}], certificados[{name, logo}]},
+│                               aliados{title, logos[{name, image, height}]},
+│                               footer{logo, description, social[{name, url, icon}],
+│                                      contactTitle, contacto[{text, icon}],
+│                                      copyright, legal[{label, url}]} }
+│                       (contenido compartido: lo consumen el Navbar, el Footer,
+│                        Inicio, Nosotros y 8 de las 10 páginas de soluciones;
+│                        Conveyors y Filtros conservan su propia «normatividad»)
 ├── key = "homepage"   → data { hero, soluciones, mantenimiento, gestion360,
-│                               industrias, normativas, mapa, contacto }
-├── key = "navigation" → data { links[{label, url, hasSubmenu, submenu[{label,url}]}] }
-├── key = "nosotros"   → data { seo, hero, intro, pilares, valores, esg, normas, alianzas }
+│                               industrias, mapa, presencia, contacto }
+│                       presencia = { sectionTitle, sectionSubtitle, mapImage,
+│                                     estados[{name, image, showGallery}] }
+│                       (la posición de cada punto del mapa vive en index.astro)
+├── key = "nosotros"   → data { seo, hero, intro, pilares, valores, esg }
 ├── key = "proyectos"  → data { seo, hero, industrias, casos_estudio, cta }
 └── key = "caso-ingenieria-alta-precision"
                        → data { seo, hero, intro, reto, galeria, solucion,
@@ -142,11 +191,15 @@ Reglas del modelo:
 |---|---|---|
 | GET | `/api/v1/soluciones` | Lista de páginas de soluciones publicadas (slug, nombre, fecha) |
 | GET | `/api/v1/soluciones/{slug}` | Contenido completo de una página; 404 si no existe o no está publicada |
-| GET | `/api/v1/paginas` | Lista de páginas del sitio publicadas (inicio, navegación) |
+| GET | `/api/v1/blog` | Artículos publicados con filtro por categoría y búsqueda, destacado y categorías |
+| GET | `/api/v1/blog/{slug}` | Artículo completo y 3 relacionados |
+| GET | `/api/v1/catalogo` | Catálogo publicado con búsqueda y filtros (`categoria`, `marca`, `buscar`, `page`), más categorías y marcas |
+| GET | `/api/v1/catalogo/{slug}` | Ficha de producto y otros de su categoría |
+| GET | `/api/v1/paginas` | Lista de páginas del sitio publicadas (general, inicio, …) |
 | GET | `/api/v1/paginas/{key}` | Contenido completo de una página del sitio; 404 si no existe o no está publicada |
 
 El payload de cada solución incluye además `certificados`: los logos de certificaciones son
-contenido compartido (se editan una sola vez en Inicio) y viajan en la misma respuesta para
+contenido compartido (se editan una sola vez en «General», pestaña Normas) y viajan en la misma respuesta para
 que la sección de normatividad no necesite una segunda llamada.
 
 - Solo lectura y sin autenticación por ahora (local). Al desplegar se puede endurecer con un token estático en header.

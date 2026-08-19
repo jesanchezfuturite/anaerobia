@@ -2,7 +2,10 @@
 export const prerender = false
 
 import Layout from '../../layouts/Layout.astro'
+import { getGeneral } from '../../lib/general.js'
 import fallback from '../../data/soluciones/filtros.json'
+
+const general = await getGeneral()
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
 // visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
@@ -25,6 +28,10 @@ const seoDescription = d.seo?.description
 // Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
 let _tabN = 0
 const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
+// Un icono puede ser código SVG (se incrusta y hereda el color de la marca) o
+// una imagen subida (se muestra tal cual, solo ajustada al tamaño).
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -50,7 +57,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
 
                     <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
                     <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
-                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">{d.hero.description}</p>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                 </div>
             </div>
         </section>
@@ -65,10 +72,10 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">{d.intro.title}</h2>
                             {
                                 d.intro.paragraphs.map((p, i) => (
-                                    <p class={i === 0 ? 'text-gray-600 leading-relaxed font-light text-base md:text-lg' : 'text-gray-600 leading-relaxed font-light text-base md:text-lg mt-4'}>{p.text}</p>
+                                    <p class={`${i === 0 ? 'text-gray-600 leading-relaxed font-light text-base md:text-lg' : 'text-gray-600 leading-relaxed font-light text-base md:text-lg mt-4'} whitespace-pre-wrap`}>{p.text}</p>
                                 ))
                             }
-                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4 md:text-lg">{d.intro.highlight}</p>
+                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4 md:text-lg whitespace-pre-wrap">{d.intro.highlight}</p>
                         </div>
 
                     </div>
@@ -89,7 +96,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                 <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.desafios.badge}</span>
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.desafios.title}</h2>
-                    <p class="text-gray-600 mt-4 font-light">{d.desafios.description}</p>
+                    <p class="text-gray-600 mt-4 font-light whitespace-pre-wrap">{d.desafios.description}</p>
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-8 lg:h-[700px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
@@ -102,9 +109,9 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                     <!-- Column 2: Cards (20%) -->
                     <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
                         {
-                            d.desafios.tarjetas.map((t) => (
+                            d.desafios.items.map((t) => (
                                 <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 flex-1 min-h-[100px]">
-                                    <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center">{t.text}</p>
+                                    <p class="text-base lg:text-lg font-saira font-bold italic text-brand-blue leading-snug text-center whitespace-pre-wrap">{t.text}</p>
                                 </div>
                             ))
                         }
@@ -117,13 +124,19 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                                 <div class="space-y-2 flex-1 flex flex-col justify-center">
                                     <div class="flex items-center gap-3">
                                         <div class="text-brand-lime shrink-0">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                            {item.icon && !esIconoSvg(item.icon) ? (
+                                                <img src={item.icon} alt={item.title} class="w-6 h-6 object-contain" />
+                                            ) : item.icon ? (
+                                                <Fragment set:html={item.icon} />
+                                            ) : (
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                             </svg>
+                                            )}
                                         </div>
                                         <h3 class="font-saira font-bold italic text-brand-navy text-lg md:text-xl uppercase">{item.title}</h3>
                                     </div>
-                                    <p class="text-sm text-gray-600 leading-relaxed font-light">{item.description}</p>
+                                    <p class="text-sm text-gray-600 leading-relaxed font-light whitespace-pre-wrap">{item.description}</p>
                                 </div>
                             ))
                         }
@@ -138,7 +151,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
             <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="text-left">
                     <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{d.cta1.title}</h2>
-                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl">{d.cta1.description}</p>
+                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{d.cta1.description}</p>
                 </div>
                 <a href={d.cta1.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{d.cta1.button_label}</a>
             </div>
@@ -150,7 +163,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                 <div class="max-w-5xl mb-10 section-solucion-header">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.ingenieria.badge}</span>
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.ingenieria.title}</h2>
-                    <p class="text-gray-600 font-light mt-4">{d.ingenieria.description}</p>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.ingenieria.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
@@ -165,14 +178,20 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                         <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
 
                         <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            {d.ingenieria.cards[0].icon && !esIconoSvg(d.ingenieria.cards[0].icon) ? (
+                                    <img src={d.ingenieria.cards[0].icon} alt={d.ingenieria.cards[0].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[0].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[0].icon} />
+                                ) : (
+                                    <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 3v18M3 12h18M12 3a9 9 0 0 1 9 9M12 3a9 9 0 0 0-9 9M12 21a9 9 0 0 1 9-9M12 21a9 9 0 0 0-9 9"></path>
                             </svg>
+                                )}
                         </div>
                         <div class="relative z-10 mt-auto">
                             <div>
                                 <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">{d.ingenieria.cards[0].title}</h3>
-                                <p class="text-lg text-gray-200 font-light leading-relaxed">{d.ingenieria.cards[0].description}</p>
+                                <p class="text-lg text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{d.ingenieria.cards[0].description}</p>
                             </div>
                         </div>
                     </div>
@@ -187,13 +206,19 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
 
                             <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                {d.ingenieria.cards[1].icon && !esIconoSvg(d.ingenieria.cards[1].icon) ? (
+                                    <img src={d.ingenieria.cards[1].icon} alt={d.ingenieria.cards[1].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[1].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[1].icon} />
+                                ) : (
+                                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M4 4h16v16H4V4zM4 9h16M4 15h16M9 4v16M15 4v16"></path>
                                 </svg>
+                                )}
                             </div>
                             <div class="relative z-10">
                                 <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">{d.ingenieria.cards[1].title}</h3>
-                                <p class="text-base text-gray-200 font-light leading-relaxed">{d.ingenieria.cards[1].description}</p>
+                                <p class="text-base text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{d.ingenieria.cards[1].description}</p>
                             </div>
                         </div>
 
@@ -205,13 +230,19 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
 
                             <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                {d.ingenieria.cards[2].icon && !esIconoSvg(d.ingenieria.cards[2].icon) ? (
+                                    <img src={d.ingenieria.cards[2].icon} alt={d.ingenieria.cards[2].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[2].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[2].icon} />
+                                ) : (
+                                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                                 </svg>
+                                )}
                             </div>
                             <div class="relative z-10">
                                 <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">{d.ingenieria.cards[2].title}</h3>
-                                <p class="text-base text-gray-200 font-light leading-relaxed">{d.ingenieria.cards[2].description}</p>
+                                <p class="text-base text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{d.ingenieria.cards[2].description}</p>
                             </div>
                         </div>
                     </div>
@@ -225,7 +256,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                 <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.extras.diferenciadores.badge}</span>
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.extras.diferenciadores.title}</h2>
-                    <p class="text-gray-600 font-light mt-4">{d.extras.diferenciadores.description}</p>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.extras.diferenciadores.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 diferenciadores-grid">
@@ -235,7 +266,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                                 <div>
                                     <span class="text-brand-lime font-saira font-bold text-lg mb-2 block">0{index + 1}</span>
                                     <h3 class="font-saira font-semibold italic text-brand-navy text-lg uppercase mb-3 leading-tight">{app.title}</h3>
-                                    <p class="text-xs text-gray-500 leading-relaxed font-light">{app.description}</p>
+                                    <p class="text-xs text-gray-500 leading-relaxed font-light whitespace-pre-wrap">{app.description}</p>
                                 </div>
                             </div>
                         ))
@@ -253,7 +284,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                 <div class="max-w-5xl mb-10 section-solucion-header">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.tipos.badge}</span>
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.tipos.title}</h2>
-                    <p class="text-gray-600 font-light mt-4">{d.tipos.description}</p>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.tipos.description}</p>
                 </div>
 
                 <!-- Tabs Navigation -->
@@ -317,14 +348,14 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             </div>
                             <div class="flex flex-col pb-8">
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{d.tipos.tabs[0].title}</h3>
-                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[0].description}</p>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6 whitespace-pre-wrap">{d.tipos.tabs[0].description}</p>
 
                                 <ul class="space-y-3 text-gray-600 font-light text-sm">
                                     {
                                         d.tipos.tabs[0].items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                <span><strong>{item.title}:</strong> {item.description}</span>
+                                                <span class="whitespace-pre-wrap"><strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}</span>
                                             </li>
                                         ))
                                     }
@@ -344,14 +375,14 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             </div>
                             <div class="flex flex-col pb-8">
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{d.tipos.tabs[1].title}</h3>
-                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[1].description}</p>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6 whitespace-pre-wrap">{d.tipos.tabs[1].description}</p>
 
                                 <ul class="space-y-3 text-gray-600 font-light text-sm">
                                     {
                                         d.tipos.tabs[1].items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                <span><strong>{item.title}:</strong> {item.description}</span>
+                                                <span class="whitespace-pre-wrap"><strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}</span>
                                             </li>
                                         ))
                                     }
@@ -371,13 +402,13 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             </div>
                             <div class="flex flex-col pb-8">
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">{d.tipos.tabs[2].title}</h3>
-                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[2].description}</p>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6 whitespace-pre-wrap">{d.tipos.tabs[2].description}</p>
                                 <ul class="space-y-4 text-gray-600 font-light text-sm">
                                     {
                                         d.tipos.tabs[2].items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                <span><strong>{item.title}:</strong> {item.description}</span>
+                                                <span class="whitespace-pre-wrap"><strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}</span>
                                             </li>
                                         ))
                                     }
@@ -397,13 +428,13 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             </div>
                             <div class="flex flex-col pb-8">
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-6">{d.tipos.tabs[3].title}</h3>
-                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[3].description}</p>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6 whitespace-pre-wrap">{d.tipos.tabs[3].description}</p>
                                 <ul class="space-y-4 text-gray-600 font-light text-sm">
                                     {
                                         d.tipos.tabs[3].items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                <span><strong>{item.title}:</strong> {item.description}</span>
+                                                <span class="whitespace-pre-wrap"><strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}</span>
                                             </li>
                                         ))
                                     }
@@ -423,15 +454,15 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             </div>
                             <div class="flex flex-col pb-8">
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{d.tipos.tabs[4].title}</h3>
-                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6">{d.tipos.tabs[4].description}</p>
+                                <p class="text-base text-gray-600 font-light leading-relaxed mb-6 whitespace-pre-wrap">{d.tipos.tabs[4].description}</p>
 
                                 <h4 class="font-saira font-bold text-brand-blue uppercase text-lg mb-3">{d.tipos.tabs[4].etapas.title}</h4>
-                                <p class="text-sm text-gray-600 leading-relaxed font-light mb-4">{d.tipos.tabs[4].etapas.description}</p>
+                                <p class="text-sm text-gray-600 leading-relaxed font-light mb-4 whitespace-pre-wrap">{d.tipos.tabs[4].etapas.description}</p>
                                 <ul class="space-y-2 text-gray-600 font-light text-sm mb-6 pl-4 border-l-2 border-brand-lime">
                                     {
                                         d.tipos.tabs[4].etapas.items.map((item) => (
-                                            <li>
-                                                <strong>{item.title}:</strong> {item.description}
+                                            <li class="whitespace-pre-wrap">
+                                                <strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}
                                             </li>
                                         ))
                                     }
@@ -443,7 +474,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                                         d.tipos.tabs[4].colectores.items.map((item) => (
                                             <li class="flex items-start gap-3">
                                                 <svg class="w-5 h-5 text-brand-lime shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                                                <span><strong>{item.title}:</strong> {item.description}</span>
+                                                <span class="whitespace-pre-wrap"><strong class="whitespace-pre-wrap">{item.title}:</strong> {item.description}</span>
                                             </li>
                                         ))
                                     }
@@ -462,7 +493,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                 <div class="text-center max-w-3xl mx-auto mb-16 components-header">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.extras.componentes.badge}</span>
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.extras.componentes.title}</h2>
-                    <p class="text-gray-600 font-light mt-4">{d.extras.componentes.description}</p>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.extras.componentes.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -471,7 +502,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                             <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200/50 flex flex-col justify-between hover:bg-white hover:shadow-xl transition-all duration-300 group">
                                 <div class="space-y-4">
                                     <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">{comp.title}</h3>
-                                    <p class="text-sm text-gray-500 leading-relaxed font-light">{comp.description}</p>
+                                    <p class="text-sm text-gray-500 leading-relaxed font-light whitespace-pre-wrap">{comp.description}</p>
                                 </div>
                             </div>
                         ))
@@ -487,7 +518,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
             <div class="container mx-auto px-6 relative z-10 max-w-5xl text-center space-y-8">
                 <span class="text-brand-lime font-bold tracking-widest text-xs uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Diseño Industrial Llave en Mano</span>
                 <h2 class="text-white text-3xl md:text-5xl font-saira italic font-semibold uppercase tracking-wider leading-tight max-w-4xl mx-auto">{d.cta2.title}</h2>
-                <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl mx-auto">{d.cta2.description}</p>
+                <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl mx-auto whitespace-pre-wrap">{d.cta2.description}</p>
                 <div class="pt-4 flex justify-center">
                     <a href={d.cta2.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg text-center">{d.cta2.button_label}</a>
                 </div>
@@ -503,11 +534,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                         <span class="text-brand-lime font-bold tracking-widest text-xs uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.normatividad.badge}</span>
                         <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.normatividad.title}</h2>
                         <div class="w-16 h-1 bg-brand-lime mt-2 mb-6"></div>
-                        <p class="text-gray-300 leading-relaxed font-light text-base">{d.normatividad.description}</p>
-                        <p class="text-gray-300 leading-relaxed font-light text-base">
-                            Nuestras soluciones aseguran el cumplimiento de la norma <strong>NFPA 33</strong> para limitar concentraciones de vapores inflamables, las directrices de la <strong>OSHA</strong> sobre seguridad laboral, y las certificaciones <strong>UL Clase 1 o 2</strong> de inflamabilidad
-                            de los filtros.
-                        </p>
+                        <p class="text-gray-300 leading-relaxed font-light text-base whitespace-pre-wrap">{d.normatividad.description}</p>
                     </div>
 
                     <div class="w-full">
@@ -520,10 +547,8 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                                                 src={cert.logo}
                                                 alt={`Certificación ${cert.name}`}
                                                 class="max-h-full max-w-full object-contain transition-all"
-                                                onerror="this.outerHTML='<span class=\'text-lg font-bold text-gray-400\'>' + this.alt.split(' ')[1] + '</span>'"
                                             />
                                         </div>
-                                        <span class="font-saira font-semibold text-2xs tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
                                     </div>
                                 ))
                             }
@@ -536,18 +561,14 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
         <!-- 11. ALIANZAS / PARTNERS -->
         <section class="bg-white py-6 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-                <span class="text-gray-500 font-medium whitespace-nowrap text-xs uppercase tracking-widest mt-1"> Equipamiento y Consumibles con Tecnología de: </span>
+                <span class="text-gray-500 font-medium whitespace-nowrap text-xs uppercase tracking-widest mt-1"> {general.aliados?.title} </span>
                 <div class="swiper marquee-swiper w-full">
                     <div class="swiper-wrapper items-center">
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">GFS (GLOBAL FINISHING SOLUTIONS)</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">GRACO</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">NORDSON</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">BINKS</span></div>
-                        <!-- Duplicados para ciclo continuo -->
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">GFS (GLOBAL FINISHING SOLUTIONS)</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">GRACO</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">NORDSON</span></div>
-                        <div class="swiper-slide !w-auto px-8"><span class="text-xl font-saira font-bold text-gray-400/70 tracking-widest">BINKS</span></div>
+                        {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (
+                            <div class="swiper-slide !w-auto px-8 flex items-center justify-center">
+                                <img src={aliado.image} alt={aliado.name} class="h-auto max-h-9 w-auto max-w-full object-contain opacity-60 grayscale hover:grayscale-0 transition-all" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -570,7 +591,7 @@ const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++
                                     <h3 class="font-saira font-semibold italic text-brand-navy text-lg md:text-xl uppercase tracking-wide">{faq.question}</h3>
                                     <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']" />
                                 </summary>
-                                <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">{faq.answer}</div>
+                                <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal whitespace-pre-wrap">{faq.answer}</div>
                             </details>
                         ))
                     }

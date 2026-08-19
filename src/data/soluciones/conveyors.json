@@ -15,10 +15,7 @@
         "title": "Sistemas de transporte, un componente clave de tu línea de pintura",
         "paragraphs": [
             {
-                "text": "Los conveyors, o sistemas de transporte, son mecanismos utilizados en los procesos de aplicación de recubrimientos para el desplazamiento eficiente de materiales, productos o mercancías dentro de una instalación."
-            },
-            {
-                "text": "Estos sistemas permiten trasladar, separar y clasificar objetos de forma continua y ordenada, minimizando la intervención manual y optimizando los tiempos del ciclo de producción. Su adaptabilidad a diferentes pesos, velocidades y recorridos los convierte en el núcleo de la automatización en plantas industriales de acabados."
+                "text": "Los conveyors, o sistemas de transporte, son mecanismos utilizados en los procesos de aplicación de recubrimientos para el desplazamiento eficiente de materiales, productos o mercancías dentro de una instalación.\n\nEstos sistemas permiten trasladar, separar y clasificar objetos de forma continua y ordenada, minimizando la intervención manual y optimizando los tiempos del ciclo de producción. Su adaptabilidad a diferentes pesos, velocidades y recorridos los convierte en el núcleo de la automatización en plantas industriales de acabados."
             }
         ],
         "image": "/images/soluciones/conveyors/conveyor-1.webp"
@@ -27,27 +24,22 @@
         "title": "Desafíos Comunes en el Transporte de Materiales",
         "description": "El flujo ineficiente de piezas en una línea de pintura puede afectar drásticamente la calidad del acabado de tus productos y la logística de tu línea.",
         "image": "/images/soluciones/conveyors/conveyor-4.webp",
-        "tarjetas": [
-            {
-                "text": "Cuellos de botella en la línea"
-            },
-            {
-                "text": "Riesgos por manejo manual"
-            },
-            {
-                "text": "Rigidez en el trayecto de piezas"
-            }
-        ],
         "items": [
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Cuellos de botella en la línea",
                 "title": "Cuellos de Botella y Retrasos",
                 "description": "El traslado ineficiente de componentes de gran tamaño interrumpe el flujo de la línea de acabado, generando acumulaciones críticas en las áreas de aplicación de pintura."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Riesgos por manejo manual",
                 "title": "Riesgos Ocupacionales y Daños",
                 "description": "La manipulación física directa de piezas pesadas incrementa el riesgo de accidentes laborales, elevando además la probabilidad de rayaduras o contaminación del recubrimiento."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3\"/></svg>",
+                "text": "Rigidez en el trayecto de piezas",
                 "title": "Adaptabilidad Limitada",
                 "description": "Los sistemas de transporte que no permiten curvas cerradas, inclinaciones o rampas de velocidad dinámicas restringen severamente la optimización y flexibilidad del espacio en planta."
             }
@@ -65,16 +57,19 @@
         "description": "Diseñamos e integramos sistemas de transporte avanzados, adaptados a la geometría de tus piezas, condiciones de carga y la velocidad requerida por tus cabinas y hornos de curado.",
         "cards": [
             {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"></path> </svg>",
                 "title": "Conveyors totalmente adaptados a tu línea",
                 "description": "Nuestro equipo se encarga de diseñar soluciones en sistemas transportadores a la medida de tu proceso de producción. Para ello, tomamos en cuenta factores específicos como la distribución de tu planta, el tamaño y forma de tus piezas, y el volumen de producción.",
                 "image": "/images/soluciones/conveyors/conveyor-3.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <circle cx=\"12\" cy=\"12\" r=\"10\"></circle> <circle cx=\"12\" cy=\"12\" r=\"4\"></circle> </svg>",
                 "title": "Operación manual y automática",
                 "description": "Nuestras soluciones en sistemas transportadores se pueden configurar para tener zonas automáticas o conducidas y a la vez tener zonas sin arrastre o manuales ya sea en el mismo camino o en ramales secundarios. Además, somos capaces de integrar robots para la manipulación de materiales.",
                 "image": "/images/soluciones/conveyors/conveyor-2.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect> <path d=\"M21 12H3M12 3v18\"></path> </svg>",
                 "title": "Seguridad y normativa",
                 "description": "Nuestros conveyors cumplen con normatividad internacional y exigencias de calidad y seguridad, que garantizan la protección de los operadores, evitando riesgos como aplastamiento, caídas y atrapamiento.",
                 "image": "/images/soluciones/conveyors/conveyor-5.webp"

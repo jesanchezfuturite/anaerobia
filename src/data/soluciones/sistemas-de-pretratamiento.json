@@ -25,27 +25,22 @@
         "title": "Desafíos críticos en la línea de acabado",
         "description": "No contar con el equipo ideal para el pretratamiento químico, compromete la calidad de las piezas y la rentabilidad de tu producción. Los principales retos a los que se enfrentan las empresas sin un sistema adecuado son:",
         "image": "/images/soluciones/sistema-pretratamiento/MG_2998_v2.webp",
-        "tarjetas": [
-            {
-                "text": "Corrosión y degradación del acabado"
-            },
-            {
-                "text": "Deficiencias en la Adherencia Química"
-            },
-            {
-                "text": "Costos Operativos Elevados por Retrabajos"
-            }
-        ],
         "items": [
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z\"/></svg>",
+                "text": "Corrosión y degradación del acabado",
                 "title": "Corrosión y degradación del acabado",
                 "description": "Los metales expuestos a la humedad y al oxígeno se degradan con rapidez. Sin un sistema capaz de aplicar con precisión las capas de conversión química pasivamente, el avance de la oxidación es inevitable, afectando la calidad del acabado y provocando corrosión debajo de la pintura."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244\"/></svg>",
+                "text": "Deficiencias en la Adherencia Química",
                 "title": "Deficiencias en la Adherencia Química",
                 "description": "La presencia de grasas de maquinado y aceites de troquelado bloquean el contacto molecular entre la superficie y el recubrimiento. Al no contar con una etapa eficaz de pretratamiento que remueva estos contaminantes y genere la micro-rugosidad requerida, la adherencia falla, afectando directamente la calidad del acabado."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 19.5l-15-15\"/></svg>",
+                "text": "Costos Operativos Elevados por Retrabajos",
                 "title": "Costos Operativos Elevados por Retrabajos",
                 "description": "La ausencia de un pretratamiento industrial de alta eficiencia aumenta el porcentaje de defectos cosméticos, retrabajos y desperdicio de energía, afectando directamente a la productividad general de toda la línea de producción."
             }
@@ -63,21 +58,25 @@
         "description": "Diseñamos, fabricamos e instalamos soluciones de pretratamiento químico que optimizan el acondicionamiento de sus superficies, asegurando un acabado duradero y de alta calidad. Nuestros sistemas están diseñados para maximizar la eficiencia y asegurar que tu proceso de recubrimiento sea bueno.",
         "cards": [
             {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\" ></path> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"></path> </svg>",
                 "title": "Túneles de Aspersión Continuos",
                 "description": "Diseñados para líneas de alto volumen integradas a transportadores continuos. Las piezas atraviesan etapas encapsuladas con boquillas industriales de alta presión garantizando máxima limpieza y adherencia.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_2967.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z\" ></path> </svg>",
                 "title": "Sistemas integrados de limpieza química y desengrase",
                 "description": "Nuestras tecnologías de limpieza y desengrase se adaptan a una amplia variedad de necesidades industriales, eliminando contaminantes de manera eficiente y segura.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_2979.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L12 17.25 6.429 12.75m11.142 0-4.179 2.25m0 0L12 21.75 6.429 17.25\"></path> </svg>",
                 "title": "Sistemas de fosfatado avanzados",
                 "description": "Ofrecemos equipos para los procesos de fosfatado de zinc, hierro, entre otros, según las necesidades específicas de tu proyecto. Estos procesos aseguran que las superficies metálicas estén preparadas para resistir los efectos de la corrosión y mejorar la adherencia del recubrimiento.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_2921_2.webp"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z\" ></path> </svg>",
                 "title": "Pasivación personalizada",
                 "description": "Diseñamos soluciones para los procesos de pasivación que protegen sus piezas metálicas en el tiempo previo al pintado, asegurando una mayor durabilidad y resistencia a largo plazo.",
                 "image": "/images/soluciones/sistema-pretratamiento/MG_2998.webp"
@@ -182,21 +181,27 @@
         "description": "Un sistema de pretratamiento correctamente diseñado impacta directamente la rentabilidad de la planta, reduciendo fallas cosméticas y extendiendo significativamente la vida útil del recubrimiento industrial.",
         "cards": [
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1\" /> </svg>",
                 "text": "Mayor adherencia"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\" /> </svg>",
                 "text": "Protección contra la corrosión"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\" /> </svg>",
                 "text": "Menos retrabajos"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M5 13l4 4L19 7\" /> </svg>",
                 "text": "Menor desperdicio"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\" /> </svg>",
                 "text": "Mayor vida útil del recubrimiento"
             },
             {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" /> </svg>",
                 "text": "Menos costos energéticos y de mantenimiento"
             }
         ]
@@ -261,18 +266,22 @@
             "description": "Nuestra ingeniería destaca por resolver los desafíos más exigentes en preparación de superficies y pretratamiento con un enfoque integral.",
             "cards": [
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
                     "title": "Acabados resistentes a la corrosión",
                     "description": "Nuestros sistemas garantizan que el metal tratado esté adecuadamente protegido contra el óxido y otros factores que podrían comprometer la calidad del producto final."
                 },
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
                     "title": "Optimización del tiempo de producción",
                     "description": "Nuestros equipos están diseñados para eliminar los riesgos de defectos en el recubrimiento minimizando los repintados y retrabajos, lo que se traduce en procesos de producción más eficientes."
                 },
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
                     "title": "Reducción de costos de mantenimiento",
                     "description": "Entendemos que cada proyecto tiene necesidades únicas, por lo que ofrecemos sistemas de pretratamiento personalizados, garantizando que obtengas los mejores resultados en tu línea de producción."
                 },
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5\"/></svg>",
                     "title": "Cumplimiento y adaptación a requisitos químicos",
                     "description": "Diseñamos y fabricamos cada sistema de acuerdo con las características y fichas técnicas del compuesto químico que requiera su línea de producción. Nos apegamos estrictamente a los requerimientos de tiempo, temperatura y materiales indicados por su proveedor para garantizar la compatibilidad absoluta y el rendimiento óptimo de su equipo."
                 }

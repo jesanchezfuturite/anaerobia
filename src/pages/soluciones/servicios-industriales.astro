@@ -2,7 +2,10 @@
 export const prerender = false
 
 import Layout from '../../layouts/Layout.astro'
+import { getGeneral } from '../../lib/general.js'
 import fallback from '../../data/soluciones/servicios-industriales.json'
+
+const general = await getGeneral()
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
 // visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
@@ -18,6 +21,11 @@ try {
 // Logos de certificaciones: contenido compartido del sitio que llega en el
 // mismo payload de la API (se editan una sola vez en la página de Inicio).
 const certificados = d.certificados ?? fallback.certificados ?? []
+
+// CTA en banda que va después del bloque «Ingeniería y Tecnología». Se
+// administra desde el panel (pestaña «CTA tras Servicios»); si se deja
+// vacío, la sección no se dibuja.
+const ctaServicios = d.extras?.cta_servicios ?? null
 
 // SEO Metadata
 const seoTitle = d.seo?.title
@@ -55,7 +63,7 @@ const importanciaIcons = [
 
                     <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
                     <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
-                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">{d.hero.description}</p>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                     <div class="pt-8">
                         <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg"> Cotizar </a>
                     </div>
@@ -71,7 +79,7 @@ const importanciaIcons = [
                         <div>
                             <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.extras.servicios.badge}</span>
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">{d.extras.servicios.title}</h2>
-                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">
                                 {d.extras.servicios.description}
                             </p>
                         </div>
@@ -83,7 +91,7 @@ const importanciaIcons = [
                                         <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
-                                        <span>{item.text}</span>
+                                        <span class="whitespace-pre-wrap">{item.text}</span>
                                     </li>
                                 ))
                             }
@@ -100,12 +108,26 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 03. LA IMPORTANCIA DEL SERVICIO INDUSTRIAL -->
+        <!-- 03. CTA EN BANDA (tras «Ingeniería y Tecnología») -->
+        {ctaServicios && (
+            <section class="py-16 bg-brand-navy relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
+                <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-left">
+                        <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{ctaServicios.title}</h2>
+                        <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{ctaServicios.description}</p>
+                    </div>
+                    <a href={ctaServicios.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{ctaServicios.button_label}</a>
+                </div>
+            </section>
+        )}
+
+        <!-- 04. LA IMPORTANCIA DEL SERVICIO INDUSTRIAL -->
         <section class="py-16 bg-gray-50 px-6 md:px-12 relative overflow-hidden" id="importancia">
             <div class="container mx-auto max-w-6xl">
                 <div class="text-center mb-12 pain-points-header">
                     <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-4 leading-tight">{d.desafios.title}</h2>
-                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto">{d.desafios.description}</p>
+                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto whitespace-pre-wrap">{d.desafios.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -117,7 +139,7 @@ const importanciaIcons = [
                                         <path stroke-linecap="round" stroke-linejoin="round" d={importanciaIcons[i] ?? importanciaIcons[0]} />
                                     </svg>
                                 </div>
-                                <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">{t.text}</h3>
+                                <h3 class="font-saira font-bold text-brand-navy text-lg uppercase whitespace-pre-wrap">{t.text}</h3>
                             </div>
                         ))
                     }
@@ -125,34 +147,34 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 04. CTA PERSONALIZADO -->
+        <!-- 05. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
             <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
                 <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.cta1.title}</h2>
-                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">{d.cta1.description}</p>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto whitespace-pre-wrap">{d.cta1.description}</p>
                 <div class="pt-8">
                     <a href={d.cta1.button_url} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta1.button_label}</a>
                 </div>
             </div>
         </section>
 
-        <!-- 05. NORMATIVIDAD -->
+        <!-- 06. NORMATIVIDAD -->
         <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
             <div class="container mx-auto max-w-6xl">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div class="lg:w-1/2 space-y-6 norms-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.normatividad.badge}</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{d.normatividad.title}</h2>
-                            <p class="text-gray-300 font-light leading-relaxed mt-4">
-                                {d.normatividad.description}
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{general.normas?.badge}</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{general.normas?.title}</h2>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">
+                                {general.normas?.description}
                             </p>
                         </div>
 
-                        {d.normatividad.bullets.map((b) => <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">{b.text}</p>)}
+                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4 whitespace-pre-wrap">{general.normas?.text}</p>
                     </div>
 
                     <div class="lg:w-1/2 w-full">
@@ -163,7 +185,6 @@ const importanciaIcons = [
                                         <div class="h-14 w-full flex items-center justify-center mb-2">
                                             <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
                                         </div>
-                                        <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
                                     </div>
                                 ))
                             }
@@ -173,22 +194,17 @@ const importanciaIcons = [
             </div>
         </section>
 
-        <!-- 06. ALIANZAS / PARTNERS -->
+        <!-- 07. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
                 <div class="swiper marquee-swiper w-full">
                     <div class="swiper-wrapper items-center">
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-
-                        <!-- Duplicate for loop -->
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+                        {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (
+                            <div class="swiper-slide !w-auto px-8 flex items-center justify-center">
+                                <img src={aliado.image} alt={aliado.name} class="h-auto max-h-9 w-auto max-w-full object-contain opacity-60 grayscale hover:grayscale-0 transition-all" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

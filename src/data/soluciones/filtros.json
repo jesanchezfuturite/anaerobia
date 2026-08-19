@@ -15,48 +15,39 @@
         "title": "¿Por qué es crítica la filtración industrial?",
         "paragraphs": [
             {
-                "text": "En los procesos industriales de aplicación de acabados y pinturas, el aire es el principal portador de contaminantes. Un sistema de filtración ineficiente no solo daña el acabado final de las piezas (generando retrabajos costosos), sino que pone en riesgo la salud del personal operativo y el cumplimiento de las normativas ambientales locales e internacionales."
-            },
-            {
-                "text": "ANAEROBIA ofrece una gama completa de filtros para cabina de pintura de alta eficiencia (como la línea exclusiva GFS Wave), filtros tacky de inyección para contención de micropartículas, y colectores de polvos para lijado y granallado diseñados a la medida de tu planta."
+                "text": "En los procesos industriales de aplicación de acabados y pinturas, el aire es el principal portador de contaminantes. Un sistema de filtración ineficiente no solo daña el acabado final de las piezas (generando retrabajos costosos), sino que pone en riesgo la salud del personal operativo y el cumplimiento de las normativas ambientales locales e internacionales.\n\nANAEROBIA ofrece una gama completa de filtros para cabina de pintura de alta eficiencia (como la línea exclusiva GFS Wave), filtros tacky de inyección para contención de micropartículas, y colectores de polvos para lijado y granallado diseñados a la medida de tu planta."
             }
         ],
-        "image": "/images/soluciones/filtros/filtro-2.webp",
-        "highlight": "Garantizamos aire libre de impurezas bajo estrictos estándares normativos."
+        "highlight": "Garantizamos aire libre de impurezas bajo estrictos estándares normativos.",
+        "image": "/images/soluciones/filtros/filtro-2.webp"
     },
     "desafios": {
         "badge": "Desafíos",
         "title": "Riesgos de una filtración deficiente en la línea",
         "description": "Un sistema de filtración inadecuado o saturado desencadena múltiples complicaciones críticas en tu producción:",
         "image": "/images/soluciones/filtros/filtro-4.webp",
-        "tarjetas": [
-            {
-                "text": "Contaminación en el Acabado"
-            },
-            {
-                "text": "Incumplimiento de Normas"
-            },
-            {
-                "text": "Saturación y Desgaste"
-            },
-            {
-                "text": "Riesgos Explosivos e Incendios"
-            }
-        ],
         "items": [
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Contaminación en el Acabado",
                 "title": "Contaminación en el Acabado",
                 "description": "La acumulación de motas, polvo y fibras en el flujo de aire compromete la calidad Clase A del pintado. Las impurezas se incrustan en la pintura húmeda, forzando costosos procesos de pulido y repintado de las piezas."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Incumplimiento de Normas",
                 "title": "Incumplimiento de Normas y Multas",
                 "description": "La emisión incontrolada de partículas y compuestos químicos peligrosos (como residuos de cromato) fuera de la cabina infringe las normativas NFPA 33 y las directrices ambientales de la EPA, acarreando costosas sanciones."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Saturación y Desgaste",
                 "title": "Saturación y Pérdida de Presión",
                 "description": "Filtros saturados elevan drásticamente la resistencia al flujo de aire (caída de presión), provocando que los extractores trabajen forzados. Esto incrementa el consumo eléctrico y disminuye la capacidad de arrastre en la cabina."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Riesgos Explosivos e Incendios",
                 "title": "Riesgos Explosivos e Incendios",
                 "description": "La acumulación excesiva de overspray inflamable en el plenum de extracción y los ductos eleva gravemente el riesgo de ignición. La filtración certificada es obligatoria según la NFPA 33 para evitar catástrofes."
             }
@@ -74,16 +65,19 @@
         "description": "No solo vendemos filtros, evaluamos las caídas de presión de tus sistemas, el flujo volumétrico (CFM) requerido y las características físicas del recubrimiento para suministrar la solución idónea.",
         "cards": [
             {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M12 3v18M3 12h18M12 3a9 9 0 0 1 9 9M12 3a9 9 0 0 0-9 9M12 21a9 9 0 0 1 9-9M12 21a9 9 0 0 0-9 9\"></path> </svg>",
                 "title": "Línea de Filtros de Alta Eficiencia Wave GFS",
                 "description": "Línea exclusiva de extracción con una superficie corrugada patentada que duplica la superficie de captura. Logra un 99.83% de eficiencia y extiende notablemente la vida útil del plenum de la cabina.",
                 "image": "/images/soluciones/filtros/filtro-3.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M4 4h16v16H4V4zM4 9h16M4 15h16M9 4v16M15 4v16\"></path> </svg>",
                 "title": "Filtros Tacky de Inyección con Marco Interno",
                 "description": "Filtros sintéticos tacky que capturan partículas superiores a 5 micras. Su marco interno de acero sólido soldada garantiza un sello hermético que evita derivaciones de aire no filtrado.",
                 "image": "/images/soluciones/filtros/filtro-5.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M19 11H5m14 0a2 2 0 0 1 2 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"></path> </svg>",
                 "title": "Cabinas y Colectores de Polvo a la Medida",
                 "description": "Diseñamos e integramos cabinas de colección de polvo para lijado y desbastado. Empleamos colectores de cartucho y bolsa autolimpiables por chorro de pulso (Pulse Jet) de alto desempeño.",
                 "image": "/images/soluciones/filtros/filtro-7.webp"

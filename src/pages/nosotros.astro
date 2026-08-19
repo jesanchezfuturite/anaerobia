@@ -2,8 +2,10 @@
 export const prerender = false
 
 import Layout from "../layouts/Layout.astro";
-import homeFallback from '../data/homepage.json';
+import { getGeneral } from '../lib/general.js'
 import fallback from '../data/nosotros.json'
+
+const general = await getGeneral()
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
 // visita (SSR). Si la API no responde, se usa el respaldo local.
@@ -16,20 +18,17 @@ try {
   // API no disponible: la página se sirve con el contenido de respaldo
 }
 
-// Logos de certificaciones: se editan en la página de Inicio del admin.
-let home = homeFallback;
-try {
-  const res = await fetch(`${API_URL}/api/v1/paginas/homepage`, { signal: AbortSignal.timeout(5000) });
-  if (res.ok) home = (await res.json()).data;
-} catch {
-  // API no disponible: se usan los logos de respaldo
-}
-const certificados = home.normativas?.certificados ?? [];
+// Logos de certificaciones: se editan en la página «General» del admin.
+const certificados = general.normas?.certificados ?? [];
 
 const seoTitle = d.seo.title;
 const seoDescription = d.seo.description;
 
-// Iconos del diseño (no editables desde el panel).
+// Un icono puede ser código SVG (se incrusta y hereda el color de la marca) o
+// una imagen subida (se muestra tal cual, solo ajustada al tamaño).
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
+// Iconos de respaldo de los pilares: se usan si el panel no trae ninguno.
 const pilarIcons = [
   `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>`,
   `<svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path></svg>`,
@@ -85,6 +84,13 @@ const valorConnectors = [
   </div>`
 ];
 
+// El valor guarda título y subtítulo en un mismo texto, separados por <br/>.
+const partesDelValor = (texto) => {
+  const [titulo, subtitulo = ''] = String(texto ?? '').split(/<br\s*\/?>/i)
+  return { titulo, subtitulo }
+}
+
+// Iconos de respaldo de los valores: se usan si el panel no trae ninguno.
 const valorIcons = [
   `<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>`,
   `<svg class="w-7 h-7" fill="currentColor" stroke="none" viewBox="0 0 59.82 59.86">
@@ -104,6 +110,7 @@ const valorIcons = [
   `<svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`
 ];
 
+// Iconos de respaldo de las tarjetas ESG: se usan si el panel no trae ninguno.
 const esgIcons = [
   `<svg class="w-10 h-10" fill="currentColor" stroke="none" viewBox="0 0 66.83 67.21">
                   <path d="M39.88,55.84l2.01-1.24c.39-.24.37-1.31.33-1.9-5.73,2.94-12.05,2.76-17.62.04-.23,1.71.53,2.4,2.36,2.5l.02,11.78-17.07.08-.38-10.52,1.61-2.44c-2.54-3.18-5.4-5.94-8.47-8.81-6.5-6.08.26-29.8,5.45-28.8.76.15,1.85,2.1,1.65,2.87l-2.95,11.48c3.15.16,5.38,1.83,6.96,4.63.35-10.93,8.29-19.22,18.95-19.73-.51-2.17-1.25-4.35-2.02-6.03-2.96-.29-4.76-.98-6.3-2.57-1.4-1.45-2.64-4.71-1.16-6.47,1.15-1.37,5.07-.5,6.42.64,1.85,1.55,2.12,4.03,2.23,6.74l.05,1.15c.01.33.85.77.99.48,1.29-2.62.92-6.12,4.03-7.39,1.82-.74,5.57-1.08,6.83.79s-1.03,4.9-2.59,5.91c-1.91,1.24-4.29,1.2-6.9,1.29-1.23,1.02-.81,4.22.23,5.51,10.55.72,18.28,9.02,18.5,19.73,1.67-2.82,3.85-4.51,7.01-4.65l-2.95-11.49c-.2-.77.89-2.73,1.65-2.87,3.87-.75,7.78,11.19,8.04,18.25.45,12.25-4.77,10.64-11,19.41,1.03,1.51,1.56,2.82,1.52,4.14l-.27,8.67-15.24.21c-.74.01-2.03-1.32-2.02-2.06l.09-9.31ZM26.72,3.75l3.79,2.41c-.29-1.19-.96-3.22-1.87-3.76-.96-.57-2.75-.78-4.33-.88-.67,3.34,1.59,5.99,5.01,6.61l-2.6-4.37ZM36.35,8.58c3.46.6,5.91-1.57,6.35-4.84-1.4-.38-3.77-.62-4.9-.17-1,.4-1.87,1.87-2.54,3.33l3.44-1.68.6.71-2.94,2.65ZM29.91,52.98c4.53.88,9.07.04,12.92-2.29-.18-5.84,2.72-10.14,8.21-11.92.96-4.4.12-8.75-1.93-12.38-1.83,1.87-4.32,3.23-6.47,2.1-4.1-2.16-5.74-1.25-6.73-2.58-1.58-2.13,2.2-4.76,1.16-8.23-4.2-.82-8.46-.31-11.9,1.69.89,1.15,2.03,2.84,2.1,4,.06.94-.89,2.46-1.47,3.54l2.7,2.72c.56.57.6,2.91-.05,3.34-1.93,1.29-4.74-.18-7.17.78-1.75,1.06-2.96,2.11-5.53,1-.26.26-.45,2.78.08,3.46.45.59,1.36,1.18,2.37,1.83,1.93,1.1,3.86,1.62,6.02,2.29l4.42,1.38c1.02.32,1.99.54,2.4,1.03,1.54,1.86-2.46,5-1.13,8.24ZM6.31,32.91c-1.89,1.09,6.35,7,5.31,11.37l-4.96-6.92c-1.75-2.44-2.27-3.63-1.48-6.44l2.63-9.36c.36-1.3.4-2.72-.52-3.9C1.84,24.91-.9,40.38,3.93,44.58c3.69,3.21,6.65,5.81,9,10.21h10.31s-.96-7.07-.96-7.07c-.41-3.07-2.32-5.42-5.15-6.73-4.66-2.15-6.46-10.6-10.82-8.08ZM43.73,27.23c1.36.59,3.79-1.01,4.44-2.34-2.32-3.29-5.74-5.53-9.18-6.83-.44,2.13-.82,3.53-1.43,5.28l-.55,1.59c-.06.19,2.67.54,6.73,2.3ZM44.82,46.64l-1.21,8.14h10.35c2.32-4.41,5.33-6.99,8.98-10.21,4.86-4.28,2.09-19.68-3.35-26.9-.92,1.18-.86,2.58-.5,3.88l2.73,9.9c.45,1.64.43,3.09-.54,4.43l-6.05,8.42c-.98-4.45,7.22-10.32,5.33-11.4-2.08-1.19-4.88.78-6.36,3.59-2.83,5.38-8.62,5-9.39,10.15ZM27.97,31.81l-2.34-2.89c-.42-.52-1.61-1.58-1.34-2.12l1.25-2.57c.52-1.06-.61-3.22-1.78-4.15-4.4,2.86-7.52,7.38-8.07,12.66.68.56,2.44,1.32,3.01.89l2.02-1.53,7.25-.3ZM29.97,45.45l-4.47-.86-2.98-1.62,1.83,7.78,3.37,1.71,2.25-7.01ZM25.74,56.11h-14.82v9.49h14.82v-9.49ZM55.97,56.11h-14.82v9.49h14.82v-9.49Z"/>
@@ -145,7 +152,7 @@ const esgIcons = [
           </h1>
           {
             d.hero.paragraphs.map((p, i) => (
-              <p class={`text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed${i > 0 ? ' mt-4' : ''}`}>
+              <p class={`text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap${i > 0 ? ' mt-4' : ''}`}>
                 {p.text}
               </p>
             ))
@@ -182,7 +189,7 @@ const esgIcons = [
                         <h3 class="font-saira font-bold text-brand-navy text-2xl mb-2 uppercase">
                           {item.title}
                         </h3>
-                        <p class="text-gray-600 leading-relaxed font-light text-base">
+                        <p class="text-gray-600 leading-relaxed font-light text-base whitespace-pre-wrap">
                           {item.description}
                         </p>
                       </div>
@@ -206,7 +213,7 @@ const esgIcons = [
           <h2 class="text-3xl md:text-4xl lg:text-[2.5rem] font-saira italic font-bold text-brand-navy uppercase mb-4 leading-tight">
             {d.pilares.title}
           </h2>
-          <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto">
+          <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto whitespace-pre-wrap">
             {d.pilares.description}
           </p>
         </div>
@@ -215,7 +222,13 @@ const esgIcons = [
           {
             d.pilares.cards.map((card, i) => (
               <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4" set:html={pilarIcons[i] ?? ''} />
+                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
+                  {card.icon && !esIconoSvg(card.icon) ? (
+                    <img src={card.icon} alt={card.title} class="w-8 h-8 object-contain" />
+                  ) : (
+                    <Fragment set:html={card.icon || pilarIcons[i] || ''} />
+                  )}
+                </div>
                 <h3 class="font-saira font-bold text-brand-navy text-xl">{card.title}</h3>
               </div>
             ))
@@ -244,9 +257,15 @@ const esgIcons = [
             {
               d.valores.items.slice(0, 3).map((valor, i) => (
                 <div class={`valor-card group relative z-10 bg-white/80 backdrop-blur border border-gray-100 p-6 rounded-2xl flex flex-row lg:flex-row-reverse items-center gap-4 hover:shadow-2xl hover:-translate-y-1 hover:border-brand-lime/30 transition-all duration-300${valorCardExtra[i] ?? ''}`}>
-                  <div class={valorIconWrap[i]} set:html={valorIcons[i] ?? ''} />
+                  <div class={valorIconWrap[i]}>
+                    {valor.icon && !esIconoSvg(valor.icon) ? (
+                      <img src={valor.icon} alt={partesDelValor(valor.title).titulo} class="w-7 h-7 object-contain" />
+                    ) : (
+                      <Fragment set:html={valor.icon || valorIcons[i] || ''} />
+                    )}
+                  </div>
                   <div class="text-left lg:text-right">
-                    <h3 class="font-saira font-bold text-brand-navy text-lg uppercase tracking-wide leading-tight group-hover:text-brand-lime transition-colors">{valor.title}<br/><span class="font-light text-gray-500">{valor.subtitle}</span></h3>
+                    <h3 class="font-saira font-bold text-brand-navy text-lg uppercase tracking-wide leading-tight group-hover:text-brand-lime transition-colors">{partesDelValor(valor.title).titulo}<br/><span class="font-light text-gray-500">{partesDelValor(valor.title).subtitulo}</span></h3>
                   </div>
                   <!-- Connector Line -->
                   <Fragment set:html={valorConnectors[i] ?? ''} />
@@ -270,9 +289,15 @@ const esgIcons = [
                   <!-- Connector Line -->
                   <Fragment set:html={valorConnectors[i + 3] ?? ''} />
 
-                  <div class={valorIconWrap[i + 3]} set:html={valorIcons[i + 3] ?? ''} />
+                  <div class={valorIconWrap[i + 3]}>
+                    {valor.icon && !esIconoSvg(valor.icon) ? (
+                      <img src={valor.icon} alt={partesDelValor(valor.title).titulo} class="w-7 h-7 object-contain" />
+                    ) : (
+                      <Fragment set:html={valor.icon || valorIcons[i + 3] || ''} />
+                    )}
+                  </div>
                   <div>
-                    <h3 class="font-saira font-bold text-brand-navy text-lg uppercase tracking-wide leading-tight group-hover:text-brand-lime transition-colors">{valor.title}<br/><span class="font-light text-gray-500">{valor.subtitle}</span></h3>
+                    <h3 class="font-saira font-bold text-brand-navy text-lg uppercase tracking-wide leading-tight group-hover:text-brand-lime transition-colors">{partesDelValor(valor.title).titulo}<br/><span class="font-light text-gray-500">{partesDelValor(valor.title).subtitulo}</span></h3>
                   </div>
                 </div>
               ))
@@ -292,7 +317,7 @@ const esgIcons = [
           <h2 class="text-3xl md:text-5xl font-saira italic font-semibold text-white uppercase mb-6 leading-tight">
             {d.esg.title} <span class="text-[var(--color-brand-lime)]">{d.esg.titleHighlight}</span>
           </h2>
-          <p class="text-gray-300 leading-relaxed font-light text-lg md:text-xl max-w-4xl mx-auto whitespace-pre-line">
+          <p class="text-gray-300 leading-relaxed font-light text-lg md:text-xl max-w-4xl mx-auto whitespace-pre-wrap">
             {d.esg.description}
           </p>
         </div>
@@ -302,10 +327,16 @@ const esgIcons = [
             d.esg.cards.map((card, i) => (
               <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 md:p-10 rounded-2xl shadow-xl hover:-translate-y-2 hover:bg-white/20 transition-all duration-300 flex flex-col h-full">
                 <div class="flex items-center gap-4 mb-6">
-                  <div class="text-[var(--color-brand-lime)] flex-shrink-0" set:html={esgIcons[i] ?? ''} />
+                  <div class="text-[var(--color-brand-lime)] flex-shrink-0">
+                    {card.icon && !esIconoSvg(card.icon) ? (
+                      <img src={card.icon} alt={card.title} class="w-10 h-10 object-contain" />
+                    ) : (
+                      <Fragment set:html={card.icon || esgIcons[i] || ''} />
+                    )}
+                  </div>
                   <h3 class="font-saira font-bold italic text-xl lg:text-2xl uppercase text-white leading-tight tracking-wide">{card.title}</h3>
                 </div>
-                <p class="text-gray-200 font-light text-base leading-relaxed text-left">
+                <p class="text-gray-200 font-light text-base leading-relaxed text-left whitespace-pre-wrap">
                   {card.description}
                 </p>
               </div>
@@ -335,22 +366,22 @@ const esgIcons = [
             <div>
               <span
                 class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"
-                >{d.normas.badge}</span
+                >{general.normas?.badge}</span
               >
               <h2
                 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight"
               >
-                {d.normas.title}
+                {general.normas?.title}
               </h2>
-              <p class="text-gray-300 font-light leading-relaxed mt-4">
-                {d.normas.description}
+              <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">
+                {general.normas?.description}
               </p>
             </div>
 
             <p
-              class="text-gray-400 font-light text-xs border-t border-white/10 pt-4"
+              class="text-gray-400 font-light text-xs border-t border-white/10 pt-4 whitespace-pre-wrap"
             >
-              {d.normas.text}
+              {general.normas?.text}
             </p>
           </div>
 
@@ -366,9 +397,6 @@ const esgIcons = [
                         class="max-h-full max-w-full object-contain transition-all duration-300"
                       />
                     </div>
-                    <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">
-                      {cert.name}
-                    </span>
                   </div>
                 ))
               }
@@ -382,21 +410,16 @@ const esgIcons = [
     <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
       <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
         <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
-          {d.alianzas.title}
+          {general.aliados?.title}
         </span>
         <div class="swiper marquee-swiper w-full">
           <div class="swiper-wrapper items-center">
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>GFS</span>'" /></div>
-
-            <!-- Duplicate for loop -->
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>FANUC</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>GRACO</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>BINKS</span>'" /></div>
-            <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\\'text-2xl font-bold text-gray-400\\'>GFS</span>'" /></div>
-          </div>
+                        {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (
+                            <div class="swiper-slide !w-auto px-8 flex items-center justify-center">
+                                <img src={aliado.image} alt={aliado.name} class="h-auto max-h-9 w-auto max-w-full object-contain opacity-60 grayscale hover:grayscale-0 transition-all" />
+                            </div>
+                        ))}
+                    </div>
         </div>
       </div>
     </section>

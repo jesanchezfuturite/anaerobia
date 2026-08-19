@@ -25,27 +25,22 @@
         "title": "Puntos de Inflexión Comunes en la Línea de Pintura",
         "description": "Las operaciones de manufactura de alto volumen a menudo enfrentan ineficiencias críticas que elevan el costo por pieza y comprometen la consistencia y el acabado final del producto.",
         "image": "/images/soluciones/pintura-polvo/pintura-polvo-14.webp",
-        "tarjetas": [
-            {
-                "text": "Tiempos excesivos en cambio de color"
-            },
-            {
-                "text": "Efecto jaula de Faraday y cobertura irregular"
-            },
-            {
-                "text": "Desperdicio por mala recuperación"
-            }
-        ],
         "items": [
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Tiempos excesivos en cambio de color",
                 "title": "Tiempos Excesivos en Cambio de Color",
                 "description": "La transición entre diferentes tonos de polvo en sistemas obsoletos puede tomar horas, generando cuellos de botella críticos y contaminación cruzada que arruina lotes enteros de producción."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Efecto jaula de Faraday y cobertura irregular",
                 "title": "Efecto Jaula de Faraday y Cobertura Irregular",
                 "description": "La dificultad de penetrar esquinas y geometrías complejas durante la aplicación electrostática genera zonas sin protección, obligando a realizar lentos retoques manuales o comprometiendo la resistencia."
             },
             {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3\"/></svg>",
+                "text": "Desperdicio por mala recuperación",
                 "title": "Desperdicio por Mala Fluidización y Recuperación",
                 "description": "Si el equipo de recuperación (ciclón) o las tolvas no están optimizados, el polvo se apelmaza o no recircula adecuadamente. Esto provoca pérdidas drásticas de materia prima virgen y acabados imperfectos."
             }
@@ -63,16 +58,19 @@
         "description": "Diseñamos y fabricamos soluciones llave en mano adaptadas a los requisitos físicos de tu planta, la geometría de tus piezas y los estándares químicos del recubrimiento.",
         "cards": [
             {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon> <polyline points=\"2 12 12 17 22 12\"></polyline> <polyline points=\"2 17 12 22 22 17\"></polyline> </svg>",
                 "title": "Sistemas Automatizados Llave en Mano",
                 "description": "Diseñamos e integramos líneas de alta ingeniería completamente automatizadas. Proveemos cabinas de última generación, reciprocadores de alta velocidad y transportadores aéreos sincronizados (Overhead Conveyors) configurados de manera integral para optimizar y estandarizar los más altos volúmenes de producción.",
                 "image": "/images/soluciones/pintura-polvo/pintura-polvo-7.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3\"></polygon> </svg>",
                 "title": "Clean Rooms y Recuperación Inteligente",
                 "description": "Nuestras instalaciones integran cuartos limpios presurizados y tecnología avanzada de recuperación por ciclones. Esta ingeniería garantiza hasta un 98% de aprovechamiento del polvo, previniendo la contaminación cruzada entre lotes y asegurando cambios de color ultrarrápidos para minimizar los tiempos muertos.",
                 "image": "/images/soluciones/pintura-polvo/pintura-polvo-8.webp"
             },
             {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon> </svg>",
                 "title": "Sistema de pintura en Polvo y Aplicación de Precisión",
                 "description": "Equipamos las líneas con tecnología electrostática de recuperación manual hasta en digital, disponibles en configuraciones que van desde manuales hasta sistemas totalmente automatizados. Logramos penetrar geometrías críticas para eliminar el efecto Jaula de Faraday, asegurando un espesor de capa exacto y una adherencia inmejorable lote tras lote.",
                 "image": "/images/soluciones/pintura-polvo/pintura-polvo-9.webp"
@@ -159,14 +157,17 @@
             "description": "Nuestras líneas destacan con un enfoque integral incorporando un muy alto nivel de ingeniería capaz de resolver los desafíos más exigentes en acabados industriales.",
             "cards": [
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"/></svg>",
                     "title": "Integración Personalizada",
                     "description": "Desde soluciones estándar hasta líneas completas de pintura en polvo. Diseñadas a la medida de tu layout optimizando el flujo de piezas para maximizar la productividad."
                 },
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"/></svg>",
                     "title": "Tiempos de inactividad mínimos",
                     "description": "Garantizamos respuesta técnica en sitio y un amplio stock de refacciones críticas. Tu línea de pintura siempre disponible gracias a nuestro equipo experto y mantenimientos programados."
                 },
                 {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z\"/></svg>",
                     "title": "Alianzas Tecnológicas Globales",
                     "description": "Integramos tecnología de última generación de marcas mundiales (Gema, Nordson, Wagner) asegurando una aplicación electrostática perfecta y cambios de color eficientes."
                 }
