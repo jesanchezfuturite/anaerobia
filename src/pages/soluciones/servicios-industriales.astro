@@ -220,23 +220,23 @@ const importanciaIcons = [
         <!-- 08. PREGUNTAS FRECUENTES (FAQ) -->
         {
             faqs && (
-                <section class="py-16 bg-white px-6 md:px-12" id="faq">
+                <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
                     <div class="container mx-auto max-w-4xl">
-                        <div class="text-center mb-16">
+                        <div class="text-center mb-16 faq-header">
                             {faqs.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{faqs.badge}</span>}
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{faqs.title}</h2>
-                            {faqs.description && <p class="text-gray-600 mt-4 font-light">{faqs.description}</p>}
                         </div>
 
+                        <!-- Acordeón exclusivo: se mantiene una sola pregunta abierta -->
                         <div class="space-y-4">
                             {
                                 (faqs.items ?? []).map((faq, i) => (
-                                    <details class="group border border-gray-200 rounded-2xl bg-gray-50 transition-all duration-300 open:bg-white open:shadow-xl [&_summary::-webkit-details-marker]:hidden" open={i === 0}>
-                                        <summary class="flex items-center justify-between p-6 cursor-pointer focus:outline-none">
-                                            <h3 class="font-saira font-semibold italic text-brand-navy text-lg md:text-xl uppercase tracking-wide">{faq.question}</h3>
+                                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open={i === 0}>
+                                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                                            <span>{faq.question}</span>
                                             <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']" />
                                         </summary>
-                                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed whitespace-pre-wrap">{faq.answer}</div>
+                                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal whitespace-pre-wrap">{faq.answer}</div>
                                     </details>
                                 ))
                             }
@@ -251,13 +251,13 @@ const importanciaIcons = [
             galeria && (
                 <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100" id="galeria">
                     <div class="container mx-auto">
-                        <div class="text-center max-w-3xl mx-auto mb-16">
+                        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
                             {galeria.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{galeria.badge}</span>}
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{galeria.title}</h2>
-                            {galeria.description && <p class="text-gray-600 mt-4 font-light">{galeria.description}</p>}
+                            {galeria.description && <p class="text-gray-600 mt-4 font-light whitespace-pre-wrap">{galeria.description}</p>}
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
                             {
                                 (galeria.images ?? []).map((img) => (
                                     <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
@@ -327,6 +327,48 @@ const importanciaIcons = [
                 opacity: 0,
                 duration: 0.6,
                 stagger: 0.1,
+            })
+
+            // Preguntas frecuentes
+            gsap.from('.faq-header > *', {
+                scrollTrigger: { trigger: '.faq-header', start: 'top 85%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            gsap.from('#faq details', {
+                scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            // Galería
+            gsap.from('.gallery-header > *', {
+                scrollTrigger: { trigger: '.gallery-header', start: 'top 85%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            gsap.from('.gallery-grid > div', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
             })
         }
     })
