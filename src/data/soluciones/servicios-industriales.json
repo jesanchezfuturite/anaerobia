@@ -13,6 +13,7 @@
   },
   "desafios": {
     "title": "La importancia del servicio industrial",
+    "badge": "Ingeniería y Tecnología",
     "description": "Un mantenimiento adecuado es clave para el desempeño y la vida útil de sus equipos.",
     "tarjetas": [
       {
@@ -84,7 +85,6 @@
   },
   "extras": {
     "servicios": {
-      "badge": "Ingeniería y Tecnología",
       "title": "Esta área atiende todas las necesidades de servicio, posventa y refacciones",
       "description": "Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de los equipos, para mantenerlos en óptimas condiciones. Si necesitas una asesoría no dudes en contactar a nuestros expertos.",
       "image": "/images/soluciones/servicios_industriales/DSC03097.webp",
