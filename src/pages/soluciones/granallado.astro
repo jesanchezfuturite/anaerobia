@@ -49,9 +49,6 @@ const ventajaIcons = [
     'M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z',
     'M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z',
 ]
-// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
-let _tabN = 0
-const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
 // Un icono puede ser código SVG (se incrusta y hereda el color de la marca) o
 // una imagen subida (se muestra tal cual, solo ajustada al tamaño).
 const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
@@ -329,44 +326,26 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
             <div class="container mx-auto relative z-10">
                 <div class="mb-16">
                     <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.tipos.badge}</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8">{d.tipos.title}</h2>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4">{d.tipos.title}</h2>
+                    {d.tipos.description && (
+                        <p class="text-gray-600 font-light mt-4 text-center md:text-left whitespace-pre-wrap">{d.tipos.description}</p>
+                    )}
                 </div>
 
-                <!-- Tabs Navigation -->
-                <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto" id="tech-tabs-nav">
+                <!-- Bloques a dos columnas: imagen y texto -->
+                <div class="space-y-16 lg:space-y-24">
                     {
-                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
-                            <button
-                                class={
-                                    tabNums[i] === '01'
-                                        ? 'tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]'
-                                        : 'tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[120px]'
-                                }
-                                data-tab={`tab-phase${i + 1}`}
-                            >
-                                <span class="text-3xl font-light not-italic font-sans">{tabNums[i]}</span>
-                                <span>{tab.label}</span>
-                            </button>
-                        ))
-                    }
-                </div>
-
-                <!-- Tabs Content Panels -->
-                <div id="tech-tabs-content" class="relative w-full">
-                    {
-                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
-                            <div id={`tab-phase${i + 1}`} class={tabNums[i] === '01' ? 'tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0' : 'tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4'}>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                                    <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[500px]">
-                                        <img src={tab.image} alt={tab.title} class="w-full h-full object-cover absolute inset-0" />
-                                        <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply" />
-                                    </div>
-                                    <div class="flex flex-col pb-8">
-                                        <div class="mb-10 text-center lg:text-left">
-                                            <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{tab.title}</h3>
-                                            <p class="text-lg text-gray-600 font-light leading-relaxed whitespace-pre-wrap">{tab.description}</p>
-                                        </div>
-                                    </div>
+                        // Se filtran primero los ocultos para que la
+                        // alternancia no se salte un lado al esconder uno.
+                        d.tipos.tabs.filter((caso) => caso.active !== false).map((caso, i) => (
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                                <div class={`w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-[460px] ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+                                    <img src={caso.image} alt={caso.title} loading="lazy" class="w-full h-full object-cover absolute inset-0" />
+                                    <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply" />
+                                </div>
+                                <div class="text-center lg:text-left">
+                                    <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{caso.title}</h3>
+                                    <p class="text-lg text-gray-600 font-light leading-relaxed whitespace-pre-wrap">{caso.description}</p>
                                 </div>
                             </div>
                         ))
@@ -388,10 +367,16 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                     {
                         d.extras.ventajas.items.map((item, i) => (
                             <div class="space-y-4 p-6 hover:-translate-y-1 transition-transform duration-300">
-                                <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto">
-                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={ventajaIcons[i] ?? ventajaIcons[0]} />
-                                    </svg>
+                                <div class="w-16 h-16 [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)] bg-brand-lime/10 text-brand-lime flex items-center justify-center mx-auto [&_svg]:w-8 [&_svg]:h-8">
+                                    {item.icon && !esIconoSvg(item.icon) ? (
+                                        <img src={item.icon} alt={item.title} class="w-8 h-8 object-contain" />
+                                    ) : item.icon ? (
+                                        <Fragment set:html={item.icon} />
+                                    ) : (
+                                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={ventajaIcons[i] ?? ventajaIcons[0]} />
+                                        </svg>
+                                    )}
                                 </div>
                                 <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase">{item.title}</h3>
                                 <p class="text-sm text-gray-500 leading-relaxed font-light whitespace-pre-wrap">{item.description}</p>
@@ -686,41 +671,6 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
             })
         }
 
-        // 5. Controlador de Tabs Técnicos
-        const tabBtns = document.querySelectorAll('.tech-tab-btn')
-        const tabPanels = document.querySelectorAll('.tech-tab-panel')
-
-        tabBtns.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const targetTabId = btn.getAttribute('data-tab')
-
-                tabBtns.forEach((b) => {
-                    b.classList.remove('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
-                    b.classList.add('border-transparent', 'text-gray-400', 'bg-transparent')
-                })
-
-                btn.classList.add('active', 'border-brand-lime', 'text-brand-lime', 'bg-brand-lime/10')
-                btn.classList.remove('border-transparent', 'text-gray-400', 'bg-transparent')
-
-                tabPanels.forEach((panel) => {
-                    panel.classList.add('hidden', 'opacity-0', 'translate-y-4')
-                    panel.classList.remove('opacity-100', 'translate-y-0')
-                })
-
-                const activePanel = document.getElementById(targetTabId)
-                if (activePanel) {
-                    activePanel.classList.remove('hidden')
-                    setTimeout(() => {
-                        activePanel.classList.remove('opacity-0', 'translate-y-4')
-                        activePanel.classList.add('opacity-100', 'translate-y-0')
-                    }, 20)
-                }
-
-                if (typeof ScrollTrigger !== 'undefined') {
-                    ScrollTrigger.refresh()
-                }
-            })
-        })
     })
 
     // 4. Refrescar ScrollTrigger al cargar completamente la página (imágenes, fuentes, etc.)
@@ -730,11 +680,4 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
         }
     })
 
-    // Si la primera pestaña técnica está inactiva, activar la primera visible
-    document.addEventListener('DOMContentLoaded', () => {
-        const techBtns = document.querySelectorAll('.tech-tab-btn')
-        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
-            techBtns[0].click()
-        }
-    })
 </script>
