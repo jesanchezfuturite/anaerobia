@@ -1,21 +1,70 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import { getEntry } from 'astro:content'
+export const prerender = false
 
-// Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry('homepage', 'index')
-const homepageData = homepageEntry?.data || {}
-const certificados = homepageData.normativas?.certificados || [
-    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
-    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
-    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
-    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
-    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
+import Layout from '../../layouts/Layout.astro'
+import { getGeneral } from '../../lib/general.js'
+import fallback from '../../data/soluciones/servicios-industriales.json'
+
+const general = await getGeneral()
+
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let d = fallback
+try {
+    const res = await fetch(`${API_URL}/api/v1/soluciones/servicios-industriales`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) d = (await res.json()).data
+} catch {
+    // API no disponible: la página se sirve con el contenido de respaldo
+}
+
+// Logos de certificaciones: contenido compartido del sitio que llega en el
+// mismo payload de la API (se editan una sola vez en la página de Inicio).
+const certificados = d.certificados ?? fallback.certificados ?? []
+
+// CTA en banda que va después del bloque «Ingeniería y Tecnología». Se
+// administra desde el panel (pestaña «CTA tras Servicios»); si se deja
+// vacío, la sección no se dibuja.
+const ctaServicios = d.extras?.cta_servicios ?? null
+
+// Preguntas frecuentes: se administran en la pestaña «FAQs» del panel. Si se
+// dejan vacías, la sección no se dibuja.
+const faqs = d.faqs?.items?.length ? d.faqs : null
+
+// Galería de proyectos: se administra en la pestaña «Galería» del panel. Si se
+// deja vacía, la sección no se dibuja.
+const galeria = d.galeria?.images?.length ? d.galeria : null
+
+// «Alcance del Servicio»: tarjetas oscuras con foto de fondo, se administran en
+// la pestaña del mismo nombre. Si no hay tarjetas, la sección no se dibuja.
+const alcance = d.extras?.alcance?.cards?.length ? d.extras.alcance : null
+
+// Presentación de la división ANSERVICE (después del hero): se administra en la
+// pestaña «Presentación ANSERVICE». Si se deja vacía, la sección no se dibuja.
+const anservice = d.extras?.anservice ?? null
+const hayAnservice = anservice && (anservice.description || anservice.items?.length || anservice.image)
+
+// Un icono subido como SVG se incrusta (hereda el color de la marca); si es una
+// imagen, se muestra tal cual.
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
+// Iconos por omisión de las tarjetas de alcance, si el panel no tiene uno.
+const alcanceIcons = [
+    'M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z',
+    'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99',
 ]
 
 // SEO Metadata
-const seoTitle = 'Servicio Industrial y Refaccionamiento | Anaerobia'
-const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción.'
+const seoTitle = d.seo?.title
+const seoDescription = d.seo?.description
+
+// Iconos (SVG paths) de las tarjetas de "La importancia del servicio industrial"
+const importanciaIcons = [
+    'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    'M13 10V3L4 14h7v7l9-11h-7z',
+    'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+]
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -24,7 +73,7 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="/images/soluciones/servicios_industriales/Servicio Industrial.webp" alt="Servicio Industrial y Refaccionamiento" class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -39,9 +88,9 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                         <span class="text-brand-lime">Servicio Industrial</span>
                     </nav>
 
-                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> Posventa y Refaccionamiento </span>
-                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Servicio Industrial y Refaccionamiento</h1>
-                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción.</p>
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                     <div class="pt-8">
                         <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg"> Cotizar </a>
                     </div>
@@ -49,130 +98,202 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
             </div>
         </section>
 
-        <!-- 02. INTRODUCCIÓN -->
+        <!-- 02. PRESENTACIÓN ANSERVICE -->
+        {
+            hayAnservice && (
+                <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden border-b border-gray-100" id="anservice">
+                    <div class="container mx-auto">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                            <!-- Imagen -->
+                            {anservice.image && (
+                                <div class="relative anservice-image group">
+                                    <div class="relative rounded-lg overflow-hidden">
+                                        <img src={anservice.image} alt={anservice.title ?? 'División ANSERVICE'} class="w-full h-auto object-contain transform hover:scale-[1.02] transition-transform duration-700" />
+                                    </div>
+                                </div>
+                            )}
+
+                            <!-- Contenido -->
+                            <div class="space-y-8 anservice-text">
+                                <div>
+                                    {anservice.title && <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-6 leading-tight">{anservice.title}</h2>}
+                                    {anservice.description && (
+                                        <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">
+                                            {anservice.description}
+                                        </p>
+                                    )}
+                                </div>
+
+                                {anservice.items?.length > 0 && (
+                                    <ul class="space-y-4 text-gray-600 font-light text-sm md:text-base">
+                                        {anservice.items.map((item) => (
+                                            <li class="flex items-start gap-3">
+                                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                                </svg>
+                                                <span class="whitespace-pre-wrap">{item.text}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- 03. INTRODUCCIÓN -->
         <section class="py-16 bg-white px-6 md:px-12 relative overflow-hidden" id="introduccion">
             <div class="container mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="space-y-8 intro-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ingeniería y Tecnología</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">Esta área atiende todas las necesidades de servicio, posventa y refacciones</h2>
-                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg">
-                                Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de los equipos, para mantenerlos en óptimas condiciones. Si necesitas una asesoría no dudes en contactar a nuestros expertos.
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-6 leading-tight">{d.extras.servicios.title}</h2>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">
+                                {d.extras.servicios.description}
                             </p>
                         </div>
 
                         <ul class="space-y-4 text-gray-600 font-light text-sm md:text-base">
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Elaboración de planes de conservación y mantenimiento preventivo.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Suministro de paquetes de refacciones y filtros.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Valoración del estatus o condición de sus instalaciones y/o equipos.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Servicio de balance de flujos de aire para cabinas de aplicación y hornos.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Capacitación y entrenamiento para operadores de producción y mantenimiento (TPM).</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Inspecciones y reportes periódicos de sus instalaciones.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                                <span>Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente.</span>
-                            </li>
+                            {
+                                d.extras.servicios.items.map((item) => (
+                                    <li class="flex items-start gap-3">
+                                        <svg class="w-6 h-6 text-brand-lime shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span class="whitespace-pre-wrap">{item.text}</span>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
 
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src="/images/soluciones/servicios_industriales/DSC03097.webp" alt="Servicio industrial en planta" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.extras.servicios.image} alt="Servicio industrial en planta" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 03. LA IMPORTANCIA DEL SERVICIO INDUSTRIAL -->
+        <!-- 04. CTA EN BANDA (tras «Ingeniería y Tecnología») -->
+        {ctaServicios && (
+            <section class="py-16 bg-brand-navy relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
+                <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-left">
+                        <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{ctaServicios.title}</h2>
+                        <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{ctaServicios.description}</p>
+                    </div>
+                    <a href={ctaServicios.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{ctaServicios.button_label}</a>
+                </div>
+            </section>
+        )}
+
+        <!-- 05. LA IMPORTANCIA DEL SERVICIO INDUSTRIAL -->
         <section class="py-16 bg-gray-50 px-6 md:px-12 relative overflow-hidden" id="importancia">
             <div class="container mx-auto max-w-6xl">
                 <div class="text-center mb-12 pain-points-header">
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-4 leading-tight">La importancia del servicio industrial</h2>
-                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto">Un mantenimiento adecuado es clave para el desempeño y la vida útil de sus equipos.</p>
+                    {d.desafios.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.desafios.badge}</span>}
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-4 leading-tight">{d.desafios.title}</h2>
+                    <p class="text-gray-600 leading-relaxed font-light text-base max-w-2xl mx-auto whitespace-pre-wrap">{d.desafios.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Item 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Extiende la vida útil de sus equipos</h3>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Minimiza pérdidas por paros o fallas</h3>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Garantiza procesos y calidad óptima</h3>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
-                        <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <h3 class="font-saira font-bold text-brand-navy text-lg uppercase">Mayor tranquilidad y confianza</h3>
-                    </div>
+                    {
+                        d.desafios.tarjetas.map((t, i) => (
+                            <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:-translate-y-2 transition-all duration-300 text-center flex flex-col items-center border border-gray-100">
+                                <div class="w-16 h-16 bg-brand-navy/5 text-brand-navy rounded-full flex items-center justify-center mb-4 [&_svg]:w-8 [&_svg]:h-8">
+                                    {t.icon && !esIconoSvg(t.icon) ? (
+                                        <img src={t.icon} alt={t.text} class="w-8 h-8 object-contain" />
+                                    ) : t.icon ? (
+                                        <Fragment set:html={t.icon} />
+                                    ) : (
+                                        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d={importanciaIcons[i] ?? importanciaIcons[0]} />
+                                        </svg>
+                                    )}
+                                </div>
+                                <h3 class="font-saira font-bold text-brand-navy text-lg uppercase whitespace-pre-wrap">{t.text}</h3>
+                            </div>
+                        ))
+                    }
                 </div>
+
+                {alcance && (
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 text-left items-stretch alcance-grid">
+                            {
+                                alcance.cards.map((card, i) => (
+                                    <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-start relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
+                                        {card.image && <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${card.image}')`} />}
+                                        <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500" />
+
+                                        <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20 [&_svg]:w-7 [&_svg]:h-7">
+                                            {card.icon && !esIconoSvg(card.icon) ? (
+                                                <img src={card.icon} alt={card.title} class="w-10 h-10 object-contain" />
+                                            ) : card.icon ? (
+                                                <Fragment set:html={card.icon} />
+                                            ) : (
+                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d={alcanceIcons[i] ?? alcanceIcons[0]} />
+                                                </svg>
+                                            )}
+                                        </div>
+
+                                        <div class="relative z-10">
+                                            <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">{card.title}</h3>
+                                            {card.description && <p class="text-base text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{card.description}</p>}
+
+                                            {card.items?.length > 0 && (
+                                                <ul class="mt-4 space-y-2 text-base text-gray-200 font-light leading-relaxed">
+                                                    {card.items.map((item) => (
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="w-1.5 h-1.5 rounded-full bg-brand-lime shrink-0 mt-2.5" />
+                                                            <span class="whitespace-pre-wrap">{item.text}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                )}
             </div>
         </section>
 
-        <!-- 04. CTA PERSONALIZADO -->
+        <!-- 06. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-            <img src="/images/soluciones/servicios_industriales/DSC03104.webp" alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
-                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">¿Requiere información adicional sobre servicio industrial y refaccionamiento?</h2>
-                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de sus equipos, para mantenerlos en óptimas condiciones.</p>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.cta1.title}</h2>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto whitespace-pre-wrap">{d.cta1.description}</p>
                 <div class="pt-8">
-                    <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Solicitar Más Información </a>
+                    <a href={d.cta1.button_url} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta1.button_label}</a>
                 </div>
             </div>
         </section>
 
-        <!-- 05. NORMATIVIDAD -->
+        <!-- 07. NORMATIVIDAD -->
         <section class="py-16 bg-brand-navy text-white px-6 md:px-12" id="normas">
             <div class="container mx-auto max-w-6xl">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div class="lg:w-1/2 space-y-6 norms-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Cumplimiento Legal y de Seguridad</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Servicio bajo estándares de seguridad e impacto ambiental</h2>
-                            <p class="text-gray-300 font-light leading-relaxed mt-4">
-                                Nuestros servicios de mantenimiento y refaccionamiento cumplen o exceden todos los códigos y normativas relacionados con el equipo, trabajando bajo los lineamientos de seguridad industrial y protección ambiental que nuestros clientes exigen.
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{general.normas?.badge}</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{general.normas?.title}</h2>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">
+                                {general.normas?.description}
                             </p>
                         </div>
 
-                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4">Contamos con un equipo de ingenieros calificados para liderar el mantenimiento, la inspección y el refaccionamiento de sus equipos de manera segura y puntual.</p>
+                        <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4 whitespace-pre-wrap">{general.normas?.text}</p>
                     </div>
 
                     <div class="lg:w-1/2 w-full">
@@ -183,7 +304,6 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                                         <div class="h-14 w-full flex items-center justify-center mb-2">
                                             <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
                                         </div>
-                                        <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
                                     </div>
                                 ))
                             }
@@ -193,26 +313,75 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
             </div>
         </section>
 
-        <!-- 06. ALIANZAS / PARTNERS -->
+        <!-- 08. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
                 <div class="swiper marquee-swiper w-full">
                     <div class="swiper-wrapper items-center">
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
-
-                        <!-- Duplicate for loop -->
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" /></div>
-                        <div class="swiper-slide !w-auto px-8"><img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" /></div>
+                        {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (
+                            <div class="swiper-slide !w-auto px-8 flex items-center justify-center">
+                                <img src={aliado.image} alt={aliado.name} class="h-auto max-h-9 w-auto max-w-full object-contain opacity-60 grayscale hover:grayscale-0 transition-all" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         </section>
+        <!-- 09. PREGUNTAS FRECUENTES (FAQ) -->
+        {
+            faqs && (
+                <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
+                    <div class="container mx-auto max-w-4xl">
+                        <div class="text-center mb-16 faq-header">
+                            {faqs.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{faqs.badge}</span>}
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{faqs.title}</h2>
+                        </div>
+
+                        <!-- Acordeón exclusivo: se mantiene una sola pregunta abierta -->
+                        <div class="space-y-4">
+                            {
+                                (faqs.items ?? []).map((faq, i) => (
+                                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open={i === 0}>
+                                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                                            <span>{faq.question}</span>
+                                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']" />
+                                        </summary>
+                                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal whitespace-pre-wrap">{faq.answer}</div>
+                                    </details>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
+        <!-- 10. GALERÍA DE PROYECTOS -->
+        {
+            galeria && (
+                <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100" id="galeria">
+                    <div class="container mx-auto">
+                        <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                            {galeria.badge && <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{galeria.badge}</span>}
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{galeria.title}</h2>
+                            {galeria.description && <p class="text-gray-600 mt-4 font-light whitespace-pre-wrap">{galeria.description}</p>}
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+                            {
+                                (galeria.images ?? []).map((img) => (
+                                    <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                                        <img src={img.image} alt={img.alt} class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+
     </main>
 </Layout>
 
@@ -246,6 +415,23 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                 delay: 0.2,
             })
 
+            gsap.from('.anservice-text > *', {
+                scrollTrigger: { trigger: '.anservice-text', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'power3.out',
+            })
+
+            gsap.from('.anservice-image', {
+                scrollTrigger: { trigger: '.anservice-image', start: 'top 85%' },
+                x: -40,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+            })
+
             gsap.from('.intro-text > *', {
                 scrollTrigger: { trigger: '#introduccion', start: 'top 80%' },
                 y: 30,
@@ -269,6 +455,59 @@ const seoDescription = 'Nuestro equipo es capaz de atender las necesidades de se
                 opacity: 0,
                 duration: 0.6,
                 stagger: 0.1,
+            })
+
+            // Alcance del servicio
+            gsap.from('.alcance-grid > div', {
+                scrollTrigger: { trigger: '.alcance-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            // Preguntas frecuentes
+            gsap.from('.faq-header > *', {
+                scrollTrigger: { trigger: '.faq-header', start: 'top 85%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            gsap.from('#faq details', {
+                scrollTrigger: { trigger: '#faq', start: 'top 80%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            // Galería
+            gsap.from('.gallery-header > *', {
+                scrollTrigger: { trigger: '.gallery-header', start: 'top 85%' },
+                y: 20,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
+
+            gsap.from('.gallery-grid > div', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
             })
         }
     })

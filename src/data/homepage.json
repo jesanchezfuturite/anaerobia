@@ -1,0 +1,278 @@
+{
+    "hero": {
+        "title": "Ingeniería Inteligente en Sistemas de Pintura y Acabado",
+        "subtitle": "Diseñamos e integramos proyectos 'llave en mano' para manufactura de clase mundial.",
+        "backgroundVideo": "/videos/hero/hero/backgroundVideo.mp4",
+        "buttons": [
+            {
+                "label": "Hablar con un Ingeniero"
+            }
+        ]
+    },
+    "soluciones": {
+        "sectionTitle": "Soluciones Industriales Altamente Especializadas en Acabados Superficiales",
+        "sectionSubtitle": "Integramos tecnologías de punta para maximizar la calidad y el rendimiento en la línea de producción de tu planta.",
+        "cards": [
+            {
+                "title": "Sistemas de pintura en polvo",
+                "description": "Integramos sistemas completos de pintura en polvo que ofrecen mayor calidad a tus productos.",
+                "image": "/images/home/soluciones/cards/0/image.webp",
+                "url": "/soluciones/pintura-en-polvo"
+            },
+            {
+                "title": "Sistemas de pintura líquida",
+                "description": "Nuestros sistemas completos de pintura líquida permiten aplicar una amplia variedad de acabados para superficies complejas.",
+                "image": "/images/home/soluciones/cards/1/image.jpg",
+                "url": "/soluciones/pintura-liquida"
+            },
+            {
+                "title": "Sistemas de aplicación de recubrimientos",
+                "description": "Integramos equipos de las principales marcas del mercado, tanto para sistemas manuales como sistemas automáticos.",
+                "image": "/images/home/soluciones/cards/2/image.webp",
+                "url": "/soluciones/aplicacion-recubrimientos"
+            },
+            {
+                "title": "Cabinas de pintura",
+                "description": "Diseñadas para la aplicación de pintura de alta tecnología, bajo los más altos estándares de calidad y protección ambiental.",
+                "image": "/images/home/soluciones/cards/3/image.webp",
+                "url": "/soluciones/cabinas-pintura"
+            },
+            {
+                "title": "Sistemas de pretratamiento",
+                "description": "Ofrecemos soluciones de pretratamiento que optimizan la preparación de tus superficies y garantizan un acabado duradero y de alta calidad.",
+                "image": "/images/home/soluciones/cards/4/image.webp",
+                "url": "/soluciones/sistemas-de-pretratamiento"
+            },
+            {
+                "title": "Pretratamiento / granallado",
+                "description": "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento; el pretratamiento químico y el pretratamiento mecánico, también conocido como granallado.",
+                "image": "/images/home/soluciones/cards/5/image.webp",
+                "url": "/soluciones/granallado"
+            },
+            {
+                "title": "Hornos de curado y secado",
+                "description": "Nuestros hornos son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico.",
+                "image": "/images/home/soluciones/cards/6/image.webp",
+                "url": "/soluciones/hornos-secado-curado"
+            },
+            {
+                "title": "Transportadores / conveyors",
+                "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente.",
+                "image": "/images/home/soluciones/cards/7/image.webp",
+                "url": "/soluciones/conveyors"
+            },
+            {
+                "title": "Filtros",
+                "description": "Mejora la calidad del aire dentro de áreas de aplicación de recubrimientos para optimizar los procesos de producción, cumplir con normativas y garantizar la seguridad del personal operativo.",
+                "image": "/images/home/soluciones/cards/8/image.jpeg",
+                "url": "/soluciones/filtros"
+            }
+        ]
+    },
+    "mantenimiento": {
+        "sectionTitle": "Servicio Industrial",
+        "sectionSubtitle": "Garantizamos el funcionamiento ininterrumpido en tu inversión, mediante inspecciones detalladas, intervenciones programadas y respuesta inmediata a necesidades de servicio industrial.",
+        "backgroundVideo": "/videos/mantenimiento/backgroundVideo.mp4",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>",
+                "title": "Inspección técnica",
+                "description": "Determinamos el estado actual de tus sistemas mediante mediciones, pruebas y diagnóstico de equipos."
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"></path></svg>",
+                "title": "Pólizas de Mantenimiento",
+                "description": "Contratos programados mensuales o anuales para prolongar la vida útil y evitar paros de línea inesperados."
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7 text-[#9ac31c]\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4\"></path></svg>",
+                "title": "Refacciones Originales",
+                "description": "Nuestras alianzas con marcas reconocidas internacionales nos permiten ofrecer asesoría e integración rápida de partes críticas."
+            }
+        ]
+    },
+    "gestion360": {
+        "sectionTitle": "Gestión 360°",
+        "sectionSubtitle": "Acompañamiento total en cada etapa del proyecto",
+        "steps": [
+            {
+                "text": "Alcances y Necesidades",
+                "icon": "<svg class=\"w-12 h-12 stroke-current\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 18v-3m0 0a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 0v3m-3.75.75h7.5m-6 3h4.5\" /> </svg>"
+            },
+            {
+                "text": "Propuesta Técnico-Comercial",
+                "icon": "<svg class=\"w-12 h-12 stroke-current\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z\" /> </svg>"
+            },
+            {
+                "text": "Fabricación e Instalación",
+                "icon": "<svg class=\"w-12 h-12 stroke-current\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065Z\" /> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\" /> </svg>"
+            },
+            {
+                "text": "Puesta en Marcha y Entrega Final",
+                "icon": "<svg class=\"w-12 h-12 fill-current\" viewBox=\"0 0 512 512\" fill=\"currentColor\"> <g> <path d=\"M94.11 217.25c-2.21-3.8-.94-8.7 2.89-10.91s8.7-.91 10.91 2.92l4.68 8.14 28.26-28.26c3.12-3.12 8.19-3.12 11.31 0 3.12 3.15 3.12 8.19 0 11.31l-35.6 35.6h-.03c-3.69 3.69-9.89 2.89-12.53-1.64zm29.65-62.33c31.83 0 57.66 25.82 57.66 57.69s-25.82 57.69-57.66 57.69c-31.86 0-57.69-25.82-57.69-57.69s25.83-57.69 57.69-57.69zm29.46 28.2c-16.27-16.27-42.66-16.27-58.93 0s-16.27 42.66 0 58.96c16.27 16.27 42.66 16.27 58.93 0 16.3-16.29 16.3-42.69 0-58.96zM284.4 86.77c0 4.42-3.6 8.02-8.02 8.02-4.39 0-7.99-3.6-7.99-8.02V74.42c-14.88 9.5-26.56 22.42-34.19 37.22-7.2 13.95-10.83 29.57-10.23 45.5 32.03 7.74 65.93 11.59 99.84 11.59v-.03c34.5 0 68.91-3.97 101.31-11.91 1.13-33.36-16.13-64.32-44.45-82.37v12.36c0 4.42-3.57 8.02-7.99 8.02s-7.99-3.6-7.99-8.02V53.33h-6.15l-4.56 46.01a7.99 7.99 0 0 1-8.73 7.17c-4.37-.43-7.57-4.34-7.14-8.73l5.22-52.64c0-.26.03-.48.06-.74h-37.67l5.27 53.38c.45 4.39-2.75 8.31-7.14 8.73-4.39.43-8.28-2.78-8.73-7.17l-4.54-46.01h-6.15v33.44zm-16.01-30.78V45.3c0-4.48 3.66-7.99 7.99-7.99h12.56c-.54-4.79 3.29-8.9 7.94-8.9h55.3c4.62 0 8.42 3.97 7.94 8.9 4.05 0 9.75-.17 13.58.08l2.95.99a7.954 7.954 0 0 1 4.03 6.92v10.69c21.29 11.31 37.81 27.89 48.36 48.27 8.56 16.55 12.84 35.12 11.99 54.11 4.99 3.97 6.97 10.91 4.88 17.09-1.56 4.59-4.17 8.82-7.68 12.67l15.02 5.64c3.37.94 5.87 4.03 5.87 7.71v30.36h-.03c0 3.23-1.98 6.26-5.19 7.46l-18.26 6.86c-2.64 10.09-6.63 19.76-11.88 28.71l7.85 17.32c1.62 3 1.13 6.86-1.42 9.38l-21.46 21.49v-.03c-2.27 2.3-5.81 3.03-8.93 1.64l-17.77-8.08a114.69 114.69 0 0 1-28.74 11.91l-6.6 17.57c-.94 3.37-4.03 5.87-7.71 5.87h-30.33v-.03c-3.26 0-6.29-1.98-7.48-5.19l-6.83-18.23a113.648 113.648 0 0 1-28.74-11.91l-17.32 7.88c-3 1.59-6.86 1.11-9.38-1.42l-21.49-21.49h.03c-2.3-2.27-3.03-5.81-1.64-8.93l8.08-17.77a115.75 115.75 0 0 1-11.91-28.74l-17.57-6.58c-3.37-.94-5.87-4.05-5.87-7.71v-30.36h.03c0-3.23 1.98-6.29 5.19-7.48l15.68-5.87c-5.24-5.75-10.01-13.86-8.02-21.63.96-3.8 3.34-7.09 6.63-9.13-1.47-42.21 22.2-81.07 59.73-101.05zm-50.91 115.97c4.76 10.46 20.04 17.29 30.9 21 41.44 14.14 109.42 14.14 150.86 0 10.89-3.71 26.14-10.54 30.9-21-34.16 8.5-70.3 12.76-106.33 12.76v-.03c-36.12-.01-72.23-4.26-106.33-12.73zm25.77 36.11c-7.23-2.47-13.83-5.36-19.56-8.7a7.4 7.4 0 0 1-2.18 1.25L204.53 207v19.33l16.98 6.38c2.66.99 4.48 3.29 5.02 5.9 2.32 10.89 7.11 22.05 13.1 31.46a8.054 8.054 0 0 1 .4 7.91l-7.4 16.21 13.66 13.66 16.55-7.54c2.55-1.13 5.39-.85 7.57.54 9.67 6.12 20.47 10.66 31.61 13.12a7.91 7.91 0 0 1 5.75 4.99l6.38 17.01h19.33l6.38-17.01c.99-2.66 3.26-4.48 5.87-5.02 10.86-2.32 22.11-7.14 31.49-13.1 2.47-1.56 5.47-1.62 7.88-.37l16.24 7.37 13.63-13.66-7.51-16.55c-1.13-2.55-.85-5.39.54-7.57 6.15-9.69 10.63-20.41 13.12-31.61a7.91 7.91 0 0 1 4.99-5.75l16.98-6.38v-19.33l-16.98-6.38c-.82-.31-1.56-.74-2.21-1.25-5.95 3.49-12.84 6.46-20.32 8.99 4.76 47.91-32.46 88.53-79.77 88.53s-84.56-40.65-79.77-88.53c-.26-.11-.54-.2-.79-.28zm144.68 4.68c-38.64 9.01-89.6 9.01-128.24 0-2.01 37.36 27.24 68.14 64.12 68.14s66.13-30.78 64.12-68.14zM145.05 342.77c2.24 3.8.99 8.7-2.81 10.94s-8.7.99-10.94-2.81c-11.23-19.02-18.91-40.34-22.17-62.39-.62-4.37 2.38-8.42 6.75-9.04 4.37-.65 8.45 2.38 9.07 6.75 2.95 19.98 9.93 39.32 20.1 56.55zm21.32-188.64c-3.03 3.2-8.08 3.32-11.28.28-3.17-3.03-3.32-8.08-.28-11.28 12.39-13.04 26.73-24.18 42.49-32.85 3.86-2.13 8.7-.71 10.83 3.15a8 8 0 0 1-3.15 10.86 157.902 157.902 0 0 0-38.61 29.84zM94.4 366.72H64.32c-3.12 0-5.73 2.61-5.73 5.75v100.18c0 3.15 2.61 5.75 5.73 5.75H94.4c3.15 0 5.73-2.61 5.73-5.75V372.48c-.01-3.15-2.59-5.76-5.73-5.76zm-30.08-15.98H94.4c10.71 0 19.79 7.88 21.46 18.28h23.9c35.6-36.2 40.62-36.31 97-37.64 8.48-.23 18.23-.45 29.91-.85 30.08-1.11 39.88 30.05 22.17 47.4l20.24-.62v-.03c4 .34 8.99-2.83 11.88-4.39l74.95-40.54c15.96-8.65 36.79-7.62 47.28 4.31 3.03 3.46 4.9 7.63 5.19 12.25.45 6.8-2.55 14.2-10.35 21.15C306.2 487.71 297.78 487.22 198 481.73c-22.22-1.25-49.07-2.72-82.69-3.15-2.64 9.21-11.11 15.82-20.92 15.82H64.32c-11.96 0-21.71-9.78-21.71-21.74V372.48c0-11.99 9.75-21.74 21.71-21.74zm51.82 34.3v77.61c34.07.43 60.72 1.9 82.71 3.12 93.77 5.19 101.68 5.64 228.53-107.6 6.8-6.07 6.8-11-.88-14.09-6.01-2.41-14.66-2.21-23.07 2.32l-76.2 41.22c-5.95 3.23-11.34 6.18-19.19 5.61l-88.24 3c-3.88.11-7.4-2.64-8.11-6.58-.77-4.34 2.13-8.48 6.46-9.24l49.29-9.01c18.79-3.43 19.28-25.65-.23-24.94-11.31.4-21.34.62-30.1.85-51.31 1.22-55.05 1.3-87.93 34.87a7.914 7.914 0 0 1-6.09 2.86z\" fill=\"currentColor\"/> </g> </svg>"
+            },
+            {
+                "text": "Servicio Post-Venta",
+                "icon": "/img/logo_anservice.png"
+            }
+        ]
+    },
+    "industrias": {
+        "sectionTitle": "Industrias",
+        "sectionSubtitle": "Soluciones especializadas para diversos sectores",
+        "items": [
+            {
+                "name": "Ferroviaria",
+                "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M5 11H19M9 18L6 21M15 18L18 21M12 11V4M8 15H8.01M16 15H16.01M8.2 18H15.8C16.9201 18 17.4802 18 17.908 17.782C18.2843 17.5903 18.5903 17.2843 18.782 16.908C19 16.4802 19 15.9201 19 14.8V6.2C19 5.0799 19 4.51984 18.782 4.09202C18.5903 3.71569 18.2843 3.40973 17.908 3.21799C17.4802 3 16.9201 3 15.8 3H8.2C7.0799 3 6.51984 3 6.09202 3.21799C5.71569 3.40973 5.40973 3.71569 5.21799 4.09202C5 4.51984 5 5.07989 5 6.2V14.8C5 15.9201 5 16.4802 5.21799 16.908C5.40973 17.2843 5.71569 17.5903 6.09202 17.782C6.51984 18 7.07989 18 8.2 18Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g></svg>"
+            },
+            {
+                "name": "Tractocamión y equipo pesado",
+                "icon": "<svg fill=\"currentColor\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" enable-background=\"new 0 0 512 512\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <g> <polygon points=\"352,208 352,256 352,272 448,272 448,256 416.721,208 \"></polygon> <path d=\"m510.078,231.766l-47.82-80c-2.891-4.82-7.922-7.766-13.539-7.766h-128.719v-64c0-8.836-6.445-16-15.281-16h-288c-8.836,0-16.719,7.164-16.719,16v304c0,8.836 7.883,16 16.719,16h66.272c7.156,27.523 31.995,48 61.728,48 29.732,0 54.571-20.477 61.728-48h98.273 34.272c7.156,27.523 31.995,48 61.728,48 29.732,0 54.571-20.477 61.727-48h34.273c8.836,0 15.281-7.164 15.281-16v-144c-0.001-2.898-0.431-5.742-1.923-8.234zm-478.078-135.766h256v64 208h-81.554c-7.156-27.523-31.995-48-61.728-48-29.732,0-54.571,20.477-61.728,48h-50.99v-272zm112.719,320c-17.648,0-32-14.352-32-32s14.351-32 32-32c17.648,0 32,14.352 32,32s-14.352,32-32,32zm256,0c-17.648,0-32-14.352-32-32s14.352-32 32-32c17.648,0 32,14.352 32,32s-14.352,32-32,32zm79.281-48h-17.554c-7.156-27.523-31.995-48-61.727-48-29.733,0-54.571,20.477-61.728,48h-18.991v-192h119.656l40.344,68.43v123.57z\"></path> </g> </g></svg>"
+            },
+            {
+                "name": "Automotriz",
+                "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M3 8L5.72187 10.2682C5.90158 10.418 6.12811 10.5 6.36205 10.5H17.6379C17.8719 10.5 18.0984 10.418 18.2781 10.2682L21 8M6.5 14H6.51M17.5 14H17.51M8.16065 4.5H15.8394C16.5571 4.5 17.2198 4.88457 17.5758 5.50772L20.473 10.5777C20.8183 11.1821 21 11.8661 21 12.5623V18.5C21 19.0523 20.5523 19.5 20 19.5H19C18.4477 19.5 18 19.0523 18 18.5V17.5H6V18.5C6 19.0523 5.55228 19.5 5 19.5H4C3.44772 19.5 3 19.0523 3 18.5V12.5623C3 11.8661 3.18166 11.1821 3.52703 10.5777L6.42416 5.50772C6.78024 4.88457 7.44293 4.5 8.16065 4.5ZM7 14C7 14.2761 6.77614 14.5 6.5 14.5C6.22386 14.5 6 14.2761 6 14C6 13.7239 6.22386 13.5 6.5 13.5C6.77614 13.5 7 13.7239 7 14ZM18 14C18 14.2761 17.7761 14.5 17.5 14.5C17.2239 14.5 17 14.2761 17 14C17 13.7239 17.2239 13.5 17.5 13.5C17.7761 13.5 18 13.7239 18 14Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g></svg>"
+            },
+            {
+                "name": "Aeroespacial",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-airplane-engines\" viewBox=\"0 0 16 16\">\n  <path d=\"M8 0c-.787 0-1.292.592-1.572 1.151A4.35 4.35 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0M7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1s.458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7z\"/>\n</svg>"
+            },
+            {
+                "name": "Agricultura y construcción",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-tractor-icon lucide-tractor\"><path d=\"m10 11 11 .9a1 1 0 0 1 .8 1.1l-.665 4.158a1 1 0 0 1-.988.842H20\"/><path d=\"M16 18h-5\"/><path d=\"M18 5a1 1 0 0 0-1 1v5.573\"/><path d=\"M3 4h8.129a1 1 0 0 1 .99.863L13 11.246\"/><path d=\"M4 11V4\"/><path d=\"M7 15h.01\"/><path d=\"M8 10.1V4\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/><circle cx=\"7\" cy=\"15\" r=\"5\"/></svg>"
+            },
+            {
+                "name": "Metalmecánica",
+                "icon": "<svg version=\"1.0\" xmlns=\"http://www.w3.org/2000/svg\"\n width=\"684.000000pt\" height=\"684.000000pt\" viewBox=\"0 0 684.000000 684.000000\"\n preserveAspectRatio=\"xMidYMid meet\">\n\n<g transform=\"translate(0.000000,684.000000) scale(0.100000,-0.100000)\"\nfill=\"currentColor\" stroke=\"none\">\n<path d=\"M930 6330 c-475 -275 -876 -511 -890 -525 l-25 -25 -3 -1024 -2\n-1023 22 -32 c18 -25 229 -151 898 -537 798 -461 878 -505 911 -501 25 3 319\n168 909 509 764 441 875 508 892 538 17 34 18 77 16 1047 -3 1004 -3 1012 -24\n1039 -13 18 -334 209 -890 530 -747 432 -875 503 -909 503 -35 1 -152 -64\n-905 -499z m1700 -206 l790 -456 0 -922 -1 -921 -792 -457 -792 -457 -50 28\nc-27 16 -385 222 -795 459 l-745 430 -3 916 -2 915 22 15 c47 31 1563 905\n1570 906 4 0 363 -205 798 -456z\"/>\n<path d=\"M1650 5621 c-338 -75 -594 -323 -686 -667 -27 -102 -25 -320 5 -429\n87 -321 341 -572 653 -644 119 -28 210 -34 312 -21 378 47 677 312 768 678 30\n121 30 313 -1 427 -85 318 -325 560 -641 646 -109 30 -298 35 -410 10z m387\n-246 c207 -65 382 -251 438 -465 23 -85 23 -235 1 -320 -60 -237 -247 -424\n-481 -485 -76 -19 -243 -20 -320 0 -174 44 -342 175 -422 330 -58 112 -76 189\n-77 315 -1 173 56 317 175 445 179 191 437 259 686 180z\"/>\n<path d=\"M2995 5551 c-11 -5 -29 -19 -40 -31 -19 -22 -20 -40 -25 -713 l-5\n-690 -525 -304 c-289 -167 -535 -309 -546 -315 -19 -9 -98 34 -601 324 -319\n184 -591 338 -606 342 -32 8 -84 -12 -112 -44 -14 -16 -20 -36 -20 -72 0 -43\n4 -53 30 -76 17 -15 305 -186 641 -379 500 -289 618 -353 648 -353 30 0 150\n65 659 359 376 217 630 370 642 386 20 26 20 42 20 767 l0 740 -37 34 c-39 35\n-78 43 -123 25z\"/>\n<path d=\"M5310 6333 c-19 -18 -69 -111 -144 -268 -64 -132 -121 -243 -128\n-248 -7 -4 -119 -58 -249 -121 -159 -77 -243 -123 -257 -141 -28 -36 -30 -103\n-3 -136 10 -13 133 -80 272 -149 l254 -125 116 -245 c125 -261 146 -290 211\n-290 68 0 81 17 189 238 55 114 110 229 121 256 21 47 25 50 132 101 364 172\n405 194 422 227 21 41 13 104 -18 134 -13 12 -131 74 -263 136 l-240 114 -125\n253 c-69 139 -136 261 -149 272 -36 30 -103 26 -141 -8z m150 -510 c39 -81 78\n-156 88 -167 9 -10 87 -52 172 -94 l155 -74 -165 -82 -165 -81 -81 -165 -81\n-165 -75 155 c-41 85 -83 163 -94 172 -11 9 -87 50 -169 91 l-150 75 155 76\nc85 42 160 82 167 89 7 7 47 81 88 165 41 84 76 152 79 152 2 0 37 -66 76\n-147z\"/>\n<path d=\"M4970 4173 c-14 -6 -303 -172 -1314 -755 -377 -218 -442 -259 -458\n-288 -17 -34 -18 -77 -16 -1047 3 -1004 3 -1012 24 -1039 13 -18 333 -209 890\n-530 732 -424 875 -503 908 -504 34 0 157 68 900 496 474 273 875 510 891 526\nl30 28 3 1018 c2 953 1 1019 -15 1052 -16 31 -113 90 -898 542 -561 324 -889\n508 -905 507 -14 0 -32 -3 -40 -6z m855 -716 l770 -445 3 -916 2 -916 -37 -23\nc-68 -42 -1551 -897 -1557 -897 -3 0 -237 133 -518 296 -282 163 -638 368\n-790 456 l-278 160 0 921 0 922 792 457 c756 435 794 456 818 443 14 -8 372\n-214 795 -458z\"/>\n<path d=\"M4887 2979 c-98 -13 -244 -64 -329 -114 -213 -126 -361 -324 -420\n-563 -30 -121 -30 -313 1 -427 123 -460 571 -747 1032 -659 340 64 609 317\n702 659 30 112 30 324 -1 440 -85 318 -340 570 -652 644 -100 24 -242 33 -333\n20z m278 -244 c183 -46 345 -177 429 -345 131 -265 85 -553 -123 -761 -85 -85\n-169 -136 -281 -171 -110 -34 -272 -32 -386 6 -210 68 -383 252 -439 466 -23\n86 -23 235 -1 320 61 236 246 424 476 484 74 20 250 20 325 1z\"/>\n<path d=\"M6190 2904 c-40 -14 -63 -31 -76 -56 -12 -22 -14 -140 -14 -705 l0\n-679 -97 -56 c-54 -31 -298 -172 -543 -313 -245 -142 -449 -258 -455 -258 -5\n1 -271 152 -591 337 -433 250 -589 336 -613 336 -47 0 -86 -24 -106 -66 -22\n-46 -14 -92 23 -126 15 -14 302 -185 637 -379 522 -302 616 -353 650 -353 35\n0 125 49 665 361 453 262 630 369 642 390 17 26 18 81 18 753 0 556 -3 731\n-13 749 -22 44 -89 78 -127 65z\"/>\n<path d=\"M1398 2214 c-21 -11 -51 -62 -128 -222 -56 -114 -111 -229 -122 -256\n-21 -47 -25 -50 -132 -101 -364 -172 -405 -194 -422 -227 -21 -41 -13 -104 18\n-134 13 -12 131 -74 263 -136 l240 -114 125 -253 c69 -139 136 -261 149 -272\n34 -28 102 -25 138 5 19 16 66 103 143 266 l115 242 251 123 c167 82 258 132\n273 150 27 36 29 103 2 136 -10 13 -133 80 -272 149 l-254 125 -116 245 c-95\n199 -123 249 -149 268 -38 25 -83 28 -122 6z m136 -526 c40 -84 81 -160 92\n-169 10 -9 87 -51 169 -92 l150 -75 -155 -76 c-85 -43 -160 -82 -167 -88 -7\n-5 -46 -79 -87 -164 -41 -85 -77 -154 -80 -154 -2 0 -37 66 -76 147 -39 81\n-78 156 -88 166 -9 11 -87 53 -172 94 l-155 75 165 82 165 81 79 163 c44 89\n81 162 83 162 2 0 36 -69 77 -152z\"/>\n</g>\n</svg>\n"
+            },
+            {
+                "name": "Electrodomésticos",
+                "icon": "<svg fill=\"currentColor\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"><path d=\"M3 8C1.355469 8 0 9.355469 0 11L0 39C0 40.644531 1.355469 42 3 42L5 42L5 43C5 44.09375 5.90625 45 7 45L10 45C11.09375 45 12 44.09375 12 43L12 42L38 42L38 43C38 44.09375 38.90625 45 40 45L43 45C44.09375 45 45 44.09375 45 43L45 42L47 42C48.644531 42 50 40.644531 50 39L50 11C50 9.355469 48.644531 8 47 8 Z M 3 10L47 10C47.5625 10 48 10.4375 48 11L48 39C48 39.5625 47.5625 40 47 40L39.1875 40C39.054688 39.972656 38.914063 39.972656 38.78125 40L6.1875 40C6.054688 39.972656 5.914063 39.972656 5.78125 40L3 40C2.4375 40 2 39.5625 2 39L2 11C2 10.4375 2.4375 10 3 10 Z M 5 13L5 37L40 37L40 13 Z M 7 15L38 15L38 35L7 35 Z M 44 16C42.894531 16 42 16.894531 42 18C42 19.105469 42.894531 20 44 20C45.105469 20 46 19.105469 46 18C46 16.894531 45.105469 16 44 16 Z M 34.15625 19.9375C33.957031 19.933594 33.761719 19.988281 33.59375 20.09375C33.59375 20.09375 28.964844 22 26.125 22C24.707031 22 23.75 21.59375 22.59375 21.09375C21.4375 20.59375 20.066406 20 18.21875 20C14.523438 20 10.5625 22.09375 10.5625 22.09375C10.0625 22.335938 9.851563 22.9375 10.09375 23.4375C10.335938 23.9375 10.9375 24.148438 11.4375 23.90625C11.4375 23.90625 15.332031 22 18.21875 22C19.664063 22 20.628906 22.40625 21.78125 22.90625C22.933594 23.40625 24.296875 24 26.125 24C29.785156 24 34.40625 21.90625 34.40625 21.90625C34.894531 21.78125 35.214844 21.3125 35.148438 20.8125C35.085938 20.3125 34.660156 19.9375 34.15625 19.9375 Z M 44 23C42.894531 23 42 23.894531 42 25C42 26.105469 42.894531 27 44 27C45.105469 27 46 26.105469 46 25C46 23.894531 45.105469 23 44 23 Z M 34.15625 25.9375C33.957031 25.933594 33.761719 25.988281 33.59375 26.09375C33.59375 26.09375 28.964844 28 26.125 28C24.707031 28 23.75 27.59375 22.59375 27.09375C21.4375 26.59375 20.066406 26 18.21875 26C14.523438 26 10.5625 28.09375 10.5625 28.09375C10.0625 28.335938 9.851563 28.9375 10.09375 29.4375C10.335938 29.9375 10.9375 30.148438 11.4375 29.90625C11.4375 29.90625 15.332031 28 18.21875 28C19.664063 28 20.628906 28.40625 21.78125 28.90625C22.933594 29.40625 24.296875 30 26.125 30C29.785156 30 34.40625 27.90625 34.40625 27.90625C34.894531 27.78125 35.214844 27.3125 35.148438 26.8125C35.085938 26.3125 34.660156 25.9375 34.15625 25.9375 Z M 44 30C42.894531 30 42 30.894531 42 32C42 33.105469 42.894531 34 44 34C45.105469 34 46 33.105469 46 32C46 30.894531 45.105469 30 44 30 Z M 7 42L10 42L10 43L7 43 Z M 40 42L43 42L43 43L40 43Z\"></path></g></svg>"
+            },
+            {
+                "name": "Eléctrica y energía",
+                "icon": "<svg fill=\"currentColor\" viewBox=\"0 0 32 32\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M18.605 2.022v0zM18.605 2.022l-2.256 11.856 8.174 0.027-11.127 16.072 2.257-13.043-8.174-0.029zM18.606 0.023c-0.054 0-0.108 0.002-0.161 0.006-0.353 0.028-0.587 0.147-0.864 0.333-0.154 0.102-0.295 0.228-0.419 0.373-0.037 0.043-0.071 0.088-0.103 0.134l-11.207 14.832c-0.442 0.607-0.508 1.407-0.168 2.076s1.026 1.093 1.779 1.099l5.773 0.042-1.815 10.694c-0.172 0.919 0.318 1.835 1.18 2.204 0.257 0.11 0.527 0.163 0.793 0.163 0.629 0 1.145-0.294 1.533-0.825l11.22-16.072c0.442-0.607 0.507-1.408 0.168-2.076-0.34-0.669-1.026-1.093-1.779-1.098l-5.773-0.010 1.796-9.402c0.038-0.151 0.057-0.308 0.057-0.47 0-1.082-0.861-1.964-1.939-1.999-0.024-0.001-0.047-0.001-0.071-0.001v0z\"></path> </g></svg>"
+            },
+            {
+                "name": "Recreational vehicles",
+                "icon": "<svg fill=\"currentColor\" viewBox=\"0 0 50 50\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" stroke=\"#000000\" stroke-width=\"0.3\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"><path d=\"M7 6C3.144531 6 0 9.144531 0 13L0 36C0 37.644531 1.355469 39 3 39L7.09375 39C7.570313 41.835938 10.035156 44 13 44C15.964844 44 18.429688 41.835938 18.90625 39L28.15625 39C28.894531 39 29.554688 38.6875 30.0625 38.21875C30.582031 38.675781 31.246094 38.996094 32 39L34.09375 39C34.570313 41.835938 37.035156 44 40 44C42.964844 44 45.429688 41.835938 45.90625 39L47 39C48.660156 39 50 37.660156 50 36L50 27.375C50 25.085938 48.40625 23.0625 48.40625 23.0625L48.375 23.0625L44.25 17.5625L44.25 17.53125L44.21875 17.5C44.015625 17.253906 43.78125 16.972656 43.53125 16.71875C45.066406 15.96875 45.789063 13.90625 44.75 12.34375L42.625 9.125C41.328125 7.179688 39.121094 6 36.78125 6 Z M 7 8L36.78125 8C38.453125 8 40.007813 8.828125 40.9375 10.21875L43.09375 13.4375C43.566406 14.148438 43.105469 15 42.25 15L32 15C30.339844 15 29 16.339844 29 18L29 29L2 29L2 13C2 10.226563 4.226563 8 7 8 Z M 7 11C5.90625 11 5 11.90625 5 13L5 23C5 24.09375 5.90625 25 7 25L23 25C24.09375 25 25 24.09375 25 23L25 13C25 11.90625 24.09375 11 23 11 Z M 29.8125 11C29.261719 11.050781 28.855469 11.542969 28.90625 12.09375C28.957031 12.644531 29.449219 13.050781 30 13L38 13C38.359375 13.003906 38.695313 12.816406 38.878906 12.503906C39.058594 12.191406 39.058594 11.808594 38.878906 11.496094C38.695313 11.183594 38.359375 10.996094 38 11L30 11C29.96875 11 29.9375 11 29.90625 11C29.875 11 29.84375 11 29.8125 11 Z M 7 13L23 13L23 23L7 23 Z M 32 17L36 17L36 26C36 27.09375 36.90625 28 38 28L48 28L48 36C48 36.371094 47.371094 37 47 37L45.90625 37C45.429688 34.164063 42.964844 32 40 32C37.035156 32 34.570313 34.164063 34.09375 37L32 37C31.816406 37 31.527344 36.871094 31.3125 36.65625C31.097656 36.441406 31 36.179688 31 36L31 18C31 17.628906 31.628906 17 32 17 Z M 38 17L40 17C40.785156 17 41.894531 17.84375 42.65625 18.75C42.664063 18.761719 42.679688 18.769531 42.6875 18.78125L46.78125 24.25C46.78125 24.25 47.199219 25.078125 47.5625 26L38 26 Z M 2 31L29 31L29 36.15625C29 36.625 28.625 37 28.15625 37L18.90625 37C18.429688 34.164063 15.964844 32 13 32C10.035156 32 7.570313 34.164063 7.09375 37L3 37C2.449219 37 2 36.550781 2 36 Z M 13 34C15.222656 34 17 35.777344 17 38C17 40.222656 15.222656 42 13 42C10.777344 42 9 40.222656 9 38C9 35.777344 10.777344 34 13 34 Z M 40 34C42.222656 34 44 35.777344 44 38C44 40.222656 42.222656 42 40 42C37.777344 42 36 40.222656 36 38C36 35.777344 37.777344 34 40 34Z\"></path></g></svg>"
+            },
+            {
+                "name": "Industria en general",
+                "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-factory-icon lucide-factory\"><path d=\"M12 16h.01\"/><path d=\"M16 16h.01\"/><path d=\"M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z\"/><path d=\"M8 16h.01\"/></svg>"
+            }
+        ]
+    },
+    "mapa": {
+        "sectionTitle": "LÍNEA DE PINTURA",
+        "mapImage": "/images/home/mapa/mapImage.webp",
+        "cards": [
+            {
+                "title": "Transportadores / Conveyors",
+                "description": "Ofrecemos conveyors a la medida como parte de un sistema de pintura, diseñando y fabricando transportadores personalizados según las necesidades específicas de cada cliente."
+            },
+            {
+                "title": "Pretratamiento / Granallado",
+                "description": "Prepara tus piezas para la aplicación de pintura mediante alguno de los dos tipos generales de pretratamiento: el pretratamiento químico y el pretratamiento mecánico."
+            },
+            {
+                "title": "Horno de Secado",
+                "description": "Elimina la humedad residual de las piezas después del pretratamiento químico, garantizando una superficie completamente seca antes de pintar."
+            },
+            {
+                "title": "Cabinas de Pintura Líquida",
+                "description": "Sistemas completos de aplicación de pintura líquida diseñados para acabados estéticos de alta precisión y control de emisiones."
+            },
+            {
+                "title": "Cabinas de Pintura en Polvo",
+                "description": "Cabinas y sistemas de aplicación electrostática de polvo con alta eficiencia de transferencia y recuperación inteligente."
+            },
+            {
+                "title": "Robots de Manipulación y Pintura",
+                "description": "Automatización avanzada con robots industriales para pintura, dosificación y manipulación de piezas con repetibilidad y precisión."
+            },
+            {
+                "title": "Horno de Curado",
+                "description": "Proporciona el calor necesario para polimerizar la pintura en polvo o secar el recubrimiento líquido, asegurando la máxima resistencia y adherencia."
+            },
+            {
+                "title": "Filtros",
+                "description": "Mejora la calidad del aire dentro de las áreas de aplicación de recubrimientos para optimizar procesos, cumplir normativas y garantizar seguridad."
+            }
+        ]
+    },
+    "presencia": {
+        "sectionTitle": "PRESENCIA NACIONAL",
+        "sectionSubtitle": "Realizamos proyectos en los centros industriales más importantes del país.",
+        "mapImage": "/images/home/mapa/mapa_mex_bco.svg",
+        "estados": [
+            {
+                "name": "Baja California",
+                "image": "/images/home/galeria/factory_baja_california_1780415126940.png",
+                "showGallery": true
+            },
+            {
+                "name": "Chihuahua",
+                "image": "/images/home/galeria/factory_chihuahua_1780415139658.png",
+                "showGallery": true
+            },
+            {
+                "name": "Nuevo León",
+                "image": "/images/home/galeria/factory_nuevo_leon_1780415151799.png",
+                "showGallery": true
+            },
+            {
+                "name": "Coahuila",
+                "image": "/images/home/galeria/factory_coahuila_1780415163948.png",
+                "showGallery": true
+            },
+            {
+                "name": "Aguascalientes",
+                "image": "/images/home/galeria/factory_aguascalientes_1780415191136.png",
+                "showGallery": true
+            },
+            {
+                "name": "Guanajuato",
+                "image": "/images/home/galeria/factory_guanajuato_1780415203114.png",
+                "showGallery": true
+            },
+            {
+                "name": "Jalisco",
+                "image": "/images/home/galeria/factory_jalisco_1780415214181.png",
+                "showGallery": true
+            },
+            {
+                "name": "Guerrero",
+                "image": "/images/home/galeria/factory_guerrero_1780415226495.png",
+                "showGallery": true
+            },
+            {
+                "name": "Puebla",
+                "image": "/images/home/galeria/factory_puebla_1780415271527.png",
+                "showGallery": true
+            },
+            {
+                "name": "Ciudad de México",
+                "image": "/images/home/galeria/factory_cdmx_1780415283579.png",
+                "showGallery": true
+            },
+            {
+                "name": "Estado de México",
+                "image": "/images/home/galeria/factory_edomex_1780415296200.png",
+                "showGallery": true
+            },
+            {
+                "name": "Yucatán",
+                "image": "/images/home/galeria/factory_yucatan_1780415309425.png",
+                "showGallery": true
+            }
+        ]
+    },
+    "contacto": {
+        "heading": "¿Listo para mejorar tu proceso de acabados superficiales?",
+        "description": "Nuestro equipo de ingeniería está listo para diseñar la solución exacta que tu línea de producción requiere.",
+        "phone": "52 222 283 9604",
+        "email": "info@anaerobia.com",
+        "image": "/img/parallax_bg.webp"
+    }
+}

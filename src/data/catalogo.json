@@ -1,0 +1,1223 @@
+{
+    "categorias": [
+        {
+            "name": "Equipos para aplicación de pintura",
+            "slug": "equipos-para-aplicacion-de-pintura",
+            "description": null,
+            "total": 5
+        },
+        {
+            "name": "Filtros",
+            "slug": "filtros",
+            "description": null,
+            "total": 14
+        },
+        {
+            "name": "Lámparas infrarrojas",
+            "slug": "lamparas-infrarrojas",
+            "description": null,
+            "total": 8
+        },
+        {
+            "name": "Pintura en polvo",
+            "slug": "pintura-en-polvo",
+            "description": null,
+            "total": 5
+        },
+        {
+            "name": "Refacciones",
+            "slug": "refacciones",
+            "description": null,
+            "total": 9
+        }
+    ],
+    "marcas": [
+        {
+            "name": "AJ Dralle",
+            "slug": "aj-dralle",
+            "logo": null,
+            "total": 5
+        },
+        {
+            "name": "Andreae",
+            "slug": "andreae",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "BGK",
+            "slug": "bgk",
+            "logo": null,
+            "total": 5
+        },
+        {
+            "name": "Binks",
+            "slug": "binks",
+            "logo": null,
+            "total": 5
+        },
+        {
+            "name": "Camfil",
+            "slug": "camfil",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "Columbus Industries",
+            "slug": "columbus-industries",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "Dungs",
+            "slug": "dungs",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "Dwyer",
+            "slug": "dwyer",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "Global Finishing Solutions",
+            "slug": "global-finishing-solutions",
+            "logo": null,
+            "total": 5
+        },
+        {
+            "name": "Global Refaccion Solutions",
+            "slug": "global-refaccion-solutions",
+            "logo": null,
+            "total": 4
+        },
+        {
+            "name": "Go Switch",
+            "slug": "go-switch",
+            "logo": null,
+            "total": 1
+        },
+        {
+            "name": "IWT",
+            "slug": "iwt",
+            "logo": null,
+            "total": 3
+        },
+        {
+            "name": "KIMO",
+            "slug": "kimo",
+            "logo": null,
+            "total": 2
+        }
+    ],
+    "productos": [
+        {
+            "slug": "pef-330-k1",
+            "legacy_slug": "pef-330-k1",
+            "name": "ANDREAE: Filtro de papel plisado en acordeón",
+            "sku": "PEF-330-K1",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Andreae",
+                "slug": "andreae"
+            },
+            "summary": "Filtro para extracción de papel plisado en acordeón.\n\nMarca: Andreae; Medidas: 3' X 30'",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Colección de pintura\n\nMaterial: Cartón\n\nMedidas: 36\"\" ancho x 30´ largo x 2 1/2\"\" espesor\n\nCantidad por empaque: 1 Pza.\n\nColor: Blanco\n\nPorcentaje de eficiencia: 98.1%\n\nCapacidad de retención: 4.0 lbs 1/2\n\nCaída de presión inicial: .12” W.C. @ 150 FPM\n\nCaída de presión final: 0.5” W.C. @ 150 FPM",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/pef-330-k1/andreae-1jpg.jpg"
+            ],
+            "seo": {
+                "description": "ANDREAE: Filtro de papel plisado en acordeón para cabinas de pintura. Filtro para extracción de papel plisado en acordeón. Marca: Andreae; Medidas: 3' X 30'"
+            }
+        },
+        {
+            "slug": "autocure-3000ii-moviles",
+            "legacy_slug": "autocure-3000ii-moviles",
+            "name": "AutoCure™ 3000II - Móviles",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "BGK",
+                "slug": "bgk"
+            },
+            "summary": "La lámpara de pedestal móvil AutoCure ™ 3000II proporciona un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados. Esta unidad está diseñada específicamente para secar áreas de difícil acceso. Incorpora la tecnología de control de temperatura de la superficie del producto BGK para la precisión y consistencia del proceso, además de estar diseñados y construidos para estándares aceptables de la industria.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Dimensiones de Casete",
+                    "options": [
+                        "133mm W x 355mm L",
+                        "159mm W x 508mm L"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/autocure-3000ii-moviles/cure-1jpg.jpg"
+            ],
+            "seo": {
+                "description": "AutoCure™ 3000II - cabinas de pintura. Un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados."
+            }
+        },
+        {
+            "slug": "autocure-5000ii-moviles",
+            "legacy_slug": "autocure-5000ii-moviles",
+            "name": "AutoCure™ 5000II - Móviles",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "BGK",
+                "slug": "bgk"
+            },
+            "summary": "La lámpara de pedestal móvil AutoCure ™ 3000II proporciona un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados. Esta unidad está diseñada específicamente para secar áreas de difícil acceso. Incorpora la tecnología de control de temperatura de la superficie del producto BGK para la precisión y consistencia del proceso, además de estar diseñados y construidos para estándares aceptables de la industria.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Parte",
+                    "options": [
+                        "AC5-2116",
+                        "AC5-2125",
+                        "AC5-2216",
+                        "AC5-2225",
+                        "AC5-4125",
+                        "AC5-4138",
+                        "AC5-4225",
+                        "AC5-4238"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/autocure-5000ii-moviles/cure-2-scaledjpg.jpg"
+            ],
+            "seo": {
+                "description": "AutoCure™ 5000II - Móviles para cabinas de pintura. Proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados."
+            }
+        },
+        {
+            "slug": "autocure-6000ii-riel-aereo",
+            "legacy_slug": "autocure-6000ii-riel-aereo",
+            "name": "AutoCure™ 6000II - Riel Aéreo",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "BGK",
+                "slug": "bgk"
+            },
+            "summary": "Las lámparas de curado infrarrojo con soporte aéreo AutoCure ™ 6000 proporciona un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados. Esta unidad está diseñada específicamente para montarse en un riel aéreo, permitiendo la optimización de espacios dentro de la zona de proceso.Para garantizar su fácil operación, se incluye un actuador eléctrico que permite subir y bajar los casetes, así como iniciar o terminar el ciclo de curado además de controlar el posicionamiento del sistema.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Parte",
+                    "options": [
+                        "AC6-2116",
+                        "AC6-2125",
+                        "AC6-2216",
+                        "AC6-2225",
+                        "AC6-4125",
+                        "AC6-4138",
+                        "AC6-4225",
+                        "AC6-4238"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/autocure-6000ii-riel-aereo/cure-3jpg.jpg"
+            ],
+            "seo": {
+                "description": "AutoCure™ 6000II - Riel Aéreo para cabinas de pintura, Un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados."
+            }
+        },
+        {
+            "slug": "autocure-7000ii-riel-lateral-ac7-2116",
+            "legacy_slug": "autocure-7000ii-riel-lateral-ac7-2116",
+            "name": "AutoCure™ 7000II - Riel Lateral",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "BGK",
+                "slug": "bgk"
+            },
+            "summary": "Las lámparas de curado infrarrojo con soporte aéreo AutoCure ™ 6000 proporciona un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados. Esta unidad está diseñada específicamente para montarse en un riel aéreo, permitiendo la optimización de espacios dentro de la zona de proceso. Para garantizar su fácil operación, se incluye un actuador eléctrico que permite subir y bajar los casetes, así como iniciar o terminar el ciclo de curado además de controlar el posicionamiento del sistema.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Parte",
+                    "options": [
+                        "AC7-2116",
+                        "AC7-2125",
+                        "AC7-2216",
+                        "AC7-2225",
+                        "AC7-4125",
+                        "AC7-4138",
+                        "AC7-4225",
+                        "AC7-4238"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/autocure-7000ii-riel-lateral-ac7-2116/cure-4jpg.jpg"
+            ],
+            "seo": {
+                "description": "AutoCure™ 7000II - Riel Lateral proporciona proceso de curado infrarrojo a través del uso de emisores y reflectores diseñado para cabinas de pintura."
+            }
+        },
+        {
+            "slug": "autocure-8000ii-riel-lateral-ac8-4350",
+            "legacy_slug": "autocure-8000ii-riel-lateral-ac8-4350",
+            "name": "AutoCure™ 8000II - Riel Lateral",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "BGK",
+                "slug": "bgk"
+            },
+            "summary": "Los paneles infrarrojos AutoCure ™ 8000 6000 proporciona un proceso de curado infrarrojo a través del uso de emisores y reflectores especialmente diseñados. Esta unidad está diseñado específicamente para secar secciones completas del panel. Esta unidad está diseñada específicamente para secar áreas de difícil acceso. Incorpora la tecnología de control de temperatura de la superficie del producto BGK para la precisión y consistencia del proceso, además de estar diseñados y construidos para estándares aceptables de la industria.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Parte",
+                    "options": [
+                        "AC8-4350",
+                        "AC8-4450"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/autocure-8000ii-riel-lateral-ac8-4350/cure-5jpg.jpg"
+            ],
+            "seo": {
+                "description": "AutoCure™ 8000II - Riel Lateral proporciona un proceso de curado infrarrojo a través del uso de emisores para cabinas de pintura."
+            }
+        },
+        {
+            "slug": "bomba-de-suministro-dx70",
+            "legacy_slug": "bomba-de-suministro-dx70",
+            "name": "Bomba de doble diafragma DX70",
+            "sku": "98-3221",
+            "category": {
+                "name": "Equipos para aplicación de pintura",
+                "slug": "equipos-para-aplicacion-de-pintura"
+            },
+            "brand": {
+                "name": "Binks",
+                "slug": "binks"
+            },
+            "summary": "Bomba neumática de menbrana con relación 1:1 maxima presión de fluido de 7 bar entrada de fluido de 3/8\" -salida de 3/8\" Peso de 2,2 kg-flujo maximo de 4,2 L/min.",
+            "description": "<table width=\"761\">\n\n<tbody>\n\n<tr>\n\n<td width=\"296\">Relación de trabajo :</td>\n\n<td width=\"465\">01:01</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Máxima presión de aire:</td>\n\n<td>7 Bar / 100 PSI</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Máxima presión de fluido:</td>\n\n<td>7 Bar / 100 PSI</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Caudal nominal / Ciclo:</td>\n\n<td>0.07 Litres (0.018 US Gall)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Caudal de entrega @ 60 ciclos/min:</td>\n\n<td>4.2 Litres / min (1.1 US Gall/min)</td>\n\n</tr>\n\n<tr>\n\n<td>Máximos ciclos de trabajo continuos:</td>\n\n<td>10 Cycles /min</td>\n\n</tr>\n\n<tr>\n\n<td>Máximos ciclos de trabajo intermitente</td>\n\n<td>30 Cycles /min</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión de entrada de fluido:</td>\n\n<td>3/8\" Universal (BSPP/NPSM) Male or Female</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión de salida de fluido:</td>\n\n<td>3/8\" Universal (BSPP/NPSM) Male or Female</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Distancia máxima de succión lineal:</td>\n\n<td>6.6m (21.8 feet)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión de entrada de aire:</td>\n\n<td>G1/4\" (BSPP) Female</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Diámetro del conector de regulador de aire:</td>\n\n<td>Tubo de ø4mm</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Volumen de aire / Ciclos\n\n@ 6.9 Bar (100psi):</td>\n\n<td>0.77L (0.27SCFM)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Flujo de aire\n\n@ 10 ciclos/min 6.9 Bar/100psi\n\n@ 30 ciclos/min 6.9 Bar/100psi</td>\n\n<td width=\"465\">7.7L/min (0.27SCFM/min)\n\n23.2L/min (0.82SCFM/min)</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"4\" width=\"296\">Calidad de aire ISO 8573.1 Class 3.3.2 #</td>\n\n<td>Seco 5 microns</td>\n\n</tr>\n\n<tr>\n\n<td>Agua -20°C@7bar (940ppm)</td>\n\n</tr>\n\n<tr>\n\n<td>Oil 0.1mg/m3</td>\n\n</tr>\n\n<tr>\n\n<td>No lubricado</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Nivel de ruido:</td>\n\n<td>68db Laeq</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Tierra</td>\n\n<td>&lt; 1Ω</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Peso</td>\n\n<td>2.2 Kg (4.9 lbs)</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/bomba-de-suministro-dx70/dx-70-binks-pump-500-h-21webp.webp"
+            ],
+            "seo": {
+                "description": "Bomba neumática cabinas pintura menbrana con relación 1:1 maxima presión de fluido de 7 bar entrada de fluido de 3/8\" -salida de 3/8\" Peso de 2,2 kg-flujo"
+            }
+        },
+        {
+            "slug": "bomba-de-piston-horizontal-maple-31",
+            "legacy_slug": "bomba-de-piston-horizontal-maple-31",
+            "name": "Bomba de piston Horizontal Maple 3:1",
+            "sku": null,
+            "category": {
+                "name": "Equipos para aplicación de pintura",
+                "slug": "equipos-para-aplicacion-de-pintura"
+            },
+            "brand": {
+                "name": "Binks",
+                "slug": "binks"
+            },
+            "summary": "Sistema para suministro de material apartir de un tanque presurizado con aire comprimido o gas inerte con capacidad de 5gal y agitador. Cuenta con sistema de control de aire para tanque, agitador y pistola galvanizado con presión maxima de trabajo de 110 psi. Sistema para suministro de material apartir de un tanque presurizado con aire comprimido o gas inerte con capacidad de 5gal, 10gal o 15gal y agitador . Cuenta con sistema de control de aire para tanque, agitador y pistola galvanizado con presión maxima de trabajo de 110 psi.",
+            "description": "<div class=\"flex max-w-full flex-col flex-grow\">\n<div class=\"min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words text-start :mt-5\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"bad7c495-e10b-4d8a-8913-9f308072dad0\" data-message-model-slug=\"gpt-4o\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-\">\n<div class=\"markdown prose w-full break-words dark:prose-invert dark\">\n\nEste sistema de suministro es ideal para <a href=\"https://anaerobia.com/cabina-de-pintura/\">cabinas de pintura</a>, diseñado para transportar materiales desde un tanque presurizado mediante aire comprimido o gas inerte. Equipado con una <strong>bomba de pistón horizontal</strong>, garantiza un flujo continuo y eficiente. Su capacidad de 5 galones lo hace perfecto para aplicaciones en cabinas de pintura industriales, ofreciendo precisión, durabilidad y un rendimiento óptimo en el manejo de pinturas y recubrimientos.\n\nEl sistema utiliza aire comprimido o gas inerte como fuente de energía, asegurando una operación segura y libre de contaminantes que puedan comprometer la calidad del trabajo. Su diseño es compatible con la mayoría de las cabinas de pintura estándar, permitiendo una fácil integración y mejorando significativamente la productividad. Además, está optimizado para reducir vibraciones y ruidos, proporcionando un ambiente de trabajo más cómodo y eficiente.\n\nIdeal para aplicaciones industriales, este sistema se adapta a una variedad de necesidades, desde la pintura automotriz hasta el recubrimiento de maquinaria, muebles y estructuras metálicas. Su versatilidad, durabilidad y facilidad de uso lo convierten en una herramienta indispensable para obtener acabados uniformes y profesionales. Si buscas un equipo confiable que combine tecnología avanzada con desempeño superior, este sistema es la elección perfecta para llevar tus procesos de pintura al siguiente nivel.\n\n</div>\n</div>\n</div>\n</div>",
+            "attributes": [
+                {
+                    "name": "Capacidad",
+                    "options": [
+                        "MAPLE 15 PUMP",
+                        "MAPLE 30 PUMP",
+                        "MAPLE 60 PUMP"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/bomba-de-piston-horizontal-maple-31/bomba-de-suministro-maple-1webp.webp"
+            ],
+            "seo": {
+                "description": "Sistema de suministro con tanque presurizado y bomba de pistón horizontal, ideal para cabinas de pintura, capacidad 5 gal."
+            }
+        },
+        {
+            "slug": "cartucho-de-celulosa-para-recoleccion-de-polvo-y-pintura-en-polvo",
+            "legacy_slug": "cartucho-de-celulosa-para-recoleccion-de-polvo-y-pintura-en-polvo",
+            "name": "Cartucho para recolección de polvo y pintura en polvo",
+            "sku": "216-203",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Global Finishing Solutions",
+                "slug": "global-finishing-solutions"
+            },
+            "summary": "Cartucho de celulosa para recolección de polvo y pintura en polvo\n\nAbierto /abierto\n\nMedidas: 26\" X 12 3/4\"",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Colección de polvo / pintura en polvo\n\nMaterial: Celulosa / Poliester\n\nMedidas: 26” alto x 12.75” diámetro externo x 8.375” diámetro interno\n\nExtremos: Abierto / Abierto, con tapas electro-galvanizadas calibre 22\n\nCantidad por empaque: 1 pza.\n\nColor: Blanco\n\nÁrea filtrante: 191 sqf\n\nTemperatura: 200 F máximo\n\nPeso: 16 lbs",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/cartucho-de-celulosa-para-recoleccion-de-polvo-y-pintura-en-polvo/cartucho-216-203jpg.jpg"
+            ],
+            "seo": {
+                "description": "Cartucho para recolección de polvo y pintura en polvo Abierto para cabinas pintura /abiertoMedidas: 26\" X 12 3/4\". Tenemos los mejores productos"
+            }
+        },
+        {
+            "slug": "pistola-ms-topcoat-m4-copia",
+            "legacy_slug": "pistola-ms-topcoat-m4-copia",
+            "name": "Controlador MS topcase® S4",
+            "sku": "615310-02",
+            "category": {
+                "name": "Pintura en polvo",
+                "slug": "pintura-en-polvo"
+            },
+            "brand": null,
+            "summary": "El controlador de pantalla táctil S4 cuenta con una pantalla intuitiva y con programas estándar precargados, así como con capacidad para hasta 999 recetas adicionales.\n\nPermite el ajuste de precisión del flujo de aire, salida de polvo y parámetros de voltaje y amperaje,\n\nAdecuado para pistolas corona y corona / tribo.",
+            "description": "<table width=\"343\">\n\n<tbody>\n\n<tr>\n\n<td width=\"160\">Alimentación eléctrica:</td>\n\n<td width=\"183\">100-240 VAC / 50 - 60 Hz</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Alimentación neumática:</td>\n\n<td width=\"183\">6-8 Bar</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Dimensiones:</td>\n\n<td>200mm x 120mm x 280mm</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Peso:</td>\n\n<td>4.1 Kg</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/pistola-ms-topcoat-m4-copia/topcoater-s4-english-master-2webp.webp"
+            ],
+            "seo": {
+                "description": "Controlador MS topcase® S4 para cabinas de pintur. El controlador de pantalla cuenta con una pantalla intuitiva y con programas estándar precargado."
+            }
+        },
+        {
+            "slug": "drum-elevador-neumatico-con-agitador-5-gal",
+            "legacy_slug": "drum-elevador-neumatico-con-agitador-5-gal",
+            "name": "Drum Elevador Neumático con Agitador 5 GAL",
+            "sku": "DE-05CB00AN",
+            "category": {
+                "name": "Equipos para aplicación de pintura",
+                "slug": "equipos-para-aplicacion-de-pintura"
+            },
+            "brand": {
+                "name": "Binks",
+                "slug": "binks"
+            },
+            "summary": "Sistemas principal de carga de pintura a linea de suministro con accionamiento neumatico de elevador para cambio rapido de contenedor.",
+            "description": "<table width=\"761\">\n\n<tbody>\n\n<tr>\n\n<td width=\"296\">Carrera de elevación:</td>\n\n<td width=\"465\">500 mm (19.7\")</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Presión de entrada mínima/máxima:</td>\n\n<td width=\"465\">Min: 3 BAR (44 psi)\n\nMax: 7 BAR (100 psi)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión de entrada de aire:</td>\n\n<td>G 1/2\" BSPP hembra</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Capacidad máxima de carga (incluye la tapa/soporte de la tapa)</td>\n\n<td>50 kg (110 lb)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Diámetro máximo del bidón:</td>\n\n<td>ø 340 mm (13.4\")</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Velocidad de movimiento máxima:</td>\n\n<td>0.1 m/s (4\"/s)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Peso:</td>\n\n<td>51 kg (112 lb)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Dimensiones generales:</td>\n\n<td width=\"465\">Altura máxima desde la base del elevador: 1378 mm (54,3\")\n\nAltura máxima con cadena portacables: 1944 mm (76,5\")\n\nAnchura: 350 mm (13,8\")</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Calidad del aire recomendada ISO 8573.1 CLASE 3.3.2.2 #</td>\n\n<td width=\"465\">Suciedad: 5µm\n\nAgua: -20° C @ 7 bar (940 ppm)\n\nAceite: 0,1 mg/m3\n\nSin lubricación</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Nivel de ruido a 7 BAR (100 psi)</td>\n\n<td>&lt; 70 dBA</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Intervalo de temperaturas:</td>\n\n<td width=\"465\">0-40° C\n\n(32-104°F)</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Resistencia de puesta a tierra:</td>\n\n<td>&lt; 1Ω</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/drum-elevador-neumatico-con-agitador-5-gal/drum-elevador-neumatico-con-agitador-5-gal-scaled-1webp.webp"
+            ],
+            "seo": {
+                "description": "Drum Elevador Neumático con Agitador 5 GAL para cabinas de pintura. Sistema carga de pintura a linea de suministro con accionamiento neumático de elevador"
+            }
+        },
+        {
+            "slug": "filtro-fibra-de-vidrio-en-pads-verde",
+            "legacy_slug": "filtro-fibra-de-vidrio-en-pads-verde",
+            "name": "Filtro Fibra de Vidrio en Pads - Verde",
+            "sku": "217-001",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "AJ Dralle",
+                "slug": "aj-dralle"
+            },
+            "summary": "Filtro para extracción de pintura en pads de fibra de vidrio verde de 15 gr x pie cuadrado.\n\nMedidas 20\" x 20\"\n\n(Caja con 100 filtros)",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Filtro",
+                    "options": [
+                        "217-001"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-fibra-de-vidrio-en-pads-verde/pads-filtroswebp.webp"
+            ],
+            "seo": {
+                "description": "Filtro Fibra de Vidrio en Pads color verde filtros para cabinas de pintura. Fibra de vidrio verde de 15gr x pie cuadrado Medidas 20\" x 20\""
+            }
+        },
+        {
+            "slug": "filtro-fibra-de-vidrio-en-rollo-amarillo",
+            "legacy_slug": "filtro-fibra-de-vidrio-en-rollo-amarillo",
+            "name": "Filtro Fibra de Vidrio en Rollo - Amarillo",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "AJ Dralle",
+                "slug": "aj-dralle"
+            },
+            "summary": "Filtro para extracción de pintura en rollo de fibra de vidrio amarillo de 22 gr x pie cuadrado",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "30\" ancho x 300´ largo x 2\" espesor",
+                        "40\" ancho x 300´ largo x 2\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-fibra-de-vidrio-en-rollo-amarillo/rollo-filtro-paint-amarillo-01-01webp.webp"
+            ],
+            "seo": {
+                "description": "Filtro Fibra de Vidrio en Rollo color Amarillo filtros para cabinas de pintura.. Rollo de fibra de vidrio amarillo de 22 gr x pie cuadrado."
+            }
+        },
+        {
+            "slug": "filtro-fibra-de-vidrio-en-rollo-verde",
+            "legacy_slug": "filtro-fibra-de-vidrio-en-rollo-verde",
+            "name": "Filtro Fibra de Vidrio en Rollo - Verde",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "AJ Dralle",
+                "slug": "aj-dralle"
+            },
+            "summary": "Filtro para extracción de pintura en rollo de fibra de vidrio verde, 15 gr x pie cuadrado",
+            "description": "¿Interesado en mantener la calidad del aire en tu cabina de pintura? Explora nuestra sección de filtros para cabina de pintura y encuentra los mejores productos para mantener tu equipo en óptimas condiciones. <a href=\"https://anaerobia.com/filtros-para-cabina-de-pintura/\">¡Visítanos ahora y descubre más!</a>",
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "20\" ancho x 300´ largo x 2\" espesor",
+                        "25\" ancho x 300´ largo x 2\" espesor",
+                        "30\" ancho x 300´ largo x 2\" espesor",
+                        "42\" ancho x 300´ largo x 2\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-fibra-de-vidrio-en-rollo-verde/rollo-filtro-paint-verdewebp.webp"
+            ],
+            "seo": {
+                "description": "Filtro Fibra de Vidrio en Rollo color Verde filtros cabinas de pintura. Rollo de fibra de vidrio verde, 15 gr x pie cuadrado."
+            }
+        },
+        {
+            "slug": "filtro-plenum-de-poliester-tackificado-en-panel",
+            "legacy_slug": "filtro-plenum-de-poliester-tackificado-en-panel",
+            "name": "Filtro Plenum de poliéster tackificado en panel",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Global Finishing Solutions",
+                "slug": "global-finishing-solutions"
+            },
+            "summary": "Filtro de poliéster tackificado en panel con marco interno difusor de aire para techo de cabinas de pintura (plenum); Marca GFS\n\nMedidas 20\" X 20\"\n\nCaja con 24 filtros",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "20\" ancho x 20\" alto x 1\" espesor",
+                        "20\" ancho x 25\" alto x 1\" espesor",
+                        "24\" ancho x 24\" alto x 1\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-plenum-de-poliester-tackificado-en-panel/panel-tacky-1jpg.jpg"
+            ],
+            "seo": {
+                "description": "Filtro Plenum de poliéster tackificado para cabinas de pintura panel con marco interno difusor de aire para techo de cabinas de pintura (plenum); Marca GFS"
+            }
+        },
+        {
+            "slug": "filtro-plenum-de-poliester-tackificado-en-panel-azul",
+            "legacy_slug": "filtro-plenum-de-poliester-tackificado-en-panel-azul",
+            "name": "Filtro Plenum de poliéster tackificado en panel Azul",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": null,
+            "summary": null,
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Difusor de Aire para Plenum, Ventilación\n\nMaterial: Poliester con Resina (Tacky) Medidas: 20\" ancho x 20\" alto x 1\" espesor, con marco metálico interno Cantidad por empaque: 24 pzas\n\nColor: Azul Porcentaje de eficiencia: 82% MERV 10 @ 1968 cfm\n\nTamaño de particulas: 7-10 micras\n\nCaída de presión inicial: .544” W.C. @ 100 FPM\n\nCaída de presión final: 1.000” W.C. @ 100 FPM\n\nCapacidad de retención de polvo: 77.0 gr\n\nPorcentaje de Arrestancia: 83.6%\n\nEl filtro Plenum de poliéster es una solución eficiente y confiable para sistemas de ventilación y filtrado, diseñado para garantizar un flujo de aire óptimo y mantener un ambiente limpio en aplicaciones industriales y comerciales. Fabricado con fibras de poliéster de alta densidad, este filtro destaca por su capacidad superior de retención de partículas, atrapando polvo, suciedad y otros contaminantes presentes en el aire. Su diseño robusto asegura una larga vida útil y un rendimiento consistente, incluso en entornos exigentes. Además, ofrece un equilibrio perfecto entre permeabilidad al aire y eficiencia de filtración, reduciendo la resistencia al flujo de aire mientras elimina eficazmente las partículas dañinas.\n\nIdeal para <a href=\"https://anaerobia.com/cabina-de-pintura/\">cabinas de pintura</a>, sistemas de climatización industrial y otros espacios que requieren un control preciso de la calidad del aire, este filtro es fácil de instalar y mantener, adaptándose a una variedad de configuraciones. Gracias a su construcción resistente, puede soportar altas cargas de polvo sin comprometer su desempeño, lo que lo convierte en una opción económica y ecológica. Si buscas un filtro que combine durabilidad, eficiencia y facilidad de uso, el filtro Plenum de poliéster es la elección perfecta para optimizar tus sistemas de ventilación y mantener un ambiente limpio y seguro.",
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "20\" ancho x 20\" alto x 1\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-plenum-de-poliester-tackificado-en-panel-azul/filtro-plenum-de-poliester-tackificado-en-panel-azuljpg.jpg"
+            ],
+            "seo": {
+                "description": "Filtro Plenum poliéster cabinas pintura: Difusor aire plenum, ventilación. Material: poliéster resina (tacky). Medidas: 20″ ancho x 20″ alto x 1″ espesor."
+            }
+        },
+        {
+            "slug": "filtro-plenum-de-poliester-tackificado-en-rollo",
+            "legacy_slug": "filtro-plenum-de-poliester-tackificado-en-rollo",
+            "name": "Filtro Plenum de poliéster tackificado en rollo",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "AJ Dralle",
+                "slug": "aj-dralle"
+            },
+            "summary": "Filtro de poliéster tackificado en rollo, difusor de aire para techo de cabinas de pintura (plenum); Marca GFS\n\nMedidas 50\" X 30'",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "50\" ancho x 30´ largo x 1\" espesor",
+                        "50\" ancho x 90´ largo x 1\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-plenum-de-poliester-tackificado-en-rollo/rollo-tackyjpg.jpg"
+            ],
+            "seo": {
+                "description": "Filtro Plenum de poliéster tackificado en rollo cabinas de pintura, difusor de aire para techo de cabinas de pintura (plenum); Marca GFS Medidas 50\" X 30'"
+            }
+        },
+        {
+            "slug": "filtro-plisado-con-marco-de-carton",
+            "legacy_slug": "filtro-plisado-con-marco-de-carton",
+            "name": "Filtro Plisado con marco de cartón",
+            "sku": "216-011",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Camfil",
+                "slug": "camfil"
+            },
+            "summary": "FILTRO PLISADO CON MARCO DE CARTON, MERV 7, MEDIDAS 20\" X 20\" X 2\" PARA RECOLECCION DE POLVO, PRIMER ETAPA",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Primera etapa en manejadoras, ventilación, filtro final\n\nMaterial: Fibras de Algodón y Poliéster Plisado, 15 Pliegues\n\nMedidas: 20\" ancho x 20\" alto x 2\" espesor\n\nCantidad por empaque: 1 pza.\n\nColor: Marco blanco, Pliegues verdes\n\nClasificación ASHRAE 52.2: MERV 7\n\nCaída de presión inicial: .28” W.C. @ 350 FPM\n\nCaída de presión final: 1.000” W.C. @ 350 FPM\n\nCapacidad de retención de polvo: 170 gr",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-plisado-con-marco-de-carton/filtro-plisadojpg.jpg"
+            ],
+            "seo": {
+                "description": "Filtro Plisado con marco de cartón para cabinas de pintura MERV 7, MEDIDAS 20\" X 20\" X 2\" PARA RECOLECCION DE POLVO, PRIMER ETAPA."
+            }
+        },
+        {
+            "slug": "filtro-wave-gfs",
+            "legacy_slug": "filtro-wave-gfs",
+            "name": "Filtro Wave GFS",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Global Finishing Solutions",
+                "slug": "global-finishing-solutions"
+            },
+            "summary": "Filtro para extracción de pintura en pads de poliéster tipo Wave; Marca GFS\n\nMedidas: 20 X 20\"\n\nCaja con 30 filtros",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "20\" ancho x 20\" alto x 2\" espesor",
+                        "20\" ancho x 25\" alto x 2\" espesor",
+                        "Rollo: 30\" ancho x 24' largo x 2\" espesor",
+                        "Rollo: 30\" ancho x 30' largo x 2\" espesor",
+                        "Rollo: 36\" ancho x 30' largo x 2\" espesor",
+                        "Rollo: 45\" ancho x 30' largo x 2\" espesor",
+                        "Rollo: 48\" ancho x 30' largo x 2\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-wave-gfs/gfs-wavejpg.jpg",
+                "http://127.0.0.1:8000/storage/catalogo/filtro-wave-gfs/gfs-wave-1365x1024-1png.png"
+            ],
+            "seo": {
+                "description": "Filtro Wave GFS. Filtro para cabinas de pintura para extracción de pintura en pads de poliéster tipo Wave; Marca GFSMedidas: 20 X 20\"Caja con 30 filtros"
+            }
+        },
+        {
+            "slug": "filtro-de-6-bolsas-con-marco-metalico",
+            "legacy_slug": "216-505",
+            "name": "Filtro de 6 bolsas con marco metálico",
+            "sku": "216-505",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "AJ Dralle",
+                "slug": "aj-dralle"
+            },
+            "summary": "Filtro de 6 bolsas con marco interno para recolección de pintura y polvo. Tercera etapa de extracción.\n\nMedidas: 20\" X 20\" X 12\"",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA, E.P.A METHOD 319\n\nAplicación: Colección de polvo y de pintura líquida y en polvo\n\nMaterial: Poliéster\n\nMedidas: 20\" ancho x 20\" alto x 15\" espesor, marco metálico exterior\n\nNúmero de bolsas: 6\n\nColor: Amarillo\n\nCantidad por empaque: 1 pza.\n\nPorcentaje de eficiencia: 99.5%\n\nCapacidad de retención: 1.33 lbs\n\nCaída de presión inicial: .35” W.C. @ 200 FPM\n\nCaída de presión final: 1.00” W.C. @ 200 FPM",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-de-6-bolsas-con-marco-metalico/filtro-bolsa-3era-etapajpg.jpg"
+            ],
+            "seo": {
+                "description": "Filtro de 6 bolsas con marco metálico. Optimiza la calidad del aire en tus cabinas de pintura industrial con nuestro filtro de 6 bolsas con marco metálico."
+            }
+        },
+        {
+            "slug": "filtro-en-rollo-de-poliester-difusor-de-aire-pare-techo-de-cabinas-de-pintura",
+            "legacy_slug": "165010-75",
+            "name": "Filtro en rollo de poliéster difusor de aire pare techo de cabinas de pintura",
+            "sku": null,
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Global Finishing Solutions",
+                "slug": "global-finishing-solutions"
+            },
+            "summary": "Filtro en rollo de poliéster difusor de aire pare techo de cabinas de pintura (plenum)\n\nModelo Microclean; Marca GFS",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Medidas",
+                    "options": [
+                        "75\" ancho x 75´ largo x 1\" espesor",
+                        "81\" ancho x 75´ largo x 1\" espesor"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-en-rollo-de-poliester-difusor-de-aire-pare-techo-de-cabinas-de-pintura/plenumwebp.webp"
+            ],
+            "seo": {
+                "description": "Filtro en rollo de poliéster difusor de aire pare techo de cabinas de pintura. Filtro en rollo de poliéster difusor de aire pare techo de cabinas de pintura"
+            }
+        },
+        {
+            "slug": "filtro-plenum-de-poliester-tackificado-en-panel-2",
+            "legacy_slug": "filtro-plenum-de-poliester-tackificado-en-panel-2",
+            "name": "Filtro para Plenum de poliéster tackificado en panel color Verde",
+            "sku": "217-012-GREEN",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Global Finishing Solutions",
+                "slug": "global-finishing-solutions"
+            },
+            "summary": "Filtro de poliéster tackificado en panel con marco interno. Difusor de aire para techo de cabinas de pintura (plenum)\n\nMarca: GFS, Medidas: 20\" X 20\"\n\nCaja con 24 filtros color verde",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Difusor de Aire para Plenum, Ventilación\n\nMaterial: Poliéster con Resina (Tacky)\n\nMedidas: 20\"\" ancho x 20\"\" alto x 1\"\" espesor, con marco metálico interno\n\nCantidad por empaque: 24 pzas\n\nColor: Blanco / Verde\n\nPorcentaje de eficiencia: 82% MERV 10 @ 1968 cfm\n\nTamaño de particulas: 7-10 micras\n\nCaída de presión inicial: .544” W.C. @ 100 FPM\n\nCaída de presión final: 1.000” W.C. @ 100 FPM\n\nCapacidad de retención de polvo: 77.0 gr\n\nPorcentaje de Arrestancia: 83.6%\"",
+            "attributes": [
+                {
+                    "name": "Filtro",
+                    "options": [
+                        "217-012",
+                        "217-013",
+                        "217-014"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/filtro-plenum-de-poliester-tackificado-en-panel-2/filtro-plenum-de-poliester-tackificado-en-panelwebp.webp"
+            ],
+            "seo": {
+                "description": "Filtro para Plenum de poliéster tackificado en panel color Verde con marco interno.Difusor de aire para techo de cabinas de pintura (plenum)"
+            }
+        },
+        {
+            "slug": "infrared-standing-units",
+            "legacy_slug": "infrared-standing-units",
+            "name": "Lámpara Infrarroja de Pedestal IWT - 1 módulo",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "IWT",
+                "slug": "iwt"
+            },
+            "summary": "Todos los sistemas con regulación automática de temperatura por microprocesador. Medición\n\nde la temperatura del objeto sin contacto con el pirómetro.\n\nFunción de compensación \"INR\", configuración de alarma para controlar el proceso de curado. Contraseña seguridad y guardado / carga de todos los parámetros por cable de interfaz a una PC. Emisores de infrarrojos de onda corta / onda media rápida con revestimiento antideslumbrante para una longitud de onda perfecta y una alta protección para los operadores.\n\nColocación de los casetes en 3 dimensiones, los casetes pueden seguir la silueta de la carrocería.\n\nAmplias funciones para el control del proceso, 2 alarmas de temperatura relativa, aviso / interrupción cuando no se alcanza el set point, interrupción tras fallo de tiristor y pirómetro.\n\n16 programas diferentes libremente programables\n\nTodos los parámetros se pueden guardar en una EPROM, todos los datos se pueden guardar y se pueden transmitir a otros sistemas.\n\nProtección por contraseña en 2 niveles",
+            "description": "La lámpara infrarroja de pedestal IWT es una solución avanzada para el secado rápido y eficiente de pinturas y recubrimientos en entornos industriales y talleres de pintura. Diseñada para ofrecer un calor suave y constante, esta lámpara utiliza tecnología infrarroja para acelerar el proceso de secado sin comprometer la calidad del acabado. Ideal para <a href=\"https://anaerobia.com/cabina-de-pintura/\">cabinas de pintura</a>, talleres de automóviles y aplicaciones de recubrimiento, la lámpara IWT. además proporciona una distribución uniforme del calor, lo que reduce el riesgo de marcas o imperfecciones en las superficies tratadas.\n\nCon un diseño robusto y versátil, la lámpara infrarroja de pedestal IWT cuenta con un pedestal ajustable que permite modificar la altura y la dirección de la lámpara para adaptarse a las necesidades específicas de cada trabajo. Esto asegura una cobertura precisa y eficiente, incluso en áreas de difícil acceso. Además, su sistema de control de temperatura integrado permite ajustar la intensidad del calor según el tipo de material y el acabado deseado, proporcionando un secado personalizado para cada aplicación.\n\nLa lámpara está construida con materiales de alta calidad que garantizan su durabilidad y resistencia a las condiciones del entorno, incluyendo altas temperaturas y exposición continua al calor. Su fácil movilidad y estabilidad, gracias al pedestal con base sólida, la convierten en una opción práctica y confiable para su uso en diversos espacios de trabajo. Además, su tecnología de infrarrojos ayuda a mejorar la eficiencia energética al concentrar el calor solo en las áreas necesarias, lo que hace que el proceso de secado sea más rápido y económico.\n\nIdeal para talleres de pintura, restauración de vehículos y líneas de producción, la lámpara infrarroja de pedestal IWT no solo acelera los tiempos de secado, sino que también mejora la calidad del acabado final, garantizando resultados impecables con mayor rapidez ya que debe de ser.",
+            "attributes": [
+                {
+                    "name": "Voltaje disponible",
+                    "options": [
+                        "240V/60 Hz",
+                        "400V - 3~ / 60 Hz"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/infrared-standing-units/dsc-0078-scaledjpg.jpg"
+            ],
+            "seo": {
+                "description": "Lámpara Infrarroja de Pedestal IWT para cabinas de pintura, con 1 módulo y amplias funciones, 2 alarmas de temperatura relativa, aviso/interrupción."
+            }
+        },
+        {
+            "slug": "lampara-infrarroja-de-pedestal-iwt-2-modulos",
+            "legacy_slug": "lampara-infrarroja-de-pedestal-iwt-2-modulos",
+            "name": "Lámpara Infrarroja de Pedestal IWT - 2 módulos",
+            "sku": null,
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "IWT",
+                "slug": "iwt"
+            },
+            "summary": "Todos los sistemas con regulación automática de temperatura por microprocesador. Medición\n\nde la temperatura del objeto sin contacto con el pirómetro.\n\nFunción de compensación \"INR\", configuración de alarma para controlar el proceso de curado. Contraseña seguridad y guardado / carga de todos los parámetros por cable de interfaz a una PC. Emisores de infrarrojos de onda corta / onda media rápida con revestimiento antideslumbrante para una longitud de onda perfecta y una alta protección para los operadores.\n\nColocación de los casetes en 3 dimensiones, los casetes pueden seguir la silueta de la carrocería.\n\nAmplias funciones para el control del proceso, 2 alarmas de temperatura relativa, aviso / interrupción cuando no se alcanza el set point, interrupción tras fallo de tiristor y pirómetro.\n\n16 programas diferentes libremente programables\n\nTodos los parámetros se pueden guardar en una EPROM, todos los datos se pueden guardar y se pueden transmitir a otros sistemas.\n\nProtección por contraseña en 2 niveles",
+            "description": "La lámpara infrarroja de pedestal IWT es una solución avanzada para el secado rápido y eficiente de pinturas y recubrimientos en entornos industriales y talleres de pintura. Diseñada para ofrecer un calor suave y constante, esta lámpara utiliza tecnología infrarroja para acelerar el proceso de secado sin comprometer la calidad del acabado. Ideal para cabinas de pintura, talleres de automóviles y aplicaciones de recubrimiento, la lámpara IWT. además proporciona una distribución uniforme del calor, lo que reduce el riesgo de marcas o imperfecciones en las superficies tratadas.\n\nCon un diseño robusto y versátil, la lámpara infrarroja de pedestal IWT cuenta con un pedestal ajustable que permite modificar la altura y la dirección de la lámpara para adaptarse a las necesidades específicas de cada trabajo. Esto asegura una cobertura precisa y eficiente, incluso en áreas de difícil acceso. Además, su sistema de control de temperatura integrado permite ajustar la intensidad del calor según el tipo de material y el acabado deseado, proporcionando un secado personalizado para cada aplicación.\n\nLa lámpara está construida con materiales de alta calidad que garantizan su durabilidad y resistencia a las condiciones del entorno, incluyendo altas temperaturas y exposición continua al calor. Su fácil movilidad y estabilidad, gracias al pedestal con base sólida, la convierten en una opción práctica y confiable para su uso en diversos espacios de trabajo. Además, su tecnología de infrarrojos ayuda a mejorar la eficiencia energética al concentrar el calor solo en las áreas necesarias, lo que hace que el proceso de secado sea más rápido y económico.",
+            "attributes": [
+                {
+                    "name": "Dimensión de Módulos",
+                    "options": [
+                        "400 x 250 mm",
+                        "510 x 570 mm"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/lampara-infrarroja-de-pedestal-iwt-2-modulos/stativ-reducidajpg.jpg"
+            ],
+            "seo": {
+                "description": "Lámpara Infrarroja de Pedestal IWT para cabinas de pintura, con 2 módulos y amplias funciones, 2 alarmas de temperatura relativa, aviso/interrupción."
+            }
+        },
+        {
+            "slug": "lampara-infrarroja-de-pedestal-iwt-3-modulos",
+            "legacy_slug": "lampara-infrarroja-de-pedestal-iwt-3-modulos",
+            "name": "Lámpara Infrarroja de Pedestal IWT 3 módulos",
+            "sku": "w028-21-05",
+            "category": {
+                "name": "Lámparas infrarrojas",
+                "slug": "lamparas-infrarrojas"
+            },
+            "brand": {
+                "name": "IWT",
+                "slug": "iwt"
+            },
+            "summary": "Todos los sistemas con regulación automática de temperatura por microprocesador. Medición\n\nde la temperatura del objeto sin contacto con el pirómetro.\n\nFunción de compensación \"INR\", configuración de alarma para controlar el proceso de curado. Contraseña seguridad y guardado / carga de todos los parámetros por cable de interfaz a una PC. Emisores de infrarrojos de onda corta / onda media rápida con revestimiento antideslumbrante para una longitud de onda perfecta y una alta protección para los operadores.\n\nColocación de los casetes en 3 dimensiones, los casetes pueden seguir la silueta de la carrocería.\n\nAmplias funciones para el control del proceso, 2 alarmas de temperatura relativa, aviso / interrupción cuando no se alcanza el set point, interrupción tras fallo de tiristor y pirómetro.\n\n16 programas diferentes libremente programables\n\nTodos los parámetros se pueden guardar en una EPROM, todos los datos se pueden guardar y se pueden transmitir a otros sistemas.\n\nProtección por contraseña en 2 niveles",
+            "description": "La lámpara infrarroja de pedestal IWT es una solución avanzada para el secado rápido y eficiente de pinturas y recubrimientos en entornos industriales y talleres de pintura. Diseñada para ofrecer un calor suave y constante, esta lámpara utiliza tecnología infrarroja para acelerar el proceso de secado sin comprometer la calidad del acabado. Ideal para cabinas de pintura, talleres de automóviles y aplicaciones de recubrimiento, la lámpara IWT. además proporciona una distribución uniforme del calor, lo que reduce el riesgo de marcas o imperfecciones en las superficies tratadas.\n<table width=\"359\">\n<tbody>\n<tr>\n<td width=\"176\">Rango de temperatura:</td>\n<td width=\"183\">Programable desde  6°C  Hasta 180ºC°  en controlador .\n\nVelocidad mínima de cambio de temperatura  6°C/min</td>\n</tr>\n<tr>\n<td width=\"176\">Número de módulo(s)s:</td>\n<td>3x</td>\n</tr>\n<tr>\n<td width=\"176\">Dimensiones de módulo(s):</td>\n<td>400 x 250 mm</td>\n</tr>\n<tr>\n<td width=\"176\">Voltaje disponible:</td>\n<td>400V - 3~ / 60 Hz</td>\n</tr>\n</tbody>\n</table>\nCon un diseño robusto y versátil, la lámpara infrarroja de pedestal IWT cuenta con un pedestal ajustable que permite modificar la altura y la dirección de la lámpara para adaptarse a las necesidades específicas de cada trabajo. Esto asegura una cobertura precisa y eficiente, incluso en áreas de difícil acceso. Además, su sistema de control de temperatura integrado permite ajustar la intensidad del calor según el tipo de material y el acabado deseado, proporcionando un secado personalizado para cada aplicación.\n\nLa lámpara está construida con materiales de alta calidad que garantizan su durabilidad y resistencia a las condiciones del entorno, incluyendo altas temperaturas y exposición continua al calor. Además, su fácil movilidad y estabilidad, gracias al pedestal con base sólida, la convierten en una opción práctica y confiable para su uso en diversos espacios de trabajo. Además, su tecnología de infrarrojos ayuda a mejorar la eficiencia energética al concentrar el calor solo en las áreas necesarias, lo que hace que el proceso de secado sea más rápido y económico.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/lampara-infrarroja-de-pedestal-iwt-3-modulos/dsc-0155jpg.jpg"
+            ],
+            "seo": {
+                "description": "Lámpara Infrarroja de Pedestal IWT para cabinas de pintura, con 3 módulos y amplias funciones, 2 alarmas de temperatura relativa, aviso/interrupción."
+            }
+        },
+        {
+            "slug": "lamparas-para-cabina-de-pintura-gfs-led",
+            "legacy_slug": "lamparas-para-cabina-de-pintura-gfs-led",
+            "name": "Lámparas para cabina de pintura GFS - 4 tubos LED",
+            "sku": "LABW12-4-LED",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Global Refaccion Solutions",
+                "slug": "global-refaccion-solutions"
+            },
+            "summary": "Las lámparas LABW-12-4 -LED de alta calidad pueden utilizarse con tubos LED de bajo consumo para una luminosidad y flexibilidad excepcionales en\n\nsu cabina de pintura.\n\nEstas lámparas fueron diseñadas para ubicaciones en las que se manipulan, procesan y usan líquidos o gases inflamables volátiles. Cuentan con Certificación ETL- ETL-C y NFPA Clasificación Clase 1( Gases,líquidos o vapores inflamables), División 2(NO Normalmente peligroso;\n\nNO Normalmente presente), Grupos A-D",
+            "description": "Las lámparas para cabinas de pintura GFS son la solución ideal para garantizar una iluminación de alta calidad en entornos de pintura industriales. Diseñadas específicamente para proporcionar una iluminación uniforme y de alto rendimiento, estas lámparas son fundamentales para asegurar que los acabados de pintura sean consistentes y sin imperfecciones.\n<table style=\"height: 289px;\" width=\"497\">\n<tbody>\n<tr>\n<td width=\"261\">Dimensiones</td>\n<td width=\"238\">Ancho: 1,324mm - Largo:480mm (52 1/8\"x 18 7/8\")</td>\n</tr>\n<tr>\n<td>Tubos</td>\n<td>4 -Lámparas LED T8</td>\n</tr>\n<tr>\n<td>Temperatura de color</td>\n<td>5,000 °Kelvin</td>\n</tr>\n<tr>\n<td>Índice de reproducción cromática</td>\n<td>82%</td>\n</tr>\n<tr>\n<td>Voltaje disponible:</td>\n<td>120 / 277 Volts</td>\n</tr>\n<tr>\n<td>Brillo</td>\n<td>2,100 lúmenes</td>\n</tr>\n<tr>\n<td>Vida útil</td>\n<td> 36,000 horas</td>\n</tr>\n<tr>\n<td colspan=\"2\">Encendido instantáneo: sin parpadeos ni zumbidos</td>\n</tr>\n<tr>\n<td colspan=\"2\">\n<table width=\"489\">\n<tbody>\n<tr>\n<td width=\"151\">Potencia</td>\n<td width=\"338\">14 Watts</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\nAhorros de energía significativos: hasta un 40 % en comparación con fluorescente T8 de 32 Watts\n\nPrácticamente no emiten luz UV o IR, y no contienen mercurio\n\nLas lámparas para cabinas de pintura GFS minimizan las sombras y distribuyen la luz de manera homogénea, lo que permite a los operarios realizar trabajos de pintura con una mayor precisión y sin errores. Esto resulta en acabados más uniformes, reduciendo la necesidad de retoques adicionales y mejorando la eficiencia en los procesos de pintura. Estas lámparas están disponibles en diferentes configuraciones de potencia y tamaños para adaptarse a diversas cabinas de pintura, desde las más pequeñas hasta las de grandes dimensiones. Su fácil instalación y mantenimiento hacen que sean una opción práctica y rentable para mejorar la iluminación en cualquier taller o línea de producción.\n\n¿Buscas más información sobre nuestras cabinas de pintura y sus componentes? Visita nuestra página dedicada a las cabinas de pintura para descubrir cómo nuestras soluciones pueden mejorar la eficiencia y seguridad en tu taller. <a href=\"https://anaerobia.com/cabinas-de-pintura/\">¡Haz clic aquí para saber más!</a>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/lamparas-para-cabina-de-pintura-gfs-led/gsf-light-1-1webp.webp"
+            ],
+            "seo": {
+                "description": "Lámparas para cabinas de pintura GFS 4 tubos LED de alta calidad pueden utilizarse con tubos LED de bajo consumo para una luminosidad y flexibilidad."
+            }
+        },
+        {
+            "slug": "lamparas-para-cabina-de-pintura-gfs-6-tubos-led",
+            "legacy_slug": "lamparas-para-cabina-de-pintura-gfs-6-tubos-led",
+            "name": "Lámparas para cabina de pintura GFS - 6 tubos LED",
+            "sku": "LABW12-6-LED",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Global Refaccion Solutions",
+                "slug": "global-refaccion-solutions"
+            },
+            "summary": "Las lámparas LABW-12-6-LED de alta calidad pueden utilizarse con tubos LED de bajo consumo para una luminosidad y flexibilidad excepcionales en\n\nsu cabina de pintura.\n\nEstas lámparas fueron diseñadas para ubicaciones en las que se manipulan, procesan y usan líquidos o gases inflamables volátiles. Cuentan con Certificación ETL- ETL-C y NFPA Clasificación Clase 1( Gases,líquidos o vapores inflamables), División 2(NO Normalmente peligroso;\n\nNO Normalmente presente), Grupos A-D",
+            "description": "Las lámparas para cabinas de pintura GFS son la solución ideal para garantizar una iluminación de alta calidad en entornos de pintura industriales. Diseñadas específicamente para proporcionar una iluminación uniforme y de alto rendimiento, estas lámparas son fundamentales para asegurar que los acabados de pintura sean consistentes y sin imperfecciones.\n<table style=\"height: 289px;\" width=\"497\">\n<tbody>\n<tr>\n<td width=\"261\">Dimensiones</td>\n<td width=\"238\">Ancho: 1,324mm - Largo:480mm (52 1/8\"x 18 7/8\")</td>\n</tr>\n<tr>\n<td>Tubos</td>\n<td>6 -Lámparas LED T8</td>\n</tr>\n<tr>\n<td>Temperatura de color</td>\n<td>5,000 °Kelvin</td>\n</tr>\n<tr>\n<td>Índice de reproducción cromática</td>\n<td>82%</td>\n</tr>\n<tr>\n<td>Voltaje disponible:</td>\n<td>120 / 277 Volts</td>\n</tr>\n<tr>\n<td>Brillo</td>\n<td>2,100 lúmenes</td>\n</tr>\n<tr>\n<td>Vida útil</td>\n<td> 36,000 horas</td>\n</tr>\n<tr>\n<td colspan=\"2\">Encendido instantáneo: sin parpadeos ni zumbidos</td>\n</tr>\n<tr>\n<td colspan=\"2\">\n<table width=\"489\">\n<tbody>\n<tr>\n<td width=\"151\">Potencia</td>\n<td width=\"338\">14 Watts</td>\n</tr>\n</tbody>\n</table>\n</td>\n</tr>\n</tbody>\n</table>\nAhorros de energía significativos: hasta un 40 % en comparación con fluorescente T8 de 32 Watts\n\nPrácticamente no emiten luz UV o IR, y no contienen mercurio\n\nLas lámparas para cabinas de pintura GFS minimizan las sombras y distribuyen la luz de manera homogénea, lo que permite a los operarios realizar trabajos de pintura con una mayor precisión y sin errores. Esto resulta en acabados más uniformes, reduciendo la necesidad de retoques adicionales y mejorando la eficiencia en los procesos de pintura. Estas lámparas están disponibles en diferentes configuraciones de potencia y tamaños para adaptarse a diversas cabinas de pintura, desde las más pequeñas hasta las de grandes dimensiones. Su fácil instalación y mantenimiento hacen que sean una opción práctica y rentable para mejorar la iluminación en cualquier taller o línea de producción.\n\n¿Buscas más información sobre nuestras cabinas de pintura y sus componentes? Visita nuestra página dedicada a las cabinas de pintura para descubrir cómo nuestras soluciones pueden mejorar la eficiencia y seguridad en tu taller. <a href=\"https://anaerobia.com/cabinas-de-pintura/\">¡Haz clic aquí para saber más!</a>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/lamparas-para-cabina-de-pintura-gfs-6-tubos-led/gsf-light-1jpg.jpg"
+            ],
+            "seo": {
+                "description": "Lámparas para cabinas de pintura GFS 6 tubos LED de alta calidad pueden utilizarse con tubos LED de bajo consumo para una luminosidad y flexibilidad."
+            }
+        },
+        {
+            "slug": "ms-topcoater-fluidizado",
+            "legacy_slug": "ms-topcoater-fluidizado",
+            "name": "MS topcoater® Fluidizado",
+            "sku": "805400-1121",
+            "category": {
+                "name": "Pintura en polvo",
+                "slug": "pintura-en-polvo"
+            },
+            "brand": null,
+            "summary": "El sistema móvil MS ha sido diseñado para uso industrial donde la máxima flexibilidad de aplicación del equipo es necesario. Los usuarios de equipos de recubrimiento en polvo se benefician de un sistema de alimentación fluidizado, garantizando una aplicación consistente.\n\nIncluye el controlador MS S4, pistola manual MS M4, sistema de succión con manguera para aire y polvo, así como unidad de filtro de aire para evitar alimentación con aire contaminado.",
+            "description": "<table width=\"343\">\n\n<tbody>\n\n<tr>\n\n<td width=\"160\">Alimentación eléctrica:</td>\n\n<td width=\"183\">100-240 VAC / 50 - 60 Hz</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Alimentación neumática:</td>\n\n<td width=\"183\">6-8 Bar</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Dimensiones:</td>\n\n<td>200mm x 120mm x 280mm</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Peso:</td>\n\n<td>4.1 Kg</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/ms-topcoater-fluidizado/topcoater-speedywebp.webp"
+            ],
+            "seo": {
+                "description": "MS topcoater® Fluidizado para cabinas de pintura. El sistema móvil MS ha sido diseñado para uso industrial la máxima flexibilidad es necesario."
+            }
+        },
+        {
+            "slug": "ms-topcoater-vibratorio",
+            "legacy_slug": "ms-topcoater-vibratorio",
+            "name": "MS topcoater® Vibratorio",
+            "sku": "835010-1121",
+            "category": {
+                "name": "Pintura en polvo",
+                "slug": "pintura-en-polvo"
+            },
+            "brand": null,
+            "summary": "El sistema móvil MS ha sido diseñado para uso industrial donde la máxima flexibilidad de aplicación del equipo es necesario. La aspiración del polvo directamente desde el contenedor original del material, permite cambiar el corlo de forma rapida.\n\nIncluye el controlador MS S4, pistola manual MS M4, sistema de succión con manguera para aire y polvo, así como unidad de filtro de aire para evitar alimentación con aire contaminado.",
+            "description": "<table width=\"343\">\n\n<tbody>\n\n<tr>\n\n<td width=\"160\">Alimentación eléctrica:</td>\n\n<td width=\"183\">100-240 VAC / 50 - 60 Hz</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Alimentación neumática:</td>\n\n<td width=\"183\">6-8 Bar</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Dimensiones:</td>\n\n<td>200mm x 120mm x 280mm</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Peso:</td>\n\n<td>4.1 Kg</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/ms-topcoater-vibratorio/topcoater-speedywebp.webp"
+            ],
+            "seo": {
+                "description": "MS topcoater® Vibratorio para cabinas de pintura. El sistema móvil MS ha sido diseñado para uso industrial, la máxima flexibilidad es necesaria."
+            }
+        },
+        {
+            "slug": "manometro-diferencial-de-presion-dwyer",
+            "legacy_slug": "manometro-diferencial-de-presion-dwyer",
+            "name": "Manómetro diferencial de presión Dwyer",
+            "sku": "242-001",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Dwyer",
+                "slug": "dwyer"
+            },
+            "summary": "Se encarga de medir la resistencia a la presión estática en el área de filtración, indicando cuando los filtros estén saturados de pintura y requieran ser reemplazados.\n\nIncluye dos tornillos de montaje, una botella de 1 onza de líquido indicador, indicadores rojo y verde e instrucciones completas, también incluye 8 'de tubería plástica flexible de doble columna",
+            "description": "El manómetro diferencial de presión Dwyer es un instrumento de medición altamente preciso, diseñado para monitorizar y medir las diferencias de presión entre dos puntos en un sistema cerrado. Además este manómetro es ideal para aplicaciones industriales y comerciales que requieren un control constante de la presión en sistemas de ventilación, calefacción, aire acondicionado, filtros, sistemas hidráulicos y otros procesos donde la presión diferencial es un parámetro crítico para el rendimiento y la seguridad. Gracias a su tecnología avanzada y su diseño robusto, el manómetro Dwyer proporciona mediciones precisas y fiables, lo que lo convierte en una herramienta esencial para el monitoreo y mantenimiento de sistemas.\n<table width=\"499\">\n<tbody>\n<tr>\n<td width=\"261\">Material</td>\n<td width=\"238\">Plástico moldeado Polipropileno, con marco de aluminio</td>\n</tr>\n<tr>\n<td width=\"261\">Exactitud</td>\n<td width=\"238\">±3% FS</td>\n</tr>\n<tr>\n<td width=\"261\">Límites de temperatura</td>\n<td width=\"238\">140°F (60°C).</td>\n</tr>\n<tr>\n<td width=\"261\">Límites de presión</td>\n<td width=\"238\">10 psi (70 kPa).</td>\n</tr>\n<tr>\n<td width=\"261\">Rango</td>\n<td width=\"238\">0-3\" w.c.</td>\n</tr>\n<tr>\n<td width=\"261\">Aprobaciones de agencias</td>\n<td width=\"238\">Cumple con los requisitos técnicos de la Directiva de la UE 2011/65 / UE (RoHS II).</td>\n</tr>\n<tr>\n<td width=\"261\">Peso</td>\n<td width=\"238\">1.04 lb (472 g).</td>\n</tr>\n</tbody>\n</table>\nEste manómetro diferencial está construido con materiales de alta calidad, lo que le permite resistir condiciones extremas de temperatura y humedad. Su escala calibrada ofrece lecturas claras y fáciles de interpretar, mientras que su diseño compacto y funcional permite una fácil instalación en una variedad de aplicaciones.\n\nAdemás el manómetro Dwyer está equipado con una pantalla de alta visibilidad que facilita la lectura de las mediciones, asegurando que los operarios puedan monitorear en tiempo real cualquier cambio en la presión diferencial, lo que ayuda a prevenir fallos y optimizar el rendimiento del sistema.\n\nCon una amplia gama de modelos disponibles, el manómetro diferencial de presión Dwyer se adapta a diversas necesidades industriales. Estos manómetros pueden ser utilizados para medir la presión diferencial en filtros de aire, sistemas de ventilación, compresores y otros equipos, ayudando a identificar obstrucciones o fallos en los sistemas antes de que causen daños importantes.\n\nSu capacidad para detectar variaciones mínimas en la presión lo convierte en una herramienta indispensable para mantener la eficiencia operativa y prolongar la vida útil de los equipos.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/manometro-diferencial-de-presion-dwyer/71vrcesr48l-sl1340-webp.webp"
+            ],
+            "seo": {
+                "description": "Manómetro diferencial de presión Dwyer para cabinas de pintura, encargado de medir resistencia de presión estática, indica los filtros saturados."
+            }
+        },
+        {
+            "slug": "ef-2020-k40",
+            "legacy_slug": "ef-2020-k40",
+            "name": "Pads de filtro tipo Paper Mesh",
+            "sku": "EF-2020-K40",
+            "category": {
+                "name": "Filtros",
+                "slug": "filtros"
+            },
+            "brand": {
+                "name": "Columbus Industries",
+                "slug": "columbus-industries"
+            },
+            "summary": "Pads de filtro tipo \"Paper mesh\" con capa de poliéster\n\nMedidas 20\" X 20\" X 1\"\n\nCaja con 40 Pzas.",
+            "description": "Cumplimiento de Normas: UL900, NFPA33, OSHA\n\nAplicación: Colección de pintura\n\nMaterial: 5 capas papel / 1 capa poliester\n\nMedidas: 20\"\" ancho x 20\"\" alto x 2 espesor\n\nCantidad por empaque: 40 pzas.\n\nColor: Cafe / Blanco\n\nPorcentaje de eficiencia: 98.1%\n\nCapacidad de retencion: 4.0 lbs 1/2\n\nCaída de presión inicial: .12” W.C. @ 150 FPM\n\nCaída de presión final: 0.5” W.C. @ 150 FPM",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/ef-2020-k40/paper-mesh-c-capa-poliesterpng.png",
+                "http://127.0.0.1:8000/storage/catalogo/ef-2020-k40/paper-meshjpg.jpg"
+            ],
+            "seo": {
+                "description": "Pads de filtro tipo Paper Mesh. Pads de filtro para cabinas de pintura tipo \"Paper mesh\" con capa de poliésterMedidas 20\" X 20\" X 1\"Caja con 40 Pzas."
+            }
+        },
+        {
+            "slug": "pistola-ms-topcoat-m4",
+            "legacy_slug": "pistola-ms-topcoat-m4",
+            "name": "Pistola MS topcoat® M4",
+            "sku": "615210",
+            "category": {
+                "name": "Pintura en polvo",
+                "slug": "pintura-en-polvo"
+            },
+            "brand": null,
+            "summary": "La pistola manual para aplicación de pintura en polvo MS topcoat® M4 ofrece un rendimiento y una excelente eficiencia operativa.\n\nEsta pistola es la más ligera de su clase, su diseño facilita el manejo y el gatillo de aplicación, permite al operador usar uno o dos dedos para disparar la pistola, lo que reduce la fatiga y mejora la productividad.\n\nMS topcoat® M4 está fabricada con un número mínimo de piezas de repuesto para facilitar la limpieza y garantizar un mantenimiento simple, lo que reduce aún más los costos y garantiza la confiabilidad y una larga vida útil.",
+            "description": "<table width=\"343\">\n\n<tbody>\n\n<tr>\n\n<td width=\"160\">Peso (Sin copa):</td>\n\n<td width=\"183\">380 g</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Longitud:</td>\n\n<td>350 mm</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Voltaje:</td>\n\n<td>100 kV</td>\n\n</tr>\n\n<tr>\n\n<td width=\"160\">Capacidad:</td>\n\n<td>450 g/min (Max.)</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/pistola-ms-topcoat-m4/1-3-ms-applicator-01webp.webp"
+            ],
+            "seo": {
+                "description": "Pistola MS topcoat® M4 para cabinas de pintura. La pistola manual para aplicación de pintura en polvo MS topcoat® M4 buen rendimiento."
+            }
+        },
+        {
+            "slug": "pistola-de-aplicacion-convencional",
+            "legacy_slug": "pistola-de-aplicacion-convencional",
+            "name": "Pistola de aplicación convencional",
+            "sku": "2101-2800-7",
+            "category": {
+                "name": "Equipos para aplicación de pintura",
+                "slug": "equipos-para-aplicacion-de-pintura"
+            },
+            "brand": {
+                "name": "Binks",
+                "slug": "binks"
+            },
+            "summary": "La pistola de aplicación convencional de tamaño completo de cuerpo en aluminio se puede utilizar para una amplia gama de materiales incluyendo adhesivos, epoxi y fluidos abrasivos.",
+            "description": "<table width=\"761\">\n\n<tbody>\n\n<tr>\n\n<td width=\"296\">Presión máxima de trabajo:</td>\n\n<td width=\"465\">100 psi / 6.9 bar</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Presión máxima del fluido:</td>\n\n<td width=\"465\">100 psi / 6.9 bar</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Cuerpo de pistola:</td>\n\n<td>Aluminio pulido</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Material:</td>\n\n<td>Acero Inoxidable</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión a la entrada del fluido:</td>\n\n<td>3/8\" NPS</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Conexión a la entrada del aire:</td>\n\n<td>1/4\" NPS</td>\n\n</tr>\n\n<tr>\n\n<td width=\"296\">Peso de la pistola:</td>\n\n<td>1 lb 6 oz / 635 gr</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/pistola-de-aplicacion-convencional/pistola-de-aplicacion-convencionalwebp.webp"
+            ],
+            "seo": {
+                "description": "Pistola de aplicación para cabinas de pintura convencional de tamaño completo de cuerpo en aluminio se puede utilizar para una amplia gama de materiales."
+            }
+        },
+        {
+            "slug": "pintura-electrostatica",
+            "legacy_slug": "pintura-electrostatica",
+            "name": "Pistola de aplicación electrostática",
+            "sku": null,
+            "category": {
+                "name": "Pintura en polvo",
+                "slug": "pintura-en-polvo"
+            },
+            "brand": null,
+            "summary": "Pistola de aplicación electrostática de pinturas base solvente con ajuste de voltaje hasta 45KVA o 65KVA, presión de aire y amplitud de aplicación",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Tensión de servicio máx",
+                    "options": [
+                        "45kV DC",
+                        "65kV DC"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/pintura-electrostatica/pistola-electrostatica-ransburgwebp.webp"
+            ],
+            "seo": {
+                "description": "Pistola de aplicación electrostática para cabinas de pintura base solvente con ajuste de voltaje hasta 45KVA o 65KVA, presión aire y amplitud de aplicación."
+            }
+        },
+        {
+            "slug": "sensor-shsi-kimo",
+            "legacy_slug": "sensor-shsi-kimo",
+            "name": "Sensor SHSI KIMO",
+            "sku": null,
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "KIMO",
+                "slug": "kimo"
+            },
+            "summary": null,
+            "description": "<table width=\"499\">\n<tbody>\n<tr>\n<td width=\"261\">Rango de humedad HR</td>\n<td width=\"238\"> 0% - 100%</td>\n</tr>\n<tr>\n<td width=\"261\">Rango de temperatura</td>\n<td width=\"238\"> -20°C a 80°C</td>\n</tr>\n</tbody>\n</table>\nEl sensor SHSI KIMO es un dispositivo avanzado diseñado para medir diversos parámetros ambientales y de calidad del aire en entornos industriales y comerciales. Su tecnología avanzada y su construcción robusta lo hacen ideal para aplicaciones en sistemas de ventilación, climatización y control de procesos, donde el monitoreo preciso del ambiente es fundamental para optimizar el rendimiento y garantizar la seguridad.\n\nEquipado con sensores de alta calidad, el SHSI KIMO proporciona una respuesta rápida y precisa, lo que permite un control constante y un ajuste eficaz de los sistemas HVAC (calefacción, ventilación y aire acondicionado) o cualquier proceso que dependa de condiciones ambientales controladas. Su capacidad para medir parámetros como la humedad y la temperatura en tiempo real facilita la regulación automática de sistemas, mejorando la eficiencia energética y el confort en espacios industriales, comerciales o residenciales.\n\nLa versatilidad del sensor SHSI KIMO también se destaca por su facilidad de integración con sistemas de monitoreo y control, lo que permite a los usuarios obtener lecturas directas y realizar ajustes rápidamente. Además con un diseño compacto y duradero, el sensor es ideal para aplicaciones tanto en interiores como en exteriores, ya que es resistente a las condiciones ambientales extremas y a la exposición a agentes contaminantes.\n\nEl sensor SHSI KIMO es perfecto para su uso en aplicaciones como la medición de la calidad del aire en salas limpias, laboratorios, fábricas y oficinas, así como en el monitoreo de las condiciones de los procesos industriales sensibles a la temperatura y la humedad. Gracias a su tecnología precisa y fiable, el sensor asegura que los sistemas operen de manera eficiente, mejorando la seguridad, la productividad y el confort de los ambientes controlados. Con su alta calidad de medición y facilidad de integración, el sensor SHSI KIMO es una opción confiable para mantener los estándares óptimos en una amplia gama de aplicaciones.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/sensor-shsi-kimo/sonda-shsi-2-mesa-de-trabajo-1webp.webp",
+                "http://127.0.0.1:8000/storage/catalogo/sensor-shsi-kimo/sonda-shsiwebp.webp"
+            ],
+            "seo": {
+                "description": "Sensor SHSI KIMO se usa para las cabinas de pintura: Rango de humedad HR de 0% - 100% y rango de temperatura de -20°C a 80°C."
+            }
+        },
+        {
+            "slug": "sensores-de-proximidad-magneticos",
+            "legacy_slug": "sensores-de-proximidad-magneticos",
+            "name": "Sensores de proximidad magnéticos Go Switch",
+            "sku": "242-014A",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Go Switch",
+                "slug": "go-switch"
+            },
+            "summary": "Proximity switch, es un interruptor electrónico que trabaja deteniendo las operaciones de trabajo cuando se abren las puertas de una cabina de pintura, diseñado para aplicaciones de uso general.\n\nDetección lateral",
+            "description": "Los sensores de proximidad magnéticos Go Switch son dispositivos de alta precisión diseñados para detectar la presencia o ausencia de objetos mediante la activación de un campo magnético. Estos sensores son ideales para aplicaciones industriales en las que se requiere una detección confiable y sin contacto, como en sistemas de automatización, control de procesos, y monitoreo de equipos. Su tecnología avanzada garantiza una respuesta rápida y exacta, asegurando que los sistemas operen de manera eficiente y segura, incluso en entornos de trabajo rigurosos y con condiciones desafiantes.\n<table width=\"499\">\n<tbody>\n<tr>\n<td width=\"261\">NFPA</td>\n<td width=\"238\">Clase I División II</td>\n</tr>\n<tr>\n<td width=\"261\">Tipo de conmutación</td>\n<td width=\"238\">Unipolar bidireccional (SPDT)</td>\n</tr>\n<tr>\n<td width=\"261\">Material</td>\n<td width=\"238\">Carcasa latón - recubierto con laca negra plana\n\nContactos con chapa de oro</td>\n</tr>\n<tr>\n<td width=\"261\">Clasificación eléctrica</td>\n<td width=\"238\">5 A/240 VCA, 10 A/120 VCA, 3 A/24 VCC</td>\n</tr>\n<tr>\n<td width=\"261\">Distancia de detección</td>\n<td width=\"238\">10 mm (3/8'') (metal ferroso)</td>\n</tr>\n<tr>\n<td width=\"261\">Temperatura de operación</td>\n<td width=\"238\">-50 °C a 105 °C (-58 °F a 221 °F)</td>\n</tr>\n</tbody>\n</table>\nFabricados con materiales de alta calidad, los sensores Go Switch ofrecen una durabilidad excepcional y resistencia a factores externos como vibraciones, polvo, humedad y temperaturas extremas. Su diseño compacto y robusto permite su instalación en espacios reducidos y en una variedad de equipos industriales, como maquinaria, líneas de ensamblaje, puertas automáticas y sistemas de seguridad. Gracias a su tecnología magnética, estos sensores no requieren contacto físico directo con los objetos que detectan, lo que minimiza el desgaste y prolonga su vida útil.\n\nUna de las principales ventajas de los sensores de proximidad magnéticos Go Switch es su fiabilidad a largo plazo. Estos dispositivos están diseñados para ofrecer un rendimiento consistente y preciso en una amplia gama de aplicaciones, desde la automatización de fábricas hasta la seguridad de sistemas industriales. Además, su fácil instalación y bajo mantenimiento hacen que sean una opción conveniente y rentable para mejorar la eficiencia y el control en procesos industriales.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/sensores-de-proximidad-magneticos/go-switch-01webp.webp"
+            ],
+            "seo": {
+                "description": "Sensores de proximidad magnéticos Go Switch cabinas pintura. Interruptor electrónico que trabaja deteniendo operaciones de trabajo cuando se abren puertas."
+            }
+        },
+        {
+            "slug": "sensores-de-presion-dungs",
+            "legacy_slug": "sensores-de-presion-dungs",
+            "name": "Switch de presión Dungs",
+            "sku": "GAO-A4-4-6",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Dungs",
+                "slug": "dungs"
+            },
+            "summary": "Switch de Presión Mca. Dungs Mod. GAO-A4-4-6 de alta presión. El interruptor de presión SPDT no requiere energía auxiliar.\n\nEl GAO-A4 es adecuado para hacer y / o romper un circuito cuando se excede o no alcanza el punto de ajuste.\n\nUn interruptor disparado se indica con una luz de neón después de que se excede el punto de ajuste o se encuentra por debajo.\n\nRestablecimiento automático cuando la presión vuelve por debajo o por encima del punto de ajuste.\n\nEste producto está diseñado para instalaciones cubiertas por, pero no limitado a NFPA 85, NFPA 86, UL 795, CSD-1, ANSI Z83.4, ANSI Z83.18, ANSI Z21.13, CSA B149.1, CSA B149.3 y CSA B149.6.",
+            "description": "El switch de presión Dungs es un dispositivo de alta calidad diseñado para controlar y monitorear la presión en sistemas industriales, especialmente en aplicaciones que requieren precisión y fiabilidad, como sistemas de gas, calefacción y procesos de automatización. Este dispositivo actúa como un interruptor de seguridad que detecta variaciones en la presión y activa o desactiva el equipo en función de los umbrales preestablecidos. Además con una construcción robusta y resistente, además el switch de presión Dungs es ideal para entornos industriales exigentes, donde la seguridad y el control de presión son cruciales.\n<table width=\"499\">\n<tbody>\n<tr>\n<td width=\"261\">Rango</td>\n<td width=\"238\">12\"-60\"wc</td>\n</tr>\n<tr>\n<td width=\"261\">Histéresis</td>\n<td width=\"238\">1.2 \"wc</td>\n</tr>\n<tr>\n<td width=\"261\">Presión de funcionamiento máxima</td>\n<td>7 PSI (500mbar)</td>\n</tr>\n<tr>\n<td width=\"261\">Conexión de presión</td>\n<td width=\"238\">Estándar: rosca hembra NPT de 1/4 \"</td>\n</tr>\n<tr>\n<td width=\"261\">Rango de temperatura:</td>\n<td width=\"238\">Temperatura ambiente -40 ° F a +140 ° F (-40 ° C a +60 ° C) Temperatura del medio -40 ° F a +140 ° F (-40 ° C a +60 ° C)</td>\n</tr>\n<tr>\n<td width=\"261\">Materiales</td>\n<td width=\"238\">Carcasa Aluminio\n\nInterruptor de policarbonato\n\nDiafragma NBR base caucho\n\nContacto de conmutación oro o plata</td>\n</tr>\n<tr>\n<td width=\"261\">Rangos eléctricos</td>\n<td width=\"238\">AC ef. min. 24 V máx. 240 V DC min. 24 V máx. 48 V</td>\n</tr>\n<tr>\n<td width=\"261\">Grado de protección</td>\n<td width=\"238\">NEMA tipo 4</td>\n</tr>\n<tr>\n<td width=\"261\">Corriente nominal</td>\n<td width=\"238\">Clasificaciones de contacto de plata (Ag)\n\nCA 10 A resistivo a 120 VCA\n\nCA 8 A inductivo a 120 VCA\n\nDC min. 20 mA a 24 VCC\n\nDC máx. 1 A a 24 VCC y 48 VCCClasificaciones de contacto de oro (Au) DC máx. 5 mA a 5 VCC\n\nDC máx. 20 mA a 24 VCC</td>\n</tr>\n</tbody>\n</table>\nFabricado con materiales de alta durabilidad, el switch de presión Dungs es conocido por su fiabilidad en condiciones extremas de temperatura y presión. Por lo cual su diseño compacto y fácil instalación lo hacen adecuado para una amplia gama de aplicaciones, desde sistemas de calefacción a control de procesos industriales y sistemas de gas. Además, su tecnología avanzada permite una respuesta rápida y precisa a cualquier fluctuación de presión, asegurando el funcionamiento seguro y eficiente del sistema.\n\nEste dispositivo cuenta con un sistema de ajuste sencillo para calibrar la presión de operación, además lo que proporciona flexibilidad para adaptarse a diferentes tipos de sistemas y condiciones de trabajo.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/sensores-de-presion-dungs/switch-de-presion-dungs-01webp.webp"
+            ],
+            "seo": {
+                "description": "Switch de presión Dungs para cabinas de pintura. Modelo Dungs GAO-A4-4-6 de alta presión. El interruptor presión SPDT no requiere energía auxiliar."
+            }
+        },
+        {
+            "slug": "tanque-de-alimentacion-a-presion",
+            "legacy_slug": "tanque-de-alimentacion-a-presion",
+            "name": "Tanque de alimentación a presión",
+            "sku": null,
+            "category": {
+                "name": "Equipos para aplicación de pintura",
+                "slug": "equipos-para-aplicacion-de-pintura"
+            },
+            "brand": {
+                "name": "Binks",
+                "slug": "binks"
+            },
+            "summary": "Sistema para suministro de material apartir de un tanque presurizado con aire comprimido o gas inerte con capacidad de 5gal y agitador. Cuenta con sistema de control de aire para tanque, agitador y pistola galvanizado con presión maxima de trabajo de 110 psi. Sistema para suministro de material apartir de un tanque presurizado con aire comprimido o gas inerte con capacidad de 5gal, 10gal o 15gal y agitador . Cuenta con sistema de control de aire para tanque, agitador y pistola galvanizado con presión maxima de trabajo de 110 psi.",
+            "description": null,
+            "attributes": [
+                {
+                    "name": "Capacidad",
+                    "options": [
+                        "10 GAL",
+                        "15 GAL",
+                        "5 GAL"
+                    ]
+                }
+            ],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/tanque-de-alimentacion-a-presion/tanque-de-alimentacion-a-presionwebp.webp"
+            ],
+            "seo": {
+                "description": "Tanque de alimentación a presión para cabinas de pintura. Sistema suministro de material a partir de un tanque presurizado con aire comprimido o gas inerte."
+            }
+        },
+        {
+            "slug": "termocople-para-horno-pt100",
+            "legacy_slug": "termocople-para-horno-pt100",
+            "name": "Termocople para horno PT100",
+            "sku": null,
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Global Refaccion Solutions",
+                "slug": "global-refaccion-solutions"
+            },
+            "summary": "Bulbo de resistencia (pt 100)",
+            "description": "El termocople para horno PT100 es un dispositivo de medición de temperatura de alta precisión, diseñado especialmente para aplicaciones en entornos industriales donde el control térmico es crucial, como en hornos, calderas, y procesos de tratamiento térmico. Este termocople utiliza un sensor de resistencia de platino (PT100), conocido por su alta estabilidad y precisión en un amplio rango de temperaturas, lo que lo convierte en una opción confiable para obtener lecturas exactas de temperatura en condiciones exigentes. Gracias a su resistencia a temperaturas extremas y a ambientes industriales rigurosos, el PT100 es ideal para monitorear y controlar la temperatura de hornos que operan a altas temperaturas.\n<table width=\"499\">\n<tbody>\n<tr>\n<td width=\"261\">Varilla</td>\n<td width=\"238\">12\" de longitud</td>\n</tr>\n<tr>\n<td width=\"261\">Numero de hilos</td>\n<td width=\"238\">3</td>\n</tr>\n<tr>\n<td width=\"261\">Material</td>\n<td width=\"238\">Bulbo en acero inoxidable\n\nResistencia de platino</td>\n</tr>\n</tbody>\n</table>\nFabricado con materiales de alta calidad, el termocople PT100 es capaz de soportar temperaturas que van desde los -200°C hasta los 850°C, lo que lo hace adecuado para una variedad de aplicaciones, desde procesos de calentamiento industrial hasta la fabricación de productos en hornos de alta temperatura. Su precisión y fiabilidad permiten a los operadores monitorear y ajustar la temperatura con exactitud, asegurando la calidad del proceso y reduciendo el riesgo de defectos en los productos finales. Además, su diseño robusto garantiza una larga vida útil, incluso en entornos de trabajo con fluctuaciones térmicas y condiciones de alta demanda.\n\nEl termocople PT100 se caracteriza por su fácil integración con sistemas de control y monitoreo de temperatura, gracias a su capacidad para ofrecer señales estables y consistentes. La instalación del termocople es sencilla y flexible, permitiendo su uso en diversos tipos de hornos industriales, sistemas de calefacción y otros procesos de alta temperatura. Su diseño compacto y resistente lo hace adecuado tanto para aplicaciones en hornos de gran escala como en aquellos más pequeños, proporcionando una medición precisa y confiable en todo momento.",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/termocople-para-horno-pt100/pt100-01webp.webp"
+            ],
+            "seo": {
+                "description": "Termocople hornos curado pintura PT100. Bulbo resistencia (PT100), varilla de 12\" longitud, 3 hilos. Material: bulbo acero inoxidable, resistencia platino."
+            }
+        },
+        {
+            "slug": "transmisor-multifuncional-kimo",
+            "legacy_slug": "transmisor-multifuncional-kimo",
+            "name": "Transmisor multifuncional KIMO",
+            "sku": null,
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "KIMO",
+                "slug": "kimo"
+            },
+            "summary": "Transmisor multifunción con 2 salidas analógicas en estándar, pantalla gráfica retroiluminada. Cálculo de la velocidad y flujo de aire (SQR-3).\n\nAlta resolución en presión y termopar K para presión SPI-2 tableros Módulo de 4 relés. RS485 salida modbus, módulo Ethernet.",
+            "description": "<table width=\"499\">\n\n<tbody>\n\n<tr>\n\n<td width=\"261\">Salidas</td>\n\n<td width=\"238\">2 salidas analógicas en estándar (0-5 V / 0-10 V o 0-20 mA / 4-20 mA)                                         2 salidas analógicas adicionales</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Entradas</td>\n\n<td width=\"238\">2 entradas para Smart sondas y una ubicación para placa SPI 2.</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Hilos</td>\n\n<td width=\"238\">4</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Carcasa</td>\n\n<td width=\"238\"> IP65 ABS V0 con Frente de acero inoxidable.</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Sondas</td>\n\n<td width=\"238\">Sondas intercambiables y todas las SPI-2 compatibles\n\ntableros.</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/transmisor-multifuncional-kimo/kimo-c310webp.webp"
+            ],
+            "seo": {
+                "description": "Transmisor multifuncional KIMO para cabinas de pintura. Transmisor multifunción con 2 salidas analógicas en estándar, pantalla gráfica retroiluminada."
+            }
+        },
+        {
+            "slug": "ventilador-de-tubo-de-descarga-axial-sin-motor",
+            "legacy_slug": "ventilador-de-tubo-de-descarga-axial-sin-motor",
+            "name": "Ventilador de tubo de descarga axial - Sin motor",
+            "sku": "GFA-18VP-003",
+            "category": {
+                "name": "Refacciones",
+                "slug": "refacciones"
+            },
+            "brand": {
+                "name": "Global Refaccion Solutions",
+                "slug": "global-refaccion-solutions"
+            },
+            "summary": "Los modelos GFA de ventiladores axiales de tubo cuentan con una carcasa soldada para un sello hermético. Las hélices están fabricadas de aluminio fundido para no provocar chispa, lo que proporciona una velocidad de aire constante a presiones estáticas más altas. Las poleas del ventilador permiten una tensión ajustable a las bandas. Los rodamientos son de alta calidad para el manejo del aire, se auto alinean y tiene una vida útil de 40,000 horas de trabajo. La guarda para las bandas proporciona protección para la polea según requisitos OSHA. Ventilador axial de tubo marca GFS incluye poleas y bandas",
+            "description": "<table width=\"499\">\n\n<tbody>\n\n<tr>\n\n<td width=\"261\">Rango RPM</td>\n\n<td width=\"238\">1,228-1,332</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Para motor de</td>\n\n<td width=\"238\">1/3 hp</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Brida a brida(A)</td>\n\n<td width=\"238\">30”</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Diámetro interior(B)</td>\n\n<td width=\"238\">18”</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Distancia entre pernos de montaje(C)</td>\n\n<td width=\"238\">19 1/4”</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">Diámetro exterior(D)</td>\n\n<td width=\"238\">20 1/2”</td>\n\n</tr>\n\n<tr>\n\n<td width=\"261\">dBA</td>\n\n<td width=\"238\">72 - 74</td>\n\n</tr>\n\n</tbody>\n\n</table>",
+            "attributes": [],
+            "images": [
+                "http://127.0.0.1:8000/storage/catalogo/ventilador-de-tubo-de-descarga-axial-sin-motor/gfa-ventiladoreswebp.webp"
+            ],
+            "seo": {
+                "description": "Ventilador de tubo de descarga axial Sin motor cabinas de pintura. Los modelos GFA ventiladores axiales tubo cuentan carcasa soldada para sello hermético."
+            }
+        }
+    ]
+}

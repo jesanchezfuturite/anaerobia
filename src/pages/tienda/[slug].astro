@@ -1,0 +1,17 @@
+---
+export const prerender = false
+
+import { getProducto } from '../../lib/catalogo.js'
+
+// URLs del catálogo anterior (WooCommerce). Se resuelven contra el slug viejo
+// que se guardó al importar y se redirigen con 301, para conservar el
+// posicionamiento que ya tenía cada ficha.
+const { slug } = Astro.params
+const ficha = await getProducto(slug)
+
+if (ficha) {
+    return Astro.redirect(`/partes-y-filtros/${ficha.data.slug}`, 301)
+}
+
+return Astro.redirect('/partes-y-filtros', 301)
+---

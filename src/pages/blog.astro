@@ -1,15 +1,46 @@
 ---
-import Layout from "../layouts/Layout.astro";
+export const prerender = false
 
-const seoTitle = "Blog | Anaerobia Surface Finishing";
-const seoDescription = "Artículos, noticias y contenido especializado sobre sistemas de pintura, acabado superficial e ingeniería industrial.";
+import Layout from "../layouts/Layout.astro";
+import { getArticulos } from "../lib/blog.js";
+
+// Los filtros viajan en la URL para que cualquier vista se pueda compartir.
+const parametros = Astro.url.searchParams;
+const categoria = parametros.get("categoria") ?? "";
+const buscar = parametros.get("buscar") ?? "";
+const pagina = Math.max(1, Number(parametros.get("pagina") ?? 1));
+
+const { data: articulos, meta, destacado, categorias } = await getArticulos({ categoria, buscar, pagina });
+
+const categoriaActual = categorias.find((c) => c.slug === categoria);
+
+const seoTitle = categoriaActual
+  ? `${categoriaActual.name} | Blog | Anaerobia`
+  : "Blog | Anaerobia Surface Finishing";
+const seoDescription =
+  categoriaActual?.description ??
+  "Artículos, noticias y contenido especializado sobre sistemas de pintura, acabado superficial e ingeniería industrial.";
+
+const enlace = (cambios) => {
+  const p = new URLSearchParams();
+  const valores = { categoria, buscar, ...cambios };
+
+  for (const [clave, valor] of Object.entries(valores)) {
+    if (valor && !(clave === "pagina" && valor === 1)) p.set(clave, String(valor));
+  }
+
+  const cadena = p.toString();
+  return cadena ? `/blog?${cadena}` : "/blog";
+};
+
+const fecha = (iso) =>
+  iso ? new Date(`${iso}T12:00:00`).toLocaleDateString("es-MX", { day: "numeric", month: "long", year: "numeric" }) : "";
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
   <main class="bg-industrial-gray min-h-screen text-brand-navy">
     <!-- 01. HEADER / HERO -->
     <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
-      <!-- Background Image with Overlay -->
       <div class="absolute inset-0 z-0">
         <img src="/images/nosotros/bg_hero_nosotros.webp" alt="Blog Anaerobia" class="w-full h-full object-cover object-top opacity-60 scale-105" />
         <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
@@ -17,21 +48,27 @@ const seoDescription = "Artículos, noticias y contenido especializado sobre sis
 
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl hero-section-text">
-          <!-- Breadcrumbs -->
           <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
             <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
             <span>/</span>
-            <span class="text-brand-lime">Blog</span>
+            {categoriaActual ? <a href="/blog" class="hover:text-brand-lime transition-colors">Blog</a> : <span class="text-brand-lime">Blog</span>}
+            {categoriaActual && (
+              <>
+                <span>/</span>
+                <span class="text-brand-lime">{categoriaActual.name}</span>
+              </>
+            )}
           </nav>
 
           <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">
             Anaerobia Blog
           </span>
           <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-            Noticias e ingeniería especializada
+            {categoriaActual ? categoriaActual.name : "Noticias e ingeniería especializada"}
           </h1>
-          <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">
-            Artículos, novedades y conocimiento especializado sobre sistemas de pintura y acabado superficial.
+          <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
+            {categoriaActual?.description ??
+              "Artículos, novedades y conocimiento especializado sobre sistemas de pintura y acabado superficial."}
           </p>
         </div>
       </div>
@@ -39,8 +76,121 @@ const seoDescription = "Artículos, noticias y contenido especializado sobre sis
 
     <!-- 02. CONTENIDO DEL BLOG -->
     <section class="py-16 bg-white px-6 md:px-12" id="contenido">
-      <div class="container mx-auto">
-        <!-- TODO: construir contenido del blog aquí -->
+      <div class="container mx-auto max-w-7xl">
+        <!-- BUSCADOR Y CATEGORÍAS -->
+        <div class="flex flex-col lg:flex-row lg:items-center gap-6 mb-12 pb-8 border-b border-gray-200">
+          <div class="flex flex-wrap gap-2 flex-1">
+            <a
+              href={enlace({ categoria: "", pagina: 1 })}
+              class={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${!categoria ? "bg-brand-navy text-white" : "bg-industrial-gray text-gray-500 hover:text-brand-navy"}`}
+            >
+              Todos
+            </a>
+            {categorias.map((c) => (
+              <a
+                href={enlace({ categoria: c.slug, pagina: 1 })}
+                class={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${categoria === c.slug ? "bg-brand-navy text-white" : "bg-industrial-gray text-gray-500 hover:text-brand-navy"}`}
+              >
+                {c.name} <span class="opacity-60">({c.total})</span>
+              </a>
+            ))}
+          </div>
+
+          <a href="/blog/rss.xml" class="hidden lg:flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-brand-lime transition-colors" title="Suscribirse por RSS">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 012.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 012.18-2.18M4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44m0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z"/></svg>
+            RSS
+          </a>
+
+          <form method="get" action="/blog" class="relative w-full lg:w-72">
+            {categoria && <input type="hidden" name="categoria" value={categoria} />}
+            <svg class="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+            </svg>
+            <input
+              type="search"
+              name="buscar"
+              value={buscar}
+              placeholder="Buscar artículo"
+              class="w-full rounded-full border border-gray-200 bg-industrial-gray pl-11 pr-4 py-2.5 text-sm focus:border-brand-lime focus:outline-none"
+            />
+          </form>
+        </div>
+
+        <!-- DESTACADO -->
+        {destacado && (
+          <a href={`/blog/${destacado.slug}`} class="group grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-center">
+            <div class="rounded-3xl overflow-hidden aspect-16/10 bg-industrial-gray">
+              {destacado.cover && (
+                <img src={destacado.cover} alt={destacado.cover_alt ?? destacado.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              )}
+            </div>
+            <div>
+              <span class="inline-block rounded-full bg-brand-lime/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-lime mb-4">
+                Destacado{destacado.category && ` · ${destacado.category.name}`}
+              </span>
+              <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl md:text-3xl leading-tight mb-4 group-hover:text-brand-blue transition-colors">
+                {destacado.title}
+              </h2>
+              <p class="text-gray-600 font-light leading-relaxed mb-4 whitespace-pre-wrap">{destacado.excerpt}</p>
+              <span class="text-xs uppercase tracking-widest text-gray-400">
+                {fecha(destacado.published_at)} · {destacado.reading_minutes} min de lectura
+              </span>
+            </div>
+          </a>
+        )}
+
+        <!-- RESULTADOS -->
+        <p class="text-sm text-gray-500 mb-8">
+          {meta.total === 0 ? "Sin resultados" : `${meta.total} ${meta.total === 1 ? "artículo" : "artículos"}`}
+          {buscar && <span> para «{buscar}»</span>}
+        </p>
+
+        {meta.total === 0 ? (
+          <div class="rounded-2xl border border-dashed border-gray-300 p-12 text-center">
+            <p class="text-gray-500 font-light">
+              No encontramos artículos con esa búsqueda. Prueba con otro término o
+              <a href="/blog" class="text-brand-blue font-semibold hover:text-brand-lime"> vuelve al blog completo</a>.
+            </p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articulos.map((a) => (
+              <a href={`/blog/${a.slug}`} class="group flex flex-col rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
+                <div class="aspect-16/10 overflow-hidden bg-industrial-gray">
+                  {a.cover && (
+                    <img src={a.cover} alt={a.cover_alt ?? a.title} loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  )}
+                </div>
+                <div class="flex flex-col flex-1 p-6">
+                  {a.category && (
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-brand-lime mb-3">{a.category.name}</span>
+                  )}
+                  <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-lg leading-tight mb-3 group-hover:text-brand-blue transition-colors">
+                    {a.title}
+                  </h2>
+                  <p class="text-sm text-gray-500 font-light leading-relaxed line-clamp-3 mb-4 whitespace-pre-wrap">{a.excerpt}</p>
+                  <span class="mt-auto text-[10px] uppercase tracking-widest text-gray-400">
+                    {fecha(a.published_at)} · {a.reading_minutes} min
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+
+        <!-- PAGINACIÓN -->
+        {meta.paginas > 1 && (
+          <nav class="mt-12 flex items-center justify-center gap-2">
+            {Array.from({ length: meta.paginas }, (_, i) => i + 1).map((n) => (
+              <a
+                href={enlace({ pagina: n })}
+                class={`min-w-10 rounded-lg px-3 py-2 text-center text-sm font-semibold transition-colors ${n === meta.pagina ? "bg-brand-navy text-white" : "bg-industrial-gray text-gray-500 hover:text-brand-navy"}`}
+              >
+                {n}
+              </a>
+            ))}
+          </nav>
+        )}
       </div>
     </section>
   </main>

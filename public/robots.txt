@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Los filtros del catálogo son la misma página con distinto orden:
+# la canónica ya apunta al listado, esto evita rastreo innecesario.
+Disallow: /*?buscar=
+Disallow: /*?pagina=
+
+Sitemap: https://anaerobia.com/sitemap.xml

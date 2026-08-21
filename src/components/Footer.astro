@@ -1,27 +1,18 @@
 ---
-import { getEntry } from 'astro:content';
-// Footer.astro - Reusable footer component for Anaerobia
+import { getGeneral } from '../lib/general.js'
 
-const navigationEntry = await getEntry('navigation', 'index');
-const navItems = navigationEntry?.data?.links || [
-  { label: 'Nosotros', url: '/', hasSubmenu: false, submenu: [] },
-  { label: 'Soluciones', url: '#' },
-  { label: 'Proyectos', url: '/proyectos', hasSubmenu: false, submenu: [] },
-  { 
-    label: 'Partes y Filtros', 
-    url: '#', 
-    hasSubmenu: true, 
-    submenu: [
-      { label: 'Pintura en polvo', url: '#' },
-      { label: 'Filtros', url: '#' },
-      { label: 'Pintura líquida', url: '#' },
-      { label: 'Lámparas infrarrojas', url: '#' },
-      { label: 'Refacciones', url: '#' }
-    ] 
-  },
-  { label: 'Blog', url: '#', hasSubmenu: false, submenu: [] },
-  { label: 'Contacto', url: '/contacto', hasSubmenu: false, submenu: [] },
-];
+const general = await getGeneral()
+const footer = general.footer ?? {}
+
+// Un icono puede ser código SVG (se incrusta y hereda el color) o una imagen.
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
+// El menú vive en la pestaña «Menú de Navegación» de «General».
+const nav = general.navigation ?? { links: [] }
+
+// Los enlaces ocultos desde el panel (visible: false) no se renderizan
+const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
+const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
 const footerNavItems = navItems.filter((item) => item.label !== 'Soluciones');
 const solucionesItem = navItems.find((item) => item.label === 'Soluciones');
 const solucionesSubmenu = solucionesItem?.submenu || [];
@@ -34,39 +25,22 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-16">
       <div class="md:col-span-12 lg:col-span-3">
         <img
-          src="https://anaerobia.com/wp-content/uploads/2020/10/Anaerobia-logotipo-1.svg"
-          alt="Anaerobia"
+          src={footer.logo ?? general.logo?.image}
+          alt={general.logo?.alt ?? "Anaerobia"}
           class="w-64 md:w-72 h-auto object-contain mb-6"
         />
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Líderes en ingeniería e integración industrial para sistemas de
-          acabados superficiales. Desarrollamos soluciones integrales para
-          mejorar la industria global.
-        </p>
+        <p class="text-gray-400 text-sm leading-relaxed whitespace-pre-wrap">{footer.description}</p>
 
         <div class="mt-8 flex gap-5">
-          <a href="https://www.facebook.com/AnaerobiaSurfaceFinishing" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--color-brand-lime)] transition-colors hover:-translate-y-1 transform duration-300" aria-label="Facebook">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="https://mx.linkedin.com/organization-guest/company/anaerobiasurfacefinishing" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--color-brand-lime)] transition-colors hover:-translate-y-1 transform duration-300" aria-label="LinkedIn">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/channel/UC_ritNQ490D_3Cif3ZQMnRg" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--color-brand-lime)] transition-colors hover:-translate-y-1 transform duration-300" aria-label="YouTube">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path fill-rule="evenodd" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" clip-rule="evenodd" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/anaerobia_mx/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--color-brand-lime)] transition-colors hover:-translate-y-1 transform duration-300" aria-label="Instagram">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
+          {(footer.social ?? []).map((red) => (
+            <a href={red.url} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[var(--color-brand-lime)] transition-colors hover:-translate-y-1 transform duration-300" aria-label={red.name}>
+              {esIconoSvg(red.icon) ? (
+                <Fragment set:html={red.icon} />
+              ) : (
+                <img src={red.icon} alt={red.name} class="w-6 h-6 object-contain" />
+              )}
+            </a>
+          ))}
         </div>
       </div>
 
@@ -111,52 +85,19 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
         <h4
           class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6 uppercase"
         >
-          Contacto Institucional
+          {footer.contactTitle}
         </h4>
         <ul class="space-y-3 text-sm text-gray-300 font-medium">
-          <li class="flex gap-2">
-            <svg
-              class="w-5 h-5 text-[var(--color-brand-lime)] shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            PUEBLA | MONTERREY | LEÓN
-          </li>
-          <li class="flex gap-2">
-            <svg class="w-5 h-5 text-[var(--color-brand-lime)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-            </svg>
-            52 222 283 9604
-          </li>
-          <li class="flex gap-2">
-            <svg
-              class="w-5 h-5 text-[var(--color-brand-lime)] shrink-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            info@anaerobia.com
-          </li>
+          {(footer.contacto ?? []).map((dato) => (
+            <li class="flex gap-2 whitespace-pre-wrap">
+              {esIconoSvg(dato.icon) ? (
+                <Fragment set:html={dato.icon} />
+              ) : (
+                <img src={dato.icon} alt="" class="w-5 h-5 object-contain shrink-0" />
+              )}
+              {dato.text}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -164,16 +105,11 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
     <div
       class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500"
     >
-      <p>
-        &copy; {new Date().getFullYear()} Anaerobia. Todos los derechos reservados.
-      </p>
+      <p class="whitespace-pre-wrap">&copy; {new Date().getFullYear()} {footer.copyright}</p>
       <div class="flex gap-6 font-medium">
-        <a href="#" class="hover:text-white transition-colors"
-          >Aviso de Privacidad</a
-        >
-        <a href="#" class="hover:text-white transition-colors"
-          >Términos y Condiciones</a
-        >
+        {(footer.legal ?? []).map((enlace) => (
+          <a href={enlace.url} class="hover:text-white transition-colors">{enlace.label}</a>
+        ))}
       </div>
     </div>
   </div>

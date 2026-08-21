@@ -1,0 +1,220 @@
+{
+  "slug": "servicios-industriales",
+  "name": "Servicio Industrial y Refaccionamiento",
+  "seo": {
+    "title": "Servicio Industrial y Refaccionamiento | Anaerobia",
+    "description": "Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción."
+  },
+  "hero": {
+    "image": "/images/soluciones/servicios_industriales/Servicio Industrial.webp",
+    "badge": "Posventa y Refaccionamiento",
+    "title": "Servicio Industrial y Refaccionamiento",
+    "description": "Nuestro equipo es capaz de atender las necesidades de servicio industrial de nuestros clientes, buscando siempre optimizar y asegurar los procesos de producción."
+  },
+  "desafios": {
+    "title": "La importancia del servicio industrial",
+    "badge": "Ingeniería y Tecnología",
+    "description": "Un mantenimiento adecuado es clave para el desempeño y la vida útil de sus equipos.",
+    "tarjetas": [
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+        "text": "Extiende la vida útil de sus equipos"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+        "text": "Minimiza pérdidas por paros o fallas"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"/></svg>",
+        "text": "Garantiza procesos y calidad óptima"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+        "text": "Mayor tranquilidad y confianza"
+      }
+    ]
+  },
+  "cta1": {
+    "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+    "title": "¿Requiere información adicional sobre servicio industrial y refaccionamiento?",
+    "description": "Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de sus equipos, para mantenerlos en óptimas condiciones.",
+    "button_label": "Solicitar Más Información",
+    "button_url": "/contacto?solucion=servicios-industriales"
+  },
+  "normatividad": {
+    "badge": "Cumplimiento Legal y de Seguridad",
+    "title": "Servicio bajo estándares de seguridad e impacto ambiental",
+    "description": "Nuestros servicios de mantenimiento y refaccionamiento cumplen o exceden todos los códigos y normativas relacionados con el equipo, trabajando bajo los lineamientos de seguridad industrial y protección ambiental que nuestros clientes exigen.",
+    "bullets": [
+      {
+        "text": "Contamos con un equipo de ingenieros calificados para liderar el mantenimiento, la inspección y el refaccionamiento de sus equipos de manera segura y puntual."
+      }
+    ]
+  },
+  "faqs": {
+    "badge": "Soporte y Mantenimiento",
+    "title": "Preguntas Frecuentes",
+    "items": [
+      {
+        "question": "¿Cuándo conviene solicitar mantenimiento para una línea de pintura o acabado?",
+        "answer": "Cuando se presentan fallas recurrentes, variaciones en la calidad del acabado, aumento en tiempos de paro, consumo excesivo de insumos o señales de desgaste en componentes críticos.\n\nTambién es recomendable programarlo de forma preventiva para evitar interrupciones no planeadas."
+      },
+      {
+        "question": "¿Es posible modernizar equipos existentes sin reemplazar toda la línea?",
+        "answer": "Sí. En muchos casos es posible actualizar componentes específicos de los equipos e integrar nuevas tecnologías. Sin embargo, la decisión entre actualizar o adquirir equipo nuevo depende del estado actual de los equipos y otras características de cada caso."
+      },
+      {
+        "question": "¿El servicio incluye diagnóstico remoto o atención de urgencia?",
+        "answer": "Sí. El soporte puede incluir diagnóstico remoto, atención telefónica, recomendaciones técnicas y, cuando sea necesario, visitas especializadas para atender fallas, evaluar condiciones del equipo y definir acciones correctivas. Nuestro servicio tiene cobertura en todo el país."
+      }
+    ]
+  },
+  "galeria": {
+    "badge": "Galería",
+    "title": "Servicio en Planta",
+    "images": [
+      {
+        "image": "/images/soluciones/servicios_industriales/12.webp",
+        "alt": "Ajuste de componentes en equipo de aplicación"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+        "alt": "Inspección de cabina de aplicación en operación"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+        "alt": "Recorrido de valoración en una línea de acabado"
+      }
+    ]
+  },
+  "extras": {
+    "anservice": {
+      "description": "Nuestra división ANSERVICE ofrece soluciones tanto para el mantenimiento preventivo y correctivo, como para modificaciones y actualizaciones de tus equipos.",
+      "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+      "items": [
+        {
+          "text": "Elaboración de planes de conservación y mantenimiento preventivo."
+        },
+        {
+          "text": "Suministro de paquetes de refacciones y filtros."
+        },
+        {
+          "text": "Valoración del estatus o condición de sus instalaciones y/o equipos."
+        },
+        {
+          "text": "Servicio de balance de flujos de aire para cabinas de aplicación y hornos."
+        },
+        {
+          "text": "Capacitación y entrenamiento para operadores de producción y mantenimiento (TPM)."
+        },
+        {
+          "text": "Inspecciones y reportes periódicos de sus instalaciones."
+        },
+        {
+          "text": "Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente."
+        }
+      ]
+    },
+    "servicios": {
+      "title": "Esta área atiende todas las necesidades de servicio, posventa y refacciones",
+      "description": "Nuestros especialistas pueden ayudar con el mantenimiento preventivo y correctivo de los equipos, para mantenerlos en óptimas condiciones. Si necesitas una asesoría no dudes en contactar a nuestros expertos.",
+      "image": "/images/soluciones/servicios_industriales/DSC03097.webp",
+      "items": [
+        {
+          "text": "Elaboración de planes de conservación y mantenimiento preventivo."
+        },
+        {
+          "text": "Suministro de paquetes de refacciones y filtros."
+        },
+        {
+          "text": "Valoración del estatus o condición de sus instalaciones y/o equipos."
+        },
+        {
+          "text": "Servicio de balance de flujos de aire para cabinas de aplicación y hornos."
+        },
+        {
+          "text": "Capacitación y entrenamiento para operadores de producción y mantenimiento (TPM)."
+        },
+        {
+          "text": "Inspecciones y reportes periódicos de sus instalaciones."
+        },
+        {
+          "text": "Elaboración de especificaciones técnicas y/o ingeniería para procesos de aplicación de pintura, con base en las especificaciones de proceso y/o producto requeridas por el cliente."
+        }
+      ]
+    },
+    "alcance": {
+      "cards": [
+        {
+          "title": "Pólizas de mantenimiento",
+          "description": "Nuestras pólizas de mantenimiento permiten garantizar el funcionamiento adecuado de tus equipos en todo momento y evitar fallas imprevistas y paros inesperados:",
+          "image": "/images/soluciones/servicios_industriales/13.webp",
+          "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z\"/></svg>",
+          "items": [
+            {
+              "text": "Inspección: Mediciones, pruebas y diagnóstico"
+            },
+            {
+              "text": "Mantenimiento: Limpieza, lubricación, ajustes y reemplazo"
+            },
+            {
+              "text": "Reparación: Rehabilitación de fallas identificadas"
+            }
+          ]
+        },
+        {
+          "title": "Actualización de equipos",
+          "description": "A través de nuestro servicio industrial aseguramos que tus equipos y tu producción se mantengan vigentes ante la evolución de la industria:",
+          "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+          "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99\"/></svg>",
+          "items": [
+            {
+              "text": "Por cambios en dimensiones y pesos de su producto"
+            },
+            {
+              "text": "Reubicación de equipos o líneas de pintura"
+            },
+            {
+              "text": "Implementación de nuevas tecnologías"
+            },
+            {
+              "text": "Ahorro de energía"
+            },
+            {
+              "text": "Sistemas de transporte"
+            },
+            {
+              "text": "Sistemas eléctricos y control LPC"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "certificados": [
+    {
+      "name": "NFPA",
+      "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+    },
+    {
+      "name": "EPA",
+      "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+    },
+    {
+      "name": "ETL",
+      "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+    },
+    {
+      "name": "ICC",
+      "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+    },
+    {
+      "name": "OSHA",
+      "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+    },
+    {
+      "name": "ATEX",
+      "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
+    }
+  ]
+}

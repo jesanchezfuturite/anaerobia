@@ -1,0 +1,94 @@
+{
+    "seo": {
+        "title": "Proyectos | Anaerobia Surface Finishing",
+        "description": "Galería de proyectos ejecutados de sistemas de pintura y acabado, cabinas y hornos implementados por Anaerobia."
+    },
+    "hero": {
+        "image": "/images/proyectos/hero_proyectos.webp",
+        "alt": "Proyectos Anaerobia",
+        "title": "Proyectos",
+        "description": "Gracias a nuestra experiencia en diferentes sectores somos capaces de ofrecer soluciones adaptadas a las necesidades de cada cliente."
+    },
+    "industrias": {
+        "sectionTitle": "Proyectos por Industria",
+        "items": [
+            {
+                "title": "Agricultura",
+                "image": "/images/proyectos/galeria_industria/Agricultura.jpg"
+            },
+            {
+                "title": "Automotriz",
+                "image": "/images/proyectos/galeria_industria/Automotriz.JPG"
+            },
+            {
+                "title": "Automotriz",
+                "image": "/images/proyectos/galeria_industria/Automotriz2.jpg"
+            },
+            {
+                "title": "Electrodomésticos y Muebles",
+                "image": "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg"
+            },
+            {
+                "title": "Energía",
+                "image": "/images/proyectos/galeria_industria/Energia.jpg"
+            },
+            {
+                "title": "Equipo Pesado",
+                "image": "/images/proyectos/galeria_industria/Equipo_Pesado.png"
+            },
+            {
+                "title": "Ferroviaria",
+                "image": "/images/proyectos/galeria_industria/Ferroviaria.jpg"
+            },
+            {
+                "title": "Industria General",
+                "image": "/images/proyectos/galeria_industria/Industria_general.jpg"
+            },
+            {
+                "title": "Metalmecánica",
+                "image": "/images/proyectos/galeria_industria/Metalmecanica.jpg"
+            },
+            {
+                "title": "Vehículos Recreacionales",
+                "image": "/images/proyectos/galeria_industria/Recreational_Vehicles.jpg"
+            }
+        ]
+    },
+    "casos_estudio": {
+        "sectionTitle": "Casos de Estudio",
+        "cards": [
+            {
+                "title": "Ingeniería de alta precisión en espacios reducidos: cómo convertir una limitación en ventaja operativa",
+                "description": "Cuando una planta industrial se queda sin espacio para crecer, la respuesta más obvia suele ser una ampliación física. Sin embargo, no siempre es la opción más viable: modificar estructuras, detener operaciones o rediseñar instalaciones completas puede elevar costos, tiempos y riesgos...",
+                "image": "/images/proyectos/casos_de_estudio/caso1/img_1.jpg",
+                "category": "Industrial",
+                "documentUrl": "/casos-de-estudio/ingenieria-alta-precision",
+                "isPageLink": true
+            },
+            {
+                "title": "Eficiencia Energética en Hornos de Curado",
+                "description": "Descubre los ahorros energéticos logrados en la industria metalmecánica tras la actualización de hornos convencionales a sistemas infrarrojos catalíticos.",
+                "image": "/images/proyectos/galeria_industria/Metalmecanica.jpg",
+                "category": "Industrial",
+                "documentUrl": "#",
+                "isPageLink": false
+            },
+            {
+                "title": "Sostenibilidad en Pintura en Polvo",
+                "description": "Un fabricante de electrodomésticos logró cero emisiones de VOCs y recuperó el 98% del material excedente gracias a nuestra tecnología de aplicación en polvo.",
+                "image": "/images/proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg",
+                "category": "Electrodomésticos",
+                "documentUrl": "#",
+                "isPageLink": false
+            }
+        ]
+    },
+    "cta": {
+        "image": "/images/proyectos/bg_cta_proyectos.webp",
+        "alt": "Instalaciones Anaerobia",
+        "title": "¿Listo para iniciar tu próximo proyecto?",
+        "description": "Contacta a nuestros expertos y diseñemos juntos el sistema ideal para optimizar los procesos de tu planta.",
+        "button_label": "Hablemos de tu Proyecto",
+        "button_url": "/contacto"
+    }
+}

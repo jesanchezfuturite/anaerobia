@@ -1,0 +1,333 @@
+{
+    "slug": "pintura-liquida",
+    "name": "Pintura Líquida",
+    "seo": {
+        "title": "Sistemas de Pintura Líquida | Anaerobia",
+        "description": "Diseño, fabricación e instalación de sistemas integrales de pintura líquida manuales y automatizados. Soluciones llave en mano de alto volumen."
+    },
+    "hero": {
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-2.webp",
+        "badge": "INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES",
+        "title": "Sistemas de Pintura Líquida",
+        "description": "Líneas de pintura líquida a la medida de tu producción. Traducimos ingeniería avanzada en soluciones rentables. Diseñamos e instalamos desde cabinas manuales hasta sistemas completamente automatizados y programables, listos para elevar la calidad de tus acabados y acelerar tu productividad."
+    },
+    "intro": {
+        "badge": "Ingeniería y Tecnología",
+        "title": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología",
+        "paragraphs": [
+            {
+                "text": "Un sistema de pintura líquida es el conjunto de todos los equipos y medios que permiten a una empresa llevar una pieza desde su estado en bruto hasta tener una mejor apariencia o protección y cumplir con otros requisitos funcionales rigurosos de los productos terminados en cualquier industria."
+            }
+        ],
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-1.webp"
+    },
+    "desafios": {
+        "badge": "Desafíos",
+        "title": "Retos críticos en las líneas de pintura",
+        "description": "Las operaciones de manufactura a menudo enfrentan variables ocultas que elevan el costo por pieza y comprometen la calidad del acabado final.",
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-3.webp",
+        "items": [
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Alto desperdicio de pintura en el proceso",
+                "title": "Baja eficiencia de transferencia",
+                "description": "La aplicación de pintura líquida es altamente propensa a pérdidas cuando depende enteramente del factor humano, generando un exceso de desperdicio (overspray) lo que eleva tus costos operativos y satura los sistemas de filtración de forma acelerada."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Sobrecosto operativo y de energía",
+                "title": "Altos costos de energía",
+                "description": "Operar con equipos mal diseñados, cabinas desbalanceadas o sistemas que no retienen correctamente el calor provoca fugas constantes de recursos. Esto dispara el consumo general de gas y electricidad en la planta, impactando directamente en los costos."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3\"/></svg>",
+                "text": "Variabilidad en la calidad y retrabajos",
+                "title": "Defectos en el acabado",
+                "description": "La falta de consistencia en los espesores y los defectos por contaminación derivan en costosos retrabajos y en la incapacidad de alcanzar las normativas de acabado que los clientes finales exigen, elevando la tasa de rechazo."
+            }
+        ]
+    },
+    "cta1": {
+        "title": "¿Buscas ingeniería a la medida para tu línea de pintura?",
+        "description": "Desde el diseño conceptual hasta la puesta en marcha, creamos el sistema de pintura exacto para los objetivos de su operación.",
+        "button_label": "Solicitar propuesta técnica",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "ingenieria": {
+        "badge": "Integrador Especializado",
+        "title": "Nuestra Solución en Ingeniería de Pintura Líquida",
+        "description": "Diseñamos y fabricamos soluciones llave en mano adaptadas a los requisitos físicos de tu planta, la geometría de tus piezas y los estándares químicos del recubrimiento.",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\" ></path> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"></path> </svg>",
+                "title": "Diseño completo del sistema de pintura",
+                "description": "Desde cabinas de aplicación por lotes hasta sistemas automatizados con transportadores (conveyors) de velocidad variable y reciprocantes o aplicación robótica para altos volúmenes de producción.",
+                "image": "/images/soluciones/pintura-liquida/DSC_08422.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.365 5.25 5.25 0 0 0-9.88-2.32 4.5 4.5 0 0 0-7.202 5.185Z\"></path> </svg>",
+                "title": "Control ambiental de cabinas",
+                "description": "Garantizamos el acabado requerido integrando cabinas de pintura líquida presurizadas con flujo de aire laminar y sistemas de climatización (AMU o HVAC) para controlar de forma eficiente la temperatura y humedad relativa.",
+                "image": "/images/soluciones/pintura-liquida/DSC02513.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5\" ></path> </svg>",
+                "title": "Mezcla y suministro eficiente",
+                "description": "Integramos cocinas de pintura y cuartos de mezcla con sistemas de almacenamiento y bombeo neumático o eléctrico, incorporando cambiadores rápidos de color y dosificadores electrónicos multicomponentes (2K, 3K) de alta precisión.",
+                "image": "/images/soluciones/pintura-liquida/DSC03109.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23-.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5\" ></path> </svg>",
+                "title": "Suministro de aire balanceado",
+                "description": "Nuestro diseño de autobalanceo evita el desperdicio de energía, reduce la demanda térmica y eléctrica de la planta, optimizando una de las variables más costosas del proceso.",
+                "image": "/images/soluciones/pintura-liquida/DSC_0820.webp"
+            }
+        ]
+    },
+    "tipos": {
+        "badge": "Especificaciones Técnicas",
+        "title": "Fases de un Sistema de Pintura Líquida y Parámetros",
+        "tabs": [
+            {
+                "label": "PRETRATAMIENTO",
+                "title": "Pretratamiento de Superficies",
+                "description": "El pretratamiento es esencial para garantizar una buena adherencia, durabilidad y apariencia del acabado final. Existen dos métodos generales que se implementan según las condiciones del metal:",
+                "image": "/images/soluciones/pintura-liquida/pretratamiento-1.webp",
+                "items": [
+                    {
+                        "title": "Pretratamiento Químico",
+                        "bullets": [
+                            {
+                                "text": "Elimina aceites, lubricantes y grasas."
+                            },
+                            {
+                                "text": "Gran versatilidad del proceso (aspersión, inmersión)."
+                            },
+                            {
+                                "text": "Sistemas programables que permiten un gran control de temperatura y tiempos."
+                            },
+                            {
+                                "text": "Permite aplicar sello antioxidante protector."
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Pretratamiento Mecánico",
+                        "bullets": [
+                            {
+                                "text": "Permite utilizar diversos materiales abrasivos (granalla metálica u otros materiales)."
+                            },
+                            {
+                                "text": "Elimina defectos superficiales."
+                            },
+                            {
+                                "text": "Permite alcanzar y controlar el perfil de anclaje (rugosidad) deseado."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "CABINAS DE APLICACIÓN",
+                "title": "Especificaciones de Cabinas",
+                "description": "La cabina proporciona un espacio de confinamiento controlado y seguro para la aplicación de pintura, asegurando desde acabados simples hasta clase A mediante:",
+                "image": "/images/soluciones/pintura-liquida/cabina-pintura-23.webp",
+                "items": [
+                    {
+                        "title": "Ventilación Controlada"
+                    },
+                    {
+                        "title": "Filtros de Aire"
+                    },
+                    {
+                        "title": "Iluminación Específica"
+                    },
+                    {
+                        "title": "Paredes y Pisos Resistentes"
+                    },
+                    {
+                        "title": "Puertas Herméticas"
+                    },
+                    {
+                        "title": "Seguridad del operador"
+                    }
+                ]
+            },
+            {
+                "label": "HORNOS DE SECADO Y CURADO",
+                "title": "Curado de la Capa de Pintura",
+                "description": "Es posible secar piezas de pintura líquida al aire libre, pero dependerá de factores climáticos (humedad y temperatura) que añaden variabilidad e incrementan el tiempo de ciclo. El curado con un horno especializado asegura que la capa de pintura alcance de manera acelerada la polimerización exacta, garantizando las propiedades mecánicas y químicas de resistencia, durabilidad y adherencia certificadas por el fabricante.",
+                "image": "/images/soluciones/pintura-liquida/horno-10.webp",
+                "cards": [
+                    {
+                        "title": "Recomendación ANAEROBIA",
+                        "description": "Siga estrictamente las recomendaciones del fabricante de la pintura en cuanto a la rampa de temperatura y el tiempo de residencia para un mejor acabado."
+                    }
+                ]
+            },
+            {
+                "label": "MANEJO DEL PRODUCTO (Conveyor)",
+                "title": "Manejo del producto (conveyor)",
+                "description": "Diseñamos e integramos sistemas de transporte continuo adaptados por completo al espacio disponible de su planta, el volumen de su producción y las dimensiones o peso de sus piezas. Nos encargamos de configurar las velocidades y trayectos óptimos para automatizar el flujo de su proceso.",
+                "image": "/images/soluciones/conveyors/conveyor-1.webp",
+                "items": [
+                    {
+                        "title": "Agilidad y repetitividad",
+                        "description": "Automatizan el traslado continuo de piezas entre estaciones, garantizando un flujo constante y ordenado."
+                    },
+                    {
+                        "title": "Máximo rendimiento",
+                        "description": "Optimizan los tiempos de ciclo, reducen los costos operativos y eliminan los cuellos de botella."
+                    },
+                    {
+                        "title": "Movimiento versátil",
+                        "description": "Ingeniería flexible que se adapta a trayectos rectos, curvos, cambios de nivel o inclinaciones según su espacio."
+                    },
+                    {
+                        "title": "Seguridad en planta",
+                        "description": "Reducen drásticamente el riesgo de accidentes al eliminar la manipulación manual de materiales pesados o continuos."
+                    }
+                ]
+            }
+        ]
+    },
+    "resultados": {
+        "badge": "Beneficios del Sistema",
+        "title": "¿Por qué invertir en un sistema de pintura líquida?",
+        "description": "Beneficios mecánicos y financieros que obtiene su planta al integrar un sistema diseñado a la medida. Deja atrás la variabilidad, maximiza el rendimiento y alcanza el volumen de producción que tu negocio demanda.",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01\" /> </svg>",
+                "title": "Variedad de Acabados",
+                "description": "La pintura líquida está disponible en una amplia gama de colores y acabados, dependiendo del grado de automatización, lo que permite una personalización significativa según los requisitos estéticos y funcionales del producto final."
+            },
+            {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z\" /> </svg>",
+                "title": "Costos de Inversión Inicial",
+                "description": "En comparación con algunos métodos de recubrimiento más avanzados, los sistemas de pintura líquida suelen tener costos iniciales más bajos."
+            },
+            {
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z\" /> </svg>",
+                "title": "Reparación y Retoque",
+                "description": "En caso de daños o necesidad de retoques, la pintura líquida permite reparaciones más sencillas y locales en comparación con algunos otros métodos de recubrimiento."
+            }
+        ]
+    },
+    "cta2": {
+        "image": "/images/soluciones/pintura-liquida/pintura-liquida-cta.webp",
+        "title": "Diseñemos a la medida su línea de pintura.",
+        "description": "Nuestro equipo de ingeniería analizará sus requerimientos para estructurar una propuesta técnica personalizada, incluyendo los diagramas de flujo y las capacidades de aire óptimas para la realidad de su planta.",
+        "button_label": "Enviar especificaciones del proyecto",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "normatividad": {
+        "badge": "Cumplimiento Legal y de Seguridad",
+        "title": "Cumplimiento Riguroso de Estándares de Seguridad e Impacto Ambiental",
+        "description": "El diseño de nuestros sistemas de pintura líquida se realiza de manera personalizada para garantizar el cumplimiento normativo exigido por las aseguradoras globales y las dependencias de medio ambiente y salud ocupacional.",
+        "bullets": [
+            {
+                "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual."
+            }
+        ]
+    },
+    "faqs": {
+        "badge": "Preguntas Técnicas",
+        "title": "Preguntas Frecuentes de Pintura Líquida",
+        "items": [
+            {
+                "question": "¿Qué es la pintura líquida y cómo se aplica?",
+                "answer": "La pintura líquida es un recubrimiento aplicado en forma de líquido (por aspersión mediante pistolas atomizadoras) que se seca a través de un proceso de evaporación de solventes o mediante un curado térmico controlado en hornos, proporcionando una película protectora, uniforme y de alta calidad estética sobre las piezas."
+            },
+            {
+                "question": "¿Qué materiales pueden ser cubiertos con pintura líquida?",
+                "answer": "Se puede aplicar en una gran variedad de sustratos como metales (acero, aluminio), plásticos automotrices, madera, fibra de vidrio y materiales compuestos, siempre y cuando se aplique el pretratamiento mecánico o químico adecuado para asegurar la adherencia molecular."
+            },
+            {
+                "question": "¿Cuál es el proceso de preparación de la superficie antes de la pintura líquida?",
+                "answer": "La superficie debe limpiarse a fondo mediante lavado químico (desengrase y fosfatizado) o de forma mecánica (granallado) para eliminar impurezas, rebabas o cascarillas. Posteriormente, en muchos casos, se requiere aplicar una imprimación (primer) para garantizar un anclaje molecular óptimo."
+            },
+            {
+                "question": "¿Qué tipo de mantenimiento requieren los sistemas de pintura líquida?",
+                "answer": "Requieren una limpieza rigurosa regular. Las pistolas atomizadoras, boquillas y mangueras deben lavarse al final de cada turno para evitar acumulaciones. Además, es crítico el reemplazo programado de los filtros de aire en las cabinas para mantener el flujo laminar balanceado de ventilación y proteger los extractores de la acumulación de sólidos."
+            },
+            {
+                "question": "¿Qué dimensiones o espacio físico requiere la instalación de una cabina de pintura líquida?",
+                "answer": "El tamaño de la cabina se determina por completo bajo las necesidades de su planta. En Anaerobia no trabajamos con medidas estándar, desarrollamos ingeniería a la medida. Analizamos tanto las dimensiones de las piezas que requiere pintar como el espacio físico disponible en su planta para diseñar, fabricar e instalar una estructura optimizada que se adapte perfectamente a su distribución actual."
+            }
+        ]
+    },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "description": "Ejemplos de cabinas, túneles de pretratamiento y líneas de pintura líquida llave en mano implementadas en plantas del país.",
+        "images": [
+            {
+                "image": "/images/soluciones/pintura-liquida/cabina-pintura-7.webp",
+                "alt": "Cabina de pintura líquida industrial"
+            },
+            {
+                "image": "/images/soluciones/pintura-liquida/cabina-pintura-10.webp",
+                "alt": "Robot de aplicación de pintura"
+            },
+            {
+                "image": "/images/soluciones/pintura-liquida/horno-11.webp",
+                "alt": "Horno de curado industrial"
+            }
+        ]
+    },
+    "extras": {
+        "diferenciadores": {
+            "badge": "Ventajas Competitivas",
+            "title": "¿Por qué la industria mexicana confía su producción a ANAEROBIA?",
+            "description": "Somos el socio estratégico de su planta, desarrollamos soluciones integrales donde la ingeniería avanzada y el diseño a la medida se combinan para resolver los desafíos más exigentes en acabados industriales.",
+            "cards": [
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"/></svg>",
+                    "title": "Soluciones llave en mano",
+                    "description": "Diseñamos, fabricamos e instalamos de manera centralizada. Un solo punto de contacto para todo tu proyecto de pintura."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"/></svg>",
+                    "title": "Respaldo postventa",
+                    "description": "Respuesta técnica local inmediata y refaccionamiento garantizado para asegurar la continuidad de tu operación."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z\"/></svg>",
+                    "title": "Ingeniería especializada",
+                    "description": "Integramos robótica de pintura y manipulación (FANUC) y sistemas automáticos de dosificación 2K/3K (Graco, Binks) de última generación."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                    "title": "Eficiencia Energética",
+                    "description": "Sistemas diseñados para reducir al mínimo el desperdicio de pintura y optimizar el consumo de gas y electricidad en todos los equipos."
+                }
+            ]
+        }
+    },
+    "certificados": [
+        {
+            "name": "NFPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+        },
+        {
+            "name": "EPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+        },
+        {
+            "name": "ETL",
+            "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+        },
+        {
+            "name": "ICC",
+            "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+        },
+        {
+            "name": "OSHA",
+            "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+        },
+        {
+            "name": "ATEX",
+            "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
+        }
+    ]
+}

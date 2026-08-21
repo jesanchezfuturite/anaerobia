@@ -1,14 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import keystatic from '@keystatic/astro';
 import vercel from '@astrojs/vercel';
-import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  // Necesario para las URLs absolutas del sitemap y de las etiquetas sociales.
+  site: 'https://anaerobia.com',
   output: 'static',
   adapter: vercel(),
-  integrations: [react(), keystatic()],
   vite: {
     plugins: [tailwindcss()],
   },

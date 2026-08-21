@@ -6,12 +6,19 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title,
   description = "Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.",
+  image,
 } = Astro.props;
+
+// La URL canónica evita que los filtros del catálogo (?categoria=, ?marca=)
+// se indexen como páginas distintas del mismo contenido.
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
 ---
 
 <!doctype html>
@@ -22,8 +29,19 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="alternate" type="application/rss+xml" title="Blog | Anaerobia" href="/blog/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+
+    <!-- Redes sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Anaerobia" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {imagenSocial && <meta property="og:image" content={imagenSocial} />}
+    <meta name="twitter:card" content={imagenSocial ? "summary_large_image" : "summary"} />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -67,6 +85,24 @@ const {
       if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
       }
+    </script>
+
+    <script is:inline>
+      // Atribución de campaña: si la URL trae utm_*, se guardan en la sesión
+      // del navegador para que sobrevivan la navegación hasta que se llene
+      // el formulario de contacto (el clic al anuncio no siempre cae
+      // directo en /contacto).
+      (function () {
+        var parametros = new URLSearchParams(window.location.search);
+        var claves = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+        var alguno = claves.some(function (clave) { return parametros.has(clave); });
+        if (!alguno) return;
+
+        claves.forEach(function (clave) {
+          var valor = parametros.get(clave);
+          if (valor) sessionStorage.setItem(clave, valor);
+        });
+      })();
     </script>
   </body>
 </html>

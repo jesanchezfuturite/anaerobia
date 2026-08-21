@@ -1,21 +1,77 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import { getEntry } from 'astro:content'
+export const prerender = false
 
-// Obtener datos de la página de inicio para reutilizar logos de normativas
-const homepageEntry = await getEntry('homepage', 'index')
-const homepageData = homepageEntry?.data || {}
-const certificados = homepageData.normativas?.certificados || [
-    { name: 'NFPA', logo: '/images/home/certificaciones/nfpa.png' },
-    { name: 'EPA', logo: '/images/home/certificaciones/epa.svg' },
-    { name: 'ETL', logo: '/images/home/certificaciones/etl.png' },
-    { name: 'ICC', logo: '/images/home/certificaciones/icc.png' },
-    { name: 'OSHA', logo: '/images/home/certificaciones/osha.png' },
-]
+import Layout from '../../layouts/Layout.astro'
+import { getGeneral } from '../../lib/general.js'
+import fallback from '../../data/soluciones/hornos-secado-curado.json'
+
+const general = await getGeneral()
+
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let d = fallback
+try {
+    const res = await fetch(`${API_URL}/api/v1/soluciones/hornos-secado-curado`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) d = (await res.json()).data
+} catch {
+    // API no disponible: la página se sirve con el contenido de respaldo
+}
+
+// Logos de certificaciones: contenido compartido del sitio que llega en el
+// mismo payload de la API (se editan una sola vez en la página de Inicio).
+const certificados = d.certificados ?? fallback.certificados ?? []
 
 // SEO Metadata
-const seoTitle = 'Hornos de Secado y Curado Industriales | Anaerobia'
-const seoDescription = 'Especialistas en el diseño, fabricación y montaje de hornos industriales de convección, catalíticos e infrarrojos para el secado y curado de piezas.'
+const seoTitle = d.seo?.title
+const seoDescription = d.seo?.description
+
+// Alturas para alinear las tarjetas de la sección Desafíos (diseño fijo)
+const desafioCardHeights = ['lg:h-[32%] min-h-[100px]', 'lg:h-[36%] min-h-[120px]', 'lg:h-[32%] min-h-[100px]']
+// Iconos (SVG paths) de los items de Desafíos
+const desafioIcons = [
+    'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
+    'M13 10V3L4 14h7v7l9-11h-7z',
+    'M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3',
+]
+// Iconos (SVG paths) de las tarjetas de Diferenciadores
+const diferenciadorIcons = [
+    'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+    'M13 10V3L4 14h7v7l9-11h-7z',
+    'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+    'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+]
+// Iconos (SVG paths) de los items de cada pestaña de información técnica
+const tipoItemIcons = [
+    [
+        'M12 3v19M3 12h19M5 5l14 14M19 5L5 19',
+        'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z',
+        'M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.547 9.547 4.5 10.768 4.5 12s.047 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662z',
+    ],
+    [
+        'M19.5 12h-15m0 0l3-3m-3 3l3 3',
+        'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
+        'M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.365 5.25 5.25 0 00-9.88-2.32 4.5 4.5 0 00-7.202 5.185Z',
+    ],
+    [
+        'M12 3v19',
+        'M13 10V3L4 14h7v7l9-11h-7z',
+        'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z',
+    ],
+]
+// Iconos (contenido SVG) de las tarjetas de Resultados / Importancia
+const resultadoIcons = [
+    '<path d="M13 3v7h6l-8 11v-7H5l8-11z"></path>',
+    '<circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path>',
+    '<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>',
+]
+// Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
+let _tabN = 0
+const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
+// Un icono puede ser código SVG (se incrusta y hereda el color de la marca) o
+// una imagen subida (se muestra tal cual, solo ajustada al tamaño).
+const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
+
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
@@ -24,7 +80,7 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src="/images/soluciones/hornos-secado-curado/horno-7.webp" alt="Hornos de Secado y Curado Industrial" class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -39,9 +95,9 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                         <span class="text-brand-lime">Hornos de Secado y Curado</span>
                     </nav>
 
-                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6"> SISTEMAS DE TRATAMIENTO TÉRMICO B2B </span>
-                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">Hornos de secado y curado</h1>
-                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed">En Anaerobia somos especialistas en el diseño, fabricación y montaje de hornos industriales de alta tecnología, integrando soluciones de convección, sistemas catalíticos e infrarrojos desarrollados a la medida para transformar la productividad de su planta.</p>
+                    <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
+                    <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                 </div>
             </div>
         </section>
@@ -53,24 +109,20 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                     <div class="space-y-8 intro-text">
                         <div>
                             <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ingeniería y tecnología</span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">¿Qué son los hornos de secado y curado?</h2>
-                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg mb-4">
-                                Los hornos de secado y curado son equipos de tratamiento térmico diseñados para aplicar calor controlado con el objetivo de eliminar la humedad de las superficies (secado) y para endurecer o estabilizar ciertos recubrimientos o compuestos (curado).
-                            </p>
-                            <p class="text-gray-600 leading-relaxed font-light text-base mb-4">
-                                En el secado, el horno evapora el agua o los residuos del pretratamiento, mientras que, en el curado, el calor activa reacciones químicas que endurecen y estabilizan los materiales.
-                            </p>
-                            <p class="text-gray-600 leading-relaxed font-light text-base">
-                                La capacidad de controlar con precisión variables críticas como la temperatura, la circulación de aire y el tiempo de permanencia permite adaptar estos hornos a diferentes tipos de procesos y especificaciones de materiales.
-                            </p>
-                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4 md:text-lg">Mejoramos la industria del mundo con ingeniería especializada y alta tecnología.</p>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4 mb-6 leading-tight">{d.intro.title}</h2>
+                            {
+                                d.intro.paragraphs.map((p, i) => (
+                                    <p class={`text-gray-600 leading-relaxed font-light text-base${i === 0 ? ' md:text-lg' : ''}${i < d.intro.paragraphs.length - 1 ? ' mb-4' : ''} whitespace-pre-wrap`}>{p.text}</p>
+                                ))
+                            }
+                            <p class="text-brand-navy font-saira font-bold uppercase italic mt-6 border-l-4 border-brand-lime pl-4 md:text-lg whitespace-pre-wrap">{d.intro.highlight}</p>
                         </div>
                     </div>
 
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src="/images/soluciones/hornos-secado-curado/horno-1.webp" alt="Horno de Curado Industrial en Operación" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.intro.image} alt={d.intro.title} class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
@@ -81,76 +133,52 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="py-16 bg-industrial-gray px-6 md:px-12 border-t border-gray-200/50">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16 pain-points-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Desafíos</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Puntos de Inflexión Comunes en el Tratamiento Térmico</h2>
-                    <p class="text-gray-600 mt-4 font-light">Las operaciones de manufactura de alto volumen a menudo enfrentan ineficiencias críticas que elevan el costo por pieza y afectan la calidad estética final.</p>
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.desafios.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.desafios.title}</h2>
+                    <p class="text-gray-600 mt-4 font-light whitespace-pre-wrap">{d.desafios.description}</p>
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
                     <!-- Column 1: Image (45%) -->
                     <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-                        <img src="/images/soluciones/hornos-secado-curado/horno-4.webp" alt="Problemas de Curado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={d.desafios.image} alt={d.desafios.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
                     </div>
 
                     <!-- Column 2: Cards (20%) -->
                     <div class="w-full lg:w-[20%] flex flex-col justify-between gap-4 shrink-0 h-full">
-                        <!-- Card 1 -->
-                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Altos costos por fugas de calor</p>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[36%] min-h-[120px]">
-                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Variación térmica y secado desigual</p>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 lg:h-[32%] min-h-[100px]">
-                            <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center">Tiempos lentos y cuellos de botella</p>
-                        </div>
+                        {
+                            d.desafios.items.map((t, i) => (
+                                <div class={`relative bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex flex-col justify-center p-4 lg:p-5 ${desafioCardHeights[i] ?? 'lg:h-[32%] min-h-[100px]'}`}>
+                                    <p class="text-lg lg:text-xl font-saira font-bold italic text-brand-blue leading-snug text-center whitespace-pre-wrap">{t.text}</p>
+                                </div>
+                            ))
+                        }
                     </div>
 
                     <!-- Column 3: Content (35%) -->
                     <div class="w-full lg:w-[35%] flex flex-col justify-center space-y-10 shrink-0 lg:pl-2">
-                        <!-- Item 1 -->
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="text-brand-lime shrink-0">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                                    </svg>
+                        {
+                            d.desafios.items.map((item, i) => (
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-brand-lime shrink-0">
+                                            {item.icon && !esIconoSvg(item.icon) ? (
+                                                <img src={item.icon} alt={item.title} class="w-6 h-6 object-contain" />
+                                            ) : item.icon ? (
+                                                <Fragment set:html={item.icon} />
+                                            ) : (
+                                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={desafioIcons[i] ?? desafioIcons[0]} />
+                                            </svg>
+                                            )}
+                                        </div>
+                                        <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">{item.title}</h3>
+                                    </div>
+                                    <p class="text-base text-gray-600 leading-relaxed font-light whitespace-pre-wrap">{item.description}</p>
                                 </div>
-                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Desperdicio y Costos Térmicos</h3>
-                            </div>
-                            <p class="text-base text-gray-600 leading-relaxed font-light">El curado o secado térmico ineficiente en hornos industriales con aislamiento deficiente o fugas de calor dispara de inmediato los costos de gas y energía eléctrica, elevando el costo operativo por pieza.</p>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="text-brand-lime shrink-0">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Zonas Frías e Inconsistencia</h3>
-                            </div>
-                            <p class="text-base text-gray-600 leading-relaxed font-light">La falta de uniformidad en la distribución del aire caliente o de la radiación provoca zonas con un curado deficiente, ocasionando defectos posteriores en el acabado como ampollas, burbujas o desprendimientos del recubrimiento.</p>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3">
-                                <div class="text-brand-lime shrink-0">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="font-saira font-bold italic text-brand-navy text-xl md:text-2xl uppercase">Bajo Rendimiento y Retrasos</h3>
-                            </div>
-                            <p class="text-base text-gray-600 leading-relaxed font-light">Utilizar procesos térmicos no optimizados prolonga el tiempo de ciclo por lote o pieza, limitando la capacidad de la línea y frenando la productividad.</p>
-                        </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
@@ -161,10 +189,10 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
             <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
             <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div class="text-left">
-                    <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">¿Su producción exige un proceso de secado o curado específico?</h2>
-                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl">Diseñamos un sistema de secado o curado a la medida, adaptándonos estrictamente a las dimensiones de sus piezas y volúmenes de producción.</p>
+                    <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{d.cta1.title}</h2>
+                    <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{d.cta1.description}</p>
                 </div>
-                <a href="/contacto?solucion=hornos-secado-curado" class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center"> Solicitar Cotización </a>
+                <a href={d.cta1.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{d.cta1.button_label}</a>
             </div>
         </section>
 
@@ -172,16 +200,16 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="py-16 bg-gradient-to-b from-gray-100 to-white px-6 md:px-12 relative overflow-hidden" id="ingenieria">
             <div class="container mx-auto">
                 <div class="max-w-5xl mb-10 section-solucion-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Integrador Especializado</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Nuestra solución en ingeniería de hornos industriales</h2>
-                    <p class="text-gray-600 font-light mt-4">Diseñamos y fabricamos hornos a la medida, adaptados a la geometría de tus piezas, la tasa de producción requerida y los estándares del recubrimiento (líquido, polvo o resinas).</p>
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.ingenieria.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.ingenieria.title}</h2>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.ingenieria.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10 text-left items-stretch">
                     <!-- Bento Card 1 (Large Left) -->
                     <div class="bg-brand-navy rounded-3xl p-10 lg:p-14 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 shadow-2xl min-h-[500px] h-full">
                         <!-- Image background -->
-                        <div class="absolute inset-0 bg-[url('/images/soluciones/hornos-secado-curado/horno-3.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${d.ingenieria.cards[0].image}')`}></div>
                         <!-- Overlay azul -->
                         <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
 
@@ -189,15 +217,21 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                         <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-lime opacity-20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700"></div>
 
                         <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-20 h-20 bg-brand-lime/20 text-brand-lime rounded-2xl flex items-center justify-center z-20">
-                            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            {d.ingenieria.cards[0].icon && !esIconoSvg(d.ingenieria.cards[0].icon) ? (
+                                    <img src={d.ingenieria.cards[0].icon} alt={d.ingenieria.cards[0].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[0].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[0].icon} />
+                                ) : (
+                                    <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"></path>
                             </svg>
+                                )}
                         </div>
                         <div class="relative z-10 mt-auto">
                             <div>
-                                <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">Hornos de Convección Forzada</h3>
-                                <p class="text-lg text-gray-200 font-light leading-relaxed">
-                                    Calentados mediante aire recirculado a alta temperatura por combustión de gas o resistencias eléctricas. Junto a un diseño de flujo inteligente, provee una temperatura homogénea incluso en geometrías complejas.
+                                <h3 class="font-saira font-semibold italic text-white text-3xl md:text-4xl uppercase mb-4 leading-tight">{d.ingenieria.cards[0].title}</h3>
+                                <p class="text-lg text-gray-200 font-light leading-relaxed whitespace-pre-wrap">
+                                    {d.ingenieria.cards[0].description}
                                 </p>
                             </div>
                         </div>
@@ -208,12 +242,17 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                         <!-- Bento Card 2 -->
                         <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full shadow-xl min-h-[250px]">
                             <!-- Image background -->
-                            <div class="absolute inset-0 bg-[url('/images/soluciones/hornos-secado-curado/horno-2.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${d.ingenieria.cards[1].image}')`}></div>
                             <!-- Overlay azul -->
                             <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
 
                             <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 shadow-sm text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                {d.ingenieria.cards[1].icon && !esIconoSvg(d.ingenieria.cards[1].icon) ? (
+                                    <img src={d.ingenieria.cards[1].icon} alt={d.ingenieria.cards[1].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[1].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[1].icon} />
+                                ) : (
+                                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M11 8c2-3-2-3 0-6"></path>
                                     <path d="M15.5 8c2-3-2-3 0-6"></path>
                                     <path d="M6 10h.01"></path>
@@ -225,29 +264,36 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                                     <path d="M5 20v2"></path>
                                     <path d="M19 20v2"></path>
                                 </svg>
+                                )}
                             </div>
                             <div class="relative z-10">
-                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Sistemas Catalíticos</h3>
-                                <p class="text-base text-gray-200 font-light leading-relaxed">Operan mediante paneles catalizadores infrarrojos que emiten calor sin llama abierta. Ideal para procesos con presencia de solventes volátiles inflamables o polvos combustibles.</p>
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">{d.ingenieria.cards[1].title}</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{d.ingenieria.cards[1].description}</p>
                             </div>
                         </div>
 
                         <!-- Bento Card 3 -->
                         <div class="bg-brand-navy rounded-3xl p-8 lg:p-10 shadow-xl border border-transparent flex flex-col justify-center relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300 h-full min-h-[250px]">
                             <!-- Image background -->
-                            <div class="absolute inset-0 bg-[url('/images/soluciones/hornos-secado-curado/horno-5.webp')] bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"></div>
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${d.ingenieria.cards[2].image}')`}></div>
                             <!-- Overlay azul -->
                             <div class="absolute inset-0 bg-[#003141]/85 group-hover:bg-[#003141]/75 transition-colors duration-500"></div>
 
                             <div class="absolute top-6 right-6 lg:top-8 lg:right-8 w-14 h-14 bg-brand-lime/20 text-brand-lime rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 z-20">
-                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                {d.ingenieria.cards[2].icon && !esIconoSvg(d.ingenieria.cards[2].icon) ? (
+                                    <img src={d.ingenieria.cards[2].icon} alt={d.ingenieria.cards[2].title} class="w-10 h-10 object-contain" />
+                                ) : d.ingenieria.cards[2].icon ? (
+                                    <Fragment set:html={d.ingenieria.cards[2].icon} />
+                                ) : (
+                                    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 12h2m2.5-7.5 1.5 1.5M3 21l5.5-5.5M21 12h-2M17.5 4.5 16 6M21 21l-5.5-5.5"></path>
                                     <circle cx="12" cy="12" r="4"></circle>
                                 </svg>
+                                )}
                             </div>
                             <div class="relative z-10">
-                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">Sistemas Infrarrojos (IR)</h3>
-                                <p class="text-base text-gray-200 font-light leading-relaxed">Calefacción radiante mediante ondas electromagnéticas. Reduce drásticamente los tiempos de ciclo calentando la pieza en segundos y permitiendo un control por zonas totalmente configurable.</p>
+                                <h3 class="font-saira font-semibold italic text-white text-2xl uppercase leading-tight pr-16 mb-6">{d.ingenieria.cards[2].title}</h3>
+                                <p class="text-base text-gray-200 font-light leading-relaxed whitespace-pre-wrap">{d.ingenieria.cards[2].description}</p>
                             </div>
                         </div>
                     </div>
@@ -259,71 +305,33 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="py-16 bg-white px-6 md:px-12 border-t border-gray-100 relative overflow-hidden" id="diferenciadores">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16 diferenciadores-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">Ventajas Competitivas</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Ventajas de Nuestros Hornos de Secado y Curado</h2>
-                    <p class="text-gray-600 font-light mt-4">Desarrollados bajo rigurosos criterios de eficiencia y seguridad, nuestros hornos garantizan los más altos estándares de calidad para sistemas de acabados superficiales.</p>
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.extras.diferenciadores.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.extras.diferenciadores.title}</h2>
+                    <p class="text-gray-600 font-light mt-4 whitespace-pre-wrap">{d.extras.diferenciadores.description}</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 diferenciadores-grid">
-                    <!-- Card 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
+                    {
+                        d.extras.diferenciadores.cards.map((card, i) => (
+                            <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-4">
+                                        <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                            {card.icon && !esIconoSvg(card.icon) ? (
+                                                <img src={card.icon} alt={card.title} class="w-6 h-6 object-contain" />
+                                            ) : card.icon ? (
+                                                <Fragment set:html={card.icon} />
+                                            ) : (
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={diferenciadorIcons[i] ?? diferenciadorIcons[0]} /> </svg>
+                                            )}
+                                        </div>
+                                        <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">{card.title}</h3>
+                                    </div>
+                                    <p class="text-sm text-gray-500 leading-relaxed font-light whitespace-pre-wrap">{card.description}</p>
                                 </div>
-                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Secado Uniforme</h3>
                             </div>
-                            <p class="text-sm text-gray-500 leading-relaxed font-light">Distribución térmica óptima que evita imperfecciones mediante el balance del flujo de aire dentro del horno, como burbujas, grietas o zonas mal curadas sobre la superficie.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Calidad de Acabado</h3>
-                            </div>
-                            <p class="text-sm text-gray-500 leading-relaxed font-light">Al cumplir con las especificaciones de temperatura y tiempo indicadas para cada recubrimiento, nuestros hornos aseguran las condiciones térmicas necesarias para que las pinturas en polvo, líquidas o resinas protectoras alcancen su correcto nivel de adherencia y máxima resistencia.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Mayor Eficiencia</h3>
-                            </div>
-                            <p class="text-sm text-gray-500 leading-relaxed font-light">Reducción sustancial en los tiempos de curado, incrementando el rendimiento productivo.</p>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] group flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                    </svg>
-                                </div>
-                                <h3 class="font-saira font-semibold italic text-brand-navy text-xl uppercase group-hover:text-brand-blue transition-colors leading-tight">Alta Versatilidad</h3>
-                            </div>
-                            <p class="text-sm text-gray-500 leading-relaxed font-light">Apto para el tratamiento de diversos materiales (metales, plásticos, cerámica) y adaptable a múltiples geometrías.</p>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
@@ -335,244 +343,66 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
 
             <div class="container mx-auto relative z-10">
                 <div class="mb-16">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"> Especificaciones Técnicas </span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8">Fases y Tipos de Hornos de Secado y Curado</h2>
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.tipos.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase text-center md:text-left mt-4 mb-8">{d.tipos.title}</h2>
                 </div>
 
                 <!-- Tabs Navigation -->
                 <div class="flex w-full border-b border-gray-200 mb-16 overflow-x-auto" id="tech-tabs-nav">
-                    <button
-                        class="tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-                        data-tab="tab-conveccion"
-                    >
-                        <span class="text-3xl font-light not-italic font-sans">01</span>
-                        <span>Hornos de Convección</span>
-                    </button>
-                    <button
-                        class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-                        data-tab="tab-cataliticos"
-                    >
-                        <span class="text-3xl font-light not-italic font-sans">02</span>
-                        <span>Hornos Catalíticos</span>
-                    </button>
-                    <button
-                        class="tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]"
-                        data-tab="tab-infrarrojos"
-                    >
-                        <span class="text-3xl font-light not-italic font-sans">03</span>
-                        <span>Hornos Infrarrojos</span>
-                    </button>
+                    {
+                        d.tipos.tabs.map((tab, i) => tab.active !== false && (
+                            <button
+                                class={
+                                    tabNums[i] === '01'
+                                        ? 'tech-tab-btn active flex-1 py-4 px-2 border-b-2 border-brand-lime bg-brand-lime/10 rounded-t-xl text-brand-lime flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]'
+                                        : 'tech-tab-btn flex-1 py-4 px-2 border-b-2 border-transparent bg-transparent rounded-t-xl text-gray-400 hover:text-brand-lime hover:bg-brand-lime/5 flex flex-col items-center justify-center gap-1 cursor-pointer select-none font-saira font-semibold italic text-base md:text-lg uppercase tracking-wider transition-colors min-w-[150px]'
+                                }
+                                data-tab={`tab-${i}`}
+                            >
+                                <span class="text-3xl font-light not-italic font-sans">{tabNums[i]}</span>
+                                <span>{tab.label}</span>
+                            </button>
+                        ))
+                    }
                 </div>
 
                 <!-- Tabs Content Panels -->
                 <div id="tech-tabs-content" class="relative w-full">
-                    <!-- Panel 1: Convección -->
-                    <div id="tab-conveccion" class="tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                            <!-- Left Column: Image -->
-                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                                <img src="/images/soluciones/hornos-secado-curado/horno-6.webp" alt="Horno de Convección" class="w-full h-full object-cover absolute inset-0" />
-                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-                            </div>
-
-                            <!-- Right Column: Content -->
-                            <div class="flex flex-col pb-8">
-                                <div class="mb-10 text-center lg:text-left">
-                                    <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Transferencia por Convección Forzada</h3>
-                                    <p class="text-base text-gray-600 font-light leading-relaxed">
-                                        Un horno de convección ya sea para curado o secado, es un equipo en que el recinto (área de trabajo) es calentado mediante aire a alta temperatura, el cual es suministrado y distribuido para generar intercambio de calor entre el aire del proceso y los materiales, ya sea para secado posterior al pretratamiento o curado.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-col gap-10">
-                                    <!-- Temperatura Uniforme -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v19M3 12h19M5 5l14 14M19 5L5 19"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Temperatura uniforme</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            El aire caliente se mueve a través del horno, distribuyéndose de manera homogénea por toda la superficie de los productos. Esto asegura que todos los elementos que se encuentren dentro del horno reciban una temperatura similar, evitando zonas
-                                            sobrecalentadas o frías que podrían dañar o afectar la calidad.
-                                        </p>
+                    {
+                        d.tipos.tabs.map((tab, tabIndex) => tab.active !== false && (
+                            <div id={`tab-${tabIndex}`} class={tabNums[tabIndex] === '01' ? 'tech-tab-panel transition-all duration-500 opacity-100 transform translate-y-0' : 'tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4'}>
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                                    <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
+                                        <img src={tab.image} alt={tab.title} class={`w-full h-full object-cover absolute inset-0${tabIndex === 1 ? ' scale-[1.3]' : ''}`} />
+                                        <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply" />
                                     </div>
 
-                                    <!-- Balance de aire -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Balance de flujo de aire</h4>
+                                    <div class="flex flex-col pb-8">
+                                        <div class="mb-10 text-center lg:text-left">
+                                            <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">{tab.title}</h3>
+                                            <p class="text-base text-gray-600 font-light leading-relaxed whitespace-pre-wrap">{tab.description}</p>
                                         </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            Los hornos de convección están diseñados para mantener un flujo de aire balanceado y constante. Esto significa que el aire caliente es distribuido de manera eficiente en todo el horno, lo que mejora la transferencia de calor hacia los productos.
-                                        </p>
-                                    </div>
 
-                                    <!-- Flexibilidad sustrato -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.656 48.656 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.547 9.547 4.5 10.768 4.5 12s.047 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662z"
-                                                    ></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Flexibilidad para el tipo de sustrato</h4>
+                                        <div class="flex flex-col gap-10">
+                                            {tab.items.map((item, i) => (
+                                                <div class="flex flex-col">
+                                                    <div class="flex items-center gap-3 mb-4">
+                                                        <div class="text-brand-lime flex items-center justify-center shrink-0">
+                                                            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d={tipoItemIcons[tabIndex]?.[i] ?? tipoItemIcons[0][0]} />
+                                                            </svg>
+                                                        </div>
+                                                        <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">{item.title}</h4>
+                                                    </div>
+                                                    <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0 whitespace-pre-wrap" set:html={item.description} />
+                                                </div>
+                                            ))}
                                         </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            Un horno de convección continuo tiene la capacidad de procesar productos de diferentes tamaños y geometrías manteniendo una silueta de trabajo constante a lo largo del proceso sin necesidad de realizar ajustes mayores en el equipo.
-                                        </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 2: Catalíticos -->
-                    <div id="tab-cataliticos" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                            <!-- Left Column: Image -->
-                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                                <img src="/images/soluciones/hornos-secado-curado/horno-8.webp" alt="Horno Catalítico Seguro" class="w-full h-full object-cover absolute inset-0 scale-[1.3]" />
-                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-                            </div>
-
-                            <!-- Right Column: Content -->
-                            <div class="flex flex-col pb-8">
-                                <div class="mb-10 text-center lg:text-left">
-                                    <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Tecnología Catalítica</h3>
-                                    <p class="text-base text-gray-600 font-light leading-relaxed">
-                                        Este tipo de horno se diferencia de los sistemas convencionales por la presencia de un panel catalizador interno el cual emite radiación infrarroja de ondas que viajan en líneas rectas y son absorbidas rápidamente por superficies inorgánicas como
-                                        recubrimientos en polvo y pintura líquida.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-col gap-10">
-                                    <!-- Operación baja temperatura -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l3-3m-3 3l3 3"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Temperatura de operación más baja</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">Los calentadores catalíticos operan a una temperatura más baja que los sistemas de calefacción convencionales, lo que permite una distribución de calor extremadamente controlada y uniforme.</p>
-                                    </div>
-
-                                    <!-- Gases peligrosos -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Seguridad en entornos de riesgo</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            No producen una llama abierta, lo que los hace ideales y seguros para su uso en cabinas y entornos donde se manejan solventes volátiles inflamables o polvos combustibles, minimizando el riesgo de explosión.
-                                        </p>
-                                    </div>
-
-                                    <!-- Emisiones limpias -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.365 5.25 5.25 0 00-9.88-2.32 4.5 4.5 0 00-7.202 5.185Z"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Emisiones limpias y ecológicas</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">Tienen una combustión más limpia ya que solo emiten dióxido de carbono (CO2) y vapor de agua, sin liberar partículas contaminantes ni compuestos nocivos al medio ambiente.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 3: Infrarrojos -->
-                    <div id="tab-infrarrojos" class="tech-tab-panel hidden transition-all duration-500 opacity-0 transform translate-y-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                            <!-- Left Column: Image -->
-                            <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                                <img src="/images/soluciones/hornos-secado-curado/horno-10.webp" alt="Horno Infrarrojo de Ondas" class="w-full h-full object-cover absolute inset-0" />
-                                <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
-                            </div>
-
-                            <!-- Right Column: Content -->
-                            <div class="flex flex-col pb-8">
-                                <div class="mb-10 text-center lg:text-left">
-                                    <h3 class="font-saira font-semibold italic text-brand-navy text-3xl md:text-4xl uppercase mb-4">Radiación Infrarroja (IR) por Ondas</h3>
-                                    <p class="text-base text-gray-600 font-light leading-relaxed">
-                                        La calefacción radiante por infrarrojos (IR) no requiere un medio (como el aire) para transferir el calor, ya que calienta directamente los objetos. Esta transferencia ocurre mediante ondas electromagnéticas clasificadas por su longitud de onda.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-col gap-10">
-                                    <!-- Ondas largas y medias -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v19"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Longitud de onda larga y media</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            La <strong>onda larga</strong> concentra la energía en la superficie, ideal para secados de películas de bajo espesor. La <strong>onda media</strong> tiene densidad moderada que penetra el recubrimiento pero no el sustrato metálico, permitiendo que el curado
-                                            empiece de adentro hacia afuera en ciclos rápidos.
-                                        </p>
-                                    </div>
-
-                                    <!-- Onda corta -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Longitud de onda corta (Rápida)</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">
-                                            Posee alta densidad energética y tiempo de respuesta instantáneo. La energía penetra directamente el recubrimiento y llega al sustrato convirtiéndose en calor, perfecto para precalentamiento y curados profundos rápidos.
-                                        </p>
-                                    </div>
-
-                                    <!-- Zonificación y reducción de ciclos -->
-                                    <div class="flex flex-col">
-                                        <div class="flex items-center gap-3 mb-4">
-                                            <div class="text-brand-lime flex items-center justify-center shrink-0">
-                                                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                                    <path
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path>
-                                                </svg>
-                                            </div>
-                                            <h4 class="font-saira font-bold text-brand-navy text-xl uppercase italic">Zonificación y flexibilidad</h4>
-                                        </div>
-                                        <p class="text-gray-600 font-light text-sm pl-10 lg:pl-0">Permite ajustar curvas de calentamiento específicas por áreas del horno, optimizando el consumo y adaptándose a piezas de diferentes geometrías con tiempos de ciclo reducidos drásticamente.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
@@ -581,52 +411,44 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="py-24 bg-white px-6 md:px-12 animate-results" id="ventajas-adicionales">
             <div class="container mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16 advantages-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-sm mb-4 uppercase inline-block">¿Por qué son importantes?</span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Importancia de los Hornos de Curado</h2>
-                    <p class="text-gray-600 mt-4 font-light text-base md:text-lg">
-                        Los hornos de secado y curado son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico de materiales recubiertos o tratados. Sus beneficios en términos de calidad, durabilidad y eficiencia los convierten en una
-                        herramienta imprescindible en numerosas industrias, contribuyendo a optimizar la producción y garantizar productos finales de calidad.
+                    <span class="text-brand-lime font-bold tracking-widest text-sm mb-4 uppercase inline-block">{d.resultados.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.resultados.title}</h2>
+                    <p class="text-gray-600 mt-4 font-light text-base md:text-lg whitespace-pre-wrap">
+                        {d.resultados.description}
                     </p>
                 </div>
 
                 <!-- Quantitative Metrics Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-5xl mx-auto">
-                    <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60">
-                        <svg class="w-14 h-14 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M13 3v7h6l-8 11v-7H5l8-11z"></path>
-                        </svg>
-                        <h4 class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300">Eficiencia Energética</h4>
-                        <p class="text-xs text-gray-400 font-light">Diseño optimizado de recirculación de flujo y contención de calor.</p>
-                    </div>
-                    <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60">
-                        <svg class="w-14 h-14 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="9"></circle>
-                            <path d="M12 7v5l3 3"></path>
-                        </svg>
-                        <h4 class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300">Reducción de Tiempo</h4>
-                        <p class="text-xs text-gray-400 font-light">Sistemas infrarrojos y convección que optimizan la rampa térmica.</p>
-                    </div>
-                    <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center shadow-lg h-60">
-                        <svg class="w-14 h-14 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <h4 class="font-saira font-semibold uppercase italic text-sm tracking-wider text-gray-300">Reducción de defectos</h4>
-                        <p class="text-xs text-gray-400 font-light">El secado homogéneo ayuda a evitar la aparición de defectos superficiales y a mejorar la adherencia.</p>
-                    </div>
+                    {
+                        d.resultados.metrics.map((metric, i) => (
+                            <div class="p-8 rounded-3xl bg-brand-navy text-white flex flex-col justify-between items-center gap-4 shadow-lg min-h-60">
+                                {metric.icon && !esIconoSvg(metric.icon) ? (
+                                        <img src={metric.icon} alt="" class="w-8 h-8 object-contain" />
+                                    ) : metric.icon ? (
+                                        <Fragment set:html={metric.icon} />
+                                    ) : (
+                                        <svg class="w-14 h-14 text-brand-lime" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" set:html={resultadoIcons[i] ?? resultadoIcons[0]} />
+                                    )}
+                                <h4 class="font-saira font-semibold uppercase italic text-lg tracking-wider text-white">{metric.label}</h4>
+                                <p class="text-base text-gray-300 font-light leading-relaxed whitespace-pre-wrap">{metric.description}</p>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
 
         <!-- 09. SEGUNDO CTA -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-            <img src="/images/soluciones/hornos-secado-curado/horno-cta.webp" alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta2.image} alt={d.cta2.title} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
-                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">¿Listo para integrar un horno de secado o curado a su producción?</h2>
-                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto">El equipo de ingeniería de Anaerobia desarrolla proyectos integrales llave en mano, adaptados estrictamente a las características de sus productos y a las especificaciones de sus recubrimientos.</p>
+                <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.cta2.title}</h2>
+                <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto whitespace-pre-wrap">{d.cta2.description}</p>
                 <div class="pt-8">
-                    <a href="/contacto?solucion=hornos-secado-curado" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1"> Iniciar Cotización de Proyecto </a>
+                    <a href={d.cta2.button_url} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta2.button_label}</a>
                 </div>
             </div>
         </section>
@@ -637,23 +459,21 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                     <div class="lg:w-1/2 space-y-6 norms-text">
                         <div>
-                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"> Cumplimiento Internacional </span>
-                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">Normatividad y Seguridad</h2>
-                            <p class="text-gray-300 font-light leading-relaxed mt-4">
-                                Nuestros hornos industriales cumplen con normatividad internacional y exigencias de calidad y seguridad. Diseñamos hornos que se ajustan a las necesidades y exigencias de cada cliente para garantizar el cumplimiento de estándares internacionales.
+                            <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{general.normas?.badge}</span>
+                            <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{general.normas?.title}</h2>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">
+                                {general.normas?.description}
                             </p>
                         </div>
 
                         <ul class="space-y-3 text-sm text-gray-300 font-light border-t border-white/10 pt-6 pl-4 mt-6">
-                            <li class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Cumplimiento NFPA y estándares de atmósferas inflamables.
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Certificaciones de seguridad eléctrica y gas (ETL, OSHA).
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-brand-lime"></span> Project Managers certificados por IPMA.
-                            </li>
+                            {
+                                (general.normas?.bullets ?? []).map((b) => (
+                                    <li class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-brand-lime whitespace-pre-wrap" /> {b.text}
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
 
@@ -663,9 +483,8 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                                 certificados.map((cert) => (
                                     <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
                                         <div class="h-14 w-full flex items-center justify-center mb-2">
-                                            <img src={cert.logo} alt={`Certificado ${cert.name}`} class="max-h-full max-w-full object-contain filter transition-all duration-300" onerror={`this.outerHTML='<span class=\\'font-bold text-gray-400\\'>${cert.name}</span>'`} />
+                                            <img src={cert.logo} alt={`Certificado ${cert.name}`} class="max-h-full max-w-full object-contain filter transition-all duration-300" />
                                         </div>
-                                        <span class="font-saira font-semibold text-[10px] tracking-wider text-brand-navy opacity-60 group-hover:opacity-100 transition-opacity uppercase">{cert.name}</span>
                                     </div>
                                 ))
                             }
@@ -678,35 +497,14 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <!-- 11. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"> Tecnología respaldada por aliados globales: </span>
+                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide"> {general.aliados?.title} </span>
                 <div class="swiper marquee-swiper w-full overflow-hidden relative">
                     <div class="swiper-wrapper flex items-center gap-16">
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
-                        </div>
-
-                        <!-- Duplicate for loop -->
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/fanuc.png" alt="FANUC" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>FANUC</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/graco.png" alt="GRACO" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GRACO</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/binks.png" alt="BINKS" class="h-4 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>BINKS</span>'" />
-                        </div>
-                        <div class="swiper-slide !w-auto px-8">
-                            <img src="/img/logos/gfs.png" alt="GFS" class="h-9 opacity-60 grayscale hover:grayscale-0 transition-all object-contain" onerror="this.outerHTML='<span class=\'text-2xl font-bold text-gray-400\'>GFS</span>'" />
-                        </div>
+                        {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (
+                            <div class="swiper-slide !w-auto px-8 flex items-center justify-center">
+                                <img src={aliado.image} alt={aliado.name} class="h-auto max-h-9 w-auto max-w-full object-contain opacity-60 grayscale hover:grayscale-0 transition-all" />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -716,58 +514,44 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
         <section class="py-16 bg-industrial-gray px-6 md:px-12 border-b border-gray-200/50" id="faq">
             <div class="container mx-auto max-w-4xl">
                 <div class="text-center mb-16 faq-header">
-                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full"> Preguntas Técnicas </span>
-                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">Preguntas Frecuentes</h2>
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.faqs.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.faqs.title}</h2>
                 </div>
 
                 <div class="space-y-4">
-                    <!-- FAQ 1 -->
-                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open>
-                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
-                            <span>¿Cuál es la diferencia entre secado y curado en pintura industrial?</span>
-                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
-                        </summary>
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
-                            En pintura industrial, el secado, químico o físico, es donde se evapora el agua del pretratamiento o solventes y agua de recubrimientos, dejándola seca al tacto. El curado, en cambio, es un proceso químico en el que los componentes de la pintura reaccionan para formar una
-                            película resistente y completamente endurecida. Mientras el secado prepara la superficie, el curado garantiza su durabilidad, adherencia y resistencia final.
-                        </div>
-                    </details>
+                    {
+                        d.faqs.items.map((faq, i) => (
+                            <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md" open={i === 0}>
+                                <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
+                                    <span>{faq.question}</span>
+                                    <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']" />
+                                </summary>
+                                <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal whitespace-pre-wrap">{faq.answer}</div>
+                            </details>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
 
-                    <!-- FAQ 2 -->
-                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
-                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
-                            <span>¿Cuánto tiempo tarda en curar la pintura en horno industrial?</span>
-                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
-                        </summary>
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
-                            El tiempo de curado depende del tipo de recubrimiento y la temperatura aplicada, pero generalmente varía entre 10 y 60 minutos. En el caso de pinturas líquidas como epóxicas o poliuretanos, el curado suele realizarse entre 20 a 60 minutos. Para pinturas en polvo, el proceso
-                            suele ser rápido, con tiempos de 10 a 30 minutos a temperaturas de 160 °C a 200 °C.
-                        </div>
-                    </details>
+        <!-- 13. GALERÍA DE PROYECTOS -->
+        <section class="py-16 bg-white px-6 md:px-12" id="galeria">
+            <div class="container mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16 gallery-header">
+                    <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{d.galeria.badge}</span>
+                    <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mt-4">{d.galeria.title}</h2>
+                    <p class="text-gray-600 mt-4 font-light">Ejemplos de hornos de convección, sistemas catalíticos e infrarrojos para secado y curado implementados en plantas del país.</p>
+                </div>
 
-                    <!-- FAQ 3 -->
-                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
-                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
-                            <span>¿Qué mantenimiento requiere un horno de secado y curado?</span>
-                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
-                        </summary>
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
-                            Un horno de secado y curado requiere mantenimiento regular que incluya la limpieza de filtros, ventiladores y conductos para evitar acumulación de polvo o residuos inflamables; inspección y calibración de sensores de temperatura y sistemas de control para asegurar un
-                            calentamiento uniforme; verificación del aislamiento térmico y sellos para evitar fugas de calor; revisión de quemadores o resistencias eléctricas; y pruebas de seguridad en sistemas de corte de gas o electricidad.
-                        </div>
-                    </details>
-
-                    <!-- FAQ 4 -->
-                    <details name="faq" class="group border border-gray-300/80 rounded-xl bg-white overflow-hidden transition-all duration-300 open:shadow-md">
-                        <summary class="flex justify-between items-center px-6 py-5 font-saira font-semibold italic text-brand-navy uppercase text-base md:text-lg cursor-pointer hover:bg-gray-50 transition-colors list-none select-none">
-                            <span>¿Cómo elegir el horno de secado y curado adecuado para mi empresa?</span>
-                            <span class="w-6 h-6 rounded-full bg-brand-navy/5 flex items-center justify-center text-brand-navy font-bold text-xl after:content-['+'] group-open:after:content-['-']"></span>
-                        </summary>
-                        <div class="px-6 pb-6 pt-2 border-t border-gray-100 text-gray-600 font-light text-base leading-relaxed details-content-reveal">
-                            Para elegir el horno adecuado, considera el tipo de material y recubrimiento (líquido, en polvo, epóxico, etc.), el volumen de producción diario, las dimensiones, el peso de las piezas y el espacio disponible en tu planta. Evalúa la temperatura y el tiempo de curado
-                            requeridos para determinar si necesitas un horno de convección, catalítico o infrarrojo. Un proveedor especializado como Anaerobia puede diseñar y personalizar la rampa térmica exacta para tu proceso.
-                        </div>
-                    </details>
+                <!-- Grid layout -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gallery-grid">
+                    {
+                        d.galeria.images.map((img) => (
+                            <div class="relative overflow-hidden rounded-lg shadow group border border-gray-200">
+                                <img src={img.image} alt={img.alt} class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </section>
@@ -913,6 +697,17 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
                 ease: 'power2.out',
                 clearProps: 'opacity,transform',
             })
+
+            // Gallery grid
+            gsap.from('.gallery-grid > div', {
+                scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%' },
+                y: 30,
+                opacity: 0,
+                duration: 0.7,
+                stagger: 0.12,
+                ease: 'power2.out',
+                clearProps: 'opacity,transform',
+            })
         }
 
         // 3. Controlador de Tabs Técnicos
@@ -969,6 +764,14 @@ const seoDescription = 'Especialistas en el diseño, fabricación y montaje de h
     window.addEventListener('load', () => {
         if (typeof ScrollTrigger !== 'undefined') {
             ScrollTrigger.refresh()
+        }
+    })
+
+    // Si la primera pestaña técnica está inactiva, activar la primera visible
+    document.addEventListener('DOMContentLoaded', () => {
+        const techBtns = document.querySelectorAll('.tech-tab-btn')
+        if (techBtns.length && !document.querySelector('.tech-tab-btn.active')) {
+            techBtns[0].click()
         }
     })
 </script>

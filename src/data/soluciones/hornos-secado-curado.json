@@ -1,0 +1,287 @@
+{
+    "slug": "hornos-secado-curado",
+    "name": "Hornos de Secado y Curado",
+    "seo": {
+        "title": "Hornos de secado y curado | Anaerobia",
+        "description": "Especialistas en el diseño, fabricación y montaje de hornos industriales de convección, catalíticos e infrarrojos para el secado y curado de piezas."
+    },
+    "hero": {
+        "image": "/images/soluciones/hornos-secado-curado/horno-7.webp",
+        "badge": "SISTEMAS DE TRATAMIENTO TÉRMICO B2B",
+        "title": "Hornos de secado y curado",
+        "description": "En Anaerobia somos especialistas en el diseño, fabricación y montaje de hornos industriales de alta tecnología, integrando soluciones de convección, sistemas catalíticos e infrarrojos desarrollados a la medida para transformar la productividad de su planta."
+    },
+    "intro": {
+        "title": "¿Qué son los hornos de secado y curado?",
+        "paragraphs": [
+            {
+                "text": "Los hornos de secado y curado son equipos de tratamiento térmico diseñados para aplicar calor controlado con el objetivo de eliminar la humedad de las superficies (secado) y para endurecer o estabilizar ciertos recubrimientos o compuestos (curado).\n\nEn el secado, el horno evapora el agua o los residuos del pretratamiento, mientras que, en el curado, el calor activa reacciones químicas que endurecen y estabilizan los materiales.\n\nLa capacidad de controlar con precisión variables críticas como la temperatura, la circulación de aire y el tiempo de permanencia permite adaptar estos hornos a diferentes tipos de procesos y especificaciones de materiales."
+            }
+        ],
+        "highlight": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología.",
+        "image": "/images/soluciones/hornos-secado-curado/horno-1.webp"
+    },
+    "desafios": {
+        "badge": "Desafíos",
+        "title": "Puntos de Inflexión Comunes en el Tratamiento Térmico",
+        "description": "Las operaciones de manufactura de alto volumen a menudo enfrentan ineficiencias críticas que elevan el costo por pieza y afectan la calidad estética final.",
+        "image": "/images/soluciones/hornos-secado-curado/horno-4.webp",
+        "items": [
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Altos costos por fugas de calor",
+                "title": "Desperdicio y Costos Térmicos",
+                "description": "El curado o secado térmico ineficiente en hornos industriales con aislamiento deficiente o fugas de calor dispara de inmediato los costos de gas y energía eléctrica, elevando el costo operativo por pieza."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Variación térmica y secado desigual",
+                "title": "Zonas Frías e Inconsistencia",
+                "description": "La falta de uniformidad en la distribución del aire caliente o de la radiación provoca zonas con un curado deficiente, ocasionando defectos posteriores en el acabado como ampollas, burbujas o desprendimientos del recubrimiento."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3\"/></svg>",
+                "text": "Tiempos lentos y cuellos de botella",
+                "title": "Bajo Rendimiento y Retrasos",
+                "description": "Utilizar procesos térmicos no optimizados prolonga el tiempo de ciclo por lote o pieza, limitando la capacidad de la línea y frenando la productividad."
+            }
+        ]
+    },
+    "cta1": {
+        "title": "¿Su producción exige un proceso de secado o curado específico?",
+        "description": "Diseñamos un sistema de secado o curado a la medida, adaptándonos estrictamente a las dimensiones de sus piezas y volúmenes de producción.",
+        "button_label": "Solicitar Cotización",
+        "button_url": "/contacto?solucion=hornos-secado-curado"
+    },
+    "ingenieria": {
+        "badge": "Integrador Especializado",
+        "title": "Nuestra solución en ingeniería de hornos industriales",
+        "description": "Diseñamos y fabricamos hornos a la medida, adaptados a la geometría de tus piezas, la tasa de producción requerida y los estándares del recubrimiento (líquido, polvo o resinas).",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4\"></path> </svg>",
+                "title": "Hornos de Convección Forzada",
+                "description": "Calentados mediante aire recirculado a alta temperatura por combustión de gas o resistencias eléctricas. Junto a un diseño de flujo inteligente, provee una temperatura homogénea incluso en geometrías complejas.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-3.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M11 8c2-3-2-3 0-6\"></path> <path d=\"M15.5 8c2-3-2-3 0-6\"></path> <path d=\"M6 10h.01\"></path> <path d=\"M6 14h.01\"></path> <path d=\"M10 16v-4\"></path> <path d=\"M14 16v-4\"></path> <path d=\"M18 16v-4\"></path> <path d=\"M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3\"></path> <path d=\"M5 20v2\"></path> <path d=\"M19 20v2\"></path> </svg>",
+                "title": "Sistemas Catalíticos",
+                "description": "Operan mediante paneles catalizadores infrarrojos que emiten calor sin llama abierta. Ideal para procesos con presencia de solventes volátiles inflamables o polvos combustibles.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-2.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <path d=\"M3 12h2m2.5-7.5 1.5 1.5M3 21l5.5-5.5M21 12h-2M17.5 4.5 16 6M21 21l-5.5-5.5\"></path> <circle cx=\"12\" cy=\"12\" r=\"4\"></circle> </svg>",
+                "title": "Sistemas Infrarrojos (IR)",
+                "description": "Calefacción radiante mediante ondas electromagnéticas. Reduce drásticamente los tiempos de ciclo calentando la pieza en segundos y permitiendo un control por zonas totalmente configurable.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-5.webp"
+            }
+        ]
+    },
+    "tipos": {
+        "badge": "Especificaciones Técnicas",
+        "title": "Fases y Tipos de Hornos de Secado y Curado",
+        "tabs": [
+            {
+                "label": "Hornos de Convección",
+                "title": "Transferencia por Convección Forzada",
+                "description": "Un horno de convección ya sea para curado o secado, es un equipo en que el recinto (área de trabajo) es calentado mediante aire a alta temperatura, el cual es suministrado y distribuido para generar intercambio de calor entre el aire del proceso y los materiales, ya sea para secado posterior al pretratamiento o curado.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-6.webp",
+                "items": [
+                    {
+                        "title": "Temperatura uniforme",
+                        "description": "El aire caliente se mueve a través del horno, distribuyéndose de manera homogénea por toda la superficie de los productos. Esto asegura que todos los elementos que se encuentren dentro del horno reciban una temperatura similar, evitando zonas sobrecalentadas o frías que podrían dañar o afectar la calidad."
+                    },
+                    {
+                        "title": "Balance de flujo de aire",
+                        "description": "Los hornos de convección están diseñados para mantener un flujo de aire balanceado y constante. Esto significa que el aire caliente es distribuido de manera eficiente en todo el horno, lo que mejora la transferencia de calor hacia los productos."
+                    },
+                    {
+                        "title": "Flexibilidad para el tipo de sustrato",
+                        "description": "Un horno de convección continuo tiene la capacidad de procesar productos de diferentes tamaños y geometrías manteniendo una silueta de trabajo constante a lo largo del proceso sin necesidad de realizar ajustes mayores en el equipo."
+                    }
+                ]
+            },
+            {
+                "label": "Hornos Catalíticos",
+                "title": "Tecnología Catalítica",
+                "description": "Este tipo de horno se diferencia de los sistemas convencionales por la presencia de un panel catalizador interno el cual emite radiación infrarroja de ondas que viajan en líneas rectas y son absorbidas rápidamente por superficies inorgánicas como recubrimientos en polvo y pintura líquida.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-8.webp",
+                "items": [
+                    {
+                        "title": "Temperatura de operación más baja",
+                        "description": "Los calentadores catalíticos operan a una temperatura más baja que los sistemas de calefacción convencionales, lo que permite una distribución de calor extremadamente controlada y uniforme."
+                    },
+                    {
+                        "title": "Seguridad en entornos de riesgo",
+                        "description": "No producen una llama abierta, lo que los hace ideales y seguros para su uso en cabinas y entornos donde se manejan solventes volátiles inflamables o polvos combustibles, minimizando el riesgo de explosión."
+                    },
+                    {
+                        "title": "Emisiones limpias y ecológicas",
+                        "description": "Tienen una combustión más limpia ya que solo emiten dióxido de carbono (CO2) y vapor de agua, sin liberar partículas contaminantes ni compuestos nocivos al medio ambiente."
+                    }
+                ]
+            },
+            {
+                "label": "Hornos Infrarrojos",
+                "title": "Radiación Infrarroja (IR) por Ondas",
+                "description": "La calefacción radiante por infrarrojos (IR) no requiere un medio (como el aire) para transferir el calor, ya que calienta directamente los objetos. Esta transferencia ocurre mediante ondas electromagnéticas clasificadas por su longitud de onda.",
+                "image": "/images/soluciones/hornos-secado-curado/horno-10.webp",
+                "items": [
+                    {
+                        "title": "Longitud de onda larga y media",
+                        "description": "La <strong>onda larga</strong> concentra la energía en la superficie, ideal para secados de películas de bajo espesor. La <strong>onda media</strong> tiene densidad moderada que penetra el recubrimiento pero no el sustrato metálico, permitiendo que el curado empiece de adentro hacia afuera en ciclos rápidos."
+                    },
+                    {
+                        "title": "Longitud de onda corta (Rápida)",
+                        "description": "Posee alta densidad energética y tiempo de respuesta instantáneo. La energía penetra directamente el recubrimiento y llega al sustrato convirtiéndose en calor, perfecto para precalentamiento y curados profundos rápidos."
+                    },
+                    {
+                        "title": "Zonificación y flexibilidad",
+                        "description": "Permite ajustar curvas de calentamiento específicas por áreas del horno, optimizando el consumo y adaptándose a piezas de diferentes geometrías con tiempos de ciclo reducidos drásticamente."
+                    }
+                ]
+            }
+        ]
+    },
+    "resultados": {
+        "badge": "¿Por qué son importantes?",
+        "title": "Importancia de los Hornos de Curado",
+        "description": "Los hornos de secado y curado son fundamentales en los procesos de acabado industrial, permitiendo un control total sobre el tratamiento térmico de materiales recubiertos o tratados. Sus beneficios en términos de calidad, durabilidad y eficiencia los convierten en una herramienta imprescindible en numerosas industrias, contribuyendo a optimizar la producción y garantizar productos finales de calidad.",
+        "metrics": [
+            {
+                "icon": "<svg class=\"w-14 h-14 text-brand-lime\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 3v7h6l-8 11v-7H5l8-11z\"></path></svg>",
+                "label": "Eficiencia Energética",
+                "description": "Diseño optimizado de recirculación de flujo y contención de calor."
+            },
+            {
+                "icon": "<svg class=\"w-14 h-14 text-brand-lime\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"></circle><path d=\"M12 7v5l3 3\"></path></svg>",
+                "label": "Reducción de Tiempo",
+                "description": "Sistemas infrarrojos y convección que optimizan la rampa térmica."
+            },
+            {
+                "icon": "<svg class=\"w-14 h-14 text-brand-lime\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>",
+                "label": "Reducción de defectos",
+                "description": "El secado homogéneo ayuda a evitar la aparición de defectos superficiales y a mejorar la adherencia."
+            }
+        ]
+    },
+    "cta2": {
+        "image": "/images/soluciones/hornos-secado-curado/horno-cta.webp",
+        "title": "¿Listo para integrar un horno de secado o curado a su producción?",
+        "description": "El equipo de ingeniería de Anaerobia desarrolla proyectos integrales llave en mano, adaptados estrictamente a las características de sus productos y a las especificaciones de sus recubrimientos.",
+        "button_label": "Iniciar Cotización de Proyecto",
+        "button_url": "/contacto?solucion=hornos-secado-curado"
+    },
+    "normatividad": {
+        "badge": "Cumplimiento Internacional",
+        "title": "Normatividad y Seguridad",
+        "description": "Nuestros hornos industriales cumplen con normatividad internacional y exigencias de calidad y seguridad. Diseñamos hornos que se ajustan a las necesidades y exigencias de cada cliente para garantizar el cumplimiento de estándares internacionales.",
+        "bullets": [
+            {
+                "text": "Cumplimiento NFPA y estándares de atmósferas inflamables."
+            },
+            {
+                "text": "Certificaciones de seguridad eléctrica y gas (ETL, OSHA)."
+            },
+            {
+                "text": "Project Managers certificados por IPMA."
+            }
+        ]
+    },
+    "faqs": {
+        "badge": "Preguntas Técnicas",
+        "title": "Preguntas Frecuentes",
+        "items": [
+            {
+                "question": "¿Cuál es la diferencia entre secado y curado en pintura industrial?",
+                "answer": "En pintura industrial, el secado, químico o físico, es donde se evapora el agua del pretratamiento o solventes y agua de recubrimientos, dejándola seca al tacto. El curado, en cambio, es un proceso químico en el que los componentes de la pintura reaccionan para formar una película resistente y completamente endurecida. Mientras el secado prepara la superficie, el curado garantiza su durabilidad, adherencia y resistencia final."
+            },
+            {
+                "question": "¿Cuánto tiempo tarda en curar la pintura en horno industrial?",
+                "answer": "El tiempo de curado depende del tipo de recubrimiento y la temperatura aplicada, pero generalmente varía entre 10 y 60 minutos. En el caso de pinturas líquidas como epóxicas o poliuretanos, el curado suele realizarse entre 20 a 60 minutos. Para pinturas en polvo, el proceso suele ser rápido, con tiempos de 10 a 30 minutos a temperaturas de 160 °C a 200 °C."
+            },
+            {
+                "question": "¿Qué mantenimiento requiere un horno de secado y curado?",
+                "answer": "Un horno de secado y curado requiere mantenimiento regular que incluya la limpieza de filtros, ventiladores y conductos para evitar acumulación de polvo o residuos inflamables; inspección y calibración de sensores de temperatura y sistemas de control para asegurar un calentamiento uniforme; verificación del aislamiento térmico y sellos para evitar fugas de calor; revisión de quemadores o resistencias eléctricas; y pruebas de seguridad en sistemas de corte de gas o electricidad."
+            },
+            {
+                "question": "¿Cómo elegir el horno de secado y curado adecuado para mi empresa?",
+                "answer": "Para elegir el horno adecuado, considera el tipo de material y recubrimiento (líquido, en polvo, epóxico, etc.), el volumen de producción diario, las dimensiones, el peso de las piezas y el espacio disponible en tu planta. Evalúa la temperatura y el tiempo de curado requeridos para determinar si necesitas un horno de convección, catalítico o infrarrojo. Un proveedor especializado como Anaerobia puede diseñar y personalizar la rampa térmica exacta para tu proceso."
+            }
+        ]
+    },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "images": [
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-9.webp",
+                "alt": "Hornos de Secado y Curado Industriales"
+            },
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-11.webp",
+                "alt": "Horno industrial por infrarrojos"
+            },
+            {
+                "image": "/images/soluciones/hornos-secado-curado/horno-12.webp",
+                "alt": "Horno industrial de pintura líquida"
+            }
+        ]
+    },
+    "extras": {
+        "diferenciadores": {
+            "badge": "Ventajas Competitivas",
+            "title": "Ventajas de Nuestros Hornos de Secado y Curado",
+            "description": "Desarrollados bajo rigurosos criterios de eficiencia y seguridad, nuestros hornos garantizan los más altos estándares de calidad para sistemas de acabados superficiales.",
+            "cards": [
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+                    "title": "Secado Uniforme",
+                    "description": "Distribución térmica óptima que evita imperfecciones mediante el balance del flujo de aire dentro del horno, como burbujas, grietas o zonas mal curadas sobre la superficie."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                    "title": "Calidad de Acabado",
+                    "description": "Al cumplir con las especificaciones de temperatura y tiempo indicadas para cada recubrimiento, nuestros hornos aseguran las condiciones térmicas necesarias para que las pinturas en polvo, líquidas o resinas protectoras alcancen su correcto nivel de adherencia y máxima resistencia."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+                    "title": "Mayor Eficiencia",
+                    "description": "Reducción sustancial en los tiempos de curado, incrementando el rendimiento productivo."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"/></svg>",
+                    "title": "Alta Versatilidad",
+                    "description": "Apto para el tratamiento de diversos materiales (metales, plásticos, cerámica) y adaptable a múltiples geometrías."
+                }
+            ]
+        }
+    },
+    "certificados": [
+        {
+            "name": "NFPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+        },
+        {
+            "name": "EPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+        },
+        {
+            "name": "ETL",
+            "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+        },
+        {
+            "name": "ICC",
+            "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+        },
+        {
+            "name": "OSHA",
+            "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+        },
+        {
+            "name": "ATEX",
+            "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
+        }
+    ]
+}

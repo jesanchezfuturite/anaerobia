@@ -1,0 +1,335 @@
+{
+    "slug": "pintura-en-polvo",
+    "name": "Pintura en Polvo",
+    "seo": {
+        "title": "Sistemas de Pintura en Polvo | Anaerobia",
+        "description": "Sistemas de pintura en polvo: soluciones eficientes y sostenibles para acabados duraderos y de alta calidad. ¡Solicita cotización!"
+    },
+    "hero": {
+        "image": "/images/soluciones/pintura-polvo/pintura-polvo-1.webp",
+        "badge": "INTEGRACIÓN DE SISTEMAS DE ACABADOS SUPERFICIALES",
+        "title": "Sistemas de Pintura en Polvo",
+        "description": "Eleve la eficiencia de su planta con sistemas avanzados de pintura en polvo. Diseñamos, fabricamos e instalamos soluciones de alta ingeniería a la medida para la industria de manufactura en México y Estados Unidos. Desde cabinas en cuarto limpio con tecnología de recuperación tipo ciclón, hasta hornos de curado de alta precisión, desarrollamos infraestructura robusta que garantiza acabados impecables y el cumplimiento estricto de normativas internacionales."
+    },
+    "intro": {
+        "title": "Mejoramos la industria del mundo con ingeniería especializada y alta tecnología",
+        "paragraphs": [
+            {
+                "text": "Un sistema de pintura en polvo consiste en un conjunto de equipos, procesos y tecnologías integrados para la aplicación de recubrimientos electrostáticos sobre superficies metálicas y otros materiales preparados. Estos sistemas permiten crear un acabado de alta durabilidad y resistencia a la corrosión bajo un proceso sustentable, optimizando el desempeño y la vida útil del recubrimiento final en la industria."
+            }
+        ],
+        "image": "/images/soluciones/pintura-polvo/pintura-polvo-3.webp"
+    },
+    "desafios": {
+        "badge": "Desafíos",
+        "title": "Puntos de Inflexión Comunes en la Línea de Pintura",
+        "description": "Las operaciones de manufactura de alto volumen a menudo enfrentan ineficiencias críticas que elevan el costo por pieza y comprometen la consistencia y el acabado final del producto.",
+        "image": "/images/soluciones/pintura-polvo/pintura-polvo-14.webp",
+        "items": [
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z\"/></svg>",
+                "text": "Tiempos excesivos en cambio de color",
+                "title": "Tiempos Excesivos en Cambio de Color",
+                "description": "La transición entre diferentes tonos de polvo en sistemas obsoletos puede tomar horas, generando cuellos de botella críticos y contaminación cruzada que arruina lotes enteros de producción."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+                "text": "Efecto jaula de Faraday y cobertura irregular",
+                "title": "Efecto Jaula de Faraday y Cobertura Irregular",
+                "description": "La dificultad de penetrar esquinas y geometrías complejas durante la aplicación electrostática genera zonas sin protección, obligando a realizar lentos retoques manuales o comprometiendo la resistencia."
+            },
+            {
+                "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M7 13v-8a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v7a1 1 0 0 0 1 1h3a4 4 0 0 1 4 4v1a2 2 0 0 0 4 0v-5h3a2 2 0 0 0 2 -2l-1 -5a2 3 0 0 0 -2 -2h-7a3 3 0 0 0 -3 3\"/></svg>",
+                "text": "Desperdicio por mala recuperación",
+                "title": "Desperdicio por Mala Fluidización y Recuperación",
+                "description": "Si el equipo de recuperación (ciclón) o las tolvas no están optimizados, el polvo se apelmaza o no recircula adecuadamente. Esto provoca pérdidas drásticas de materia prima virgen y acabados imperfectos."
+            }
+        ]
+    },
+    "cta1": {
+        "title": "¿Buscas ingeniería a la medida para tu línea de pintura en polvo?",
+        "description": "Desde el diseño conceptual hasta la puesta en marcha, creamos el sistema de pintura en polvo exacto para los objetivos de su operación.",
+        "button_label": "Solicitar propuesta técnica",
+        "button_url": "/contacto?solucion=pintura-en-polvo"
+    },
+    "ingenieria": {
+        "badge": "Integrador Especializado",
+        "title": "Nuestra Solución en Ingeniería de Pintura en Polvo",
+        "description": "Diseñamos y fabricamos soluciones llave en mano adaptadas a los requisitos físicos de tu planta, la geometría de tus piezas y los estándares químicos del recubrimiento.",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"12 2 2 7 12 12 22 7 12 2\"></polygon> <polyline points=\"2 12 12 17 22 12\"></polyline> <polyline points=\"2 17 12 22 22 17\"></polyline> </svg>",
+                "title": "Sistemas Automatizados Llave en Mano",
+                "description": "Diseñamos e integramos líneas de alta ingeniería completamente automatizadas. Proveemos cabinas de última generación, reciprocadores de alta velocidad y transportadores aéreos sincronizados (Overhead Conveyors) configurados de manera integral para optimizar y estandarizar los más altos volúmenes de producción.",
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-7.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3\"></polygon> </svg>",
+                "title": "Clean Rooms y Recuperación Inteligente",
+                "description": "Nuestras instalaciones integran cuartos limpios presurizados y tecnología avanzada de recuperación por ciclones. Esta ingeniería garantiza hasta un 98% de aprovechamiento del polvo, previniendo la contaminación cruzada entre lotes y asegurando cambios de color ultrarrápidos para minimizar los tiempos muertos.",
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-8.webp"
+            },
+            {
+                "icon": "<svg class=\"w-7 h-7\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"> <polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"></polygon> </svg>",
+                "title": "Sistema de pintura en Polvo y Aplicación de Precisión",
+                "description": "Equipamos las líneas con tecnología electrostática de recuperación manual hasta en digital, disponibles en configuraciones que van desde manuales hasta sistemas totalmente automatizados. Logramos penetrar geometrías críticas para eliminar el efecto Jaula de Faraday, asegurando un espesor de capa exacto y una adherencia inmejorable lote tras lote.",
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-9.webp"
+            }
+        ]
+    },
+    "cta2": {
+        "image": "/images/soluciones/pintura-polvo/pintura-polvo-cta.webp",
+        "title": "Su producción no es estándar. Su línea de pintura tampoco debería serlo.",
+        "description": "Háblenos de sus piezas y metas de volumen. Diseñaremos desde cero una propuesta técnica con la ingeniería que su planta necesita.",
+        "button_label": "SOLICITAR MI SISTEMA A LA MEDIDA",
+        "button_url": "/contacto?solucion=pintura-liquida"
+    },
+    "normatividad": {
+        "badge": "Cumplimiento Legal y de Seguridad",
+        "title": "Seguridad y Cumplimiento Normativo Industrial",
+        "description": "Diseñamos y construimos sistemas mecánicos y eléctricos robustos que protegen a su personal operativo y reducen riesgos catastróficos, garantizando un cumplimiento riguroso.",
+        "bullets": [
+            {
+                "text": "Contamos con un equipo de ingenieros calificados y Project Managers certificados por **IPMA (International Project Management Association)** para liderar la instalación y puesta en marcha de manera segura y puntual."
+            }
+        ]
+    },
+    "faqs": {
+        "badge": "Preguntas Técnicas",
+        "title": "Preguntas Frecuentes",
+        "items": [
+            {
+                "question": "¿Qué es la pintura en polvo y cómo funciona?",
+                "answer": "La pintura en polvo es un recubrimiento seco que se aplica mediante un proceso electrostático. Las partículas de pintura se adhieren a la superficie, que luego se cura a altas temperaturas en un horno especializado, creando un acabado extremadamente duradero."
+            },
+            {
+                "question": "¿Cuáles son las ventajas de la pintura en polvo frente a la liquida?",
+                "answer": "Ofrece mayor durabilidad mecánica, excelente resistencia a la corrosión, un menor desperdicio de material (ya que se puede recuperar el polvo no adherido) y un impacto ambiental reducido al no requerir solventes (VOCs)."
+            },
+            {
+                "question": "¿Qué materiales pueden recubrirse con pintura en polvo?",
+                "answer": "Principalmente metales que puedan conducir electricidad y soportar las temperaturas de curado, como acero, aluminio y hierro. Sin embargo, gracias a los avances tecnológicos, también existen polvos para materiales específicos preparados adecuadamente."
+            },
+            {
+                "question": "¿Cómo se prepara una superficie para la pintura en polvo?",
+                "answer": "Se realiza un pretratamiento exhaustivo que va desde limpieza profunda, desengrase, hasta granallado y, en algunos casos, recubrimientos de conversión como el fosfatado o zirconio para maximizar la adherencia y la resistencia a la corrosión."
+            },
+            {
+                "question": "¿Qué tipo de mantenimiento requieren los equipos de pintura en polvo?",
+                "answer": "El mantenimiento preventivo incluye limpieza regular de los sistemas de aplicación y revisión constante de componentes críticos como las pistolas electrostáticas, inyectores, y filtros de recuperación para garantizar un funcionamiento óptimo."
+            }
+        ]
+    },
+    "galeria": {
+        "badge": "Galería",
+        "title": "Proyectos",
+        "images": [
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-10.webp",
+                "alt": "Cabina automática de pintura en polvo"
+            },
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-11.webp",
+                "alt": "Horno de curado por convección"
+            },
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-12.webp",
+                "alt": "Centro de polvo inteligente"
+            },
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-13.webp",
+                "alt": "Ciclón de recuperación de polvo"
+            },
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-14.webp",
+                "alt": "Línea automática con transportador"
+            },
+            {
+                "image": "/images/soluciones/pintura-polvo/pintura-polvo-15.webp",
+                "alt": "Pistolas electrostáticas automáticas"
+            }
+        ]
+    },
+    "extras": {
+        "diferenciadores": {
+            "badge": "Ventajas Competitivas",
+            "title": "Diferenciadores de Anaerobia en Pintura en Polvo",
+            "description": "Nuestras líneas destacan con un enfoque integral incorporando un muy alto nivel de ingeniería capaz de resolver los desafíos más exigentes en acabados industriales.",
+            "cards": [
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10\"/></svg>",
+                    "title": "Integración Personalizada",
+                    "description": "Desde soluciones estándar hasta líneas completas de pintura en polvo. Diseñadas a la medida de tu layout optimizando el flujo de piezas para maximizar la productividad."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z\"/><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M15 12a3 3 0 11-6 0 3 3 0 016 0z\"/></svg>",
+                    "title": "Tiempos de inactividad mínimos",
+                    "description": "Garantizamos respuesta técnica en sitio y un amplio stock de refacciones críticas. Tu línea de pintura siempre disponible gracias a nuestro equipo experto y mantenimientos programados."
+                },
+                {
+                    "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z\"/></svg>",
+                    "title": "Alianzas Tecnológicas Globales",
+                    "description": "Integramos tecnología de última generación de marcas mundiales (Gema, Nordson, Wagner) asegurando una aplicación electrostática perfecta y cambios de color eficientes."
+                }
+            ]
+        },
+        "fases_proceso": {
+            "badge": "Especificaciones Técnicas",
+            "title": "Fases de un Sistema de Pintura en Polvo y Parámetros",
+            "tabs": [
+                {
+                    "label": "Pretratamiento",
+                    "title": "Pretratamiento de Superficies",
+                    "description": "El pretratamiento es esencial para garantizar una buena adherencia, durabilidad y apariencia del acabado final. Existen dos métodos generales que se implementan según las condiciones del metal:",
+                    "image": "/images/soluciones/pintura-polvo/pintura-polvo-4.webp",
+                    "groups": [
+                        {
+                            "title": "Pretratamiento Químico",
+                            "bullets": [
+                                {
+                                    "text": "Elimina aceites, lubricantes y grasas."
+                                },
+                                {
+                                    "text": "Gran versatilidad del proceso (aspersión, inmersión)."
+                                },
+                                {
+                                    "text": "Sistemas programables que permiten un gran control de temperatura y tiempos."
+                                },
+                                {
+                                    "text": "Permite aplicar sello antioxidante protector."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Pretratamiento Mecánico",
+                            "bullets": [
+                                {
+                                    "text": "Permite utilizar diversos materiales abrasivos (granalla metálica u otros materiales)."
+                                },
+                                {
+                                    "text": "Elimina defectos superficiales."
+                                },
+                                {
+                                    "text": "Permite alcanzar y controlar el perfil de anclaje (rugosidad) deseado."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "label": "Cabinas de Aplicación",
+                    "title": "Aplicación Electrostática",
+                    "image": "/images/soluciones/pintura-polvo/pintura-polvo-13.webp",
+                    "paragraphs": [
+                        {
+                            "text": "Posterior a la fase de pretratamiento, la superficie está lista para la fase de aplicación de pintura en polvo. En el caso de un sistema de pintura en polvo, la aplicación debe llevarse idealmente en un cuarto controlado (<em>environmental room</em>), el cual permite garantizar que los parámetros de temperatura y humedad se mantendrán a estándares deseables y no afectarán el acabado de la superficie y el almacenamiento de pintura en polvo. Al interior del <em>environmental</em> se ubicará la cabina de pintura, la cual nos permite llevar a cabo la aplicación en un espacio adecuado."
+                        },
+                        {
+                            "text": "En la mayoría de los casos, un sistema de pintura en polvo incluye equipo de recuperación de pintura, a través del cual es posible recuperar la pintura que no se adhirió a la superficie durante la aplicación. Para que esto sea posible, es indispensable contar con un proceso de filtración en la cabina, el cual nos ayudará a cumplir con normativas y proteger al personal operativo. La recuperación de pintura en polvo ayuda a reducir costos y residuos del proceso."
+                        },
+                        {
+                            "text": "La aplicación en un sistema de pintura en polvo puede realizarse de forma manual o automática, para lo cual se utiliza equipo de aplicaciones como:"
+                        }
+                    ],
+                    "items": [
+                        {
+                            "title": "Pistola de pintura en polvo:",
+                            "description": "herramienta especializada que utiliza principios electrostáticos para aplicar eficientemente polvo seco sobre superficies."
+                        },
+                        {
+                            "title": "Reciprocantes:",
+                            "description": "mecanismos automatizados que desplazan las pistolas de forma vertical u horizontal a velocidad constante para una cobertura homogénea."
+                        },
+                        {
+                            "title": "Ciclón de recuperación:",
+                            "description": "sistema de alta eficiencia que separa el polvo no adherido del flujo de aire, permitiendo recuperar gran cantidad de material."
+                        },
+                        {
+                            "title": "Centro de polvo (Powder Center):",
+                            "description": "estación centralizada para la alimentación continua de polvo y automatización de la limpieza rápida durante el cambio de color."
+                        }
+                    ]
+                },
+                {
+                    "label": "Hornos de Secado y Curado",
+                    "title": "Curado Térmico y Polimerización",
+                    "description": "El curado de la pintura en polvo requiere temperaturas constantes de entre 150° y 260° en un horno de curado especializado. Durante este proceso, las partículas de polvo se funden y se polimerizan para formar una capa protectora continua de alta adherencia y dureza. A diferencia de la pintura líquida, la pintura en polvo no cura al aire libre, por lo que integrar un horno eficiente con una distribución uniforme de calor es crucial para evitar variaciones de brillo o fragilidad.",
+                    "image": "/images/soluciones/pintura-polvo/pintura-polvo-6.webp",
+                    "highlight": {
+                        "title": "Recomendación ANAEROBIA",
+                        "text": "Siga estrictamente las recomendaciones del fabricante de la pintura en cuanto a la rampa de temperatura y el tiempo de residencia para un mejor acabado."
+                    }
+                },
+                {
+                    "label": "Manejo del Producto (Conveyor)",
+                    "title": "Manejo del Producto (Conveyor)",
+                    "description": "Diseñamos e integramos sistemas de transporte continuo adaptados por completo al espacio disponible de su planta, el volumen de su producción y las dimensiones o peso de sus piezas. Nos encargamos de configurar las velocidades y trayectos óptimos para automatizar el flujo de su proceso.",
+                    "image": "/images/soluciones/pintura-polvo/pintura-polvo-26.webp",
+                    "items": [
+                        {
+                            "title": "Agilidad y Repetitividad",
+                            "description": "Automatizan el traslado continuo de piezas entre estaciones, garantizando un flujo constante y ordenado."
+                        },
+                        {
+                            "title": "Máximo Rendimiento",
+                            "description": "Optimizan los tiempos de ciclo, reducen los costos operativos y eliminan los cuellos de botella."
+                        },
+                        {
+                            "title": "Movimiento Versátil",
+                            "description": "Ingeniería flexible que se adapta a trayectos rectos, curvos, cambios de nivel o inclinaciones según su espacio."
+                        },
+                        {
+                            "title": "Seguridad en Planta",
+                            "description": "Reducen drásticamente el riesgo de accidentes al eliminar la manipulación manual de materiales pesados o continuos."
+                        }
+                    ]
+                }
+            ]
+        },
+        "beneficios": {
+            "badge": "Beneficios del Sistema",
+            "title": "¿Por qué migrar a una línea de pintura en polvo en su planta?",
+            "description": "Analizamos el retorno de inversión, la eficiencia operativa y las ventajas técnicas que ofrece esta tecnología frente a los sistemas tradicionales.",
+            "cards": [
+                {
+                    "title": "Eficiencia y Recuperación de Material de hasta el 95%",
+                    "description": "A diferencia de los sistemas de pintura líquida tradicionales, el exceso de polvo aplicado en cabina que no se adhiere a la pieza es recuperable y reutilizable mediante colectores de cartucho o sistemas de ciclón avanzado. Esto reduce el desperdicio de material a menos del 5% y optimiza directamente sus costos operativos."
+                },
+                {
+                    "title": "Alta Resistencia Física y Química, Acabados Premium",
+                    "description": "El proceso de polimerización en horno crea una capa densa y flexible de recubrimiento. Las piezas curadas adquieren una resistencia sobresaliente a la corrosión por humedad, impactos mecánicos, abrasión y condiciones climáticas extremas."
+                },
+                {
+                    "title": "Sostenibilidad y Cero Emisiones de Solventes (VOC)",
+                    "description": "Esto no solo protege la salud del personal operativo en cabina, sino que también facilita la obtención de certificaciones ambientales y el cumplimiento ágil de las auditorías de seguridad."
+                }
+            ]
+        }
+    },
+    "certificados": [
+        {
+            "name": "NFPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png"
+        },
+        {
+            "name": "EPA",
+            "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg"
+        },
+        {
+            "name": "ETL",
+            "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png"
+        },
+        {
+            "name": "ICC",
+            "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png"
+        },
+        {
+            "name": "OSHA",
+            "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png"
+        },
+        {
+            "name": "ATEX",
+            "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp"
+        }
+    ]
+}

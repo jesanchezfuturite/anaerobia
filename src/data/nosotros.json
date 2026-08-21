@@ -1,0 +1,119 @@
+{
+    "seo": {
+        "title": "Nosotros | Anaerobia Surface Finishing",
+        "description": "Nuestra especialidad es el diseño, fabricación e instalación de sistemas de pintura y acabado en general. Mejoramos la industria del mundo con ingeniería especializada."
+    },
+    "hero": {
+        "image": "/images/nosotros/bg_hero_nosotros.webp",
+        "imageAlt": "Acerca de Anaerobia",
+        "badge": "Conoce a Anaerobia",
+        "title": "Tu aliado en proyectos de acabado superficial",
+        "paragraphs": [
+            {
+                "text": "Nuestra especialidad es el diseño, fabricación e instalación de sistemas de pintura y acabado en general. Tenemos una división especializada en manejo de fluidos, equipos para suministro y aplicación en la industria."
+            },
+            {
+                "text": "Contamos con un área de servicio posventa para atenderte y con nuestro centro de distribución que permite entregar todo tipo de componentes utilizados en nuestros sistemas de manera directa o a través de nuestros distribuidores."
+            }
+        ]
+    },
+    "intro": {
+        "image": "/images/nosotros/img_1_nosotros.webp",
+        "imageAlt": "Equipo Anaerobia",
+        "badge": "Nuestro Propósito",
+        "title": "MEJORAMOS LA INDUSTRIA DEL MUNDO CON INGENIERÍA ESPECIALIZADA Y ALTA TECNOLOGÍA",
+        "items": [
+            {
+                "title": "NUESTRA MISIÓN",
+                "description": "Ejecutar proyectos con un alto contenido de ingeniería y tecnología para la industria, integrando un equipo de colaboradores dinámico y experimentado, contribuyendo con el crecimiento de la empresa y la satisfacción de nuestros clientes."
+            }
+        ]
+    },
+    "pilares": {
+        "title": "LOS PILARES DE NUESTRO TRABAJO",
+        "description": "Nuestros fundamentos que garantizan el éxito en cada proyecto de principio a fin.",
+        "cards": [
+            {
+                "title": "Gestión Integral",
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01\"></path></svg>"
+            },
+            {
+                "title": "Ingeniería a la medida",
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z\"></path></svg>"
+            },
+            {
+                "title": "Cumplimiento normativo",
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"></path></svg>"
+            },
+            {
+                "title": "Presencia nacional",
+                "icon": "<svg class=\"w-8 h-8\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path></svg>"
+            }
+        ]
+    },
+    "valores": {
+        "title": "NUESTROS VALORES",
+        "image": "/images/nosotros/icono_principal_logo.png",
+        "imageAlt": "Valores Anaerobia",
+        "items": [
+            {
+                "title": "La familia<br/>es base",
+                "icon": "<svg class=\"w-7 h-7\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6\"></path></svg>"
+            },
+            {
+                "title": "Crecimiento de<br/>talento humano",
+                "icon": "<svg class=\"w-7 h-7\" fill=\"currentColor\" stroke=\"none\" viewBox=\"0 0 59.82 59.86\"> <path d=\"M51.84,58.54c-.1.36-.62,1.48-.83,1.3l-1.19-.99v-18.01s.82-.98.82-.98c.24-.29,1.09.68,1.19.99v17.7Z\"/> <path d=\"M45.86,58.48c0,.37-.56,1.2-.8,1.35-.31.2-1.2-.75-1.2-1.2v-9.59c0-.35.56-1.1.8-1.26.31-.21,1.19.74,1.19,1.11v9.59Z\"/> <path d=\"M39.88,58.54c0,.3-.58,1.13-.81,1.29-.31.21-1.19-.74-1.19-1.12v-5.77c0-.28.58-.99.8-1.16.3-.23,1.19.73,1.19,1.15v5.62Z\"/> <path d=\"M27.92,58.55c0,.3-.56,1.13-.81,1.26-.33.18-1.18-.7-1.18-1.08v-3.87c0-.28.55-.94.79-1.09.32-.2,1.19.67,1.19,1.03l.02,3.74Z\"/> <path d=\"M33.01,59.61c-1.62.22-1.71-3.69-.07-3.73,1.29-.03,1.54,3.53.07,3.73Z\"/> <path d=\"M2.48,17.85c10.21-5.5,12.95-5.19,24.35-3.84,1.67,1.13,3.54,2.74,5.29,4.28l5.08-2.67c1.18-.62,3.01-.06,3.75,1s.61,3.37-.73,4.1l-7.89,4.3c-1.45-.34-3.45-1.44-4.7-2.17l-.88-.73c-.19-.16-.28-.92-.07-1.05.31-.2,1.34-.26,1.68-.06l3.61,2.08,6.71-3.67c.32-.18.77-1.02.86-1.34.11-.42-1.23-.89-1.65-.66l-5.86,3.14-5.66-4.63c-3.97-.35-7.93-1.01-11.87-.79-3.66.21-6.84,2.76-10.37,4.02l-2.11,8.08c-.09.34.23,1.28.37,1.55.19.35,1.46-.15,1.58-.6l2.02-7.59c2.99-.96,5.28-1.67,8.42-2.32l-2.14,12.86c-.47,2.81,2.08,4.49,4.65,4.61l9.68.48-3.36,9.54c-.26.75-.04,2.44.48,3.03s2.22,1.16,3.08,1.1l3.38-.24c.92-1.81,2.55-2.28,4.5-1.27l7.07-4.71c.22-1.99.86-3.7,3.28-3.92l9.73-24.32c-.65-1.28-1.14-2.89-.62-3.88.66-1.27,2.36-1.9,3.73-1.45,1.04.34,2.02,1.84,1.96,2.99-.08,1.5-1.32,2.56-3.17,2.88l-9.79,24.51c1.01,1.43,1.22,2.95.48,4.03-.89,1.3-2.51,1.55-4.25.75l-7.25,4.85c-.03,1.7-.7,3.1-1.9,3.5-1.53.51-2.81-.16-3.91-1.73l-6.61-.13-7.05,8.01h-6.41c-3.34,0-5.56-3.03-4.84-6.22l3.97-15.52,1.09-.88c.26-.21.78.87.84,1.15l-4.13,16.07c-.16,1.09.95,3.3,1.99,3.32l6.59.12,6.78-7.75c-.75-1.19-1.4-3.24-.93-4.58l2.67-7.57-6.67-.29-6.06,17.45c-.07.16-1.01,1.04-1.13.78l-.7-1.46,5.92-16.96c-3.02-.6-5.49-3.43-4.99-6.53l1.64-10.15-4.48,1.29-1.6,6.32c-.41,1.62-2.06,2.64-3.54,2.36S-.34,28.71.08,27.09l2.39-9.24Z\"/> <rect x=\"55.82\" y=\"23.95\" width=\"1.99\" height=\"35.78\"/> <path d=\"M27.33,46.84c-.17.33-.99.87-1.24.98-.34.14-.78-1.21-.58-1.6l5.35-10.38c.66-1.28-.19-2.83-1.3-3.02l-9.09-1.6,3.55-12.21.67-.77c.21-.24,1.3.52,1.19.92l-2.98,10.59,6.58,1.08c1.07.18,2.53,1.07,2.99,1.86.58.99.69,2.87.18,3.86l-5.31,10.3Z\"/> <path d=\"M27.87,5.95c0,3.29-2.66,5.95-5.95,5.95s-5.95-2.66-5.95-5.95S18.64,0,21.92,0s5.95,2.66,5.95,5.95ZM25.92,5.95c0-2.2-1.79-3.99-3.99-3.99s-3.99,1.79-3.99,3.99,1.79,3.99,3.99,3.99,3.99-1.79,3.99-3.99Z\"/> </svg>"
+            },
+            {
+                "title": "Respeto al individuo<br/>y a la organización",
+                "icon": "<svg class=\"w-7 h-7\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z\"></path></svg>"
+            },
+            {
+                "title": "La integridad<br/>nos importa",
+                "icon": "<svg class=\"w-7 h-7\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z\"></path></svg>"
+            },
+            {
+                "title": "La lealtad<br/>se demuestra",
+                "icon": "<svg class=\"w-7 h-7\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z\"></path></svg>"
+            },
+            {
+                "title": "Trabajando en equipo<br/>llegamos lejos",
+                "icon": "<svg class=\"w-7 h-7\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"></path></svg>"
+            }
+        ]
+    },
+    "esg": {
+        "image": "/images/nosotros/bg_GESTION_ESG.webp",
+        "imageAlt": "Fondo ESG",
+        "title": "GESTIÓN",
+        "titleHighlight": "ESG",
+        "description": "Hemos decidido alinear la gestión estratégica de la compañía con principios en favor de la sostenibilidad social y ambiental, desarrollando nuestras actividades dentro de un marco ético, que promueva el crecimiento de nuestros colaboradores y busque de manera constante la mejora de procesos que nos permitan desempeñar nuestras funciones.",
+        "cards": [
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"currentColor\" stroke=\"none\" viewBox=\"0 0 66.83 67.21\"> <path d=\"M39.88,55.84l2.01-1.24c.39-.24.37-1.31.33-1.9-5.73,2.94-12.05,2.76-17.62.04-.23,1.71.53,2.4,2.36,2.5l.02,11.78-17.07.08-.38-10.52,1.61-2.44c-2.54-3.18-5.4-5.94-8.47-8.81-6.5-6.08.26-29.8,5.45-28.8.76.15,1.85,2.1,1.65,2.87l-2.95,11.48c3.15.16,5.38,1.83,6.96,4.63.35-10.93,8.29-19.22,18.95-19.73-.51-2.17-1.25-4.35-2.02-6.03-2.96-.29-4.76-.98-6.3-2.57-1.4-1.45-2.64-4.71-1.16-6.47,1.15-1.37,5.07-.5,6.42.64,1.85,1.55,2.12,4.03,2.23,6.74l.05,1.15c.01.33.85.77.99.48,1.29-2.62.92-6.12,4.03-7.39,1.82-.74,5.57-1.08,6.83.79s-1.03,4.9-2.59,5.91c-1.91,1.24-4.29,1.2-6.9,1.29-1.23,1.02-.81,4.22.23,5.51,10.55.72,18.28,9.02,18.5,19.73,1.67-2.82,3.85-4.51,7.01-4.65l-2.95-11.49c-.2-.77.89-2.73,1.65-2.87,3.87-.75,7.78,11.19,8.04,18.25.45,12.25-4.77,10.64-11,19.41,1.03,1.51,1.56,2.82,1.52,4.14l-.27,8.67-15.24.21c-.74.01-2.03-1.32-2.02-2.06l.09-9.31ZM26.72,3.75l3.79,2.41c-.29-1.19-.96-3.22-1.87-3.76-.96-.57-2.75-.78-4.33-.88-.67,3.34,1.59,5.99,5.01,6.61l-2.6-4.37ZM36.35,8.58c3.46.6,5.91-1.57,6.35-4.84-1.4-.38-3.77-.62-4.9-.17-1,.4-1.87,1.87-2.54,3.33l3.44-1.68.6.71-2.94,2.65ZM29.91,52.98c4.53.88,9.07.04,12.92-2.29-.18-5.84,2.72-10.14,8.21-11.92.96-4.4.12-8.75-1.93-12.38-1.83,1.87-4.32,3.23-6.47,2.1-4.1-2.16-5.74-1.25-6.73-2.58-1.58-2.13,2.2-4.76,1.16-8.23-4.2-.82-8.46-.31-11.9,1.69.89,1.15,2.03,2.84,2.1,4,.06.94-.89,2.46-1.47,3.54l2.7,2.72c.56.57.6,2.91-.05,3.34-1.93,1.29-4.74-.18-7.17.78-1.75,1.06-2.96,2.11-5.53,1-.26.26-.45,2.78.08,3.46.45.59,1.36,1.18,2.37,1.83,1.93,1.1,3.86,1.62,6.02,2.29l4.42,1.38c1.02.32,1.99.54,2.4,1.03,1.54,1.86-2.46,5-1.13,8.24ZM6.31,32.91c-1.89,1.09,6.35,7,5.31,11.37l-4.96-6.92c-1.75-2.44-2.27-3.63-1.48-6.44l2.63-9.36c.36-1.3.4-2.72-.52-3.9C1.84,24.91-.9,40.38,3.93,44.58c3.69,3.21,6.65,5.81,9,10.21h10.31s-.96-7.07-.96-7.07c-.41-3.07-2.32-5.42-5.15-6.73-4.66-2.15-6.46-10.6-10.82-8.08ZM43.73,27.23c1.36.59,3.79-1.01,4.44-2.34-2.32-3.29-5.74-5.53-9.18-6.83-.44,2.13-.82,3.53-1.43,5.28l-.55,1.59c-.06.19,2.67.54,6.73,2.3ZM44.82,46.64l-1.21,8.14h10.35c2.32-4.41,5.33-6.99,8.98-10.21,4.86-4.28,2.09-19.68-3.35-26.9-.92,1.18-.86,2.58-.5,3.88l2.73,9.9c.45,1.64.43,3.09-.54,4.43l-6.05,8.42c-.98-4.45,7.22-10.32,5.33-11.4-2.08-1.19-4.88.78-6.36,3.59-2.83,5.38-8.62,5-9.39,10.15ZM27.97,31.81l-2.34-2.89c-.42-.52-1.61-1.58-1.34-2.12l1.25-2.57c.52-1.06-.61-3.22-1.78-4.15-4.4,2.86-7.52,7.38-8.07,12.66.68.56,2.44,1.32,3.01.89l2.02-1.53,7.25-.3ZM29.97,45.45l-4.47-.86-2.98-1.62,1.83,7.78,3.37,1.71,2.25-7.01ZM25.74,56.11h-14.82v9.49h14.82v-9.49ZM55.97,56.11h-14.82v9.49h14.82v-9.49Z\"/> <path d=\"M42.64,42.54c-1.26,2.06-4.18,2.16-6.24,1.6-1.48-.4-3.75-2.13-3.82-4.02l-.2-5.49c-.16-4.29,3.41-1.17,7.64-3.43.9-.48,3.18-.61,3.77.16,1.69,2.25,1.05,5.3-.77,7.05l-.38,4.12ZM41.13,41.47c.42-1.7.29-3.66,1.26-4.75,1.25-1.4,1.02-4.35-.37-4.47-2.89,1.15-5.59,1.58-8.36,1.47.36,2.21.53,4.23.59,6.32.08,2.86,6.19,4.24,6.88,1.42Z\"/> </svg>",
+                "title": "ENVIRONMENT",
+                "description": "Prácticas sobre la gestión de recursos naturales, cambio climático y relación con el planeta."
+            },
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"currentColor\" stroke=\"none\" viewBox=\"0 0 63.73 47.75\"> <path d=\"M52.44,18.08c-2.07.5-5.79,1.51-7.58.43-.26-.16-.61-1.15-.36-1.28l1.29-.63c3.5.97,6.79-.53,8.43-3.44,1.6-2.85,1.19-6.24-1.08-8.79-4.01-4.49-10.3-.52-10.42-1.19l-.26-1.56c4.22-2.72,9.26-1.91,12.4,1.52,3.27,3.63,3.45,9.07-.28,13.12,5.43,2.85,9.21,8.08,9.15,14.53l-.07,7.36-11.55.08-.12,9.49-40.19.03-.25-9.52-11.5-.08L0,30.8c-.05-6.21,3.41-11.62,9.17-14.48-3.43-3.63-3.74-8.84-.79-12.61C11.34-.07,16.48-1.18,21,1.43l.21,1.5c.2,1.42-6.15-3.1-10.37,1.18-2.46,2.5-2.88,5.72-1.55,8.73,2.54,5.75,10.26,3.35,9.96,4.41l-.37,1.29c-1.84.99-5.5.06-7.5-.44C3.4,20.3,1.48,27.79,2.13,36.06h9.66c.85-7.19,5.04-13.03,11.75-16.24-4.56-4.75-4.4-11.89.03-16.38s11.72-4.61,16.31-.26,4.94,11.78.32,16.59c6.51,3.21,10.81,8.79,11.68,16.21l9.69.1-.02-5.34c-.02-5.41-3.28-11.23-9.12-12.67ZM41.38,11.64c0-5.25-4.26-9.51-9.52-9.51s-9.52,4.26-9.52,9.51,4.26,9.51,9.52,9.51,9.52-4.26,9.52-9.51ZM49.93,45.58l-.02-7.82c-.3-7.44-4.86-14.02-11.8-16.36-3.96,2.58-8.52,2.58-12.5.01-6.86,2.42-11.72,8.88-11.75,16.37l-.03,7.83,36.09-.02Z\"/> </svg>",
+                "title": "SOCIAL",
+                "description": "Derechos Humanos, normas laborales, diversidad, igualdad, inclusión y relaciones con la sociedad y comunidades locales."
+            },
+            {
+                "icon": "<svg class=\"w-10 h-10\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" stroke-width=\"1\"> <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z\" /> </svg>",
+                "title": "GOVERNANCE",
+                "description": "Estructura y buen gobierno de la empresa, ética empresarial, lucha contra la corrupción, transparencia y toma de decisiones."
+            }
+        ],
+        "logos": [
+            {
+                "image": "/img/un_global_compact.png",
+                "alt": "UN Global Compact"
+            },
+            {
+                "image": "/img/logo_esr.png",
+                "alt": "Empresa Socialmente Responsable"
+            }
+        ]
+    }
+}
