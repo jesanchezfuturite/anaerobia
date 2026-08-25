@@ -1,0 +1,85 @@
+---
+export const prerender = false
+
+import Layout from '../layouts/Layout.astro'
+
+import fallback from '../data/aviso-de-privacidad.json'
+
+// Contenido administrable: se consulta la API del Admin (Laravel) en cada
+// visita (SSR). Si la API no responde, se usa el respaldo local.
+const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
+let d = fallback
+try {
+    const res = await fetch(`${API_URL}/api/v1/paginas/aviso-de-privacidad`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) d = (await res.json()).data
+} catch {
+    // API no disponible: la página se sirve con el contenido de respaldo
+}
+
+const seoTitle = d.seo?.title
+const seoDescription = d.seo?.description
+
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="bg-industrial-gray min-h-screen text-brand-navy">
+        <!-- 01. HEADER -->
+        <section class="relative flex items-center pt-36 pb-16 bg-brand-navy overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl">
+                    <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
+                        <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
+                        <span>/</span>
+                        <span class="text-brand-lime">{d.hero?.title}</span>
+                    </nav>
+
+                    {d.hero?.badge && (
+                        <span class="text-brand-lime font-bold tracking-widest text-xs mb-4 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">
+                            {d.hero.badge}
+                        </span>
+                    )}
+
+                    <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl leading-[1.1] mt-4 mb-6">
+                        {d.hero?.title}
+                    </h1>
+
+                    {d.hero?.description && (
+                        <p class="text-gray-300 text-base md:text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
+                            {d.hero.description}
+                        </p>
+                    )}
+                </div>
+            </div>
+        </section>
+
+        <!-- 02. CONTENIDO -->
+        <section class="py-16 px-6 md:px-12">
+            <div class="container mx-auto max-w-4xl">
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8 md:p-12">
+                    <!-- El cuerpo es texto con formato que se edita en el panel: sus
+                         títulos, listas y enlaces se estilizan desde aquí. -->
+                    <div
+                        class="text-gray-600 font-light leading-relaxed
+                               [&>p]:mb-5
+                               [&>h2]:font-saira [&>h2]:italic [&>h2]:font-semibold [&>h2]:uppercase
+                               [&>h2]:text-brand-navy [&>h2]:text-xl md:[&>h2]:text-2xl
+                               [&>h2]:mt-10 [&>h2]:mb-4 [&>h2:first-child]:mt-0
+                               [&>h3]:font-saira [&>h3]:font-semibold [&>h3]:text-brand-navy [&>h3]:text-lg [&>h3]:mt-8 [&>h3]:mb-3
+                               [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-5 [&>ul]:space-y-2
+                               [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-5 [&>ol]:space-y-2
+                               [&_li]:marker:text-brand-lime
+                               [&_strong]:font-semibold [&_strong]:text-brand-navy
+                               [&_a]:text-brand-blue [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-brand-lime"
+                        set:html={d.contenido?.content}
+                    />
+
+                    {d.contenido?.actualizacion && (
+                        <p class="mt-10 pt-6 border-t border-gray-100 text-sm text-gray-500 font-light">
+                            {d.contenido.actualizacion}
+                        </p>
+                    )}
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
