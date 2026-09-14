@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "verificar-sitemap": "node scripts/verificar-sitemap.mjs"
+    "verificar-sitemap": "node scripts/verificar-sitemap.mjs",
+    "verificar-medios": "node scripts/verificar-medios.mjs"
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.6",
