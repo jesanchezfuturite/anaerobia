@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    { "source": "/cabina-de-pintura", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+    { "source": "/cabinas-de-pintura", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+    { "source": "/sistemas-granallado", "destination": "/soluciones/granallado", "permanent": true },
+    { "source": "/sistemas-de-pintura-liquida", "destination": "/soluciones/pintura-liquida", "permanent": true },
+    { "source": "/sistemas-de-pintura-en-polvo", "destination": "/soluciones/pintura-en-polvo", "permanent": true },
+    { "source": "/sistemas-de-aplicacion-de-recubrimientos", "destination": "/soluciones/aplicacion-recubrimientos", "permanent": true },
+    { "source": "/equipo-de-pretratamiento", "destination": "/soluciones/sistemas-de-pretratamiento", "permanent": true },
+    { "source": "/filtros-para-cabina-de-pintura", "destination": "/soluciones/filtros", "permanent": true },
+    { "source": "/servicios-y-refacciones", "destination": "/soluciones/servicios-industriales", "permanent": true },
+
+    { "source": "/sistemas-de-pintura-industrial", "destination": "/", "permanent": true }
+  ]
+}

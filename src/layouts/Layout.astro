@@ -2,23 +2,94 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { getGeneral } from "../lib/general.js";
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.",
   image,
+  noindex = false,
 } = Astro.props;
 
 // La URL canónica evita que los filtros del catálogo (?categoria=, ?marca=)
-// se indexen como páginas distintas del mismo contenido.
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+// se indexen como páginas distintas del mismo contenido. Se normaliza sin
+// barra final (salvo la raíz) para que nunca refleje la variante que se
+// pidió: astro.config.mjs ya no emite esa variante, pero una visita directa
+// a la URL con barra no debe autocanonicalizarse a sí misma.
+const rutaSinBarra = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+$/, "") : Astro.url.pathname;
+const canonical = new URL(rutaSinBarra, Astro.site ?? Astro.url.origin).href;
 const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
+
+// Datos de entidad: name/url/logo/redes vienen del panel «General» (mismo
+// contenido que ya consumen Navbar y Footer). Teléfono, correo y plazas
+// están fijos porque así se publican hoy en /contacto, no hay campo
+// administrable para ellos todavía.
+const general = await getGeneral();
+
+const datosOrganizacion = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Anaerobia",
+  url: Astro.site?.href ?? "https://anaerobia.com/",
+  logo: general.footer?.logo ?? general.logo?.image,
+  email: "info@anaerobia.com",
+  telephone: "+52-222-283-9604",
+  sameAs: (general.footer?.social ?? []).map((red) => red.url),
+  // Puebla, Monterrey y León son las plazas que hoy declara el pie de
+  // página; Troy se agrega porque /contacto también la publica. Solo
+  // Puebla y Troy tienen teléfono propio y se declaran como LocalBusiness
+  // abajo — Monterrey y León no tienen domicilio confirmado todavía.
+  areaServed: ["Puebla, México", "Monterrey, México", "León, México", "Troy, Michigan, Estados Unidos"],
+};
+
+// Domicilio de Puebla confirmado directamente. El de Troy viene de un
+// resumen de IA (cita páginas del WordPress anterior con parámetros
+// srsltid) y no de una fuente primaria — verificar con quien administra
+// esa oficina antes de dar este dato por definitivo.
+const sedes = [
+  {
+    nombre: "Anaerobia Puebla",
+    telefono: "+52-222-283-9604",
+    calle: "Pº Sinfonía 3-14, Town Center Sonata, Lomas de Angelópolis",
+    localidad: "Heroica Puebla de Zaragoza",
+    region: "Puebla",
+    codigoPostal: "72830",
+    pais: "MX",
+  },
+  {
+    nombre: "Anaerobia Troy",
+    telefono: "+1-810-538-5775",
+    calle: "Suite 200, Oficina 31",
+    localidad: "Troy",
+    region: "Michigan",
+    codigoPostal: "48084",
+    pais: "US",
+  },
+];
+
+const datosLocalBusiness = sedes.map((sede) => ({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: sede.nombre,
+  parentOrganization: { "@type": "Organization", name: "Anaerobia" },
+  telephone: sede.telefono,
+  email: "info@anaerobia.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: sede.calle,
+    addressLocality: sede.localidad,
+    addressRegion: sede.region,
+    postalCode: sede.codigoPostal,
+    addressCountry: sede.pais,
+  },
+}));
 ---
 
 <!doctype html>
@@ -33,6 +104,13 @@ const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Datos de entidad: Organization + LocalBusiness por sede -->
+    <script type="application/ld+json" set:html={JSON.stringify(datosOrganizacion)} is:inline />
+    {datosLocalBusiness.map((sede) => (
+      <script type="application/ld+json" set:html={JSON.stringify(sede)} is:inline />
+    ))}
 
     <!-- Redes sociales -->
     <meta property="og:type" content="website" />
