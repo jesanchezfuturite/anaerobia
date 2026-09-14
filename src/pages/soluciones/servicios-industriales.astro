@@ -73,7 +73,7 @@ const importanciaIcons = [
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src={d.hero.image} alt={d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.alt || d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -268,7 +268,7 @@ const importanciaIcons = [
 
         <!-- 06. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-            <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta1.image} alt={d.cta1.alt || "Especialistas de Anaerobia en planta"} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">

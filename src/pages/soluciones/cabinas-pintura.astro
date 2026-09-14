@@ -66,7 +66,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src={d.hero.image} alt="Cabinas de Pintura Industrial" class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.alt || "Cabinas de Pintura Industrial"} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -108,7 +108,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src={d.intro.image} alt="Instalación de Cabina de Pintura Industrial" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.intro.image} alt={d.intro.alt || "Instalación de Cabina de Pintura Industrial"} class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                 <div class="flex flex-col lg:flex-row gap-8 lg:min-h-[700px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
                     <!-- Column 1: Image (45%) -->
                     <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-                        <img src={d.desafios.image} alt="Importancia de la Cabina de Pintura" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={d.desafios.image} alt={d.desafios.alt || "Importancia de la Cabina de Pintura"} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
                     </div>
 
@@ -391,7 +391,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                                <img src={d.tipos.tabs[0].image} alt="Cabina de Pintura Líquida Industrial" class="w-full h-full object-cover absolute inset-0" />
+                                <img src={d.tipos.tabs[0].image} alt={d.tipos.tabs[0].alt || "Cabina de Pintura Líquida Industrial"} class="w-full h-full object-cover absolute inset-0" />
                                 <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
                             </div>
 
@@ -429,7 +429,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                             <!-- Left Column: Image -->
                             <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl h-[300px] md:h-[400px] lg:h-full lg:min-h-[550px]">
-                                <img src={d.tipos.tabs[1].image} alt="Cabina de Pintura en Polvo Industrial" class="w-full h-full object-cover absolute inset-0" />
+                                <img src={d.tipos.tabs[1].image} alt={d.tipos.tabs[1].alt || "Cabina de Pintura en Polvo Industrial"} class="w-full h-full object-cover absolute inset-0" />
                                 <div class="absolute inset-0 bg-brand-navy/10 mix-blend-multiply"></div>
                             </div>
 
@@ -485,7 +485,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
 
         <!-- 09. SEGUNDO CTA -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
-            <img src={d.cta2.image} alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta2.image} alt={d.cta2.alt || "Ingenieros interactuando con maquinaria"} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
