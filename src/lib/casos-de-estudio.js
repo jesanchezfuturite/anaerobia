@@ -27,6 +27,31 @@ export async function getUltimosCasos(cantidad = 3) {
     .slice(0, cantidad)
 }
 
+const POR_PAGINA = 24
+
+/** Listado completo, paginado igual que el catálogo y el blog (para el sitemap). */
+export async function getCasos({ pagina = 1 } = {}) {
+  const parametros = new URLSearchParams({ por_pagina: String(POR_PAGINA) })
+  if (pagina > 1) parametros.set('page', String(pagina))
+
+  try {
+    const res = await fetch(`${API_URL}/api/v1/casos-de-estudio?${parametros}`, { signal: AbortSignal.timeout(5000) })
+    if (res.ok) return await res.json()
+  } catch {
+    // API no disponible: se filtra sobre el respaldo local
+  }
+
+  const desde = (pagina - 1) * POR_PAGINA
+  return {
+    data: respaldo.casos.slice(desde, desde + POR_PAGINA),
+    meta: {
+      pagina,
+      paginas: Math.max(1, Math.ceil(respaldo.casos.length / POR_PAGINA)),
+      total: respaldo.casos.length,
+    },
+  }
+}
+
 /** Ficha completa del caso de estudio y sus relacionados. */
 export async function getCaso(slug) {
   try {
