@@ -24,8 +24,8 @@ const seoDescription = d.seo?.description
 <Layout title={seoTitle} description={seoDescription}>
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <!-- 01. HEADER -->
-        <section class="relative flex items-center pt-36 pb-16 bg-brand-navy overflow-hidden">
-            <div class="container mx-auto px-6 relative z-10">
+        <section class="relative flex items-center pt-36 pb-16 px-6 md:px-12 bg-brand-navy overflow-hidden">
+            <div class="container mx-auto relative z-10">
                 <div class="max-w-4xl">
                     <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
                         <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
@@ -44,9 +44,7 @@ const seoDescription = d.seo?.description
                     </h1>
 
                     {d.hero?.description && (
-                        <p class="text-gray-300 text-base md:text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
-                            {d.hero.description}
-                        </p>
+                        <p class="text-gray-300 text-base md:text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                     )}
                 </div>
             </div>

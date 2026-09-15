@@ -70,14 +70,14 @@ const importanciaIcons = [
 <Layout title={seoTitle} description={seoDescription}>
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <!-- 01. HEADER / HERO -->
-        <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+        <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 px-6 md:px-12 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
                 <img src={d.hero.image} alt={d.hero.title} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
-            <div class="container mx-auto px-6 relative z-10">
+            <div class="container mx-auto relative z-10">
                 <div class="max-w-4xl hero-section-text">
                     <!-- Breadcrumbs -->
                     <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
@@ -118,9 +118,7 @@ const importanciaIcons = [
                                 <div>
                                     {anservice.title && <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-6 leading-tight">{anservice.title}</h2>}
                                     {anservice.description && (
-                                        <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">
-                                            {anservice.description}
-                                        </p>
+                                        <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">{anservice.description}</p>
                                     )}
                                 </div>
 
@@ -150,9 +148,7 @@ const importanciaIcons = [
                     <div class="space-y-8 intro-text">
                         <div>
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-brand-navy uppercase mb-6 leading-tight">{d.extras.servicios.title}</h2>
-                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">
-                                {d.extras.servicios.description}
-                            </p>
+                            <p class="text-gray-600 leading-relaxed font-light text-base md:text-lg whitespace-pre-wrap">{d.extras.servicios.description}</p>
                         </div>
 
                         <ul class="space-y-4 text-gray-600 font-light text-sm md:text-base">
@@ -181,9 +177,9 @@ const importanciaIcons = [
 
         <!-- 04. CTA EN BANDA (tras «Ingeniería y Tecnología») -->
         {ctaServicios && (
-            <section class="py-16 bg-brand-navy relative overflow-hidden">
+            <section class="py-16 bg-brand-navy px-6 md:px-12 relative overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy to-brand-blue/50 opacity-90"></div>
-                <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="container mx-auto relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                     <div class="text-left">
                         <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{ctaServicios.title}</h2>
                         <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{ctaServicios.description}</p>
@@ -267,7 +263,7 @@ const importanciaIcons = [
         </section>
 
         <!-- 06. CTA PERSONALIZADO -->
-        <section class="py-16 relative flex items-center justify-center overflow-hidden px-6">
+        <section class="py-16 relative flex items-center justify-center overflow-hidden px-6 md:px-12">
             <img src={d.cta1.image} alt="Especialistas de Anaerobia en planta" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
@@ -288,9 +284,7 @@ const importanciaIcons = [
                         <div>
                             <span class="text-brand-lime font-bold tracking-widest text-xs mb-2 uppercase inline-block bg-brand-lime/10 px-4 py-1.5 rounded-full">{general.normas?.badge}</span>
                             <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase mt-4 leading-tight">{general.normas?.title}</h2>
-                            <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">
-                                {general.normas?.description}
-                            </p>
+                            <p class="text-gray-300 font-light leading-relaxed mt-4 whitespace-pre-wrap">{general.normas?.description}</p>
                         </div>
 
                         <p class="text-gray-400 font-light text-xs border-t border-white/10 pt-4 whitespace-pre-wrap">{general.normas?.text}</p>
@@ -314,8 +308,8 @@ const importanciaIcons = [
         </section>
 
         <!-- 08. ALIANZAS / PARTNERS -->
-        <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+        <section class="bg-white py-4 px-6 md:px-12 border-y border-gray-200 overflow-hidden flex items-center">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-6">
                 <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
                 <div class="swiper marquee-swiper w-full">
                     <div class="swiper-wrapper items-center">
