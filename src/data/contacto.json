@@ -1,0 +1,32 @@
+{
+    "key": "contacto",
+    "name": "Contacto",
+    "seo": {
+        "title": "Contacto | Anaerobia Surface Finishing",
+        "description": "Contáctanos para impulsar la productividad y eficiencia de tu planta con nuestras soluciones en sistemas de aplicación de recubrimientos."
+    },
+    "hero": {
+        "badge": "Conecta con nosotros",
+        "title": "Contacto",
+        "description": "Estamos listos para impulsar la productividad y eficiencia de tu planta con nuestras soluciones en sistemas de aplicación de recubrimientos."
+    },
+    "sedes": [
+        {
+            "ciudad": "Puebla, México",
+            "label": "Sede Principal",
+            "phone": "52 222 283 9604",
+            "phoneHref": "+522222839604",
+            "email": "info@anaerobia.com"
+        },
+        {
+            "ciudad": "Troy, Michigan",
+            "label": "United States",
+            "phone": "+1 810 538 5775",
+            "phoneHref": "+18105385775",
+            "email": "info@anaerobia.com"
+        }
+    ],
+    "mapa_contacto": {
+        "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.5706147004926!2d-98.27861925010994!3d18.9945615079436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb870920d0b3b%3A0xbd54f40626469e1!2sAnaerobia!5e0!3m2!1ses!2smx!4v1780504686455!5m2!1ses!2smx"
+    }
+}
