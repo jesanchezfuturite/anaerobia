@@ -87,6 +87,19 @@ const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
       }
     </script>
 
+    <!-- Chatbot (Conversia / ChatKodex) -->
+    <script
+      is:inline
+      src="https://conversia.com.mx/assets/js/chatbot.js"
+      id="chatbot-js"
+    ></script>
+    <script is:inline>
+      CHATKODEX.init({
+        host: window.location.host,
+        key: "JQ5ChCTTl8wgz",
+      });
+    </script>
+
     <script is:inline>
       // Atribución de campaña: si la URL trae utm_*, se guardan en la sesión
       // del navegador para que sobrevivan la navegación hasta que se llene
