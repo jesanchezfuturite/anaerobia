@@ -123,7 +123,7 @@
         ]
     },
     "logo": {
-        "image": "https://anaerobia.com/wp-content/uploads/2023/02/AnaerobiaLogo-Horizontal-1.png",
+        "image": "/img/marca/logo-anaerobia-horizontal.png",
         "alt": "Anaerobia"
     },
     "normas": {
@@ -201,7 +201,7 @@
         ]
     },
     "footer": {
-        "logo": "https://anaerobia.com/wp-content/uploads/2020/10/Anaerobia-logotipo-1.svg",
+        "logo": "/img/marca/logo-anaerobia-footer.svg",
         "description": "Líderes en ingeniería e integración industrial para sistemas de acabados superficiales. Desarrollamos soluciones integrales para mejorar la industria global.",
         "social": [
             {
