@@ -7,8 +7,9 @@ import { getArticulo } from '../../lib/blog.js'
 const { slug } = Astro.params
 const ficha = await getArticulo(slug)
 
+// Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
 if (!ficha) {
-    return Astro.redirect('/blog', 404)
+    return new Response(null, { status: 404 })
 }
 
 const articulo = ficha.data

@@ -1,12 +1,16 @@
 export const prerender = false
 
 import { getArticulos } from '../lib/blog.js'
+import { getUltimosCasos } from '../lib/casos-de-estudio.js'
 import { getCatalogo } from '../lib/catalogo.js'
-import navegacion from '../data/general.json'
 
 /**
- * Sitemap del sitio. Se genera en cada petición porque el catálogo y el menú
+ * Sitemap del sitio. Se genera en cada petición porque el catálogo y el blog
  * viven en el admin: al publicar un producto aparece aquí sin redesplegar.
+ *
+ * Solo entran URLs con canónica propia. Las vistas filtradas del catálogo y
+ * del blog (?categoria=) declaran como canónica el listado sin filtro, así que
+ * listarlas aquí contradecía a la canónica y no aportaba nada.
  */
 
 /** Páginas fijas, con la prioridad que les corresponde. */
@@ -17,8 +21,11 @@ const PAGINAS = [
     { ruta: '/partes-y-filtros', prioridad: '0.9', frecuencia: 'weekly' },
     { ruta: '/blog', prioridad: '0.7', frecuencia: 'weekly' },
     { ruta: '/contacto', prioridad: '0.6', frecuencia: 'yearly' },
+    { ruta: '/aviso-de-privacidad', prioridad: '0.2', frecuencia: 'yearly' },
+    { ruta: '/terminos-y-condiciones', prioridad: '0.2', frecuencia: 'yearly' },
 ]
 
+/** Una por archivo en src/pages/soluciones/. */
 const SOLUCIONES = [
     'conveyors',
     'sistemas-de-pretratamiento',
@@ -32,6 +39,31 @@ const SOLUCIONES = [
     'servicios-industriales',
 ]
 
+/**
+ * Tope de páginas a recorrer en un listado paginado. Protege a la función
+ * de un bucle sin fin si la API devolviera algo inesperado: con 24 productos
+ * o 9 artículos por página son cientos de entradas, muy por encima del
+ * catálogo y del blog actuales.
+ */
+const MAX_PAGINAS = 50
+
+type Listado = { data: any[]; meta: { paginas?: number } }
+
+/** Recorre todas las páginas de un listado paginado y devuelve sus elementos. */
+async function recorrer(pedir: (pagina: number) => Promise<Listado>) {
+    const primera = await pedir(1)
+    const elementos = [...primera.data]
+    const ultima = Math.min(Number(primera.meta?.paginas ?? 1), MAX_PAGINAS)
+
+    for (let pagina = 2; pagina <= ultima; pagina++) {
+        const siguiente = await pedir(pagina)
+        if (siguiente.data.length === 0) break
+        elementos.push(...siguiente.data)
+    }
+
+    return elementos
+}
+
 export async function GET({ site, url }) {
     const base = (site ?? new URL(url.origin)).origin
     const hoy = new Date().toISOString().split('T')[0]
@@ -41,30 +73,10 @@ export async function GET({ site, url }) {
         ...SOLUCIONES.map((slug) => ({ url: `${base}/soluciones/${slug}`, prioridad: '0.8', frecuencia: 'monthly' })),
     ]
 
-    // Catálogo: la portada de cada categoría y la ficha de cada producto.
-    const { data: productos, categorias } = await getCatalogo({ pagina: 1 })
+    // Catálogo: la ficha de cada producto.
+    const productos = await recorrer((pagina) => getCatalogo({ pagina }))
 
-    for (const categoria of categorias) {
-        entradas.push({
-            url: `${base}/partes-y-filtros?categoria=${categoria.slug}`,
-            prioridad: '0.7',
-            frecuencia: 'weekly',
-        })
-    }
-
-    // El listado viene paginado: se recorren todas las páginas.
-    let pagina = 1
-    let porRecorrer = productos
-    const fichas = []
-
-    while (porRecorrer.length > 0) {
-        fichas.push(...porRecorrer)
-        pagina += 1
-        const siguiente = await getCatalogo({ pagina })
-        porRecorrer = siguiente.meta.pagina === pagina ? siguiente.data : []
-    }
-
-    for (const producto of fichas) {
+    for (const producto of productos) {
         entradas.push({
             url: `${base}/partes-y-filtros/${producto.slug}`,
             prioridad: '0.6',
@@ -72,33 +84,28 @@ export async function GET({ site, url }) {
         })
     }
 
-    // Blog: la portada de cada categoría y cada artículo publicado.
-    const blog = await getArticulos({ pagina: 1 })
+    // Blog: cada artículo publicado.
+    const articulos = await recorrer((pagina) => getArticulos({ pagina }))
 
-    for (const categoria of blog.categorias) {
+    for (const articulo of articulos) {
         entradas.push({
-            url: `${base}/blog?categoria=${categoria.slug}`,
-            prioridad: '0.6',
-            frecuencia: 'weekly',
+            url: `${base}/blog/${articulo.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'monthly',
+            fecha: articulo.published_at,
         })
     }
 
-    let paginaBlog = 1
-    let articulos = blog.data
+    // Casos de estudio: no hay listado propio, solo fichas enlazadas desde /proyectos.
+    const casos = await getUltimosCasos(MAX_PAGINAS)
 
-    while (articulos.length > 0) {
-        for (const articulo of articulos) {
-            entradas.push({
-                url: `${base}/blog/${articulo.slug}`,
-                prioridad: '0.7',
-                frecuencia: 'monthly',
-                fecha: articulo.published_at,
-            })
-        }
-
-        paginaBlog += 1
-        const siguiente = await getArticulos({ pagina: paginaBlog })
-        articulos = siguiente.meta.pagina === paginaBlog ? siguiente.data : []
+    for (const caso of casos) {
+        entradas.push({
+            url: `${base}/casos-de-estudio/${caso.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'monthly',
+            fecha: caso.published_at,
+        })
     }
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>

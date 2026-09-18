@@ -7,12 +7,20 @@ import { getProducto } from '../../lib/catalogo.js'
 const { slug } = Astro.params
 const ficha = await getProducto(slug)
 
+// Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
 if (!ficha) {
-    return Astro.redirect('/partes-y-filtros', 404)
+    return new Response(null, { status: 404 })
 }
 
 const producto = ficha.data
 const relacionados = ficha.relacionados ?? []
+
+// La API también resuelve el slug del catálogo anterior (legacy_slug). Si la
+// ficha se pidió por ese slug, se manda a la URL canónica en vez de servir la
+// misma página bajo dos direcciones.
+if (producto.slug !== slug) {
+    return Astro.redirect(`/partes-y-filtros/${producto.slug}`, 301)
+}
 
 const seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
 const seoDescription = producto.seo?.description ?? producto.summary?.split('\n')[0] ?? ''
