@@ -1,0 +1,61 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+
+    { "source": "/tienda/pintura-electrostatica", "destination": "/partes-y-filtros?categoria=pintura-en-polvo", "permanent": true },
+    { "source": "/tienda/:slug", "destination": "/partes-y-filtros/:slug", "permanent": true },
+    { "source": "/tienda", "destination": "/partes-y-filtros", "permanent": true },
+
+    { "source": "/categoria-producto/filtros/camfil", "destination": "/partes-y-filtros?marca=camfil", "permanent": true },
+    { "source": "/categoria-producto/filtros/columbus-industries", "destination": "/partes-y-filtros?marca=columbus-industries", "permanent": true },
+    { "source": "/categoria-producto/filtros", "destination": "/partes-y-filtros?categoria=filtros", "permanent": true },
+    { "source": "/categoria-producto/refacciones", "destination": "/partes-y-filtros?categoria=refacciones", "permanent": true },
+    { "source": "/categoria-producto/lamparas-infrarrojas", "destination": "/partes-y-filtros?categoria=lamparas-infrarrojas", "permanent": true },
+    { "source": "/categoria-producto/pintura-en-polvo", "destination": "/partes-y-filtros?categoria=pintura-en-polvo", "permanent": true },
+    { "source": "/categoria-producto/:path*", "destination": "/partes-y-filtros", "permanent": true },
+
+    { "source": "/partes-y-filtros/pintura-electrostatica", "destination": "/partes-y-filtros?categoria=pintura-en-polvo", "permanent": true },
+
+    { "source": "/filtros-para-cabina-de-pintura/guia-completa-sobre-mantenimiento-de-filtros-para-cabina-de-pintura", "destination": "/blog/cuando-debo-cambiar-los-filtros-de-mi-cabina-la-importancia-del-mantenimiento", "permanent": true },
+    { "source": "/filtros-para-cabina-de-pintura/:slug*", "destination": "/soluciones/filtros", "permanent": true },
+    { "source": "/filtros-para-cabina-de-pintura", "destination": "/soluciones/filtros", "permanent": true },
+
+    { "source": "/cabinas-de-pintura-industrial/cabinas-de-pintura-industrial-guia", "destination": "/blog/como-elegir-tu-cabina-de-pintura", "permanent": true },
+    { "source": "/cabinas-de-pintura-industrial/tipos-de-cabinas-de-pintura-industrial", "destination": "/blog/como-elegir-tu-cabina-de-pintura", "permanent": true },
+    { "source": "/cabinas-de-pintura-industrial/:slug*", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+    { "source": "/cabinas-de-pintura-industrial", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+
+    { "source": "/cabina-pintura/mantenimiento-preventivo-de-cabinas-de-pintura-industrial", "destination": "/blog/ventajas-mantenimiento-preventivo", "permanent": true },
+    { "source": "/cabina-pintura/tipos-de-cabinas-de-pintura", "destination": "/blog/como-elegir-tu-cabina-de-pintura", "permanent": true },
+    { "source": "/cabina-pintura/:slug*", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+    { "source": "/cabina-pintura", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+    { "source": "/cabinas-de-pintura", "destination": "/soluciones/cabinas-pintura", "permanent": true },
+
+    { "source": "/hornos-de-curado-de-pintura/tecnicas-de-curado-de-pintura", "destination": "/blog/la-clave-del-acabado-perfecto-secado-y-curado-en-la-pintura-liquida", "permanent": true },
+    { "source": "/hornos-de-curado-de-pintura/:slug*", "destination": "/soluciones/hornos-secado-curado", "permanent": true },
+    { "source": "/hornos-de-curado-de-pintura", "destination": "/soluciones/hornos-secado-curado", "permanent": true },
+    { "source": "/hornos-de-secado-y-curado", "destination": "/soluciones/hornos-secado-curado", "permanent": true },
+
+    { "source": "/equipo-de-aplicacion-de-pintura/:slug*", "destination": "/soluciones/aplicacion-recubrimientos", "permanent": true },
+    { "source": "/equipo-de-aplicacion-de-pintura", "destination": "/soluciones/aplicacion-recubrimientos", "permanent": true },
+    { "source": "/sistemas-de-aplicacion-de-recubrimientos", "destination": "/soluciones/aplicacion-recubrimientos", "permanent": true },
+
+    { "source": "/sistemas-de-pintura-industrial/:slug*", "destination": "/", "permanent": true },
+    { "source": "/sistemas-de-pintura-industrial", "destination": "/", "permanent": true },
+    { "source": "/sistemas-de-pintura-liquida", "destination": "/soluciones/pintura-liquida", "permanent": true },
+    { "source": "/pintura-electrostatica", "destination": "/soluciones/pintura-en-polvo", "permanent": true },
+
+    { "source": "/sistemas-granallado", "destination": "/soluciones/granallado", "permanent": true },
+    { "source": "/conveyors-old", "destination": "/soluciones/conveyors", "permanent": true },
+    { "source": "/conveyors", "destination": "/soluciones/conveyors", "permanent": true },
+
+    { "source": "/categoria/:slug*", "destination": "/blog", "permanent": true },
+    { "source": "/tag/:slug*", "destination": "/blog", "permanent": true },
+    { "source": "/author/:slug*", "destination": "/blog", "permanent": true },
+    { "source": "/carrito", "destination": "/partes-y-filtros", "permanent": true },
+    { "source": "/finalizar-compra", "destination": "/contacto", "permanent": true },
+    { "source": "/mi-cuenta/:path*", "destination": "/contacto", "permanent": true },
+    { "source": "/contactanos", "destination": "/contacto", "permanent": true },
+    { "source": "/aviso-de-privacidad-2", "destination": "/aviso-de-privacidad", "permanent": true }
+  ]
+}
