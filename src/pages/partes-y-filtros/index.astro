@@ -41,9 +41,9 @@ const enlace = (cambios) => {
 <Layout title={seoTitle} description={seoDescription}>
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <!-- ENCABEZADO -->
-        <section class="relative pt-36 pb-12 bg-brand-navy overflow-hidden">
+        <section class="relative pt-36 pb-12 px-6 md:px-12 bg-brand-navy overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-blue/40"></div>
-            <div class="container mx-auto px-6 relative z-10">
+            <div class="container mx-auto relative z-10">
                 <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
                     <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
                     <span>/</span>
@@ -53,10 +53,7 @@ const enlace = (cambios) => {
                 <h1 class="text-white font-saira italic font-semibold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-4">
                     {categoriaActual ? categoriaActual.name : 'Partes y Filtros'}
                 </h1>
-                <p class="text-gray-300 text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
-                    {categoriaActual?.description ??
-                        'Componentes, consumibles y refacciones para líneas de acabado. Consulta las presentaciones disponibles y cotiza con nuestro equipo.'}
-                </p>
+                <p class="text-gray-300 text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{categoriaActual?.description ?? 'Componentes, consumibles y refacciones para líneas de acabado. Consulta las presentaciones disponibles y cotiza con nuestro equipo.'}</p>
             </div>
         </section>
 

@@ -11,9 +11,9 @@ const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
 const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
 ---
 
-<header class="fixed w-full z-50 transition-all duration-300" id="main-nav">
+<header class="fixed w-full z-50 px-6 md:px-12 transition-all duration-300" id="main-nav">
   <div class="absolute inset-0 bg-white z-20" id="nav-bg"></div>
-  <div class="container mx-auto px-6 relative z-30">
+  <div class="container mx-auto relative z-30">
     <div class="flex items-center justify-between h-24 md:h-28">
       <!-- Logo Oficial -->
       <a href="/" class="flex items-center relative z-30">

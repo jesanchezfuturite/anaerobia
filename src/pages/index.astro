@@ -146,9 +146,7 @@ const estadosMapa = estadosVisibles
           <h1 class="text-white font-saira italic font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-[5.5rem] leading-[1.1] mb-6 w-full">
             <Fragment set:html={data.hero.title.toUpperCase().replace(' INTELIGENTE EN S', ' INTELIGENTE<br/>EN S').replace('PINTURA Y A', 'PINTURA Y A')} />
           </h1>
-          <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-8 whitespace-pre-wrap">
-            {data.hero.subtitle}
-          </p>
+          <p class="text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-8 whitespace-pre-wrap">{data.hero.subtitle}</p>
           <div class="flex flex-wrap gap-4">
             {data.hero.buttons.length > 0 && (
               <a href="#contacto" data-scroll-contacto class="bg-[var(--color-brand-lime)] text-[var(--color-brand-navy)] font-semibold px-8 py-4 rounded hover:brightness-110 transition-all duration-300 transform hover:-translate-y-1">
@@ -208,8 +206,8 @@ const estadosMapa = estadosVisibles
     </section>
 
     <!-- B. Marquee de Autoridad (Swiper.js) -->
-    <section class="bg-white py-4 border-y border-gray-200 overflow-hidden flex items-center">
-      <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+    <section class="bg-white py-4 px-6 md:px-12 border-y border-gray-200 overflow-hidden flex items-center">
+      <div class="container mx-auto flex flex-col md:flex-row items-center gap-6">
         <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">
           {general.aliados?.title}
         </span>
@@ -341,9 +339,7 @@ const estadosMapa = estadosVisibles
                         )}
                       </div>
                       
-                      <h4 class="font-saira font-extrabold italic text-xl md:text-lg text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-2 md:px-1 whitespace-pre-wrap">
-                        {step.text}
-                      </h4>
+                      <h4 class="font-saira font-extrabold italic text-xl md:text-lg text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-2 md:px-1 whitespace-pre-wrap">{step.text}</h4>
 
                       <div class={`absolute -bottom-[1px] -left-[1px] px-4 py-1.5 md:px-5 md:py-2 font-saira font-black text-white text-base md:text-lg z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
                         {String(index + 1).padStart(2, '0')}
@@ -386,9 +382,7 @@ const estadosMapa = estadosVisibles
                         )}
                       </div>
                       
-                      <h4 class="font-saira font-extrabold italic text-base xl:text-lg text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-1 whitespace-pre-wrap">
-                        {step.text}
-                      </h4>
+                      <h4 class="font-saira font-extrabold italic text-base xl:text-lg text-[var(--color-brand-navy)] uppercase tracking-tight leading-tight text-center px-1 whitespace-pre-wrap">{step.text}</h4>
 
                       <div class={`absolute -bottom-[1px] -left-[1px] px-5 py-2 font-saira font-black text-white text-lg z-20 rounded-tr-lg shadow-md ${borderColors[idxMod]}`}>
                         {String(index + 1).padStart(2, '0')}
@@ -649,9 +643,7 @@ const estadosMapa = estadosVisibles
             {presencia.sectionTitle}
           </h2>
           <div class="w-16 h-1 bg-[var(--color-brand-lime)] mt-2 mb-6"></div>
-          <p class="text-gray-300 text-lg font-light max-w-2xl whitespace-pre-wrap">
-            {presencia.sectionSubtitle}
-          </p>
+          <p class="text-gray-300 text-lg font-light max-w-2xl whitespace-pre-wrap">{presencia.sectionSubtitle}</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -693,11 +685,11 @@ const estadosMapa = estadosVisibles
       </div>
     </section>
     <!-- F. Sección de Contacto Parallax -->
-    <section id="contacto" class="scroll-mt-24 md:scroll-mt-28 relative py-16 flex items-center justify-center overflow-hidden parallax-footer">
+    <section id="contacto" class="scroll-mt-24 md:scroll-mt-28 relative py-16 px-6 md:px-12 flex items-center justify-center overflow-hidden parallax-footer">
       <img src={data.contacto.image} alt="Ingenieros interactuando con maquinaria" class="absolute -top-[15%] left-0 w-full h-[130%] object-cover z-0 parallax-bg" />
       <div class="absolute inset-0 bg-[var(--color-brand-navy)]/90 z-10 mix-blend-multiply"></div>
-      
-      <div class="relative z-20 container mx-auto px-6">
+
+      <div class="relative z-20 container mx-auto">
         <div class="max-w-6xl mx-auto bg-white/10 backdrop-blur-xl border border-white/20 p-8 md:p-12 rounded-2xl shadow-2xl overflow-hidden flex flex-col lg:flex-row gap-12 items-center">
             
             <!-- Izquierda: Texto de Autoridad -->
