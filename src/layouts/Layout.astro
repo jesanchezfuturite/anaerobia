@@ -7,12 +7,15 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  /** Páginas que no deben indexarse (post-formulario, 404). */
+  noindex?: boolean;
 }
 
 const {
   title,
   description = "Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.",
   image,
+  noindex = false,
 } = Astro.props;
 
 // La URL canónica evita que los filtros del catálogo (?categoria=, ?marca=)
@@ -32,7 +35,7 @@ const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
     <link rel="alternate" type="application/rss+xml" title="Blog | Anaerobia" href="/blog/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="canonical" href={canonical} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
 
     <!-- Redes sociales -->
     <meta property="og:type" content="website" />

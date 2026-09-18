@@ -38,7 +38,8 @@ export async function getProducto(slug) {
     // API no disponible: se busca en el respaldo local
   }
 
-  const producto = respaldo.productos.find((p) => p.slug === slug)
+  // Igual que la API: también responde al slug del catálogo anterior.
+  const producto = respaldo.productos.find((p) => p.slug === slug || p.legacy_slug === slug)
   if (!producto) return null
 
   return {
