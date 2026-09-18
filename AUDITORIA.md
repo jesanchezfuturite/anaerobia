@@ -477,7 +477,17 @@ node scripts/validar-redirects.mjs
 
 No hay nada que borrar en `public/` por la Tarea 3: no existe volcado legacy.
 
-### 10.3 Cambios de código recomendados (no aplicados: fuera del alcance «solo redirects»)
+### 10.3 Cambios de código (aplicados en https://github.com/jesanchezfuturite/anaerobia/pull/6)
+
+Van en un PR aparte del `vercel.json` (https://github.com/jesanchezfuturite/anaerobia/pull/5) para
+que se revisen y desplieguen de forma independiente. Verificados en el deploy preview del PR 6:
+`/gracias` con `noindex` y sin canónica; `/partes-y-filtros/216-505` → 301 al slug canónico;
+fichas inexistentes de producto, blog y casos → 404 con `404.astro` y `noindex`; sitemap con 79
+URLs, 0 `?categoria=`, con el caso de estudio; `robots.txt` con `/api/` y `/gracias`. Mientras el
+PR 5 no esté mergeado, ese preview sigue redirigiendo `/partes-y-filtros/pintura-electrostatica`
+(la regla vive en el `vercel.json` de `main`).
+
+Detalle de cada cambio (descripción original, ya implementada):
 
 1. **Ficha con `legacy_slug`** — `src/pages/partes-y-filtros/[slug].astro`, tras `const producto = ficha.data`:
    ```js
@@ -511,6 +521,10 @@ Lo esperado por línea: `OK 308 1h /url-vieja/ -> /destino (200)`. Las tres ruta
 «Protection Bypass for Automation». Ejecutado hoy contra producción (estado anterior al cambio):
 **58 XX / 5 OK**, por los 2 saltos, la colisión de `pintura-electrostatica`, el duplicado
 `216-505` y los 404 de las URLs del contenido.
+
+Ejecutado contra el deploy preview del PR 5
+(`anaerobia-git-claude-anaer-35cb2f-…vercel.app`, con la cookie de Deployment Protection):
+**60 OK / 0 XX**, todas en 1 salto y las 3 rutas vivas intactas.
 
 Comandos sueltos para revisar a mano los casos críticos:
 
