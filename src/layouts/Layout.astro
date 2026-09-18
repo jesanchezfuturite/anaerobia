@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { getGeneral } from "../lib/general.js";
 
 interface Props {
   title: string;
@@ -19,9 +20,75 @@ const {
 } = Astro.props;
 
 // La URL canónica evita que los filtros del catálogo (?categoria=, ?marca=)
-// se indexen como páginas distintas del mismo contenido.
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
+// se indexen como páginas distintas del mismo contenido. Se normaliza sin
+// barra final (salvo la raíz): una visita directa a la variante con barra
+// no debe autocanonicalizarse a sí misma.
+const rutaSinBarra = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+$/, "") : Astro.url.pathname;
+const canonical = new URL(rutaSinBarra, Astro.site ?? Astro.url.origin).href;
 const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
+
+// Datos de entidad: name/url/logo/redes vienen del panel «General» (mismo
+// contenido que ya consumen Navbar y Footer). Teléfono, correo y plazas
+// están fijos porque así se publican hoy en /contacto, no hay campo
+// administrable para ellos todavía.
+const general = await getGeneral();
+
+const datosOrganizacion = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Anaerobia",
+  url: Astro.site?.href ?? "https://anaerobia.com/",
+  logo: general.footer?.logo ?? general.logo?.image,
+  email: "info@anaerobia.com",
+  telephone: "+52-222-283-9604",
+  sameAs: (general.footer?.social ?? []).map((red) => red.url),
+  // Puebla, Monterrey y León son las plazas que hoy declara el pie de
+  // página; Troy se agrega porque /contacto también la publica. Solo
+  // Puebla y Troy tienen domicilio confirmado y se declaran como
+  // LocalBusiness abajo — Monterrey y León no tienen dirección verificada
+  // todavía (pendiente con el cliente).
+  areaServed: ["Puebla, México", "Monterrey, México", "León, México", "Troy, Michigan, Estados Unidos"],
+};
+
+// Puebla y Troy confirmadas directamente con el cliente (ver memoria del
+// proyecto). El resto de las plazas no tiene domicilio verificado.
+const sedes = [
+  {
+    nombre: "Anaerobia Puebla",
+    telefono: "+52-222-283-9604",
+    calle: "Pº Sinfonía 3-14, Town Center Sonata, Lomas de Angelópolis",
+    localidad: "Heroica Puebla de Zaragoza",
+    region: "Puebla",
+    codigoPostal: "72830",
+    pais: "MX",
+  },
+  {
+    nombre: "Anaerobia Troy",
+    telefono: "+1-810-538-5775",
+    calle: "48084 Rd. Suite 200 office 31",
+    localidad: "Troy",
+    region: "Michigan",
+    codigoPostal: "48084",
+    pais: "US",
+  },
+];
+
+const datosLocalBusiness = sedes.map((sede) => ({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: sede.nombre,
+  parentOrganization: { "@type": "Organization", name: "Anaerobia" },
+  telephone: sede.telefono,
+  email: "info@anaerobia.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: sede.calle,
+    addressLocality: sede.localidad,
+    addressRegion: sede.region,
+    postalCode: sede.codigoPostal,
+    addressCountry: sede.pais,
+  },
+}));
 ---
 
 <!doctype html>
@@ -36,6 +103,12 @@ const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
+
+    <!-- Datos de entidad: Organization + LocalBusiness por sede -->
+    <script type="application/ld+json" set:html={JSON.stringify(datosOrganizacion)} is:inline />
+    {datosLocalBusiness.map((sede) => (
+      <script type="application/ld+json" set:html={JSON.stringify(sede)} is:inline />
+    ))}
 
     <!-- Redes sociales -->
     <meta property="og:type" content="website" />

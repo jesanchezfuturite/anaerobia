@@ -13,7 +13,7 @@ const { categorias, marcas } = await getCatalogo()
 
 const categoria = categorias.find((c) => c.slug === ultima)
 if (categoria) {
-    return Astro.redirect(`/partes-y-filtros?categoria=${categoria.slug}`, 301)
+    return Astro.redirect(`/partes-y-filtros/${categoria.slug}`, 301)
 }
 
 const marca = marcas.find((m) => m.slug === ultima)

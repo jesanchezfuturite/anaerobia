@@ -10,6 +10,15 @@ const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
  * El respaldo se regenera con `node scripts/respaldo-catalogo.mjs`.
  */
 
+/**
+ * Categorías del catálogo, sin llamada a red: sirve solo para decidir si un
+ * segmento de /partes-y-filtros/ es una categoría (ruta propia) o el slug de
+ * un producto, antes de pedir los datos reales de esa página.
+ */
+export function getCategoriasLocales() {
+  return respaldo.categorias
+}
+
 /** Listado con búsqueda y filtros. Devuelve también categorías y marcas. */
 export async function getCatalogo({ categoria = '', marca = '', buscar = '', pagina = 1 } = {}) {
   const parametros = new URLSearchParams()
