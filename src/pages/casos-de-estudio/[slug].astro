@@ -7,8 +7,9 @@ import { getCaso } from '../../lib/casos-de-estudio.js'
 const { slug } = Astro.params
 const ficha = await getCaso(slug)
 
+// Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
 if (!ficha) {
-    return Astro.redirect('/proyectos', 404)
+    return new Response(null, { status: 404 })
 }
 
 const caso = ficha.data
@@ -31,7 +32,7 @@ const galeriaEsCarrusel = caso.gallery?.layout === 'slider'
     <main class="bg-white min-h-screen text-brand-navy">
         <!-- PORTADA -->
         <article>
-            <header class="relative pt-[12.96rem] pb-[5.76rem] bg-brand-navy overflow-hidden">
+            <header class="relative pt-[12.96rem] pb-[5.76rem] px-6 md:px-12 bg-brand-navy overflow-hidden">
                 {caso.cover && (
                     <div class="absolute inset-0 z-0">
                         <img src={caso.cover} alt={caso.cover_alt ?? caso.title} class="w-full h-full object-cover opacity-60" />
@@ -39,7 +40,7 @@ const galeriaEsCarrusel = caso.gallery?.layout === 'slider'
                     </div>
                 )}
 
-                <div class="container mx-auto px-6 relative z-10 max-w-4xl">
+                <div class="container mx-auto relative z-10 max-w-4xl">
                     <nav class="flex flex-wrap items-center gap-2 text-xs text-gray-400 font-semibold uppercase tracking-widest mb-6">
                         <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
                         <span>/</span>
@@ -74,9 +75,7 @@ const galeriaEsCarrusel = caso.gallery?.layout === 'slider'
             <div class="py-16 px-6 md:px-12">
                 <div class="container mx-auto max-w-3xl">
                     {caso.excerpt && (
-                        <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed border-l-4 border-brand-lime pl-6 mb-12 whitespace-pre-wrap">
-                            {caso.excerpt}
-                        </p>
+                        <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed border-l-4 border-brand-lime pl-6 mb-12 whitespace-pre-wrap">{caso.excerpt}</p>
                     )}
 
                     <div class="articulo" set:html={caso.content} />

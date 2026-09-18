@@ -40,13 +40,13 @@ const fecha = (iso) =>
 <Layout title={seoTitle} description={seoDescription}>
   <main class="bg-industrial-gray min-h-screen text-brand-navy">
     <!-- 01. HEADER / HERO -->
-    <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 bg-brand-navy overflow-hidden">
+    <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 px-6 md:px-12 bg-brand-navy overflow-hidden">
       <div class="absolute inset-0 z-0">
         <img src="/images/nosotros/bg_hero_nosotros.webp" alt="Blog Anaerobia" class="w-full h-full object-cover object-top opacity-60 scale-105" />
         <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
       </div>
 
-      <div class="container mx-auto px-6 relative z-10">
+      <div class="container mx-auto relative z-10">
         <div class="max-w-4xl hero-section-text">
           <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
             <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
@@ -66,10 +66,7 @@ const fecha = (iso) =>
           <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
             {categoriaActual ? categoriaActual.name : "Noticias e ingeniería especializada"}
           </h1>
-          <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">
-            {categoriaActual?.description ??
-              "Artículos, novedades y conocimiento especializado sobre sistemas de pintura y acabado superficial."}
-          </p>
+          <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{categoriaActual?.description ?? "Artículos, novedades y conocimiento especializado sobre sistemas de pintura y acabado superficial."}</p>
         </div>
       </div>
     </section>
