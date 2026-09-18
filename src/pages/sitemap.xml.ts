@@ -73,7 +73,18 @@ export async function GET({ site, url }) {
         ...SOLUCIONES.map((slug) => ({ url: `${base}/soluciones/${slug}`, prioridad: '0.8', frecuencia: 'monthly' })),
     ]
 
-    // Catálogo: la ficha de cada producto.
+    // Catálogo: cada categoría (ruta propia desde 1.3, ya no ?categoria=
+    // sobre el listado) y la ficha de cada producto.
+    const primeraPagina = await getCatalogo({ pagina: 1 })
+
+    for (const categoria of primeraPagina.categorias ?? []) {
+        entradas.push({
+            url: `${base}/partes-y-filtros/${categoria.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'weekly',
+        })
+    }
+
     const productos = await recorrer((pagina) => getCatalogo({ pagina }))
 
     for (const producto of productos) {

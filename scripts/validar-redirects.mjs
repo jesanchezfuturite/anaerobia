@@ -26,6 +26,8 @@ const rutasReales = new Set([
   '/partes-y-filtros', '/aviso-de-privacidad', '/terminos-y-condiciones',
   ...SOLUCIONES.map((s) => `/soluciones/${s}`),
   ...catalogo.productos.map((p) => `/partes-y-filtros/${p.slug}`),
+  // Categorías: ruta propia desde 1.3, ya no ?categoria= sobre el listado.
+  ...catalogo.categorias.map((c) => `/partes-y-filtros/${c.slug}`),
   ...blog.articulos.map((a) => `/blog/${a.slug}`),
   ...casos.casos.map((c) => `/casos-de-estudio/${c.slug}`),
 ])
