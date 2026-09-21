@@ -31,6 +31,14 @@ const galeriaEsCarrusel = articulo.gallery?.layout === 'slider'
 // imagen del artículo en los resultados.
 const canonica = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
 
+// Autor: cuando el artículo lo firma una persona real (no la firma genérica
+// "Anaerobia"), se declara como Person -no Organization- para que Google y
+// los motores de IA puedan atribuirle la autoría del contenido.
+const autorEsPersona = articulo.author?.name && articulo.author.name !== 'Anaerobia'
+const autor = autorEsPersona
+    ? { '@type': 'Person', name: articulo.author.name, ...(articulo.author.role ? { jobTitle: articulo.author.role } : {}) }
+    : { '@type': 'Organization', name: 'Anaerobia' }
+
 const datosEstructurados = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -39,10 +47,7 @@ const datosEstructurados = {
     image: articulo.cover ? [articulo.cover] : undefined,
     datePublished: articulo.published_at,
     dateModified: articulo.published_at,
-    author: {
-        '@type': 'Organization',
-        name: articulo.author?.name ?? 'Anaerobia',
-    },
+    author: autor,
     publisher: {
         '@type': 'Organization',
         name: 'Anaerobia',
@@ -51,10 +56,33 @@ const datosEstructurados = {
     mainEntityOfPage: canonica,
     articleSection: articulo.category?.name,
 }
+
+// Migas de pan: refleja exactamente el <nav> visible más abajo
+// (Inicio / Blog / categoría opcional / título).
+const migas = [
+    { name: 'Inicio', item: new URL('/', Astro.site ?? Astro.url.origin).href },
+    { name: 'Blog', item: new URL('/blog', Astro.site ?? Astro.url.origin).href },
+    ...(articulo.category
+        ? [{ name: articulo.category.name, item: new URL(`/blog?categoria=${articulo.category.slug}`, Astro.site ?? Astro.url.origin).href }]
+        : []),
+    { name: articulo.title, item: canonica },
+]
+
+const datosBreadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: migas.map((miga, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: miga.name,
+        item: miga.item,
+    })),
+}
 ---
 
 <Layout title={articulo.seo?.title ?? articulo.title} description={articulo.seo?.description ?? ''} image={articulo.cover}>
     <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
 
     <main class="bg-white min-h-screen text-brand-navy">
         <!-- PORTADA -->

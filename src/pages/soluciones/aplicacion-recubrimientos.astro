@@ -45,9 +45,24 @@ const desafioIcons = [
 // Numeración de las pestañas técnicas visibles (las inactivas se ocultan)
 let _tabN = 0
 const tabNums = (d.tipos?.tabs ?? []).map((t) => (t.active !== false ? String(++_tabN).padStart(2, '0') : null))
+// Datos estructurados: preguntas frecuentes ya visibles en la sección FAQ
+// de esta página (d.faqs.items), envueltas en FAQPage para que Google y
+// los motores de IA puedan citarlas directamente como respuesta.
+const datosFAQ = d.faqs?.items?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: d.faqs.items.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+    }
+    : null
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
+    {datosFAQ && <script type="application/ld+json" set:html={JSON.stringify(datosFAQ)} is:inline />}
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <!-- 01. HEADER / HERO -->
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 px-6 md:px-12 bg-brand-navy overflow-hidden">
