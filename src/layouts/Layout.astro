@@ -37,6 +37,21 @@ const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
     <title>{title}</title>
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
 
+    <!-- Google Search Console: tokens de verificación que tenía el WordPress (snapshot sept. 2025). -->
+    <meta name="google-site-verification" content="mI-cDL2N6bqSCHy2OwEg7SP1iYOvQYMF3eQoSa_82h4" />
+    <meta name="google-site-verification" content="Z4UrZBhzFmNGUCb2rzyWF9mMfnZUrm2OuTfANB-onoM" />
+
+    <!-- Google Analytics 4: las dos propiedades que medía el WordPress hasta el final
+         (feb. 2026). Un solo gtag.js con dos config; si una ya no se usa, se quita su línea. -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-5CPG6R0BMQ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-5CPG6R0BMQ");
+      gtag("config", "G-ZWW58XVTGG");
+    </script>
+
     <!-- Redes sociales -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Anaerobia" />
