@@ -43,10 +43,34 @@ const datosListado = {
         name: p.name,
     })),
 };
+
+// Migas de pan: refleja exactamente el <nav> visible más abajo
+// (Inicio / Partes y Filtros / categoría opcional).
+const migasListado = [
+    { name: "Inicio", item: new URL("/", Astro.site ?? Astro.url.origin).href },
+    ...(categoriaActual
+        ? [
+            { name: "Partes y Filtros", item: new URL("/partes-y-filtros", Astro.site ?? Astro.url.origin).href },
+            { name: categoriaActual.name, item: new URL(`/partes-y-filtros/${categoriaActual.slug}`, Astro.site ?? Astro.url.origin).href },
+        ]
+        : [{ name: "Partes y Filtros", item: new URL("/partes-y-filtros", Astro.site ?? Astro.url.origin).href }]),
+];
+
+const datosBreadcrumbListado = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: migasListado.map((miga, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: miga.name,
+        item: miga.item,
+    })),
+};
 ---
 
 <main class="bg-industrial-gray min-h-screen text-brand-navy">
     <script type="application/ld+json" set:html={JSON.stringify(datosListado)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumbListado)} is:inline />
     <!-- ENCABEZADO -->
     <section class="relative pt-36 pb-12 px-6 md:px-12 bg-brand-navy overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-blue/40"></div>

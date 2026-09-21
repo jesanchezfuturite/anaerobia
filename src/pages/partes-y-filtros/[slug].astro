@@ -25,6 +25,7 @@ let producto = null
 let relacionados = []
 let enlaceCotizar = ''
 let datosProducto = null
+let datosBreadcrumb = null
 
 if (esCategoria) {
     const parametros = Astro.url.searchParams
@@ -100,6 +101,28 @@ if (esCategoria) {
             itemCondition: 'https://schema.org/NewCondition',
         },
     }
+
+    // Migas de pan: refleja exactamente el <nav> visible más abajo
+    // (Inicio / Partes y Filtros / categoría opcional).
+    const migas = [
+        { name: 'Inicio', item: new URL('/', Astro.site ?? Astro.url.origin).href },
+        { name: 'Partes y Filtros', item: new URL('/partes-y-filtros', Astro.site ?? Astro.url.origin).href },
+        ...(producto.category
+            ? [{ name: producto.category.name, item: new URL(`/partes-y-filtros/${producto.category.slug}`, Astro.site ?? Astro.url.origin).href }]
+            : []),
+        { name: producto.name, item: new URL(`/partes-y-filtros/${producto.slug}`, Astro.site ?? Astro.url.origin).href },
+    ]
+
+    datosBreadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: migas.map((miga, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: miga.name,
+            item: miga.item,
+        })),
+    }
 }
 ---
 
@@ -118,6 +141,7 @@ if (esCategoria) {
 ) : (
 <Layout title={seoTitle} description={seoDescription}>
     <script type="application/ld+json" set:html={JSON.stringify(datosProducto)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <section class="pt-32 pb-16 px-6 md:px-12">
             <div class="container mx-auto max-w-7xl">

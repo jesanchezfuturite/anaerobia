@@ -133,6 +133,9 @@ const datosLocalBusiness = sedes.map((sede) => ({
     <meta property="og:url" content={canonical} />
     {imagenSocial && <meta property="og:image" content={imagenSocial} />}
     <meta name="twitter:card" content={imagenSocial ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {imagenSocial && <meta name="twitter:image" content={imagenSocial} />}
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
