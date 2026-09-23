@@ -2,52 +2,146 @@
 export const prerender = false
 
 import Layout from '../../layouts/Layout.astro'
-import { getProducto } from '../../lib/catalogo.js'
+import CatalogoListado from '../../components/CatalogoListado.astro'
+import { getProducto, getCatalogo, getCategoriasLocales } from '../../lib/catalogo.js'
 
 const { slug } = Astro.params
-const ficha = await getProducto(slug)
 
-// Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
-if (!ficha) {
-    return new Response(null, { status: 404 })
+// /partes-y-filtros/{slug} sirve dos cosas con la misma ruta: la categoría
+// (cuando el slug es una de las del catálogo) o la ficha del producto. Se
+// decide con la copia local de categorías, sin red, antes de pedir nada.
+// Antes esto vivía en ?categoria=, con canonical al listado (contradicción
+// resuelta convirtiendo la categoría en una ruta propia indexable).
+const esCategoria = getCategoriasLocales().some((c) => c.slug === slug)
+
+let seoTitle = ''
+let seoDescription = ''
+
+// Datos de la categoría, solo si el slug es una.
+let catalogoCategoria = null
+
+// Datos del producto, solo si el slug no es una categoría.
+let producto = null
+let relacionados = []
+let enlaceCotizar = ''
+let datosProducto = null
+let datosBreadcrumb = null
+
+if (esCategoria) {
+    const parametros = Astro.url.searchParams
+    const marca = parametros.get('marca') ?? ''
+    const buscar = parametros.get('buscar') ?? ''
+    const pagina = Math.max(1, Number(parametros.get('pagina') ?? 1))
+
+    const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria: slug, marca, buscar, pagina })
+    const categoriaActual = categorias.find((c) => c.slug === slug)
+
+    catalogoCategoria = { categoria: slug, marca, buscar, productos, meta, categorias, marcas }
+    seoTitle = `${categoriaActual?.name ?? slug} | Partes y Filtros | Anaerobia`
+    seoDescription =
+        categoriaActual?.description ??
+        'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.'
+} else {
+    const ficha = await getProducto(slug)
+
+    // Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
+    if (!ficha) {
+        return new Response(null, { status: 404 })
+    }
+
+    producto = ficha.data
+    relacionados = ficha.relacionados ?? []
+
+    // La API también resuelve el slug del catálogo anterior (legacy_slug). Si
+    // la ficha se pidió por ese slug, se manda a la URL canónica en vez de
+    // servir la misma página bajo dos direcciones.
+    if (producto.slug !== slug) {
+        return Astro.redirect(`/partes-y-filtros/${producto.slug}`, 301)
+    }
+
+    seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
+    seoDescription = producto.seo?.description ?? producto.summary?.split('\n')[0] ?? ''
+
+    // El catálogo no vende: el botón lleva al formulario con el producto ya
+    // identificado, para que el equipo sepa de qué parte se pide cotización.
+    //
+    // El desplegable de «Soluciones» del formulario usa los rótulos del menú, que
+    // no siempre coinciden con el nombre de la categoría en el catálogo.
+    const CATEGORIA_EN_FORMULARIO = {
+        'filtros': 'Filtros',
+        'refacciones': 'Refacciones',
+        'pintura-en-polvo': 'Pintura en polvo',
+        'lamparas-infrarrojas': 'Lámparas infrarrojas',
+        'equipos-para-aplicacion-de-pintura': 'Pintura líquida',
+    }
+
+    const cotizar = new URLSearchParams({ producto: producto.name })
+    if (producto.sku) cotizar.set('parte', producto.sku)
+    if (CATEGORIA_EN_FORMULARIO[producto.category?.slug]) {
+        cotizar.set('categoria', CATEGORIA_EN_FORMULARIO[producto.category.slug])
+    }
+
+    enlaceCotizar = `/contacto?${cotizar}`
+
+    // El catálogo no publica precio (se cotiza por contacto directo), así
+    // que se declara disponibilidad sin price en vez de omitir «offers».
+    datosProducto = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: producto.name,
+        sku: producto.sku || undefined,
+        description: seoDescription || undefined,
+        image: producto.images?.length ? producto.images : undefined,
+        brand: producto.brand?.name ? { '@type': 'Brand', name: producto.brand.name } : undefined,
+        category: producto.category?.name || undefined,
+        offers: {
+            '@type': 'Offer',
+            url: new URL(`/partes-y-filtros/${producto.slug}`, Astro.site ?? Astro.url.origin).href,
+            availability: 'https://schema.org/InStock',
+            itemCondition: 'https://schema.org/NewCondition',
+        },
+    }
+
+    // Migas de pan: refleja exactamente el <nav> visible más abajo
+    // (Inicio / Partes y Filtros / categoría opcional).
+    const migas = [
+        { name: 'Inicio', item: new URL('/', Astro.site ?? Astro.url.origin).href },
+        { name: 'Partes y Filtros', item: new URL('/partes-y-filtros', Astro.site ?? Astro.url.origin).href },
+        ...(producto.category
+            ? [{ name: producto.category.name, item: new URL(`/partes-y-filtros/${producto.category.slug}`, Astro.site ?? Astro.url.origin).href }]
+            : []),
+        { name: producto.name, item: new URL(`/partes-y-filtros/${producto.slug}`, Astro.site ?? Astro.url.origin).href },
+    ]
+
+    datosBreadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: migas.map((miga, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: miga.name,
+            item: miga.item,
+        })),
+    }
 }
-
-const producto = ficha.data
-const relacionados = ficha.relacionados ?? []
-
-// La API también resuelve el slug del catálogo anterior (legacy_slug). Si la
-// ficha se pidió por ese slug, se manda a la URL canónica en vez de servir la
-// misma página bajo dos direcciones.
-if (producto.slug !== slug) {
-    return Astro.redirect(`/partes-y-filtros/${producto.slug}`, 301)
-}
-
-const seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
-const seoDescription = producto.seo?.description ?? producto.summary?.split('\n')[0] ?? ''
-
-// El catálogo no vende: el botón lleva al formulario con el producto ya
-// identificado, para que el equipo sepa de qué parte se pide cotización.
-//
-// El desplegable de «Soluciones» del formulario usa los rótulos del menú, que
-// no siempre coinciden con el nombre de la categoría en el catálogo.
-const CATEGORIA_EN_FORMULARIO = {
-    'filtros': 'Filtros',
-    'refacciones': 'Refacciones',
-    'pintura-en-polvo': 'Pintura en polvo',
-    'lamparas-infrarrojas': 'Lámparas infrarrojas',
-    'equipos-para-aplicacion-de-pintura': 'Pintura líquida',
-}
-
-const cotizar = new URLSearchParams({ producto: producto.name })
-if (producto.sku) cotizar.set('parte', producto.sku)
-if (CATEGORIA_EN_FORMULARIO[producto.category?.slug]) {
-    cotizar.set('categoria', CATEGORIA_EN_FORMULARIO[producto.category.slug])
-}
-
-const enlaceCotizar = `/contacto?${cotizar}`
 ---
 
+{esCategoria ? (
 <Layout title={seoTitle} description={seoDescription}>
+    <CatalogoListado
+        categoria={catalogoCategoria.categoria}
+        marca={catalogoCategoria.marca}
+        buscar={catalogoCategoria.buscar}
+        productos={catalogoCategoria.productos}
+        meta={catalogoCategoria.meta}
+        categorias={catalogoCategoria.categorias}
+        marcas={catalogoCategoria.marcas}
+    />
+</Layout>
+) : (
+<Layout title={seoTitle} description={seoDescription}>
+    <script type="application/ld+json" set:html={JSON.stringify(datosProducto)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <section class="pt-32 pb-16 px-6 md:px-12">
             <div class="container mx-auto max-w-7xl">
@@ -58,7 +152,7 @@ const enlaceCotizar = `/contacto?${cotizar}`
                     {producto.category && (
                         <>
                             <span>/</span>
-                            <a href={`/partes-y-filtros?categoria=${producto.category.slug}`} class="hover:text-brand-lime transition-colors">
+                            <a href={`/partes-y-filtros/${producto.category.slug}`} class="hover:text-brand-lime transition-colors">
                                 {producto.category.name}
                             </a>
                         </>
@@ -173,6 +267,7 @@ const enlaceCotizar = `/contacto?${cotizar}`
         </section>
     </main>
 </Layout>
+)}
 
 <style is:global>
     .contenido-producto p {

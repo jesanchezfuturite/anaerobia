@@ -1,0 +1,36 @@
+# Anaerobia
+
+> Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.
+
+Sitio de Anaerobia: soluciones de ingeniería, catálogo de partes y filtros, blog técnico y casos de estudio para plantas de pintura y acabado industrial.
+
+## Soluciones
+
+- [Sistemas de pintura líquida](https://anaerobia.com/soluciones/pintura-liquida)
+- [Sistemas de pintura en polvo](https://anaerobia.com/soluciones/pintura-en-polvo)
+- [Sistemas de aplicación de recubrimientos](https://anaerobia.com/soluciones/aplicacion-recubrimientos)
+- [Equipos de pretratamiento](https://anaerobia.com/soluciones/sistemas-de-pretratamiento)
+- [Equipos de granallado](https://anaerobia.com/soluciones/granallado)
+- [Cabinas de pintura](https://anaerobia.com/soluciones/cabinas-pintura)
+- [Hornos](https://anaerobia.com/soluciones/hornos-secado-curado)
+- [Conveyors](https://anaerobia.com/soluciones/conveyors)
+- [Filtros de aire](https://anaerobia.com/soluciones/filtros)
+- [Servicio industrial](https://anaerobia.com/soluciones/servicios-industriales)
+
+## Catálogo
+
+- [Partes y filtros](https://anaerobia.com/partes-y-filtros)
+
+## Contenido
+
+- [Blog](https://anaerobia.com/blog)
+- [Casos de estudio](https://anaerobia.com/proyectos)
+- [Nosotros](https://anaerobia.com/nosotros)
+
+## Contacto
+
+- [Contacto](https://anaerobia.com/contacto)
+
+## Otros recursos
+
+- [Sitemap](https://anaerobia.com/sitemap.xml)

@@ -119,9 +119,27 @@ const estadosMapa = estadosVisibles
     ...coordenadasEstados[estado.name],
     slide: estadosGaleria.findIndex((visible) => visible.name === estado.name)
   }));
+
+// WebSite + SearchAction: Google recomienda declararlo una sola vez, en la
+// portada, no en cada página (a diferencia de Organization/LocalBusiness).
+const datosWebSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Anaerobia',
+  url: Astro.site?.href ?? 'https://anaerobia.com/',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: new URL('/partes-y-filtros?buscar={buscar_terminos}', Astro.site ?? Astro.url.origin).href,
+    },
+    'query-input': 'required name=buscar_terminos',
+  },
+}
 ---
 
 <Layout title="Anaerobia | Ingeniería Inteligente en Sistemas de Pintura y Acabado">
+  <script type="application/ld+json" set:html={JSON.stringify(datosWebSite)} is:inline />
   <main>
     <!-- A. Hero Section Cinematográfico -->
     <section class="relative min-h-screen overflow-hidden flex items-center pt-40 pb-12 landscape:pt-48 landscape:pb-20">

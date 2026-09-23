@@ -26,9 +26,56 @@ const solucion = caso.solution_slug ? `/soluciones/${caso.solution_slug}` : null
 // como cuadrícula o carrusel.
 const galeria = caso.gallery?.images ?? []
 const galeriaEsCarrusel = caso.gallery?.layout === 'slider'
+
+// Datos estructurados: mismo patrón ya usado en /blog/[slug].astro.
+const canonica = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href
+
+const datosEstructurados = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: caso.title,
+    description: caso.seo?.description ?? caso.excerpt ?? '',
+    image: caso.cover ? [caso.cover] : undefined,
+    datePublished: caso.published_at,
+    dateModified: caso.published_at,
+    author: {
+        '@type': 'Organization',
+        name: 'Anaerobia',
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: 'Anaerobia',
+        url: new URL('/', Astro.site ?? Astro.url.origin).href,
+    },
+    mainEntityOfPage: canonica,
+    articleSection: caso.category?.name,
+}
+
+// Migas de pan: refleja exactamente el <nav> visible más abajo
+// (Inicio / Proyectos / categoría opcional / título).
+const migas = [
+    { name: 'Inicio', item: new URL('/', Astro.site ?? Astro.url.origin).href },
+    { name: 'Proyectos', item: new URL('/proyectos', Astro.site ?? Astro.url.origin).href },
+    ...(caso.category ? [{ name: caso.category.name, item: null }] : []),
+    { name: caso.title, item: canonica },
+]
+
+const datosBreadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: migas.map((miga, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: miga.name,
+        ...(miga.item ? { item: miga.item } : {}),
+    })),
+}
 ---
 
 <Layout title={caso.seo?.title ?? caso.title} description={caso.seo?.description ?? ''} image={caso.cover}>
+    <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} is:inline />
+    <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
+
     <main class="bg-white min-h-screen text-brand-navy">
         <!-- PORTADA -->
         <article>

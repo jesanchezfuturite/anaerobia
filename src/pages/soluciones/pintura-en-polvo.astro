@@ -59,15 +59,30 @@ const beneficioIcons = [
 // una imagen subida (se muestra tal cual, solo ajustada al tamaño).
 const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
 
+// Datos estructurados: preguntas frecuentes ya visibles en la sección FAQ
+// de esta página (d.faqs.items), envueltas en FAQPage para que Google y
+// los motores de IA puedan citarlas directamente como respuesta.
+const datosFAQ = d.faqs?.items?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: d.faqs.items.map((faq) => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+        })),
+    }
+    : null
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
+    {datosFAQ && <script type="application/ld+json" set:html={JSON.stringify(datosFAQ)} is:inline />}
     <main class="bg-industrial-gray min-h-screen text-brand-navy">
         <!-- 01. HEADER / HERO -->
         <section class="relative min-h-[60vh] flex items-center pt-36 pb-20 px-6 md:px-12 bg-brand-navy overflow-hidden">
             <!-- Background Image with Overlay -->
             <div class="absolute inset-0 z-0">
-                <img src={d.hero.image} alt="Sistema de Pintura en Polvo" class="w-full h-full object-cover opacity-60 scale-105" />
+                <img src={d.hero.image} alt={d.hero.alt || "Sistema de Pintura en Polvo"} class="w-full h-full object-cover opacity-60 scale-105" />
                 <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
             </div>
 
@@ -108,7 +123,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src={d.intro.image} alt="Sistema de Pintura en Polvo" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.intro.image} alt={d.intro.alt || "Sistema de Pintura en Polvo"} class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
@@ -127,7 +142,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
                 <div class="flex flex-col lg:flex-row gap-8 lg:h-[600px] w-full max-w-7xl mx-auto pain-points-grid items-stretch">
                     <!-- Column 1: Image (45%) -->
                     <div class="w-full lg:w-[45%] relative rounded-3xl overflow-hidden shadow-2xl h-[400px] lg:h-auto shrink-0 group">
-                        <img src={d.desafios.image} alt="Puntos de Inflexión" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                        <img src={d.desafios.image} alt={d.desafios.alt || "Puntos de Inflexión"} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-brand-navy/30 mix-blend-multiply"></div>
                     </div>
 
@@ -531,7 +546,7 @@ const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().sta
 
         <!-- 09. SEGUNDO CTA -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6 md:px-12">
-            <img src={d.cta2.image} alt="Ingenieros interactuando con maquinaria" class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta2.image} alt={d.cta2.alt || "Ingenieros interactuando con maquinaria"} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
