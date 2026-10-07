@@ -1,0 +1,244 @@
+---
+// Layout propio de la landing de ANEFFY: no lleva el encabezado ni el pie del
+// sitio de Anaerobia, y sus estilos viven aparte (aneffy.css) para no afectar
+// al resto de las páginas.
+import '../styles/aneffy.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'ANEFFY | Filtros Industriales de Alta Eficiencia — Anaerobia',
+  description = 'ANEFFY es la línea de filtros industriales de Anaerobia. Soluciones de filtración de alto rendimiento para la industria manufacturera, alimentos y proceso. Cotiza hoy.',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+// La landing vive en /aneffy dentro del sitio.
+const base = '/aneffy/';
+
+const resolvedOgImage = ogImage.startsWith('/') && !ogImage.startsWith(base)
+  ? `${base}${ogImage.slice(1)}`
+  : ogImage;
+
+const canonicalURL = Astro.url.href;
+---
+
+<!doctype html>
+<html lang="es-MX" class="scroll-smooth">
+  <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MGBSXK6G');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- === SEO === -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content={canonicalURL} />
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image"       content={resolvedOgImage} />
+    <meta name="twitter:card"       content="summary_large_image" />
+    <meta name="twitter:title"      content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image"      content={resolvedOgImage} />
+
+    <!-- === Favicon === -->
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+
+    <!-- === Google Fonts: Saira Condensed + Roboto Condensed === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700&family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- === Phosphor Icons === -->
+    <script src="https://unpkg.com/@phosphor-icons/web" is:inline></script>
+
+    <!-- === GSAP + ScrollTrigger CDN === -->
+    <script is:inline>
+      // GSAP cargado inline para disponibilidad inmediata en todo el sitio
+      (function() {
+        var gsapScript = document.createElement('script');
+        gsapScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js';
+        gsapScript.onload = function() {
+          var stScript = document.createElement('script');
+          stScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js';
+          stScript.onload = function() {
+            if (window.gsap && window.ScrollTrigger) {
+              gsap.registerPlugin(ScrollTrigger);
+              document.dispatchEvent(new CustomEvent('gsap:ready'));
+            }
+          };
+          document.head.appendChild(stScript);
+        };
+        document.head.appendChild(gsapScript);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGBSXK6G"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="text-white relative flex flex-col min-h-[100dvh]">
+    <!-- ================================================
+         NAVBAR — Glassmorphism Sticky
+         ================================================ -->
+    <header
+      id="navbar"
+      class="sticky top-0 z-50 w-full backdrop-blur-md border-b transition-all duration-300"
+      style="background: rgba(0,49,65,0.82); border-color: rgba(12,91,140,0.30);"
+    >
+      <nav class="container-aneffy flex items-center justify-between h-16 md:h-18">
+
+        <!-- Logotipo -->
+        <a href="/aneffy/" aria-label="ANEFFY — Inicio" class="flex items-center gap-3 group">
+          <img src={`${base}logo.png`} alt="Logotipo ANEFFY" class="h-10 md:h-12 w-auto transition-transform duration-200 group-hover:scale-105" loading="eager" />
+        </a>
+
+        <!-- CTA Principal -->
+        <a
+          href="#cotizar"
+          id="navbar-cta"
+          class="btn-primary text-sm inline-flex"
+        >
+          <i class="ph ph-chat-circle-dots text-base" aria-hidden="true"></i>
+          Cotizar Filtros
+        </a>
+      </nav>
+
+
+    </header>
+
+    <!-- ================================================
+         CONTENIDO PRINCIPAL
+         ================================================ -->
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- ================================================
+         FOOTER — Corporativo Minimalista
+         ================================================ -->
+    <footer
+      class="w-full border-t"
+      style="background: #001e2e; border-color: rgba(12,91,140,0.25); padding-top: 60px; padding-bottom: 60px;"
+    >
+      <!-- Franja superior -->
+      <div class="container-aneffy grid grid-cols-1 md:grid-cols-2 gap-8 border-b" style="border-color: rgba(12,91,140,0.18); padding-top: 3rem; padding-bottom: 1rem;">
+
+        <!-- Columna: Marca -->
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center">
+            <img src={`${base}logo.png`} alt="Logotipo ANEFFY" class="h-8 md:h-10 w-auto" loading="lazy" />
+          </div>
+          <p class="text-xs font-roboto leading-relaxed" style="color:#8da8b8;">
+            Soluciones de filtración industrial de alto rendimiento para los procesos más exigentes. Una marca de Anaerobia.
+          </p>
+        </div>
+
+        <!-- Columna: Contacto -->
+        <div class="flex justify-start md:justify-end">
+          <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-saira font-semibold tracking-[0.2em] uppercase" style="color:#9ac31c;">
+              Contacto
+            </h3>
+            <ul class="flex flex-col gap-2 text-sm font-roboto" style="color:#8da8b8;">
+              <li class="flex items-center gap-2">
+                <i class="ph ph-envelope-simple text-base" style="color:#9ac31c;" aria-hidden="true"></i>
+                <a href="mailto:info@anaerobia.com" class="hover:text-white transition-colors">
+                  info@anaerobia.com
+                </a>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph ph-phone text-base" style="color:#9ac31c;" aria-hidden="true"></i>
+                <a href="tel:+522222839604" class="hover:text-white transition-colors">
+                  222 283 9604
+                </a>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ph ph-map-pin text-base" style="color:#9ac31c;" aria-hidden="true"></i>
+                <span>México · LATAM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Franja inferior: Copyright -->
+      <div class="container-aneffy flex items-center justify-center text-center" style="padding-top: 1rem; padding-bottom: 1rem;">
+        <p class="text-xs font-roboto font-light w-full" style="color:#8da8b8;">
+          ANAEROBIA © 2026. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+    </div>
+    <!-- ================================================
+         SCRIPTS DE INTERACTIVIDAD
+         ================================================ -->
+    <script is:inline>
+
+
+      // ── Navbar scroll shadow ──
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) {
+            navbar.style.boxShadow = '0 4px 24px rgba(0,0,0,0.35)';
+          } else {
+            navbar.style.boxShadow = 'none';
+          }
+        }, { passive: true });
+      }
+
+      // ── GSAP: animación de entrada navbar ──
+      function initNavbar() {
+        if (window.navbarInitialized) return;
+        window.navbarInitialized = true;
+        gsap.from('#navbar', {
+          y: -80,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+        });
+      }
+
+      if (window.gsap && window.ScrollTrigger) {
+        initNavbar();
+      } else {
+        document.addEventListener('gsap:ready', initNavbar);
+      }
+    </script>
+
+    <!-- Chatbot Conversia -->
+    <script is:inline src="https://conversia.com.mx/assets/js/chatbot.js" id="chatbot-js"></script>
+    <script is:inline>
+      // Se espera a que cargue la ventana para inicializar de forma segura
+      window.addEventListener('load', function() {
+        if (typeof CHATKODEX !== 'undefined') {
+          CHATKODEX.init({
+            host: window.location.host,
+            key: 'IfcGlX07JF6cE'
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

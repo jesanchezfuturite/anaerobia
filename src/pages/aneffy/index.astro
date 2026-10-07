@@ -1,0 +1,739 @@
+---
+import Layout from '../../layouts/AneffyLayout.astro';
+
+// La landing vive en /aneffy dentro del sitio.
+const base = '/aneffy/';
+---
+
+<Layout title="ANEFFY | Filtros Industriales de Máxima Eficiencia">
+
+  <!-- ================================================
+       HERO SECTION
+       ================================================ -->
+  <section
+    id="hero"
+    class="relative min-h-[85vh] flex items-center overflow-hidden"
+    aria-labelledby="hero-heading"
+  >
+    <!-- Fondo: gradiente + grid decorativo -->
+    <div class="absolute inset-0 -z-10" style="background: linear-gradient(135deg, #003141 0%, #00243a 55%, #001820 100%);"></div>
+    <div
+      class="absolute inset-0 -z-10 opacity-[0.05]"
+      style="background-image: linear-gradient(rgba(154,195,28,1) 1px, transparent 1px), linear-gradient(90deg, rgba(154,195,28,1) 1px, transparent 1px); background-size: 56px 56px;"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Orbe decorativo derecha -->
+    <div
+      class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full -z-10 blur-3xl opacity-20"
+      style="background: radial-gradient(circle, #0c5b8c 0%, transparent 70%);"
+      aria-hidden="true"
+    ></div>
+    <!-- Acento lime inferior izquierdo -->
+    <div
+      class="absolute -bottom-24 -left-24 w-64 h-64 rounded-full -z-10 blur-2xl opacity-15"
+      style="background: #9ac31c;"
+      aria-hidden="true"
+    ></div>
+
+    <div class="container-aneffy w-full section-pad section-pad-hero">
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-start gap-12 lg:gap-16">
+        <div class="max-w-3xl">
+
+        <!-- Badge -->
+        <div class="gsap-hero-item inline-flex items-center gap-3" style="margin-bottom: 2rem;">
+          <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+          <span
+            class="font-roboto tracking-widest text-xs uppercase font-semibold"
+            style="color:#9ac31c;"
+          >Filtro marca ANAEROBIA</span>
+        </div>
+
+        <!-- H1 -->
+        <h1
+          id="hero-heading"
+          class="gsap-hero-item font-saira font-bold text-white leading-none tracking-wide uppercase"
+          style="font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.0;"
+        >
+          Máxima Eficiencia.<br />
+          <span style="color:#9ac31c;">Cero Fricción</span><br />
+          Logística.
+        </h1>
+
+        <!-- Párrafo de apoyo -->
+        <p
+          class="gsap-hero-item font-roboto font-light text-lg md:text-xl max-w-2xl leading-relaxed"
+          style="color: rgba(255,255,255,0.68); margin-top: 2rem;"
+        >
+          Filtros industriales diseñados con 100% de compatibilidad OEM para tus cabinas.
+          Calidad técnica de excelencia.
+        </p>
+
+        <!-- Botones CTA -->
+        <div class="gsap-hero-item flex flex-col sm:flex-row" style="gap: 1.5rem; margin-top: 3rem;">
+          <a
+            href="#cotizar"
+            id="hero-cta-primary"
+            class="btn-primary text-lg px-8 py-4"
+          >
+            <i class="ph ph-package text-xl" aria-hidden="true"></i>
+            Cotizar Filtro
+          </a>
+          <a
+            href="#caracteristicas"
+            id="hero-cta-secondary"
+            class="btn-secondary text-lg px-8 py-4"
+          >
+            <i class="ph ph-file-text text-xl" aria-hidden="true"></i>
+            Ver Especificaciones
+          </a>
+        </div>
+
+
+
+        </div>
+
+        <!-- Columna derecha: Imagen Hero -->
+        <div class="gsap-hero-item hidden lg:flex justify-end relative h-full">
+          <div class="relative w-full max-w-full flex items-start" style="transform: scale(1.05); transform-origin: top right;">
+             <!-- Decoración Glow Intensificada pero sin líneas de cuadro (Aura redonda) -->
+             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 rounded-full opacity-60" style="background: radial-gradient(circle, #9ac31c 0%, #0c5b8c 80%, transparent 100%); filter: blur(80px);"></div>
+             
+             <!-- Imagen difuminada en los bordes para no parecer un cuadro -->
+             <img 
+               src={`${base}hero1.webp`} 
+               alt="Filtro Industrial ANEFFY" 
+               class="relative z-10 w-full h-auto" 
+               style="mask-image: radial-gradient(circle at center, black 60%, transparent 100%); -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);"
+               loading="eager"
+             />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-35" aria-hidden="true">
+      <div class="w-5 h-8 rounded-full border flex justify-center pt-1.5" style="border-color:rgba(255,255,255,0.3);">
+        <div class="w-1 h-2 rounded-full scroll-dot" style="background:#9ac31c;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       BENTO GRID — VENTAJAS COMPETITIVAS
+       ================================================ -->
+  <section
+    id="ventajas"
+    class="section-pad overflow-hidden"
+    style="background: linear-gradient(180deg, #001820 0%, #002535 100%);"
+    aria-labelledby="ventajas-heading"
+  >
+    <div class="container-aneffy">
+
+      <!-- Encabezado de sección -->
+      <div class="flex flex-col gap-3 max-w-2xl">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+          <span class="font-roboto text-xs tracking-[0.25em] uppercase font-semibold" style="color:#9ac31c;">
+            Ventajas Competitivas
+          </span>
+        </div>
+        <h2
+          id="ventajas-heading"
+          class="font-saira font-bold uppercase text-white leading-tight"
+          style="font-size: clamp(2rem, 4vw, 3.25rem);"
+        >
+          Por qué elegir<br/>
+          <span style="color:#9ac31c;">Filtros ANEFFY</span>
+        </h2>
+        <p class="font-roboto font-light text-base leading-relaxed" style="color:rgba(255,255,255,0.6);">
+          Ingeniería nacional con estándar internacional. Construidos para la continuidad operativa de tu planta.
+        </p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="grid-auto-rows: minmax(280px, auto); margin-top: 3rem;">
+
+        <!-- Tarjeta 1 — Libre de Aranceles (2 cols) -->
+        <article
+          class="gsap-bento-card md:col-span-2 relative rounded-2xl flex flex-col justify-end overflow-hidden group transition-colors duration-300 cursor-default"
+          style="background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.09); padding: 1.5rem;"
+        >
+          <!-- Icono decorativo de fondo -->
+          <div class="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300" aria-hidden="true">
+            <i class="ph ph-shield-check" style="font-size: 7rem; color:#9ac31c;"></i>
+          </div>
+          <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: rgba(255,255,255,0.04);" aria-hidden="true"></div>
+          <!-- Acento lime superior -->
+          <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+          <h3 class="font-saira font-bold text-3xl uppercase text-white leading-tight">
+            Cumplimiento normativo
+          </h3>
+          <p class="font-roboto font-light text-base mt-3 leading-relaxed" style="color:rgba(255,255,255,0.60); max-width: 420px;">
+            Mejora la calidad del aire dentro de tu cabina de pintura para optimizar procesos de producción, cumplir con normativas y dotar de seguridad al personal operativo.
+          </p>
+        </article>
+
+        <!-- Tarjeta 2 — Stock Inmediato (1 col) -->
+        <article
+          class="gsap-bento-card rounded-2xl flex flex-col justify-end overflow-hidden group transition-colors duration-300 cursor-default relative"
+          style="background: rgba(154,195,28,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(154,195,28,0.20); padding: 1.5rem;"
+        >
+          <div class="absolute top-6 right-6 opacity-15 group-hover:opacity-25 transition-opacity duration-300" aria-hidden="true">
+            <i class="ph ph-lightning" style="font-size: 6rem; color:#9ac31c;"></i>
+          </div>
+          <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: rgba(154,195,28,0.05);" aria-hidden="true"></div>
+          <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+          <h3 class="font-saira font-bold text-3xl uppercase text-white leading-tight">
+            Stock Inmediato
+          </h3>
+          <p class="font-roboto font-light text-base mt-3 leading-relaxed" style="color:rgba(255,255,255,0.60);">
+            Disponibilidad nacional para envío rápido. Tu línea de producción nunca se detiene.
+          </p>
+        </article>
+
+        <!-- Contenedor dividido en 2 columnas para Rendimiento y Asesoramiento -->
+        <div class="md:col-span-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Tarjeta 3 — Rendimiento OEM -->
+          <article
+            class="gsap-bento-card rounded-2xl flex flex-col justify-end gap-6 overflow-hidden group transition-colors duration-300 cursor-default relative"
+            style="background: rgba(12,91,140,0.15); backdrop-filter: blur(12px); border: 1px solid rgba(12,91,140,0.35); padding: 1.5rem;"
+          >
+            <!-- Orbe decorativo -->
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full blur-2xl opacity-20" style="background: #0c5b8c;" aria-hidden="true"></div>
+            <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: rgba(12,91,140,0.08);" aria-hidden="true"></div>
+
+            <div class="flex flex-col max-w-full">
+              <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+              <h3 class="font-saira font-bold text-3xl uppercase text-white leading-tight">
+                Rendimiento OEM <span style="color:#9ac31c;">Garantizado</span>
+              </h3>
+              <p class="font-roboto font-light text-base mt-3 leading-relaxed" style="color:rgba(255,255,255,0.65);">
+                Diseñados bajo las mismas especificaciones de fábrica de los equipos Anaerobia.
+                Ajuste perfecto, filtración impecable.
+              </p>
+            </div>
+
+          </article>
+
+          <!-- Tarjeta 4 — Asesoramiento técnico -->
+          <article
+            class="gsap-bento-card rounded-2xl flex flex-col justify-end overflow-hidden group transition-colors duration-300 cursor-default relative"
+            style="background: rgba(154,195,28,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(154,195,28,0.20); padding: 1.5rem;"
+          >
+            <div class="absolute top-6 right-6 opacity-15 group-hover:opacity-25 transition-opacity duration-300" aria-hidden="true">
+              <i class="ph ph-chats" style="font-size: 6rem; color:#9ac31c;"></i>
+            </div>
+            <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: rgba(154,195,28,0.05);" aria-hidden="true"></div>
+            
+            <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+            <h3 class="font-saira font-bold text-3xl uppercase text-white leading-tight">
+              Asesoramiento técnico
+            </h3>
+            <p class="font-roboto font-light text-base mt-3 leading-relaxed" style="color:rgba(255,255,255,0.65); max-width: 90%;">
+              Somos capaces de brindar asesoramiento técnico para ayudarte a identificar tus necesidades de filtración de acuerdo a tu área de trabajo y proceso de producción.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SECCIÓN: INFORMACIÓN DEL FILTRO
+       ================================================ -->
+  <section
+    id="filtro-info"
+    class="section-pad overflow-hidden"
+    style="background: #001820;"
+    aria-labelledby="filtro-info-heading"
+  >
+    <div class="container-aneffy">
+      
+      <!-- Introducción -->
+      <div class="w-full flex flex-col items-center justify-center gsap-hero-item px-4 lg:px-0" style="margin-bottom: 6rem;">
+        <div class="flex flex-col items-center text-center gap-3" style="margin-bottom: 3rem;">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+            <span class="font-roboto text-xs tracking-[0.25em] uppercase font-semibold" style="color:#9ac31c;">Nuestros filtros</span>
+            <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+          </div>
+          <h2 class="font-saira font-bold uppercase text-white" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1;">
+            EFICIENCIA ABSOLUTA A UN PRECIO INTELIGENTE
+          </h2>
+        </div>
+        <div class="max-w-4xl text-center">
+          <p class="font-roboto font-light text-lg md:text-xl leading-relaxed" style="color: rgba(255,255,255,0.85); text-align: center;">
+            En ANAEROBIA desarrollamos <span class="font-bold" style="color:#9ac31c;">ANEFFY</span>, un filtro de aire que combina eficiencia G3 y buen precio,<br class="hidden md:block" /> garantizando calidad, seguridad y ahorro en tu proceso de producción.
+          </p>
+        </div>
+      </div>
+
+      <!-- Layout 2 Columnas -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Izquierda: Galería de Imágenes (Slider) -->
+        <div class="gsap-hero-item relative w-full flex justify-center lg:justify-start">
+          <div class="relative w-full max-w-[600px] overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-black/20 mx-auto lg:mx-0" style="aspect-ratio: 4/3;">
+            <div id="gallery-slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+              <img src={`${base}galeria/0D0A5108-2.png`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/0D0A5119-1.jpg`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/0D0A5147-1.png`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/0D0A5160-1.png`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/DSC00063.jpg`}  alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/DSC00098-2.png`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/DSC00103-2.jpg`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+              <img src={`${base}galeria/DSC00111-1.png`} alt="Filtro ANEFFY" class="w-full h-full object-cover shrink-0" loading="lazy" />
+            </div>
+            
+            <!-- Controles Slider -->
+            <button id="prev-slide" class="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/40 hover:bg-[#9ac31c] flex items-center justify-center text-white backdrop-blur-sm transition-all shadow-lg border border-white/10" aria-label="Anterior">
+              <i class="ph ph-caret-left text-lg md:text-xl"></i>
+            </button>
+            <button id="next-slide" class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-black/40 hover:bg-[#9ac31c] flex items-center justify-center text-white backdrop-blur-sm transition-all shadow-lg border border-white/10" aria-label="Siguiente">
+              <i class="ph ph-caret-right text-lg md:text-xl"></i>
+            </button>
+            
+            <!-- Puntos de Paginación -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="gallery-dots"></div>
+          </div>
+          
+          <script is:inline>
+            document.addEventListener('DOMContentLoaded', () => {
+              const slider = document.getElementById('gallery-slider');
+              const prev = document.getElementById('prev-slide');
+              const next = document.getElementById('next-slide');
+              const dotsContainer = document.getElementById('gallery-dots');
+              if(!slider || !prev || !next) return;
+
+              const slides = slider.querySelectorAll('img');
+              const totalSlides = slides.length;
+              let currentSlide = 0;
+
+              for(let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `w-2 h-2 rounded-full transition-colors ${i === 0 ? 'bg-[#9ac31c]' : 'bg-white/50 hover:bg-white/80'}`;
+                dot.ariaLabel = `Ir a diapositiva ${i + 1}`;
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+              }
+              const dots = dotsContainer.querySelectorAll('button');
+
+              const updateSlider = () => {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, index) => {
+                  dot.className = `w-2 h-2 rounded-full transition-colors ${index === currentSlide ? 'bg-[#9ac31c]' : 'bg-white/50 hover:bg-white/80'}`;
+                });
+              };
+
+              const goToSlide = (index) => {
+                currentSlide = index;
+                updateSlider();
+              };
+
+              const nextSlide = () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+              };
+
+              const prevSlide = () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateSlider();
+              };
+
+              next.addEventListener('click', nextSlide);
+              prev.addEventListener('click', prevSlide);
+
+              // Auto-play
+              let interval = setInterval(nextSlide, 3500);
+              slider.parentElement.addEventListener('mouseenter', () => clearInterval(interval));
+              slider.parentElement.addEventListener('mouseleave', () => {
+                interval = setInterval(nextSlide, 3500);
+              });
+            });
+          </script>
+        </div>
+
+        <!-- Derecha: Texto / Beneficios -->
+        <div class="gsap-hero-item flex flex-col gap-10">
+          
+          <div class="flex flex-col lg:items-start text-left" style="margin-bottom: 1rem;">
+            <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+            <h3 class="font-saira font-bold uppercase text-2xl md:text-3xl text-white tracking-wide" style="margin-bottom: 1rem;">
+              Eleva la Calidad de tus Productos
+            </h3>
+            <p class="font-roboto font-light text-base leading-relaxed" style="color:rgba(255,255,255,0.7);">
+              Elimina partículas, polvo, overspray y otros contaminantes del proceso de producción.
+            </p>
+          </div>
+
+          <div class="flex flex-col lg:items-start text-left" style="margin-bottom: 1rem;">
+            <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+            <h3 class="font-saira font-bold uppercase text-2xl md:text-3xl text-white tracking-wide" style="margin-bottom: 1rem;">
+              Cumple con Normativas
+            </h3>
+            <p class="font-roboto font-light text-base leading-relaxed" style="color:rgba(255,255,255,0.7);">
+              Evita sanciones y garantiza un ambiente seguro de trabajo cumpliendo con regulaciones de emisión de partículas y contaminación.
+            </p>
+          </div>
+
+          <div class="flex flex-col lg:items-start text-left">
+            <div class="w-12 h-1 rounded-full" style="background:#9ac31c; margin-bottom: 1rem;" aria-hidden="true"></div>
+            <h3 class="font-saira font-bold uppercase text-2xl md:text-3xl text-white tracking-wide" style="margin-bottom: 1rem;">
+              Blindaje Logístico
+            </h3>
+            <p class="font-roboto font-light text-base leading-relaxed" style="color:rgba(255,255,255,0.7);">
+              Nos aseguramos de que tu suministro de filtros nunca falle en cuanto a tiempos de entrega.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================================================
+           TABLA DE CARACTERÍSTICAS
+           ================================================ -->
+      <div id="caracteristicas" class="gsap-hero-item scroll-mt-28" style="margin-top: 8rem;">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-6" style="margin-bottom: 3rem;">
+          <h2 class="font-saira font-bold text-3xl md:text-4xl text-white tracking-wide uppercase m-0">
+            Características
+          </h2>
+          <a
+            href={`${base}ANEFFY_ficha_tecnica.pdf`}
+            download="ANEFFY_ficha_tecnica.pdf"
+            target="_blank"
+            class="btn-secondary text-sm md:text-base px-6 py-2.5"
+          >
+            <i class="ph ph-download-simple text-lg md:text-xl" aria-hidden="true"></i>
+            Ficha técnica
+          </a>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl shadow-[0_0_30px_rgba(12,91,140,0.15)]" style="border: 1px solid rgba(255,255,255,0.1);">
+          <table class="w-full text-center border-collapse" style="min-width: 800px; background: rgba(0,0,0,0.2);">
+            <tbody>
+              <!-- Fila 1: Títulos Superiores -->
+              <tr style="background: rgba(12,91,140,0.35); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">
+                  Avg. arrestance<br/><span class="text-xs font-normal opacity-70">(acc.EN779)</span>
+                </th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Air Velocity</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Initial Pressure Drop</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Final Pressure Drop</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider">Normal Thickness</th>
+              </tr>
+              <!-- Fila 2: Datos Superiores -->
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">85% (G3)</td>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">1.5m/s</td>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">20pa</td>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">200pa</td>
+                <td class="p-5 font-roboto font-bold text-2xl" style="color: #9ac31c;">24 mm</td>
+              </tr>
+              <!-- Fila 3: Títulos Inferiores -->
+              <tr style="background: rgba(12,91,140,0.35); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Ashrae</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Temp. Resistance<br/>Const.</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Flame Resistance</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider border-r border-[rgba(255,255,255,0.1)]">Dust holding at<br/>tested final</th>
+                <th class="p-5 font-saira font-bold text-white tracking-wider">Size</th>
+              </tr>
+              <!-- Fila 4: Datos Inferiores -->
+              <tr>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">MERV 7</td>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">Up to 120 C</td>
+                <td class="p-5 font-roboto font-bold text-xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">S4 DIN5510/<br/>DIN54837</td>
+                <td class="p-5 font-roboto font-bold text-2xl border-r border-[rgba(255,255,255,0.1)]" style="color: #9ac31c;">500g/m2</td>
+                <td class="p-5 font-roboto font-bold text-2xl" style="color: #9ac31c;">45”x90’x1”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================
+       SECCIÓN: CÓMO FUNCIONA (3 pasos)
+       ================================================ -->
+  <section
+    id="especificaciones"
+    class="section-pad"
+    style="background: #001e2e;"
+    aria-labelledby="proceso-heading"
+  >
+    <div class="container-aneffy">
+      <div class="flex flex-col items-center text-center gap-3" style="margin-bottom: 3rem;">
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+          <span class="font-roboto text-xs tracking-[0.25em] uppercase font-semibold" style="color:#9ac31c;">Proceso Simple</span>
+          <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+        </div>
+        <h2 id="proceso-heading" class="font-saira font-bold uppercase text-white" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem);">
+          Tres Pasos para Tu Refacción
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            step: '01',
+            icon: 'ph-magnifying-glass',
+            title: 'La medida y cantidad',
+            desc: 'Compártenos la medida y cantidad necesaria. Si requieres asesoría, no dudes en contactarnos.',
+          },
+          {
+            step: '02',
+            icon: 'ph-chat-circle-dots',
+            title: 'Recibe tu Cotización',
+            desc: 'Recibe tu cotización considerando precio, disponibilidad y tiempo de entrega directamente en tu correo o WhatsApp.',
+          },
+          {
+            step: '03',
+            icon: 'ph-truck',
+            title: 'Entrega Express',
+            desc: 'Nuestro centro de distribución ubicado estratégicamente nos permite entregar nuestros productos de manera directa o mediante nuestra red de distribuidores.',
+          },
+        ].map(({ step, icon, title, desc }) => (
+          <div class="gsap-bento-card flex flex-col gap-5 rounded-2xl relative overflow-hidden" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding: 1.5rem;">
+            <span class="font-saira font-bold text-7xl absolute top-4 right-6 leading-none select-none" style="color:rgba(154,195,28,0.08);">{step}</span>
+            <div class="w-12 h-12 rounded-md flex items-center justify-center" style="background:rgba(154,195,28,0.12);">
+              <i class={`ph ${icon} text-2xl`} style="color:#9ac31c;" aria-hidden="true"></i>
+            </div>
+            <div class="w-8 h-0.5 rounded-full" style="background:#9ac31c;" aria-hidden="true"></div>
+            <h3 class="font-saira font-bold text-xl uppercase text-white">{title}</h3>
+            <p class="font-roboto font-light text-sm leading-relaxed" style="color:rgba(255,255,255,0.60);">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SECCIÓN: CTA FINAL — COTIZACIÓN
+       ================================================ -->
+  <section
+    id="cotizar"
+    class="section-pad relative overflow-hidden"
+    style={`background: linear-gradient(135deg, rgba(0, 49, 65, 0.85) 0%, rgba(12, 91, 140, 0.85) 100%), url('${base}bg_contacto.png'); background-size: cover; background-position: center;`}
+    aria-labelledby="cta-heading"
+  >
+    <!-- Grid decorativo -->
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(rgba(154,195,28,1) 1px, transparent 1px), linear-gradient(90deg, rgba(154,195,28,1) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    <div class="container-aneffy relative z-10 flex flex-col items-center text-center gap-6">
+      <div class="flex items-center gap-3">
+        <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+        <span class="font-roboto text-xs tracking-[0.25em] uppercase font-semibold" style="color:#9ac31c;">Contacto Directo</span>
+        <span class="w-8 h-px" style="background:#9ac31c;" aria-hidden="true"></span>
+      </div>
+      <h2 id="cta-heading" class="font-saira font-bold uppercase text-white" style="font-size: clamp(2rem, 5vw, 4rem); line-height:1.05;">
+        ¿Necesitas un Filtro<br />
+        <span style="color:#9ac31c;">Ahora Mismo?</span>
+      </h2>
+      <p class="font-roboto font-light text-lg max-w-xl leading-relaxed" style="color:rgba(255,255,255,0.72);">
+        Habla con un especialista en filtración industrial. Respuesta garantizada.
+      </p>
+      <form id="contact-form" class="w-full max-w-2xl mx-auto mt-8 flex flex-col text-left bg-[#001820]/40 backdrop-blur-sm rounded-xl border border-white/10 shadow-2xl" style="gap: 2rem; padding: 2.5rem;" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.5rem;">
+          <div class="flex flex-col" style="gap: 0.5rem;">
+            <label for="nombre" class="text-white text-sm font-roboto tracking-wide">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" required class="rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#9ac31c] focus:bg-white/10 transition-all font-roboto" style="padding: 1rem 1.25rem;" placeholder="Ej. Juan Pérez">
+          </div>
+          <div class="flex flex-col" style="gap: 0.5rem;">
+            <label for="correo" class="text-white text-sm font-roboto tracking-wide">Correo electrónico *</label>
+            <input type="email" id="correo" name="correo" required class="rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#9ac31c] focus:bg-white/10 transition-all font-roboto" style="padding: 1rem 1.25rem;" placeholder="juan@empresa.com">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1.5rem;">
+          <div class="flex flex-col" style="gap: 0.5rem;">
+            <label for="telefono" class="text-white text-sm font-roboto tracking-wide">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" required class="rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#9ac31c] focus:bg-white/10 transition-all font-roboto" style="padding: 1rem 1.25rem;" placeholder="Ej. 55 1234 5678">
+          </div>
+          <div class="flex flex-col" style="gap: 0.5rem;">
+            <label for="empresa" class="text-white text-sm font-roboto tracking-wide">Empresa *</label>
+            <input type="text" id="empresa" name="empresa" required class="rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#9ac31c] focus:bg-white/10 transition-all font-roboto" style="padding: 1rem 1.25rem;" placeholder="Nombre de tu empresa">
+          </div>
+        </div>
+        <div class="flex flex-col" style="gap: 0.5rem;">
+          <label for="mensaje" class="text-white text-sm font-roboto tracking-wide">Mensaje o requerimiento *</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required class="rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/30 focus:outline-none focus:border-[#9ac31c] focus:bg-white/10 transition-all font-roboto resize-y" style="padding: 1rem 1.25rem;" placeholder="Describe brevemente tus necesidades de filtración..."></textarea>
+        </div>
+        
+        <input type="hidden" name="origen" value="">
+        
+        <div class="flex flex-col items-center mt-2">
+          <button type="submit" id="submit-btn" class="btn-primary text-base px-10 py-4 w-full md:w-auto flex items-center justify-center gap-2 group">
+            <i class="ph ph-paper-plane-right text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+            <span>Enviar Mensaje</span>
+          </button>
+          <p id="form-status" class="text-center font-roboto text-sm mt-4 hidden"></p>
+        </div>
+      </form>
+
+      <script define:vars={{ baseUrl: base }} is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+          const form = document.getElementById('contact-form');
+          const submitBtn = document.getElementById('submit-btn');
+          const formStatus = document.getElementById('form-status');
+
+          if (form) {
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              
+              const formData = new FormData(form);
+              const data = Object.fromEntries(formData.entries());
+              
+              // Asignar dinámicamente la URL actual (incluyendo subdirectorios) al campo origen
+              data.origen = window.location.href.split('?')[0];
+
+              // Extraer parámetros de la URL (como los UTMs) y agregarlos al envío
+              const urlParams = new URLSearchParams(window.location.search);
+              for (const [key, value] of urlParams.entries()) {
+                data[key] = value;
+              }
+              
+              // Validación personalizada
+              let isValid = true;
+              let errorMessage = '';
+              const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              const phoneRegex = /^[0-9\s\+\-\(\)]+$/; // Permite números y formato básico
+              const digitsOnly = data.telefono.replace(/\D/g, '');
+              
+              if (!data.nombre.trim()) { isValid = false; errorMessage = 'El nombre es obligatorio.'; }
+              else if (!data.correo.trim() || !emailRegex.test(data.correo)) { isValid = false; errorMessage = 'Ingresa un correo electrónico válido.'; }
+              else if (!data.telefono.trim() || !phoneRegex.test(data.telefono) || digitsOnly.length < 8) { isValid = false; errorMessage = 'Ingresa un teléfono válido (solo números, mín. 8 dígitos).'; }
+              else if (!data.empresa.trim()) { isValid = false; errorMessage = 'El nombre de la empresa es obligatorio.'; }
+              else if (!data.mensaje.trim()) { isValid = false; errorMessage = 'El mensaje no puede estar vacío.'; }
+
+              if (!isValid) {
+                formStatus.textContent = errorMessage;
+                formStatus.className = 'text-center font-roboto text-sm text-red-400 font-medium bg-red-400/10 rounded-md border border-red-400/30';
+                formStatus.style.padding = '1rem 1.5rem';
+                formStatus.style.marginTop = '1.5rem';
+                formStatus.classList.remove('hidden');
+                return;
+              }
+
+              // Estado de carga
+              const originalBtnHtml = submitBtn.innerHTML;
+              submitBtn.innerHTML = '<i class="ph ph-spinner-gap animate-spin text-xl"></i><span>Enviando...</span>';
+              submitBtn.disabled = true;
+              submitBtn.style.opacity = '0.7';
+              submitBtn.style.cursor = 'not-allowed';
+
+              try {
+                // El lead va al panel de Anaerobia, igual que el formulario de
+                // contacto del sitio: queda en «Leads y Contactos» y se da de
+                // alta en Brevo. El campo «mensaje» es el requerimiento.
+                const { mensaje, ...resto } = data;
+
+                const response = await fetch('/api/lead', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ ...resto, requerimiento: mensaje })
+                });
+
+                if (response.ok) {
+                  // Redirigir a la página de gracias
+                  window.location.href = baseUrl + 'gracias';
+                } else {
+                  throw new Error('Error de red');
+                }
+              } catch (error) {
+                formStatus.textContent = 'Ocurrió un error al intentar enviar tu mensaje. Por favor, inténtalo más tarde.';
+                formStatus.className = 'text-center font-roboto text-sm text-red-400 font-medium bg-red-400/10 rounded-md border border-red-400/30';
+                formStatus.style.padding = '1rem 1.5rem';
+                formStatus.style.marginTop = '1.5rem';
+                formStatus.classList.remove('hidden');
+                
+                // Restaurar estado del botón solo si hubo error
+                submitBtn.innerHTML = originalBtnHtml;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+              }
+            });
+          }
+        });
+      </script>
+    </div>
+  </section>
+
+</Layout>
+
+<!-- ================================================
+     ANIMACIONES GSAP
+     ================================================ -->
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    let initialized = false;
+    // Espera a que GSAP esté disponible
+    function initAnimations() {
+      if (initialized) return;
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        setTimeout(initAnimations, 100);
+        return;
+      }
+      initialized = true;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ── Hero: animación de entrada en cascada ──
+      const heroItems = document.querySelectorAll('.gsap-hero-item');
+      if (heroItems.length) {
+        gsap.from(heroItems, {
+          y: 50,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.3,
+        });
+      }
+
+      // ── Bento Cards: aparecen al hacer scroll ──
+      const bentoCards = document.querySelectorAll('.gsap-bento-card');
+      if (bentoCards.length) {
+        gsap.from(bentoCards, {
+          scrollTrigger: {
+            trigger: bentoCards[0],
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+          y: 50,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'power2.out',
+        });
+      }
+    }
+
+    // Inicializa cuando GSAP esté listo
+    document.addEventListener('gsap:ready', initAnimations);
+    // Fallback: intenta inicializar de todas formas
+    setTimeout(initAnimations, 500);
+  });
+</script>
+
+<style>
+  /* Scroll dot animation */
+  .scroll-dot {
+    animation: scrollBounce 1.8s ease-in-out infinite;
+  }
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50%       { transform: translateY(10px); opacity: 0.3; }
+  }
+</style>

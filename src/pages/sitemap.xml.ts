@@ -21,6 +21,7 @@ const PAGINAS = [
     { ruta: '/partes-y-filtros', prioridad: '0.9', frecuencia: 'weekly' },
     { ruta: '/blog', prioridad: '0.7', frecuencia: 'weekly' },
     { ruta: '/contacto', prioridad: '0.6', frecuencia: 'yearly' },
+    { ruta: '/aneffy', prioridad: '0.8', frecuencia: 'monthly' },
     { ruta: '/aviso-de-privacidad', prioridad: '0.2', frecuencia: 'yearly' },
     { ruta: '/terminos-y-condiciones', prioridad: '0.2', frecuencia: 'yearly' },
 ]

@@ -9,5 +9,6 @@ Disallow: /*?pagina=
 # Endpoint del formulario y página de agradecimiento: no tienen nada que indexar.
 Disallow: /api/
 Disallow: /gracias
+Disallow: /aneffy/gracias
 
 Sitemap: https://anaerobia.com/sitemap.xml

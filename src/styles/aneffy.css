@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+/* =====================================================
+   ANEFFY — Sistema de Diseño Global
+   Anaerobia Filtros Industriales
+   ===================================================== */
+
+@theme {
+  /* === Paleta Corporativa === */
+  --color-navy:    #003141;
+  --color-navy-90: #00364a;
+  --color-navy-80: #004a63;
+  --color-lime:    #9ac31c;
+  --color-lime-90: #a8d31f;
+  --color-lime-80: #b8e422;
+  --color-azure:   #0c5b8c;
+  --color-azure-60: #0e6da8;
+  --color-white:   #ffffff;
+  --color-gray-muted: #8da8b8;
+  --color-surface: #00243060;
+
+  /* === Tipografía Corporativa === */
+  --font-saira:  'Saira Condensed', sans-serif;
+  --font-roboto: 'Roboto Condensed', sans-serif;
+
+  /* === Espaciado & Bordes === */
+  --radius-sm:  2px;
+  --radius-md:  6px;
+  --radius-lg:  12px;
+
+  /* === Sombras === */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.25);
+  --shadow-glow:  0 0 24px rgba(154, 195, 28, 0.35);
+}
+
+/* =====================================================
+   Reset & Base
+   ===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-navy font-roboto antialiased overflow-x-hidden;
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+/* =====================================================
+   Tipografía
+   ===================================================== */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-saira font-semibold leading-tight tracking-wide uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+/* =====================================================
+   Utilidades Personalizadas ANEFFY
+   ===================================================== */
+
+/* Contenedor responsivo principal */
+.container-aneffy {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-aneffy {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(12, 91, 140, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(12, 91, 140, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Botón primario (Lime) */
+.btn-primary {
+  @apply inline-flex items-center gap-2 font-saira font-semibold text-navy uppercase tracking-wider;
+  background: var(--color-lime);
+  padding: 0.6rem 1.75rem;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+  background: var(--color-lime-90);
+}
+
+/* Botón secundario (outline) */
+.btn-secondary {
+  @apply inline-flex items-center gap-2 font-saira font-semibold uppercase tracking-wider;
+  color: var(--color-lime);
+  padding: 0.55rem 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-lime);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: var(--color-lime);
+  color: var(--color-navy);
+  transform: scale(1.04);
+}
+
+/* Degradado de sección */
+.section-gradient {
+  background: linear-gradient(160deg, var(--color-navy) 0%, #00243a 60%, #001e2e 100%);
+}
+
+/* Divider decorativo */
+.divider-lime {
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: var(--color-lime);
+  border-radius: 99px;
+  margin-block: 0.5rem;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-azure);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lime);
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--color-lime);
+  color: var(--color-navy);
+}
+
+/* Espaciado de secciones forzado a 120px */
+.section-pad {
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+}
+@media (min-width: 768px) {
+  .section-pad-hero {
+    padding-top: 150px !important;
+    padding-bottom: 150px !important;
+  }
+}

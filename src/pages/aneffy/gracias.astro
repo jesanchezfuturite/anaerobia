@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/AneffyLayout.astro';
+---
+
+<Layout title="ANEFFY — Gracias">
+  <main class="min-h-[80vh] flex flex-col items-center justify-center relative overflow-hidden" style="background: linear-gradient(135deg, rgba(0, 49, 65, 1) 0%, rgba(12, 91, 140, 1) 100%);">
+    <!-- Grid decorativo -->
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(rgba(154,195,28,1) 1px, transparent 1px), linear-gradient(90deg, rgba(154,195,28,1) 1px, transparent 1px); background-size: 48px 48px;"
+      aria-hidden="true"
+    ></div>
+    
+    <div class="container-aneffy relative z-10 flex flex-col items-center text-center gap-6 bg-[#001820]/40 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl max-w-3xl" style="padding: 4rem 2rem;">
+      <div class="w-24 h-24 rounded-full flex items-center justify-center mb-2" style="background: rgba(154,195,28,0.15); border: 2px solid rgba(154,195,28,0.4);">
+        <i class="ph ph-check-circle text-6xl" style="color:#9ac31c;" aria-hidden="true"></i>
+      </div>
+      
+      <h1 class="font-saira font-bold uppercase text-white" style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1;">
+        Mensaje <span style="color:#9ac31c;">Enviado</span>
+      </h1>
+      
+      <p class="font-roboto font-light text-xl max-w-2xl leading-relaxed mt-2 mb-6" style="color:rgba(255,255,255,0.85);">
+        ¡Gracias por contactarnos! Hemos recibido tu solicitud correctamente. Un especialista de Anaerobia analizará tu requerimiento y se pondrá en contacto contigo muy pronto.
+      </p>
+      
+      <a href="/aneffy/" class="btn-primary text-lg px-10 py-4 flex items-center justify-center gap-3 group mt-4 w-full sm:w-auto">
+        <i class="ph ph-arrow-left text-2xl group-hover:-translate-x-2 transition-transform duration-300" aria-hidden="true"></i>
+        <span>Volver al Inicio</span>
+      </a>
+    </div>
+  </main>
+</Layout>
