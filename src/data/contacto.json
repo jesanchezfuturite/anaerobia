@@ -6,6 +6,8 @@
         "description": "Contáctanos para impulsar la productividad y eficiencia de tu planta con nuestras soluciones en sistemas de aplicación de recubrimientos."
     },
     "hero": {
+        "image": "/img/parallax_bg.webp",
+        "imageAlt": "Contacto Anaerobia",
         "badge": "Conecta con nosotros",
         "title": "Contacto",
         "description": "Estamos listos para impulsar la productividad y eficiencia de tu planta con nuestras soluciones en sistemas de aplicación de recubrimientos."
