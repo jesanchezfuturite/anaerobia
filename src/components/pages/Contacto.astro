@@ -15,11 +15,30 @@ const T = {
     en: { enviaMensaje: 'Send us a message', centroAtencion: 'Call Center', correoCorporativo: 'Corporate Email', contactoAlt: 'Contact Anaerobia' },
 }[locale]
 
+const fallbackEn = {
+    ...fallback,
+    seo: {
+        ...fallback.seo,
+        title: 'Contact | Anaerobia Surface Finishing',
+        description: "Contact us to boost your plant's productivity and efficiency with our coating application systems solutions.",
+    },
+    hero: {
+        ...fallback.hero,
+        imageAlt: 'Contact Anaerobia',
+        badge: 'Connect with us',
+        title: 'Contact',
+        description: "We're ready to boost your plant's productivity and efficiency with our coating application systems solutions.",
+    },
+    sedes: fallback.sedes.map((sede, index) => index === 0
+        ? { ...sede, ciudad: 'Puebla, Mexico', label: 'Main Office' }
+        : sede),
+}
+
 // Todo, menos el formulario, es contenido administrable: se consulta la API
 // del Admin (Laravel) en cada visita (SSR). Si la API no responde, se usa el
-// respaldo local (siempre en español: el respaldo no tiene copia en inglés).
+// respaldo local del idioma activo.
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
-let d = fallback
+let d = locale === 'en' ? fallbackEn : fallback
 try {
     const res = await fetch(`${API_URL}/api/v1/paginas/contacto?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) d = (await res.json()).data
