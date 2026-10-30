@@ -12,3 +12,14 @@ export function rutaEnOtroIdioma(pathname, localeActual) {
   if (localeActual === 'en') return base
   return base === '/' ? '/en' : `/en${base}`
 }
+
+/**
+ * Antepone /en a una ruta en español cuando el idioma pedido es inglés. Para
+ * armar enlaces internos (nav, breadcrumbs, botones) dentro de componentes
+ * que ya saben en qué idioma están, no para cambiar de idioma (eso es
+ * rutaEnOtroIdioma).
+ */
+export function withLocale(path, idioma) {
+  if (idioma !== 'en') return path
+  return path === '/' ? '/en' : `/en${path}`
+}

@@ -1,22 +1,27 @@
 ---
 import { getGeneral } from '../lib/general.js'
-import { rutaEnOtroIdioma } from '../lib/i18n.js'
+import { rutaEnOtroIdioma, withLocale } from '../lib/i18n.js'
 import LanguageToggle from './LanguageToggle.astro'
-
-const general = await getGeneral()
-
-// El menú vive en la pestaña «Menú de Navegación» de «General».
-const nav = general.navigation ?? { links: [] }
-
-// Los enlaces ocultos desde el panel (visible: false) no se renderizan
-const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
-const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
 
 // Toggle de idioma: manual, el visitante elige (no se redirige por navegador).
 const idioma = Astro.currentLocale ?? 'es'
 const rutaAlterna = rutaEnOtroIdioma(Astro.url.pathname, idioma)
 const hrefEs = idioma === 'es' ? Astro.url.pathname : rutaAlterna
 const hrefEn = idioma === 'en' ? Astro.url.pathname : rutaAlterna
+
+const general = await getGeneral(idioma)
+
+// El menú vive en la pestaña «Menú de Navegación» de «General». Sus URLs se
+// guardan en español (p. ej. "/nosotros"); withLocale las antepone /en.
+const nav = general.navigation ?? { links: [] }
+
+// Los enlaces ocultos desde el panel (visible: false) no se renderizan
+const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
+const navItems = visibles(nav.links).map((item) => ({
+  ...item,
+  url: withLocale(item.url, idioma),
+  submenu: visibles(item.submenu).map((sub) => ({ ...sub, url: withLocale(sub.url, idioma) })),
+}))
 ---
 
 <header class="fixed w-full z-50 px-6 md:px-12 transition-all duration-300" id="main-nav">
@@ -24,7 +29,7 @@ const hrefEn = idioma === 'en' ? Astro.url.pathname : rutaAlterna
   <div class="container mx-auto relative z-30">
     <div class="flex items-center justify-between h-24 md:h-28">
       <!-- Logo Oficial -->
-      <a href="/" class="flex items-center relative z-30">
+      <a href={withLocale('/', idioma)} class="flex items-center relative z-30">
         <img src={general.logo?.image} alt={general.logo?.alt ?? "Anaerobia"} class="w-48 md:w-56 lg:w-64 xl:w-80 h-auto object-contain transition-all duration-300" />
       </a>
 

@@ -1,21 +1,34 @@
 ---
 import { getGeneral } from '../lib/general.js'
+import { withLocale } from '../lib/i18n.js'
 
-const general = await getGeneral()
+const idioma = Astro.currentLocale ?? 'es'
+const T = {
+  es: { navegacion: 'Navegación', especialidades: 'Especialidades' },
+  en: { navegacion: 'Navigation', especialidades: 'Specialties' },
+}[idioma]
+
+const general = await getGeneral(idioma)
 const footer = general.footer ?? {}
 
 // Un icono puede ser código SVG (se incrusta y hereda el color) o una imagen.
 const esIconoSvg = (icono) => typeof icono === 'string' && icono.trimStart().startsWith('<svg')
 
-// El menú vive en la pestaña «Menú de Navegación» de «General».
+// El menú vive en la pestaña «Menú de Navegación» de «General». Sus URLs se
+// guardan en español (p. ej. "/nosotros"); withLocale las antepone /en.
 const nav = general.navigation ?? { links: [] }
 
 // Los enlaces ocultos desde el panel (visible: false) no se renderizan
 const visibles = (lista) => (lista ?? []).filter((i) => i.visible !== false)
-const navItems = visibles(nav.links).map((item) => ({ ...item, submenu: visibles(item.submenu) }))
-const footerNavItems = navItems.filter((item) => item.label !== 'Soluciones');
-const solucionesItem = navItems.find((item) => item.label === 'Soluciones');
+const navItems = visibles(nav.links).map((item) => ({
+  ...item,
+  url: withLocale(item.url, idioma),
+  submenu: visibles(item.submenu).map((sub) => ({ ...sub, url: withLocale(sub.url, idioma) })),
+}))
+const footerNavItems = navItems.filter((item) => item.label !== 'Soluciones' && item.label !== 'Solutions');
+const solucionesItem = navItems.find((item) => item.label === 'Soluciones' || item.label === 'Solutions');
 const solucionesSubmenu = solucionesItem?.submenu || [];
+const footerLegal = (footer.legal ?? []).map((enlace) => ({ ...enlace, url: withLocale(enlace.url, idioma) }))
 ---
 
 <footer
@@ -48,7 +61,7 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
         <h4
           class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6"
         >
-          Navegación
+          {T.navegacion}
         </h4>
         <ul class="space-y-3 text-sm text-gray-300 font-medium">
           {footerNavItems.map((item) => (
@@ -68,7 +81,7 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
         <h4
           class="text-lg font-saira font-semibold italic text-[var(--color-brand-lime)] mb-6 uppercase"
         >
-          Especialidades
+          {T.especialidades}
         </h4>
         <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm lg:text-[70%] text-gray-300 font-medium">
           {solucionesSubmenu.map((item) => (
@@ -107,7 +120,7 @@ const solucionesSubmenu = solucionesItem?.submenu || [];
     >
       <p class="whitespace-pre-wrap">&copy; {new Date().getFullYear()} {footer.copyright}</p>
       <div class="flex gap-6 font-medium">
-        {(footer.legal ?? []).map((enlace) => (
+        {footerLegal.map((enlace) => (
           <a href={enlace.url} class="hover:text-white transition-colors">{enlace.label}</a>
         ))}
       </div>
