@@ -1,8 +1,88 @@
 ---
 // ContactForm.astro
+
+interface Props {
+  locale?: 'es' | 'en'
+}
+
+const { locale = 'es' } = Astro.props as Props
+
+// Las opciones del dropdown mandan su "value" siempre en español: así lo
+// recibe ventas en el lead sin importar el idioma en que se llenó el
+// formulario. Solo el texto visible se traduce.
+const T = {
+  es: {
+    nombreCompleto: 'Nombre Completo',
+    nombrePlaceholder: 'Ej. Juan Pérez',
+    empresa: 'Empresa',
+    empresaPlaceholder: 'Razón Social',
+    correoCorporativo: 'Correo Corporativo',
+    correoPlaceholder: 'hola@empresa.com',
+    telefono: 'Teléfono',
+    telefonoPlaceholder: '+52 81 0000 0000',
+    soluciones: 'Soluciones',
+    seleccionaOpcion: 'Selecciona una opción...',
+    grupoSoluciones: 'Soluciones',
+    grupoPartes: 'Partes y Filtros',
+    requerimientoTecnico: 'Requerimiento Técnico',
+    requerimientoPlaceholder: 'Describe brevemente tus necesidades de producción, integración o servicios...',
+    solicitarAsesoria: 'Solicitar Asesoría',
+    cotizacionDe: 'Cotización de',
+    enviando: 'Enviando...',
+    errorEnvio: 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.',
+    errorRed: 'Hubo un error de red al intentar enviar el formulario. Por favor revisa tu conexión.',
+    solicitoCotizacionParte: (producto, parte) => `Solicito cotización de: ${producto} (parte ${parte}).`,
+    solicitoCotizacion: (producto) => `Solicito cotización de: ${producto}.`,
+  },
+  en: {
+    nombreCompleto: 'Full Name',
+    nombrePlaceholder: 'e.g. John Smith',
+    empresa: 'Company',
+    empresaPlaceholder: 'Company Name',
+    correoCorporativo: 'Corporate Email',
+    correoPlaceholder: 'hello@company.com',
+    telefono: 'Phone',
+    telefonoPlaceholder: '+1 555 000 0000',
+    soluciones: 'Solutions',
+    seleccionaOpcion: 'Select an option...',
+    grupoSoluciones: 'Solutions',
+    grupoPartes: 'Parts & Filters',
+    requerimientoTecnico: 'Technical Requirement',
+    requerimientoPlaceholder: 'Briefly describe your production, integration or service needs...',
+    solicitarAsesoria: 'Request Advice',
+    cotizacionDe: 'Quote for',
+    enviando: 'Sending...',
+    errorEnvio: 'There was an error sending your message. Please try again.',
+    errorRed: 'There was a network error while sending the form. Please check your connection.',
+    solicitoCotizacionParte: (producto, parte) => `Requesting a quote for: ${producto} (part ${parte}).`,
+    solicitoCotizacion: (producto) => `Requesting a quote for: ${producto}.`,
+  },
+}[locale]
+
+const opcionesSoluciones = [
+  'Sistemas de pintura líquida', 'Sistemas de pintura en polvo', 'Sistemas de aplicación de recubrimientos',
+  'Cabinas de pintura', 'Equipos de pretratamiento - Lavadoras', 'Equipos y cabinas de granallado',
+  'Hornos', 'Conveyors', 'Colectores de polvo', 'Filtros de aire',
+  'Servicio industrial y refaccionamiento', 'Equipos auxiliares',
+]
+const etiquetasSoluciones = {
+  es: opcionesSoluciones,
+  en: [
+    'Liquid Paint Systems', 'Powder Coating Systems', 'Coating Application Systems',
+    'Paint Booths', 'Pretreatment Equipment - Washers', 'Shot Blasting Equipment & Booths',
+    'Ovens', 'Conveyors', 'Dust Collectors', 'Air Filters',
+    'Industrial Service & Spare Parts', 'Auxiliary Equipment',
+  ],
+}[locale]
+
+const opcionesPartes = ['Pintura en polvo', 'Filtros', 'Pintura líquida', 'Lámparas infrarrojas', 'Refacciones']
+const etiquetasPartes = {
+  es: opcionesPartes,
+  en: ['Powder Coating', 'Filters', 'Liquid Paint', 'Infrared Lamps', 'Spare Parts'],
+}[locale]
 ---
 
-<form id="contactoForm" class="space-y-6">
+<form id="contactoForm" class="space-y-6" data-locale={locale}>
   <!-- Campo Oculto Origen -->
   <input type="hidden" name="origen" value="">
 
@@ -22,65 +102,50 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
     <p class="text-sm text-[var(--color-brand-navy)]">
-      Cotización de <strong id="avisoProductoNombre" class="font-semibold"></strong><span id="avisoProductoParte" class="text-gray-500"></span>
+      {T.cotizacionDe} <strong id="avisoProductoNombre" class="font-semibold"></strong><span id="avisoProductoParte" class="text-gray-500"></span>
     </p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="group">
-      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Nombre Completo</label>
-      <input type="text" name="nombre" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder="Ej. Juan Pérez">
+      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.nombreCompleto}</label>
+      <input type="text" name="nombre" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder={T.nombrePlaceholder}>
     </div>
     <div class="group">
-      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Empresa</label>
-      <input type="text" name="empresa" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder="Razón Social">
+      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.empresa}</label>
+      <input type="text" name="empresa" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder={T.empresaPlaceholder}>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <div class="group">
-      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Correo Corporativo</label>
-      <input type="email" name="correo" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder="hola@empresa.com">
+      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.correoCorporativo}</label>
+      <input type="email" name="correo" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder={T.correoPlaceholder}>
     </div>
     <div class="group">
-      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Teléfono</label>
-      <input type="tel" name="telefono" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder="+52 81 0000 0000">
+      <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.telefono}</label>
+      <input type="tel" name="telefono" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all" placeholder={T.telefonoPlaceholder}>
     </div>
   </div>
   <div class="group">
-    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Soluciones</label>
+    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.soluciones}</label>
     <select name="solucion" required class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all cursor-pointer">
-      <option value="" disabled selected>Selecciona una opción...</option>
-      <optgroup label="Soluciones">
-        <option value="Sistemas de pintura líquida">Sistemas de pintura líquida</option>
-        <option value="Sistemas de pintura en polvo">Sistemas de pintura en polvo</option>
-        <option value="Sistemas de aplicación de recubrimientos">Sistemas para aplicación de recubrimientos</option>
-        <option value="Cabinas de pintura">Cabinas de pintura</option>
-        <option value="Equipos de pretratamiento - Lavadoras">Equipos de pretratamiento - Lavadoras</option>
-        <option value="Equipos y cabinas de granallado">Equipos y cabinas de granallado</option>
-        <option value="Hornos">Hornos</option>
-        <option value="Conveyors">Conveyors</option>
-        <option value="Colectores de polvo">Colectores de polvo</option>
-        <option value="Filtros de aire">Filtros de aire</option>
-        <option value="Servicio industrial y refaccionamiento">Servicio industrial y refaccionamiento</option>
-        <option value="Equipos auxiliares">Equipos auxiliares</option>
+      <option value="" disabled selected>{T.seleccionaOpcion}</option>
+      <optgroup label={T.grupoSoluciones}>
+        {opcionesSoluciones.map((valor, i) => <option value={valor}>{etiquetasSoluciones[i]}</option>)}
       </optgroup>
-      <optgroup label="Partes y Filtros">
-        <option value="Pintura en polvo">Pintura en polvo</option>
-        <option value="Filtros">Filtros</option>
-        <option value="Pintura líquida">Pintura líquida</option>
-        <option value="Lámparas infrarrojas">Lámparas infrarrojas</option>
-        <option value="Refacciones">Refacciones</option>
+      <optgroup label={T.grupoPartes}>
+        {opcionesPartes.map((valor, i) => <option value={valor}>{etiquetasPartes[i]}</option>)}
       </optgroup>
     </select>
   </div>
   <div class="group">
-    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">Requerimiento Técnico</label>
-    <textarea name="requerimiento" required rows="3" class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all resize-none" placeholder="Describe brevemente tus necesidades de producción, integración o servicios..."></textarea>
+    <label class="block text-xs font-bold text-gray-500 mb-2 uppercase tracking-widest group-focus-within:text-[var(--color-brand-navy)] transition-colors">{T.requerimientoTecnico}</label>
+    <textarea name="requerimiento" required rows="3" class="w-full px-4 py-3 border-b-2 border-gray-200 bg-gray-50/50 rounded-t-md focus:outline-none focus:border-[var(--color-brand-lime)] focus:bg-white transition-all resize-none" placeholder={T.requerimientoPlaceholder}></textarea>
   </div>
   <div class="pt-2">
     <button type="submit" class="w-full bg-[var(--color-brand-navy)] text-white font-bold uppercase tracking-widest py-4 rounded hover:bg-[var(--color-brand-lime)] hover:text-[var(--color-brand-navy)] transition-all duration-300 shadow-md group overflow-hidden relative">
       <span class="relative z-10 flex items-center justify-center gap-2">
-         Solicitar Asesoría
+         {T.solicitarAsesoria}
          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
       </span>
     </button>
@@ -90,6 +155,28 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('#contactoForm');
+
+    // Mensajes que solo existen en tiempo de ejecución (no vienen del
+    // servidor): el idioma viaja en data-locale, puesto por el componente.
+    const TEXTOS = {
+      es: {
+        enviando: 'Enviando...',
+        errorEnvio: 'Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.',
+        errorRed: 'Hubo un error de red al intentar enviar el formulario. Por favor revisa tu conexión.',
+        cotizacionParte: (producto, parte) => `Solicito cotización de: ${producto} (parte ${parte}).`,
+        cotizacion: (producto) => `Solicito cotización de: ${producto}.`,
+        parteAviso: (parte) => ` · parte ${parte}`,
+      },
+      en: {
+        enviando: 'Sending...',
+        errorEnvio: 'There was an error sending your message. Please try again.',
+        errorRed: 'There was a network error while sending the form. Please check your connection.',
+        cotizacionParte: (producto, parte) => `Requesting a quote for: ${producto} (part ${parte}).`,
+        cotizacion: (producto) => `Requesting a quote for: ${producto}.`,
+        parteAviso: (parte) => ` · part ${parte}`,
+      },
+    };
+    const textosDe = (form) => TEXTOS[form.dataset.locale] ?? TEXTOS.es;
 
     // Cotización desde el catálogo: la ficha del producto llega como
     // ?producto=&parte=&categoria= y se precarga aquí, para que el lead
@@ -115,11 +202,12 @@
           if (opcion) solucion.value = opcion.value;
         }
 
+        const textos = textosDe(form);
         const requerimiento = campo('requerimiento');
         if (requerimiento && !requerimiento.value.trim()) {
           requerimiento.value = parte
-            ? `Solicito cotización de: ${producto} (parte ${parte}).`
-            : `Solicito cotización de: ${producto}.`;
+            ? textos.cotizacionParte(producto, parte)
+            : textos.cotizacion(producto);
         }
 
         const aviso = form.querySelector('#avisoProducto');
@@ -127,7 +215,7 @@
           aviso.classList.remove('hidden');
           aviso.classList.add('flex');
           form.querySelector('#avisoProductoNombre').textContent = producto;
-          if (parte) form.querySelector('#avisoProductoParte').textContent = ` · parte ${parte}`;
+          if (parte) form.querySelector('#avisoProductoParte').textContent = textos.parteAviso(parte);
         }
       });
 
@@ -139,11 +227,12 @@
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        const textos = textosDe(form);
         const submitBtn = form.querySelector('button[type="submit"]');
         const spanText = submitBtn.querySelector('span');
         const originalText = spanText.innerHTML;
-        
-        spanText.innerHTML = 'Enviando...';
+
+        spanText.innerHTML = textos.enviando;
         submitBtn.disabled = true;
         submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
@@ -175,16 +264,16 @@
 
           if (response.ok) {
             // Redirigir a la página de gracias
-            window.location.href = '/gracias';
+            window.location.href = form.dataset.locale === 'en' ? '/en/gracias' : '/gracias';
           } else {
-            alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
+            alert(textos.errorEnvio);
             spanText.innerHTML = originalText;
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
           }
         } catch (error) {
           console.error('Error:', error);
-          alert('Hubo un error de red al intentar enviar el formulario. Por favor revisa tu conexión.');
+          alert(textos.errorRed);
           spanText.innerHTML = originalText;
           submitBtn.disabled = false;
           submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
