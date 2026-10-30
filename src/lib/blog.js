@@ -12,27 +12,28 @@ const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
 const POR_PAGINA = 9
 
 /** Listado con filtro por categoría y búsqueda. */
-export async function getArticulos({ categoria = '', buscar = '', pagina = 1, porPagina = POR_PAGINA } = {}) {
+export async function getArticulos({ categoria = '', buscar = '', pagina = 1, porPagina = POR_PAGINA, locale = 'es' } = {}) {
   const parametros = new URLSearchParams()
   if (porPagina !== POR_PAGINA) parametros.set('por_pagina', String(porPagina))
   if (categoria) parametros.set('categoria', categoria)
   if (buscar) parametros.set('buscar', buscar)
   if (pagina > 1) parametros.set('page', String(pagina))
+  parametros.set('locale', locale)
 
   try {
     const res = await fetch(`${API_URL}/api/v1/blog?${parametros}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) return await res.json()
   } catch {
-    // API no disponible: se filtra sobre el respaldo local
+    // API no disponible: se filtra sobre el respaldo local (siempre en español)
   }
 
   return filtrarRespaldo({ categoria, buscar, pagina, porPagina })
 }
 
 /** Artículo completo y sus relacionados. */
-export async function getArticulo(slug) {
+export async function getArticulo(slug, locale = 'es') {
   try {
-    const res = await fetch(`${API_URL}/api/v1/blog/${slug}`, { signal: AbortSignal.timeout(5000) })
+    const res = await fetch(`${API_URL}/api/v1/blog/${slug}?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) return await res.json()
     if (res.status === 404) return null
   } catch {

@@ -20,27 +20,28 @@ export function getCategoriasLocales() {
 }
 
 /** Listado con búsqueda y filtros. Devuelve también categorías y marcas. */
-export async function getCatalogo({ categoria = '', marca = '', buscar = '', pagina = 1 } = {}) {
+export async function getCatalogo({ categoria = '', marca = '', buscar = '', pagina = 1, locale = 'es' } = {}) {
   const parametros = new URLSearchParams()
   if (categoria) parametros.set('categoria', categoria)
   if (marca) parametros.set('marca', marca)
   if (buscar) parametros.set('buscar', buscar)
   if (pagina > 1) parametros.set('page', String(pagina))
+  parametros.set('locale', locale)
 
   try {
     const res = await fetch(`${API_URL}/api/v1/catalogo?${parametros}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) return await res.json()
   } catch {
-    // API no disponible: se filtra sobre el respaldo local
+    // API no disponible: se filtra sobre el respaldo local (siempre en español)
   }
 
   return filtrarRespaldo({ categoria, marca, buscar, pagina })
 }
 
 /** Ficha de un producto y otros de su misma categoría. */
-export async function getProducto(slug) {
+export async function getProducto(slug, locale = 'es') {
   try {
-    const res = await fetch(`${API_URL}/api/v1/catalogo/${slug}`, { signal: AbortSignal.timeout(5000) })
+    const res = await fetch(`${API_URL}/api/v1/catalogo/${slug}?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) return await res.json()
     if (res.status === 404) return null
   } catch {

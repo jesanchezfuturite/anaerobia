@@ -12,14 +12,14 @@ const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
  */
 
 /** Los últimos casos de estudio publicados, más recientes primero. */
-export async function getUltimosCasos(cantidad = 3) {
+export async function getUltimosCasos(cantidad = 3, locale = 'es') {
   try {
-    const res = await fetch(`${API_URL}/api/v1/casos-de-estudio?por_pagina=${cantidad}`, {
+    const res = await fetch(`${API_URL}/api/v1/casos-de-estudio?por_pagina=${cantidad}&locale=${locale}`, {
       signal: AbortSignal.timeout(5000),
     })
     if (res.ok) return (await res.json()).data
   } catch {
-    // API no disponible: se sirve el respaldo local
+    // API no disponible: se sirve el respaldo local (siempre en español)
   }
 
   return [...respaldo.casos]
@@ -28,9 +28,9 @@ export async function getUltimosCasos(cantidad = 3) {
 }
 
 /** Ficha completa del caso de estudio y sus relacionados. */
-export async function getCaso(slug) {
+export async function getCaso(slug, locale = 'es') {
   try {
-    const res = await fetch(`${API_URL}/api/v1/casos-de-estudio/${slug}`, { signal: AbortSignal.timeout(5000) })
+    const res = await fetch(`${API_URL}/api/v1/casos-de-estudio/${slug}?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) return await res.json()
     if (res.status === 404) return null
   } catch {
