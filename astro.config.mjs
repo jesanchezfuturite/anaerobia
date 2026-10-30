@@ -8,6 +8,15 @@ export default defineConfig({
   site: 'https://anaerobia.com',
   output: 'static',
   adapter: vercel(),
+  i18n: {
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+    // El español sigue sin prefijo (/tienda) para no romper URLs ya posicionadas;
+    // el inglés vive bajo /en (/en/tienda).
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   vite: {
     plugins: [tailwindcss()],
   },

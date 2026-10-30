@@ -1,0 +1,23 @@
+---
+interface Props {
+  idioma: 'es' | 'en'
+  hrefEs: string
+  hrefEn: string
+  class?: string
+}
+
+const { idioma, hrefEs, hrefEn, class: claseExtra = '' } = Astro.props
+
+const base = 'flex items-center gap-1 px-2 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide transition-colors'
+const activa = 'bg-[var(--color-brand-navy)] text-white'
+const inactiva = 'text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)]'
+---
+
+<div class={`flex items-center gap-1 rounded-full border border-gray-200 p-1 ${claseExtra}`} role="group" aria-label="Idioma / Language">
+  <a href={hrefEs} class={`${base} ${idioma === 'es' ? activa : inactiva}`} aria-current={idioma === 'es' ? 'page' : undefined}>
+    <span aria-hidden="true">🇲🇽</span>ES
+  </a>
+  <a href={hrefEn} class={`${base} ${idioma === 'en' ? activa : inactiva}`} aria-current={idioma === 'en' ? 'page' : undefined}>
+    <span aria-hidden="true">🇺🇸</span>EN
+  </a>
+</div>

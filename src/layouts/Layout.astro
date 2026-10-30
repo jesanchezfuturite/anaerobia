@@ -92,7 +92,7 @@ const datosLocalBusiness = sedes.map((sede) => ({
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={Astro.currentLocale ?? "es"}>
   <head>
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
