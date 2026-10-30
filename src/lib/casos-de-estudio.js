@@ -1,4 +1,5 @@
 import respaldo from '../data/casos-de-estudio.json'
+import respaldoEn from '../data/casos-de-estudio.en.json'
 
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
 
@@ -22,7 +23,8 @@ export async function getUltimosCasos(cantidad = 3, locale = 'es') {
     // API no disponible: se sirve el respaldo local (siempre en español)
   }
 
-  return [...respaldo.casos]
+  const copia = locale === 'en' ? respaldoEn : respaldo
+  return [...copia.casos]
     .sort((a, b) => (b.published_at ?? '').localeCompare(a.published_at ?? ''))
     .slice(0, cantidad)
 }
@@ -37,12 +39,13 @@ export async function getCaso(slug, locale = 'es') {
     // API no disponible: se busca en el respaldo local
   }
 
-  const caso = respaldo.casos.find((c) => c.slug === slug)
+  const copia = locale === 'en' ? respaldoEn : respaldo
+  const caso = copia.casos.find((c) => c.slug === slug)
   if (!caso) return null
 
   return {
     data: caso,
-    relacionados: respaldo.casos
+    relacionados: copia.casos
       .filter((c) => c.slug !== slug)
       .sort((a, b) => (a.category?.slug === caso.category?.slug ? -1 : 1))
       .slice(0, 3),

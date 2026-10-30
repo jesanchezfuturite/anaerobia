@@ -1,4 +1,5 @@
 import respaldo from '../data/blog.json'
+import respaldoEn from '../data/blog.en.json'
 
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
 
@@ -27,7 +28,7 @@ export async function getArticulos({ categoria = '', buscar = '', pagina = 1, po
     // API no disponible: se filtra sobre el respaldo local (siempre en español)
   }
 
-  return filtrarRespaldo({ categoria, buscar, pagina, porPagina })
+  return filtrarRespaldo(locale === 'en' ? respaldoEn : respaldo, { categoria, buscar, pagina, porPagina })
 }
 
 /** Artículo completo y sus relacionados. */
@@ -40,22 +41,23 @@ export async function getArticulo(slug, locale = 'es') {
     // API no disponible: se busca en el respaldo local
   }
 
-  const articulo = respaldo.articulos.find((a) => a.slug === slug)
+  const copia = locale === 'en' ? respaldoEn : respaldo
+  const articulo = copia.articulos.find((a) => a.slug === slug)
   if (!articulo) return null
 
   return {
     data: articulo,
-    relacionados: respaldo.articulos
+    relacionados: copia.articulos
       .filter((a) => a.slug !== slug)
       .sort((a, b) => (a.category?.slug === articulo.category?.slug ? -1 : 1))
       .slice(0, 3),
   }
 }
 
-function filtrarRespaldo({ categoria, buscar, pagina, porPagina = POR_PAGINA }) {
+function filtrarRespaldo(copia, { categoria, buscar, pagina, porPagina = POR_PAGINA }) {
   const texto = buscar.trim().toLowerCase()
 
-  const encontrados = respaldo.articulos.filter((a) => {
+  const encontrados = copia.articulos.filter((a) => {
     if (categoria && a.category?.slug !== categoria) return false
     if (!texto) return true
 
@@ -71,7 +73,7 @@ function filtrarRespaldo({ categoria, buscar, pagina, porPagina = POR_PAGINA }) 
       paginas: Math.max(1, Math.ceil(encontrados.length / porPagina)),
       total: encontrados.length,
     },
-    destacado: categoria || buscar || pagina > 1 ? null : (respaldo.articulos.find((a) => a.featured) ?? null),
-    categorias: respaldo.categorias,
+    destacado: categoria || buscar || pagina > 1 ? null : (copia.articulos.find((a) => a.featured) ?? null),
+    categorias: copia.categorias,
   }
 }
