@@ -26,6 +26,10 @@ const PAGINAS = [
     { ruta: '/terminos-y-condiciones', prioridad: '0.2', frecuencia: 'yearly' },
 ]
 
+const BILINGUES = new Set(PAGINAS.map((p) => p.ruta).filter((ruta) => ruta !== '/aneffy'))
+
+const enIngles = (ruta: string) => ruta === '/' ? '/en' : `/en${ruta}`
+
 /** Una por archivo en src/pages/soluciones/. */
 const SOLUCIONES = [
     'conveyors',
@@ -71,7 +75,9 @@ export async function GET({ site, url }) {
 
     const entradas = [
         ...PAGINAS.map((p) => ({ url: `${base}${p.ruta}`, prioridad: p.prioridad, frecuencia: p.frecuencia })),
+        ...PAGINAS.filter((p) => BILINGUES.has(p.ruta)).map((p) => ({ url: `${base}${enIngles(p.ruta)}`, prioridad: p.prioridad, frecuencia: p.frecuencia })),
         ...SOLUCIONES.map((slug) => ({ url: `${base}/soluciones/${slug}`, prioridad: '0.8', frecuencia: 'monthly' })),
+        ...SOLUCIONES.map((slug) => ({ url: `${base}/en/soluciones/${slug}`, prioridad: '0.8', frecuencia: 'monthly' })),
     ]
 
     // Catálogo: cada categoría (ruta propia desde 1.3, ya no ?categoria=
@@ -84,6 +90,11 @@ export async function GET({ site, url }) {
             prioridad: '0.7',
             frecuencia: 'weekly',
         })
+        entradas.push({
+            url: `${base}/en/partes-y-filtros/${categoria.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'weekly',
+        })
     }
 
     const productos = await recorrer((pagina) => getCatalogo({ pagina }))
@@ -91,6 +102,11 @@ export async function GET({ site, url }) {
     for (const producto of productos) {
         entradas.push({
             url: `${base}/partes-y-filtros/${producto.slug}`,
+            prioridad: '0.6',
+            frecuencia: 'monthly',
+        })
+        entradas.push({
+            url: `${base}/en/partes-y-filtros/${producto.slug}`,
             prioridad: '0.6',
             frecuencia: 'monthly',
         })
@@ -106,6 +122,12 @@ export async function GET({ site, url }) {
             frecuencia: 'monthly',
             fecha: articulo.published_at,
         })
+        entradas.push({
+            url: `${base}/en/blog/${articulo.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'monthly',
+            fecha: articulo.published_at,
+        })
     }
 
     // Casos de estudio: no hay listado propio, solo fichas enlazadas desde /proyectos.
@@ -114,6 +136,12 @@ export async function GET({ site, url }) {
     for (const caso of casos) {
         entradas.push({
             url: `${base}/casos-de-estudio/${caso.slug}`,
+            prioridad: '0.7',
+            frecuencia: 'monthly',
+            fecha: caso.published_at,
+        })
+        entradas.push({
+            url: `${base}/en/casos-de-estudio/${caso.slug}`,
             prioridad: '0.7',
             frecuencia: 'monthly',
             fecha: caso.published_at,

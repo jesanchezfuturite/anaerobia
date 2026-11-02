@@ -1,4 +1,6 @@
 import fallback from '../data/general.json'
+import traducciones from '../data/general.en.json'
+import { traducirContenido } from './traducir-contenido.js'
 
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
 
@@ -16,5 +18,5 @@ export async function getGeneral(locale = 'es') {
     // API no disponible: se sirve el contenido de respaldo (siempre en español)
   }
 
-  return fallback
+  return locale === 'en' ? traducirContenido(fallback, traducciones) : fallback
 }

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { getGeneral } from "../lib/general.js";
+import { rutaEnOtroIdioma } from "../lib/i18n.js";
 
 interface Props {
   title: string;
@@ -25,13 +26,19 @@ const {
 // no debe autocanonicalizarse a sí misma.
 const rutaSinBarra = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+$/, "") : Astro.url.pathname;
 const canonical = new URL(rutaSinBarra, Astro.site ?? Astro.url.origin).href;
+const idioma = Astro.currentLocale ?? "es";
+const rutaAlterna = rutaEnOtroIdioma(rutaSinBarra, idioma);
+const rutaEs = idioma === "es" ? rutaSinBarra : rutaAlterna;
+const rutaEn = idioma === "en" ? rutaSinBarra : rutaAlterna;
+const alternateEs = new URL(rutaEs, Astro.site ?? Astro.url.origin).href;
+const alternateEn = new URL(rutaEn, Astro.site ?? Astro.url.origin).href;
 const imagenSocial = image ? new URL(image, Astro.url.origin).href : undefined;
 
 // Datos de entidad: name/url/logo/redes vienen del panel «General» (mismo
 // contenido que ya consumen Navbar y Footer). Teléfono, correo y plazas
 // están fijos porque así se publican hoy en /contacto, no hay campo
 // administrable para ellos todavía.
-const general = await getGeneral();
+const general = await getGeneral(idioma);
 
 const datosOrganizacion = {
   "@context": "https://schema.org",
@@ -110,6 +117,9 @@ const datosLocalBusiness = sedes.map((sede) => ({
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
+    {!noindex && <link rel="alternate" hreflang="es" href={alternateEs} />}
+    {!noindex && <link rel="alternate" hreflang="en" href={alternateEn} />}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={alternateEs} />}
 
     <!-- Datos de entidad: Organization + LocalBusiness por sede -->
     <script type="application/ld+json" set:html={JSON.stringify(datosOrganizacion)} is:inline />

@@ -4,6 +4,16 @@ export const prerender = false
 import Layout from '../../layouts/Layout.astro'
 import CatalogoListado from '../../components/CatalogoListado.astro'
 import { getCatalogo, getCategoriasLocales } from '../../lib/catalogo.js'
+import { withLocale } from '../../lib/i18n.js'
+
+const { locale = 'es' } = Astro.props
+const T = locale === 'en' ? {
+    title: 'Parts and Filters | Industrial paint system components',
+    description: 'Parts, filters, and replacement components for industrial paint systems, including paint booth filters, infrared lamps, application equipment, and components from leading manufacturers.',
+} : {
+    title: 'Partes y Filtros | Componentes para sistemas de pintura industrial',
+    description: 'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.',
+}
 
 // El catálogo es un escaparate: los filtros viajan en la URL para que
 // cualquier vista se pueda compartir y la indexen los buscadores. La
@@ -20,16 +30,15 @@ if (categoria && getCategoriasLocales().some((c) => c.slug === categoria)) {
     const destino = new URLSearchParams(parametros)
     destino.delete('categoria')
     const cadena = destino.toString()
-    return Astro.redirect(`/partes-y-filtros/${categoria}${cadena ? `?${cadena}` : ''}`, 301)
+    return Astro.redirect(`${withLocale(`/partes-y-filtros/${categoria}`, locale)}${cadena ? `?${cadena}` : ''}`, 301)
 }
 
-const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria, marca, buscar, pagina })
+const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria, marca, buscar, pagina, locale })
 
-const seoTitle = 'Partes y Filtros | Componentes para sistemas de pintura industrial'
-const seoDescription =
-    'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.'
+const seoTitle = T.title
+const seoDescription = T.description
 ---
 
 <Layout title={seoTitle} description={seoDescription}>
-    <CatalogoListado categoria="" marca={marca} buscar={buscar} productos={productos} meta={meta} categorias={categorias} marcas={marcas} />
+    <CatalogoListado locale={locale} categoria="" marca={marca} buscar={buscar} productos={productos} meta={meta} categorias={categorias} marcas={marcas} />
 </Layout>

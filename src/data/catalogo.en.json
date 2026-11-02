@@ -1,0 +1,226 @@
+{
+  "categorias": {
+    "equipos-para-aplicacion-de-pintura": { "name": "Paint Application Equipment" },
+    "filtros": { "name": "Filters" },
+    "lamparas-infrarrojas": { "name": "Infrared Curing Equipment" },
+    "pintura-en-polvo": { "name": "Powder Coating" },
+    "refacciones": { "name": "Replacement Parts" }
+  },
+  "productos": {
+    "pef-330-k1": {
+      "name": "ANDREAE Accordion-Pleated Paper Paint Arrestor",
+      "summary": "Accordion-pleated paper exhaust filter.\n\nBrand: Andreae; Size: 3 ft × 30 ft",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: Paint collection\n\nMaterial: Paperboard\n\nDimensions: 36 in wide × 30 ft long × 2 1/2 in thick\n\nPackage quantity: 1 pc.\n\nColor: White\n\nEfficiency: 98.1%\n\nHolding capacity: 4.0 lb per 1/2\n\nInitial pressure drop: 0.12 in. w.c. @ 150 FPM\n\nFinal pressure drop: 0.5 in. w.c. @ 150 FPM"
+    },
+    "autocure-3000ii-moviles": {
+      "name": "AutoCure™ 3000II Mobile Infrared Unit",
+      "summary": "The mobile AutoCure™ 3000II uses purpose-designed infrared emitters and reflectors for controlled coating cure. It is configured to reach difficult areas and incorporates BGK surface-temperature control technology for process accuracy and repeatability.",
+      "attributes": [{ "name": "Cassette Dimensions", "options": ["133 mm W × 355 mm L", "159 mm W × 508 mm L"] }]
+    },
+    "autocure-5000ii-moviles": {
+      "name": "AutoCure™ 5000II Mobile Infrared Unit",
+      "summary": "The mobile AutoCure™ 5000II uses purpose-designed infrared emitters and reflectors for controlled coating cure. Its movable stand provides flexible positioning around parts while BGK surface-temperature control technology supports process accuracy and repeatability.",
+      "attributes": [{ "name": "Part Number", "options": ["AC5-2116", "AC5-2125", "AC5-2216", "AC5-2225", "AC5-4125", "AC5-4138", "AC5-4225", "AC5-4238"] }]
+    },
+    "autocure-6000ii-riel-aereo": {
+      "name": "AutoCure™ 6000II Overhead-Rail Infrared Unit",
+      "summary": "The AutoCure™ 6000II overhead infrared system uses purpose-designed emitters and reflectors for controlled coating cure. Its overhead-rail installation preserves process-floor space, while an electric actuator raises, lowers, and positions the cassettes and controls the cure cycle.",
+      "attributes": [{ "name": "Part Number", "options": ["AC6-2116", "AC6-2125", "AC6-2216", "AC6-2225", "AC6-4125", "AC6-4138", "AC6-4225", "AC6-4238"] }]
+    },
+    "autocure-7000ii-riel-lateral-ac7-2116": {
+      "name": "AutoCure™ 7000II Side-Rail Infrared Unit",
+      "summary": "The AutoCure™ 7000II side-rail infrared system uses purpose-designed emitters and reflectors for controlled coating cure. Rail mounting optimizes space in the process area, while powered positioning makes the cassettes easy to place and the cure cycle easy to control.",
+      "attributes": [{ "name": "Part Number", "options": ["AC7-2116", "AC7-2125", "AC7-2216", "AC7-2225", "AC7-4125", "AC7-4138", "AC7-4225", "AC7-4238"] }]
+    },
+    "autocure-8000ii-riel-lateral-ac8-4350": {
+      "name": "AutoCure™ 8000II Side-Rail Infrared Panel",
+      "summary": "AutoCure™ 8000II infrared panels use purpose-designed emitters and reflectors to cure complete panel sections and difficult-to-reach areas. BGK surface-temperature control technology supports accurate, consistent processing.",
+      "attributes": [{ "name": "Part Number", "options": ["AC8-4350", "AC8-4450"] }]
+    },
+    "bomba-de-suministro-dx70": {
+      "name": "DX70 Double-Diaphragm Pump",
+      "summary": "1:1 pneumatic diaphragm pump with 7 bar maximum fluid pressure, 3/8-in fluid inlet and outlet, 2.2 kg weight, and maximum flow of 4.2 L/min.",
+      "description": "<table width=\"761\"><tbody><tr><td width=\"296\">Pressure ratio:</td><td width=\"465\">1:1</td></tr><tr><td>Maximum air pressure:</td><td>7 bar / 100 PSI</td></tr><tr><td>Maximum fluid pressure:</td><td>7 bar / 100 PSI</td></tr><tr><td>Nominal displacement per cycle:</td><td>0.07 L (0.018 US gal)</td></tr><tr><td>Delivery @ 60 cycles/min:</td><td>4.2 L/min (1.1 US gal/min)</td></tr><tr><td>Maximum continuous cycle rate:</td><td>10 cycles/min</td></tr><tr><td>Maximum intermittent cycle rate:</td><td>30 cycles/min</td></tr><tr><td>Fluid inlet:</td><td>3/8 in universal BSPP/NPSM male or female</td></tr><tr><td>Fluid outlet:</td><td>3/8 in universal BSPP/NPSM male or female</td></tr><tr><td>Maximum linear suction distance:</td><td>6.6 m (21.8 ft)</td></tr><tr><td>Air inlet:</td><td>G1/4 BSPP female</td></tr><tr><td>Air-regulator connector diameter:</td><td>ø4 mm tube</td></tr><tr><td>Air volume per cycle @ 6.9 bar (100 PSI):</td><td>0.77 L (0.27 SCFM)</td></tr><tr><td>Airflow @ 10 and 30 cycles/min, 6.9 bar / 100 PSI:</td><td>7.7 L/min (0.27 SCFM/min)<br>23.2 L/min (0.82 SCFM/min)</td></tr><tr><td>ISO 8573.1 Class 3.3.2 air quality:</td><td>Dry, 5 microns; water −20 °C @ 7 bar (940 ppm); oil 0.1 mg/m³; non-lubricated</td></tr><tr><td>Noise level:</td><td>68 dB LAeq</td></tr><tr><td>Ground:</td><td>&lt; 1 Ω</td></tr><tr><td>Weight:</td><td>2.2 kg (4.9 lb)</td></tr></tbody></table>"
+    },
+    "bomba-de-piston-horizontal-maple-31": {
+      "name": "Maple 3:1 Horizontal Piston Pump",
+      "summary": "Material-supply system for delivering coatings from an agitated 5-, 10-, or 15-gallon pressure tank using compressed air or inert gas. Includes air controls for the tank, agitator, and spray gun, with maximum working pressure of 110 PSI.",
+      "description": "<p>This supply system delivers coating material from a pressurized tank using compressed air or inert gas. The <strong>horizontal piston pump</strong> provides steady, efficient flow for industrial paint-booth applications.</p><p>The configuration supports 5-, 10-, or 15-gallon agitated tanks with air controls for the tank, agitator, and spray gun. It can be integrated into automotive, machinery, furniture, and metal-fabrication coating processes requiring repeatable material delivery.</p>",
+      "attributes": [{ "name": "Pump Model", "options": ["MAPLE 15 PUMP", "MAPLE 30 PUMP", "MAPLE 60 PUMP"] }]
+    },
+    "cartucho-de-celulosa-para-recoleccion-de-polvo-y-pintura-en-polvo": {
+      "name": "Dust and Powder-Coating Collection Cartridge",
+      "summary": "Cellulose cartridge for dust and powder-coating collection.\n\nOpen/open\n\nDimensions: 26 in × 12 3/4 in",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: Dust / powder-coating collection\n\nMaterial: Cellulose / polyester\n\nDimensions: 26 in high × 12.75 in outside diameter × 8.375 in inside diameter\n\nEnds: Open / open, with 22-gauge electrogalvanized end caps\n\nPackage quantity: 1 pc.\n\nColor: White\n\nFilter area: 191 sq ft\n\nMaximum temperature: 200 °F\n\nWeight: 16 lb"
+    },
+    "pistola-ms-topcoat-m4-copia": {
+      "name": "MS topcase® S4 Controller",
+      "summary": "The S4 touchscreen controller provides an intuitive display, preloaded standard programs, and storage for up to 999 additional recipes.\n\nIt supports precise adjustment of airflow, powder output, voltage, and current.\n\nSuitable for corona and corona/tribo guns.",
+      "description": "<table width=\"343\"><tbody><tr><td width=\"160\">Electrical supply:</td><td width=\"183\">100–240 VAC / 50–60 Hz</td></tr><tr><td>Pneumatic supply:</td><td>6–8 bar</td></tr><tr><td>Dimensions:</td><td>200 × 120 × 280 mm</td></tr><tr><td>Weight:</td><td>4.1 kg</td></tr></tbody></table>"
+    },
+    "drum-elevador-neumatico-con-agitador-5-gal": {
+      "name": "5-Gallon Pneumatic Drum Lift with Agitator",
+      "summary": "Main paint-loading system for a material-supply line, with a pneumatic lift for fast container changes.",
+      "description": "<table width=\"761\"><tbody><tr><td>Lift stroke:</td><td>500 mm (19.7 in)</td></tr><tr><td>Minimum/maximum inlet pressure:</td><td>3 bar (44 PSI) / 7 bar (100 PSI)</td></tr><tr><td>Air inlet connection:</td><td>G 1/2 in BSPP female</td></tr><tr><td>Maximum load, including lid/support:</td><td>50 kg (110 lb)</td></tr><tr><td>Maximum drum diameter:</td><td>ø 340 mm (13.4 in)</td></tr><tr><td>Maximum travel speed:</td><td>0.1 m/s (4 in/s)</td></tr><tr><td>Weight:</td><td>51 kg (112 lb)</td></tr><tr><td>Overall dimensions:</td><td>Maximum height from lift base: 1,378 mm (54.3 in)<br>Maximum height with cable carrier: 1,944 mm (76.5 in)<br>Width: 350 mm (13.8 in)</td></tr><tr><td>Recommended ISO 8573.1 Class 3.3.2.2 air quality:</td><td>Particles: 5 µm<br>Water: −20 °C @ 7 bar (940 ppm)<br>Oil: 0.1 mg/m³<br>Non-lubricated</td></tr><tr><td>Noise level @ 7 bar (100 PSI):</td><td>&lt; 70 dBA</td></tr><tr><td>Temperature range:</td><td>0–40 °C (32–104 °F)</td></tr><tr><td>Ground resistance:</td><td>&lt; 1 Ω</td></tr></tbody></table>"
+    },
+    "filtro-de-6-bolsas-con-marco-metalico": {
+      "name": "Six-Pocket Filter with Metal Frame",
+      "summary": "Internally framed six-pocket filter for paint and dust collection; third exhaust stage.\n\nDimensions: 20 × 20 × 12 in",
+      "description": "Standards: UL 900, NFPA 33, OSHA, EPA Method 319\n\nApplication: Dust, liquid-paint, and powder-coating collection\n\nMaterial: Polyester\n\nDimensions: 20 in wide × 20 in high × 15 in deep, external metal frame\n\nNumber of pockets: 6\n\nColor: Yellow\n\nPackage quantity: 1 pc.\n\nEfficiency: 99.5%\n\nHolding capacity: 1.33 lb\n\nInitial pressure drop: 0.35 in. w.c. @ 200 FPM\n\nFinal pressure drop: 1.00 in. w.c. @ 200 FPM"
+    },
+    "filtro-en-rollo-de-poliester-difusor-de-aire-pare-techo-de-cabinas-de-pintura": {
+      "name": "Polyester Ceiling-Diffusion Filter Roll for Paint Booths",
+      "summary": "Polyester filter roll for paint-booth ceiling supply plenums.\n\nModel: Microclean; Brand: GFS",
+      "attributes": [{ "name": "Dimensions", "options": ["75 in wide × 75 ft long × 1 in thick", "81 in wide × 75 ft long × 1 in thick"] }]
+    },
+    "filtro-fibra-de-vidrio-en-pads-verde": {
+      "name": "Green Fiberglass Paint-Arrestor Pads",
+      "summary": "Green fiberglass exhaust-filter pads, 15 g per sq ft.\n\nDimensions: 20 × 20 in\n\nBox of 100 filters",
+      "attributes": [{ "name": "Filter", "options": ["217-001"] }]
+    },
+    "filtro-fibra-de-vidrio-en-rollo-amarillo": {
+      "name": "Yellow Fiberglass Paint-Arrestor Roll",
+      "summary": "Yellow fiberglass exhaust-filter roll, 22 g per sq ft.",
+      "attributes": [{ "name": "Dimensions", "options": ["30 in wide × 300 ft long × 2 in thick", "40 in wide × 300 ft long × 2 in thick"] }]
+    },
+    "filtro-fibra-de-vidrio-en-rollo-verde": {
+      "name": "Green Fiberglass Paint-Arrestor Roll",
+      "summary": "Green fiberglass exhaust-filter roll, 15 g per sq ft.",
+      "description": "Fiberglass paint-arrestor media for controlling overspray in paint-booth exhaust systems. Select the correct width and verify pressure-drop and replacement requirements for the booth.",
+      "attributes": [{ "name": "Dimensions", "options": ["20 in wide × 300 ft long × 2 in thick", "25 in wide × 300 ft long × 2 in thick", "30 in wide × 300 ft long × 2 in thick", "42 in wide × 300 ft long × 2 in thick"] }]
+    },
+    "filtro-plenum-de-poliester-tackificado-en-panel-2": {
+      "name": "Green Tacky Polyester Plenum Panel Filter",
+      "summary": "Internally framed tacky-polyester panel for paint-booth ceiling supply plenums.\n\nBrand: GFS; Dimensions: 20 × 20 in\n\nBox of 24 green filters",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: Plenum air diffusion and ventilation\n\nMaterial: Resin-treated tacky polyester\n\nDimensions: 20 in wide × 20 in high × 1 in thick, internal metal frame\n\nPackage quantity: 24 pcs.\n\nColor: White / green\n\nEfficiency: 82%, MERV 10 @ 1,968 CFM\n\nParticle size: 7–10 microns\n\nInitial pressure drop: 0.544 in. w.c. @ 100 FPM\n\nFinal pressure drop: 1.000 in. w.c. @ 100 FPM\n\nDust-holding capacity: 77.0 g\n\nArrestance: 83.6%",
+      "attributes": [{ "name": "Filter", "options": ["217-012", "217-013", "217-014"] }]
+    },
+    "filtro-plenum-de-poliester-tackificado-en-panel": {
+      "name": "Tacky Polyester Plenum Panel Filter",
+      "summary": "Internally framed tacky-polyester air-diffusion panel for paint-booth ceiling plenums; GFS brand.\n\n20 × 20 in\n\nBox of 24 filters",
+      "attributes": [{ "name": "Dimensions", "options": ["20 in wide × 20 in high × 1 in thick", "20 in wide × 25 in high × 1 in thick", "24 in wide × 24 in high × 1 in thick"] }]
+    },
+    "filtro-plenum-de-poliester-tackificado-en-panel-azul": {
+      "name": "Blue Tacky Polyester Plenum Panel Filter",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: Plenum air diffusion and ventilation\n\nMaterial: Resin-treated tacky polyester\n\nDimensions: 20 in wide × 20 in high × 1 in thick, internal metal frame\n\nPackage quantity: 24 pcs.\n\nColor: Blue\n\nEfficiency: 82%, MERV 10 @ 1,968 CFM\n\nParticle size: 7–10 microns\n\nInitial pressure drop: 0.544 in. w.c. @ 100 FPM\n\nFinal pressure drop: 1.000 in. w.c. @ 100 FPM\n\nDust-holding capacity: 77.0 g\n\nArrestance: 83.6%\n\nThis high-density polyester plenum filter supports uniform supply airflow in paint booths and industrial ventilation systems. Tacky media captures dust and other airborne contaminants while balancing filtration efficiency and airflow resistance. Its rigid internal frame makes installation and replacement straightforward.",
+      "attributes": [{ "name": "Dimensions", "options": ["20 in wide × 20 in high × 1 in thick"] }]
+    },
+    "filtro-plenum-de-poliester-tackificado-en-rollo": {
+      "name": "Tacky Polyester Plenum Filter Roll",
+      "summary": "Tacky polyester roll for paint-booth ceiling plenum air diffusion; GFS brand.\n\nNominal size: 50 in × 30 ft",
+      "attributes": [{ "name": "Dimensions", "options": ["50 in wide × 30 ft long × 1 in thick", "50 in wide × 90 ft long × 1 in thick"] }]
+    },
+    "filtro-plisado-con-marco-de-carton": {
+      "name": "Pleated Filter with Paperboard Frame",
+      "summary": "MERV 7 pleated dust-collection filter with paperboard frame; first stage. Dimensions: 20 × 20 × 2 in.",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: First stage in air handlers and ventilation; final filter in selected systems\n\nMaterial: Pleated cotton/polyester fibers, 15 pleats\n\nDimensions: 20 in wide × 20 in high × 2 in thick\n\nPackage quantity: 1 pc.\n\nColor: White frame, green pleats\n\nASHRAE 52.2 rating: MERV 7\n\nInitial pressure drop: 0.28 in. w.c. @ 350 FPM\n\nFinal pressure drop: 1.000 in. w.c. @ 350 FPM\n\nDust-holding capacity: 170 g"
+    },
+    "filtro-wave-gfs": {
+      "name": "GFS Wave Paint-Arrestor Filter",
+      "summary": "GFS Wave polyester paint-exhaust filter pads.\n\nNominal size: 20 × 20 in\n\nBox of 30 filters",
+      "attributes": [{ "name": "Dimensions", "options": ["20 in wide × 20 in high × 2 in thick", "20 in wide × 25 in high × 2 in thick", "Roll: 30 in wide × 24 ft long × 2 in thick", "Roll: 30 in wide × 30 ft long × 2 in thick", "Roll: 36 in wide × 30 ft long × 2 in thick", "Roll: 45 in wide × 30 ft long × 2 in thick", "Roll: 48 in wide × 30 ft long × 2 in thick"] }]
+    },
+    "infrared-standing-units": {
+      "name": "IWT Pedestal-Mount Infrared Unit — 1 Module",
+      "summary": "Microprocessor-controlled infrared curing system with non-contact pyrometer measurement, INR compensation, process alarms, PC parameter transfer, and short-/fast-medium-wave emitters. Cassettes can be positioned in three axes to follow the part profile. Includes 16 programmable recipes, EPROM storage, system-to-system data transfer, and two-level password protection.",
+      "description": "The pedestal-mount IWT infrared unit provides focused, repeatable heat for industrial coating cure. Its adjustable stand positions the cassette around the part, including difficult-to-reach areas, while closed-loop surface-temperature control adapts energy output to the programmed cure cycle. Concentrating energy on the required area can shorten cycle time and reduce unnecessary heating of the surrounding workspace.",
+      "attributes": [{ "name": "Available Voltage", "options": ["240 V / 60 Hz", "400 V — 3-phase / 60 Hz"] }]
+    },
+    "lampara-infrarroja-de-pedestal-iwt-2-modulos": {
+      "name": "IWT Pedestal-Mount Infrared Unit — 2 Modules",
+      "summary": "Microprocessor-controlled two-module infrared curing system with non-contact pyrometer measurement, INR compensation, process alarms, PC parameter transfer, and short-/fast-medium-wave emitters. Includes three-axis cassette positioning, 16 programmable recipes, EPROM storage, and two-level password protection.",
+      "description": "The two-module pedestal IWT system provides adjustable infrared coverage for faster, controlled coating cure. Its movable stand and positionable cassettes target the required area, while integrated temperature control supports repeatable cycles for paint booths, repair operations, and industrial coating applications.",
+      "attributes": [{ "name": "Module Dimensions", "options": ["400 × 250 mm", "510 × 570 mm"] }]
+    },
+    "lampara-infrarroja-de-pedestal-iwt-3-modulos": {
+      "name": "IWT Pedestal-Mount Infrared Unit — 3 Modules",
+      "summary": "Microprocessor-controlled three-module infrared curing system with non-contact pyrometer measurement, INR compensation, process alarms, PC parameter transfer, and short-/fast-medium-wave emitters. Includes three-axis cassette positioning, 16 programmable recipes, EPROM storage, and two-level password protection.",
+      "description": "The three-module pedestal IWT system provides broad, adjustable infrared coverage for controlled coating cure.<table width=\"359\"><tbody><tr><td>Temperature range:</td><td>Controller programmable from 6 °C to 180 °C; minimum temperature-change rate 6 °C/min</td></tr><tr><td>Number of modules:</td><td>3</td></tr><tr><td>Module dimensions:</td><td>400 × 250 mm</td></tr><tr><td>Available voltage:</td><td>400 V — 3-phase / 60 Hz</td></tr></tbody></table>Its movable stand and positionable cassettes target the required areas, while integrated surface-temperature control supports repeatable cycles and efficient energy use.",
+      "attributes": []
+    },
+    "lamparas-para-cabina-de-pintura-gfs-led": {
+      "name": "GFS Paint-Booth Light — 4 LED Tubes",
+      "summary": "LABW-12-4 LED fixture for high-output, energy-efficient paint-booth lighting. Designed for locations handling volatile flammable liquids or gases; ETL/ETL-C certified for the stated Class I, Division 2, Groups A–D rating. Verify the exact listing and installation requirements for the application.",
+      "description": "GFS paint-booth lighting provides uniform illumination to reduce shadows and improve finish inspection.<table width=\"497\"><tbody><tr><td>Dimensions:</td><td>1,324 × 480 mm (52 1/8 × 18 7/8 in)</td></tr><tr><td>Tubes:</td><td>4 T8 LED lamps</td></tr><tr><td>Color temperature:</td><td>5,000 K</td></tr><tr><td>Color rendering index:</td><td>82%</td></tr><tr><td>Available voltage:</td><td>120 / 277 V</td></tr><tr><td>Output:</td><td>2,100 lumens</td></tr><tr><td>Rated life:</td><td>36,000 hours</td></tr><tr><td>Startup:</td><td>Instant, without flicker or hum</td></tr><tr><td>Power:</td><td>14 W</td></tr></tbody></table>Manufacturer data indicates energy savings of up to 40% compared with a 32 W T8 fluorescent lamp. The LED tubes emit virtually no UV or IR light and contain no mercury.",
+      "attributes": []
+    },
+    "lamparas-para-cabina-de-pintura-gfs-6-tubos-led": {
+      "name": "GFS Paint-Booth Light — 6 LED Tubes",
+      "summary": "LABW-12-6 LED fixture for high-output, energy-efficient paint-booth lighting. Designed for locations handling volatile flammable liquids or gases; ETL/ETL-C certified for the stated Class I, Division 2, Groups A–D rating. Verify the exact listing and installation requirements for the application.",
+      "description": "GFS paint-booth lighting provides uniform illumination to reduce shadows and improve finish inspection.<table width=\"497\"><tbody><tr><td>Dimensions:</td><td>1,324 × 480 mm (52 1/8 × 18 7/8 in)</td></tr><tr><td>Tubes:</td><td>6 T8 LED lamps</td></tr><tr><td>Color temperature:</td><td>5,000 K</td></tr><tr><td>Color rendering index:</td><td>82%</td></tr><tr><td>Available voltage:</td><td>120 / 277 V</td></tr><tr><td>Output:</td><td>2,100 lumens</td></tr><tr><td>Rated life:</td><td>36,000 hours</td></tr><tr><td>Startup:</td><td>Instant, without flicker or hum</td></tr><tr><td>Power:</td><td>14 W per lamp</td></tr></tbody></table>Manufacturer data indicates energy savings of up to 40% compared with a 32 W T8 fluorescent lamp. The LED tubes emit virtually no UV or IR light and contain no mercury.",
+      "attributes": []
+    },
+    "manometro-diferencial-de-presion-dwyer": {
+      "name": "Dwyer Differential-Pressure Gauge",
+      "summary": "Measures static-pressure resistance across a filter bank to indicate when paint-loaded filters require replacement. Includes two mounting screws, a 1-ounce bottle of indicator fluid, red and green indicators, instructions, and 8 ft of flexible dual-column tubing.",
+      "description": "The Dwyer differential-pressure gauge monitors pressure difference across paint-booth filters and other air-handling components. Clear readings help maintenance personnel identify loading before airflow and capture performance deteriorate.<table width=\"499\"><tbody><tr><td>Material:</td><td>Molded polypropylene body with aluminum frame</td></tr><tr><td>Accuracy:</td><td>±3% FS</td></tr><tr><td>Temperature limit:</td><td>140 °F (60 °C)</td></tr><tr><td>Pressure limit:</td><td>10 PSI (70 kPa)</td></tr><tr><td>Range:</td><td>0–3 in. w.c.</td></tr><tr><td>Agency approvals:</td><td>Meets the technical requirements of EU Directive 2011/65/EU (RoHS II)</td></tr><tr><td>Weight:</td><td>1.04 lb (472 g)</td></tr></tbody></table>Its compact construction supports installation on ventilation, filtration, and related industrial systems where differential pressure is critical to performance and maintenance planning.",
+      "attributes": []
+    },
+    "ms-topcoater-fluidizado": {
+      "name": "MS topcoater® Fluidized System",
+      "summary": "Mobile industrial powder-coating system with a fluidized feed for consistent application. Includes MS S4 controller, MS M4 manual gun, air and powder suction assembly, and an air-filter unit that limits contaminated supply air.",
+      "description": "<table width=\"343\"><tbody><tr><td>Electrical supply:</td><td>100–240 VAC / 50–60 Hz</td></tr><tr><td>Pneumatic supply:</td><td>6–8 bar</td></tr><tr><td>Dimensions:</td><td>200 × 120 × 280 mm</td></tr><tr><td>Weight:</td><td>4.1 kg</td></tr></tbody></table>",
+      "attributes": []
+    },
+    "ms-topcoater-vibratorio": {
+      "name": "MS topcoater® Vibratory-Box System",
+      "summary": "Mobile industrial powder-coating system that feeds powder directly from the original container for fast color change. Includes MS S4 controller, MS M4 manual gun, air and powder suction assembly, and an air-filter unit that limits contaminated supply air.",
+      "description": "<table width=\"343\"><tbody><tr><td>Electrical supply:</td><td>100–240 VAC / 50–60 Hz</td></tr><tr><td>Pneumatic supply:</td><td>6–8 bar</td></tr><tr><td>Dimensions:</td><td>200 × 120 × 280 mm</td></tr><tr><td>Weight:</td><td>4.1 kg</td></tr></tbody></table>",
+      "attributes": []
+    },
+    "ef-2020-k40": {
+      "name": "Paper-Mesh Filter Pads",
+      "summary": "Paper-mesh filter pads with polyester backing.\n\nDimensions: 20 × 20 × 1 in\n\nBox of 40 pcs.",
+      "description": "Standards: UL 900, NFPA 33, OSHA\n\nApplication: Paint collection\n\nMaterial: 5 paper layers / 1 polyester layer\n\nDimensions: 20 in wide × 20 in high × 2 in thick\n\nPackage quantity: 40 pcs.\n\nColor: Brown / white\n\nEfficiency: 98.1%\n\nHolding capacity: 4.0 lb per 1/2\n\nInitial pressure drop: 0.12 in. w.c. @ 150 FPM\n\nFinal pressure drop: 0.5 in. w.c. @ 150 FPM"
+    },
+    "pistola-de-aplicacion-convencional": {
+      "name": "Conventional Air-Spray Gun",
+      "summary": "Full-size aluminum-body conventional spray gun for a wide range of materials, including adhesives, epoxies, and abrasive fluids.",
+      "description": "<table width=\"761\"><tbody><tr><td>Maximum working pressure:</td><td>100 PSI / 6.9 bar</td></tr><tr><td>Maximum fluid pressure:</td><td>100 PSI / 6.9 bar</td></tr><tr><td>Gun body:</td><td>Polished aluminum</td></tr><tr><td>Wetted material:</td><td>Stainless steel</td></tr><tr><td>Fluid inlet:</td><td>3/8 in NPS</td></tr><tr><td>Air inlet:</td><td>1/4 in NPS</td></tr><tr><td>Gun weight:</td><td>1 lb 6 oz / 635 g</td></tr></tbody></table>"
+    },
+    "pintura-electrostatica": {
+      "name": "Electrostatic Liquid Spray Gun",
+      "summary": "Electrostatic spray gun for solvent-borne coatings with adjustable voltage up to 45 kV or 65 kV, plus air-pressure and spray-pattern adjustment.",
+      "attributes": [{ "name": "Maximum Operating Voltage", "options": ["45 kV DC", "65 kV DC"] }]
+    },
+    "pistola-ms-topcoat-m4": {
+      "name": "MS topcoat® M4 Powder Gun",
+      "summary": "The MS topcoat® M4 manual powder gun combines application performance with low operator fatigue. Its lightweight design and one- or two-finger trigger improve handling and productivity. A low parts count makes cleaning and maintenance straightforward, supporting reliability and long service life.",
+      "description": "<table width=\"343\"><tbody><tr><td>Weight, without cup:</td><td>380 g</td></tr><tr><td>Length:</td><td>350 mm</td></tr><tr><td>Voltage:</td><td>100 kV</td></tr><tr><td>Capacity:</td><td>450 g/min max.</td></tr></tbody></table>"
+    },
+    "sensor-shsi-kimo": {
+      "name": "KIMO SHSI Humidity and Temperature Sensor",
+      "description": "<table width=\"499\"><tbody><tr><td>Relative-humidity range:</td><td>0–100% RH</td></tr><tr><td>Temperature range:</td><td>−20 to 80 °C</td></tr></tbody></table><p>The KIMO SHSI sensor measures humidity and temperature for industrial ventilation, HVAC, clean-room, and process-control applications. Its real-time output can be integrated with monitoring and control systems where stable environmental conditions affect process quality or energy performance.</p>"
+    },
+    "sensores-de-proximidad-magneticos": {
+      "name": "GO Switch Magnetic Proximity Sensor",
+      "summary": "Side-sensing electronic proximity switch used as a paint-booth door interlock to stop operation when a door opens; designed for general industrial applications.",
+      "description": "GO Switch magnetic proximity sensors provide non-contact position detection for industrial automation, process control, and safety interlocks.<table width=\"499\"><tbody><tr><td>NFPA classification:</td><td>Class I, Division 2</td></tr><tr><td>Switching type:</td><td>Single-pole double-throw (SPDT)</td></tr><tr><td>Material:</td><td>Brass housing with flat black coating; gold-plated contacts</td></tr><tr><td>Electrical rating:</td><td>5 A / 240 VAC, 10 A / 120 VAC, 3 A / 24 VDC</td></tr><tr><td>Sensing distance:</td><td>10 mm (3/8 in) on ferrous metal</td></tr><tr><td>Operating temperature:</td><td>−50 to 105 °C (−58 to 221 °F)</td></tr></tbody></table><p>The rugged compact housing resists vibration, dust, moisture, and temperature extremes. Magnetic sensing eliminates direct mechanical contact, reducing wear in booth doors, machinery, assembly lines, and other equipment.</p>"
+    },
+    "sensores-de-presion-dungs": {
+      "name": "Dungs Pressure Switch",
+      "summary": "Dungs GAO-A4-4-6 high-pressure SPDT switch requiring no auxiliary power. It makes or breaks a circuit when pressure crosses the setpoint, provides neon trip indication, and resets automatically when pressure returns. Intended for installations governed by applicable requirements including NFPA 85, NFPA 86, UL 795, CSD-1, ANSI Z83.4, Z83.18, Z21.13, and CSA B149.1, B149.3, and B149.6.",
+      "description": "The Dungs pressure switch monitors gas, heating, and industrial process pressure and changes electrical state at the configured threshold.<table width=\"499\"><tbody><tr><td>Range:</td><td>12–60 in. w.c.</td></tr><tr><td>Hysteresis:</td><td>1.2 in. w.c.</td></tr><tr><td>Maximum operating pressure:</td><td>7 PSI (500 mbar)</td></tr><tr><td>Pressure connection:</td><td>Standard 1/4 in female NPT</td></tr><tr><td>Temperature range:</td><td>Ambient and medium: −40 to 140 °F (−40 to 60 °C)</td></tr><tr><td>Materials:</td><td>Aluminum housing; polycarbonate switch; NBR rubber diaphragm; gold or silver switching contact</td></tr><tr><td>Electrical range:</td><td>AC 24–240 V; DC 24–48 V</td></tr><tr><td>Enclosure:</td><td>NEMA Type 4</td></tr><tr><td>Contact ratings:</td><td>Silver: 10 A resistive at 120 VAC; 8 A inductive at 120 VAC; 20 mA min. at 24 VDC; 1 A max. at 24/48 VDC. Gold: 5 mA max. at 5 VDC; 20 mA max. at 24 VDC.</td></tr></tbody></table><p>The adjustable switch supports safety and process control in demanding industrial gas and heating systems. Verify the exact model, contact material, and approval for the installation.</p>"
+    },
+    "tanque-de-alimentacion-a-presion": {
+      "name": "Pressure Feed Tank",
+      "summary": "Material-supply tank pressurized with compressed air or inert gas, available in 5-, 10-, and 15-gallon capacities with agitator. Includes air controls for the galvanized tank, agitator, and spray gun; maximum working pressure 110 PSI.",
+      "attributes": [{ "name": "Capacity", "options": ["10 GAL", "15 GAL", "5 GAL"] }]
+    },
+    "termocople-para-horno-pt100": {
+      "name": "PT100 RTD Oven Temperature Sensor",
+      "summary": "PT100 resistance-temperature detector.",
+      "description": "The PT100 is a precision platinum RTD for industrial ovens and heat-processing equipment. Its stable resistance signal supports accurate temperature monitoring and closed-loop control.<table width=\"499\"><tbody><tr><td>Probe:</td><td>12 in long</td></tr><tr><td>Number of wires:</td><td>3</td></tr><tr><td>Material:</td><td>Stainless-steel probe with platinum resistance element</td></tr></tbody></table><p>PT100 elements can cover a broad temperature range; the allowable range for this assembly depends on probe, lead, and transmitter construction. Confirm the exact rating before installation.</p>"
+    },
+    "transmisor-multifuncional-kimo": {
+      "name": "KIMO Multifunction Transmitter",
+      "summary": "Multifunction transmitter with two standard analog outputs and a backlit graphic display. Calculates air velocity and flow (SQR-3), supports high-resolution pressure and Type K thermocouple input through SPI-2 boards, and offers a four-relay module, RS485 Modbus output, and Ethernet module.",
+      "description": "<table width=\"499\"><tbody><tr><td>Outputs:</td><td>2 standard analog outputs: 0–5 V / 0–10 V or 0–20 mA / 4–20 mA; 2 additional analog outputs</td></tr><tr><td>Inputs:</td><td>2 Smart-probe inputs and one SPI-2 board slot</td></tr><tr><td>Wires:</td><td>4</td></tr><tr><td>Enclosure:</td><td>IP65 ABS V0 with stainless-steel front</td></tr><tr><td>Probes:</td><td>Interchangeable probes and compatible SPI-2 boards</td></tr></tbody></table>"
+    },
+    "ventilador-de-tubo-de-descarga-axial-sin-motor": {
+      "name": "Axial Tube Exhaust Fan — Motor Not Included",
+      "summary": "GFS GFA axial tube fans use a welded housing for an airtight seal and cast-aluminum non-sparking propellers for stable airflow at higher static pressure. Adjustable pulleys simplify belt tensioning; self-aligning air-handling bearings are rated for 40,000 operating hours. The belt guard protects the pulley in accordance with applicable OSHA requirements. Includes pulleys and belts; motor not included.",
+      "description": "<table width=\"499\"><tbody><tr><td>RPM range:</td><td>1,228–1,332</td></tr><tr><td>Motor size:</td><td>1/3 hp</td></tr><tr><td>Flange to flange (A):</td><td>30 in</td></tr><tr><td>Inside diameter (B):</td><td>18 in</td></tr><tr><td>Mounting-bolt spacing (C):</td><td>19 1/4 in</td></tr><tr><td>Outside diameter (D):</td><td>20 1/2 in</td></tr><tr><td>Sound level:</td><td>72–74 dBA</td></tr></tbody></table>"
+    }
+  }
+}

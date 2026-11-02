@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "node --test",
     "verificar-sitemap": "node scripts/verificar-sitemap.mjs",
     "verificar-medios": "node scripts/verificar-medios.mjs"
   },

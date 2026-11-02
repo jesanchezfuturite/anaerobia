@@ -1,4 +1,5 @@
 import respaldo from '../data/catalogo.json'
+import traducciones from '../data/catalogo.en.json'
 
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
 
@@ -19,6 +20,26 @@ export function getCategoriasLocales() {
   return respaldo.categorias
 }
 
+function respaldoEnIngles() {
+  return {
+    ...respaldo,
+    categorias: respaldo.categorias.map((categoria) => ({ ...categoria, ...traducciones.categorias[categoria.slug] })),
+    productos: respaldo.productos.map((producto) => {
+      const traduccion = traducciones.productos[producto.slug] ?? {}
+      const resumen = traduccion.summary?.split('\n')[0]
+
+      return {
+        ...producto,
+        ...traduccion,
+        seo: {
+          ...producto.seo,
+          description: [traduccion.name, resumen].filter(Boolean).join('. '),
+        },
+      }
+    }),
+  }
+}
+
 /** Listado con búsqueda y filtros. Devuelve también categorías y marcas. */
 export async function getCatalogo({ categoria = '', marca = '', buscar = '', pagina = 1, locale = 'es' } = {}) {
   const parametros = new URLSearchParams()
@@ -35,7 +56,7 @@ export async function getCatalogo({ categoria = '', marca = '', buscar = '', pag
     // API no disponible: se filtra sobre el respaldo local (siempre en español)
   }
 
-  return filtrarRespaldo({ categoria, marca, buscar, pagina })
+  return filtrarRespaldo({ categoria, marca, buscar, pagina, locale })
 }
 
 /** Ficha de un producto y otros de su misma categoría. */
@@ -49,12 +70,13 @@ export async function getProducto(slug, locale = 'es') {
   }
 
   // Igual que la API: también responde al slug del catálogo anterior.
-  const producto = respaldo.productos.find((p) => p.slug === slug || p.legacy_slug === slug)
+  const copia = locale === 'en' ? respaldoEnIngles() : respaldo
+  const producto = copia.productos.find((p) => p.slug === slug || p.legacy_slug === slug)
   if (!producto) return null
 
   return {
     data: producto,
-    relacionados: respaldo.productos
+    relacionados: copia.productos
       .filter((p) => p.slug !== slug && p.category?.slug === producto.category?.slug)
       .slice(0, 4),
   }
@@ -62,10 +84,11 @@ export async function getProducto(slug, locale = 'es') {
 
 const POR_PAGINA = 24
 
-function filtrarRespaldo({ categoria, marca, buscar, pagina }) {
+function filtrarRespaldo({ categoria, marca, buscar, pagina, locale }) {
+  const copia = locale === 'en' ? respaldoEnIngles() : respaldo
   const texto = buscar.trim().toLowerCase()
 
-  const encontrados = respaldo.productos.filter((p) => {
+  const encontrados = copia.productos.filter((p) => {
     if (categoria && p.category?.slug !== categoria) return false
     if (marca && p.brand?.slug !== marca) return false
     if (!texto) return true
@@ -82,7 +105,7 @@ function filtrarRespaldo({ categoria, marca, buscar, pagina }) {
       paginas: Math.max(1, Math.ceil(encontrados.length / POR_PAGINA)),
       total: encontrados.length,
     },
-    categorias: respaldo.categorias,
-    marcas: respaldo.marcas,
+    categorias: copia.categorias,
+    marcas: copia.marcas,
   }
 }

@@ -1,5 +1,6 @@
 ---
 interface Props {
+    locale?: 'es' | 'en';
     categoria: string;
     marca: string;
     buscar: string;
@@ -9,7 +10,22 @@ interface Props {
     marcas: any[];
 }
 
-const { categoria, marca, buscar, productos, meta, categorias, marcas } = Astro.props;
+const { locale = 'es', categoria, marca, buscar, productos, meta, categorias, marcas } = Astro.props;
+import { withLocale } from '../lib/i18n.js';
+
+const T = locale === 'en' ? {
+    inicio: 'Home', catalogo: 'Parts and Filters', descripcion: 'Components, consumables, and replacement parts for industrial finishing lines. Browse available configurations and request a quote from our team.',
+    buscarPlaceholder: 'Search by name or part number', buscar: 'Search', todo: 'All', marca: 'Brand', todas: 'All',
+    sinResultados: 'No results', producto: 'product', productos: 'products', para: 'for', de: 'from',
+    vacio: 'No parts match those criteria. Try another search term or', contacto: 'contact us', ayuda: 'and we will help you find the right replacement part.',
+    sinImagen: 'No image', parte: 'Part',
+} : {
+    inicio: 'Inicio', catalogo: 'Partes y Filtros', descripcion: 'Componentes, consumibles y refacciones para líneas de acabado. Consulta las presentaciones disponibles y cotiza con nuestro equipo.',
+    buscarPlaceholder: 'Buscar por nombre o número de parte', buscar: 'Buscar', todo: 'Todo', marca: 'Marca', todas: 'Todas',
+    sinResultados: 'Sin resultados', producto: 'producto', productos: 'productos', para: 'para', de: 'de',
+    vacio: 'No encontramos partes con esos criterios. Prueba con otro término o', contacto: 'escríbenos', ayuda: 'y te ayudamos a ubicar la refacción.',
+    sinImagen: 'Sin imagen', parte: 'Parte',
+};
 
 const categoriaActual = categorias.find((c) => c.slug === categoria);
 const marcaActual = marcas.find((m) => m.slug === marca);
@@ -18,7 +34,7 @@ const marcaActual = marcas.find((m) => m.slug === marca);
 // «marca» y «buscar» siguen siendo filtros de conveniencia por query string
 // sobre esa ruta o sobre el listado completo.
 const enlace = ({ categoria: cat = categoria, marca: mar = marca, buscar: bus = buscar, pagina = 1 } = {}) => {
-    const base = cat ? `/partes-y-filtros/${cat}` : "/partes-y-filtros";
+    const base = withLocale(cat ? `/partes-y-filtros/${cat}` : "/partes-y-filtros", locale);
     const p = new URLSearchParams();
     if (mar) p.set("marca", mar);
     if (bus) p.set("buscar", bus);
@@ -28,7 +44,7 @@ const enlace = ({ categoria: cat = categoria, marca: mar = marca, buscar: bus = 
     return cadena ? `${base}?${cadena}` : base;
 };
 
-const accionBusqueda = categoria ? `/partes-y-filtros/${categoria}` : "/partes-y-filtros";
+const accionBusqueda = withLocale(categoria ? `/partes-y-filtros/${categoria}` : "/partes-y-filtros", locale);
 
 // Referencias de esta página del listado, para que un buscador la lea como
 // un catálogo, no solo como una lista de enlaces.
@@ -39,7 +55,7 @@ const datosListado = {
     itemListElement: productos.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: new URL(`/partes-y-filtros/${p.slug}`, Astro.site ?? Astro.url.origin).href,
+        url: new URL(withLocale(`/partes-y-filtros/${p.slug}`, locale), Astro.site ?? Astro.url.origin).href,
         name: p.name,
     })),
 };
@@ -47,13 +63,13 @@ const datosListado = {
 // Migas de pan: refleja exactamente el <nav> visible más abajo
 // (Inicio / Partes y Filtros / categoría opcional).
 const migasListado = [
-    { name: "Inicio", item: new URL("/", Astro.site ?? Astro.url.origin).href },
+    { name: T.inicio, item: new URL(withLocale("/", locale), Astro.site ?? Astro.url.origin).href },
     ...(categoriaActual
         ? [
-            { name: "Partes y Filtros", item: new URL("/partes-y-filtros", Astro.site ?? Astro.url.origin).href },
-            { name: categoriaActual.name, item: new URL(`/partes-y-filtros/${categoriaActual.slug}`, Astro.site ?? Astro.url.origin).href },
+            { name: T.catalogo, item: new URL(withLocale("/partes-y-filtros", locale), Astro.site ?? Astro.url.origin).href },
+            { name: categoriaActual.name, item: new URL(withLocale(`/partes-y-filtros/${categoriaActual.slug}`, locale), Astro.site ?? Astro.url.origin).href },
         ]
-        : [{ name: "Partes y Filtros", item: new URL("/partes-y-filtros", Astro.site ?? Astro.url.origin).href }]),
+        : [{ name: T.catalogo, item: new URL(withLocale("/partes-y-filtros", locale), Astro.site ?? Astro.url.origin).href }]),
 ];
 
 const datosBreadcrumbListado = {
@@ -76,23 +92,23 @@ const datosBreadcrumbListado = {
         <div class="absolute inset-0 bg-gradient-to-br from-brand-navy via-brand-navy to-brand-blue/40"></div>
         <div class="container mx-auto relative z-10">
             <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
-                <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                <a href={withLocale('/', locale)} class="text-gray-300 hover:text-brand-lime transition-colors">{T.inicio}</a>
                 <span>/</span>
                 {categoriaActual ? (
                     <>
-                        <a href="/partes-y-filtros" class="text-gray-300 hover:text-brand-lime transition-colors">Partes y Filtros</a>
+                        <a href={withLocale('/partes-y-filtros', locale)} class="text-gray-300 hover:text-brand-lime transition-colors">{T.catalogo}</a>
                         <span>/</span>
                         <span class="text-brand-lime">{categoriaActual.name}</span>
                     </>
                 ) : (
-                    <span class="text-brand-lime">Partes y Filtros</span>
+                    <span class="text-brand-lime">{T.catalogo}</span>
                 )}
             </nav>
 
             <h1 class="text-white font-saira italic font-semibold uppercase text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-4">
-                {categoriaActual ? categoriaActual.name : 'Partes y Filtros'}
+                {categoriaActual ? categoriaActual.name : T.catalogo}
             </h1>
-            <p class="text-gray-300 text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{categoriaActual?.description ?? 'Componentes, consumibles y refacciones para líneas de acabado. Consulta las presentaciones disponibles y cotiza con nuestro equipo.'}</p>
+            <p class="text-gray-300 text-lg font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{categoriaActual?.description ?? T.descripcion}</p>
         </div>
     </section>
 
@@ -109,12 +125,12 @@ const datosBreadcrumbListado = {
                         type="search"
                         name="buscar"
                         value={buscar}
-                        placeholder="Buscar por nombre o número de parte"
+                        placeholder={T.buscarPlaceholder}
                         class="w-full rounded-full border border-gray-200 bg-white pl-12 pr-5 py-3 text-sm text-brand-navy shadow-sm focus:border-brand-lime focus:outline-none"
                     />
                 </div>
                 <button type="submit" class="rounded-full bg-brand-navy px-8 py-3 text-sm font-semibold uppercase tracking-wider text-white transition-colors hover:bg-brand-blue">
-                    Buscar
+                    {T.buscar}
                 </button>
             </form>
 
@@ -124,7 +140,7 @@ const datosBreadcrumbListado = {
                     href={enlace({ categoria: '', pagina: 1 })}
                     class={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${!categoria ? 'bg-brand-navy text-white' : 'bg-white text-gray-500 hover:text-brand-navy border border-gray-200'}`}
                 >
-                    Todo
+                    {T.todo}
                 </a>
                 {categorias.map((c) => (
                     <a
@@ -138,12 +154,12 @@ const datosBreadcrumbListado = {
 
             <!-- MARCAS -->
             <div class="flex flex-wrap items-center gap-2 mb-8 pb-8 border-b border-gray-200">
-                <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mr-1">Marca</span>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-gray-400 mr-1">{T.marca}</span>
                 <a
                     href={enlace({ marca: '', pagina: 1 })}
                     class={`rounded px-3 py-1.5 text-xs transition-colors ${!marca ? 'bg-brand-lime/15 text-brand-navy font-semibold' : 'text-gray-500 hover:text-brand-navy'}`}
                 >
-                    Todas
+                    {T.todas}
                 </a>
                 {marcas.map((m) => (
                     <a
@@ -157,30 +173,29 @@ const datosBreadcrumbListado = {
 
             <!-- RESULTADOS -->
             <p class="text-sm text-gray-500 mb-6">
-                {meta.total === 0 ? 'Sin resultados' : `${meta.total} ${meta.total === 1 ? 'producto' : 'productos'}`}
-                {buscar && <span> para «{buscar}»</span>}
-                {marcaActual && <span> de {marcaActual.name}</span>}
+                {meta.total === 0 ? T.sinResultados : `${meta.total} ${meta.total === 1 ? T.producto : T.productos}`}
+                {buscar && <span> {T.para} «{buscar}»</span>}
+                {marcaActual && <span> {T.de} {marcaActual.name}</span>}
             </p>
 
             {meta.total === 0 ? (
                 <div class="rounded-2xl border border-dashed border-gray-300 bg-white/60 p-12 text-center">
                     <p class="text-gray-500 font-light">
-                        No encontramos partes con esos criterios. Prueba con otro término o
-                        <a href="/contacto" class="text-brand-blue font-semibold hover:text-brand-lime"> escríbenos</a> y te ayudamos a ubicar la refacción.
+                        {T.vacio} <a href={withLocale('/contacto', locale)} class="text-brand-blue font-semibold hover:text-brand-lime">{T.contacto}</a> {T.ayuda}
                     </p>
                 </div>
             ) : (
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {productos.map((p) => (
                         <a
-                            href={`/partes-y-filtros/${p.slug}`}
+                            href={withLocale(`/partes-y-filtros/${p.slug}`, locale)}
                             class="group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]"
                         >
                             <div class="aspect-4/3 bg-white flex items-center justify-center p-6 overflow-hidden">
                                 {p.image ? (
                                     <img src={p.image} alt={p.image_alt || p.name} loading="lazy" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />
                                 ) : (
-                                    <span class="text-xs text-gray-300 uppercase tracking-widest">Sin imagen</span>
+                                    <span class="text-xs text-gray-300 uppercase tracking-widest">{T.sinImagen}</span>
                                 )}
                             </div>
                             <div class="flex flex-col flex-1 border-t border-gray-100 p-5">
@@ -191,7 +206,7 @@ const datosBreadcrumbListado = {
                                     {p.name}
                                 </h2>
                                 {p.summary && <p class="text-xs text-gray-500 font-light leading-relaxed line-clamp-3 whitespace-pre-wrap">{p.summary}</p>}
-                                {p.sku && <span class="mt-3 text-[10px] uppercase tracking-widest text-gray-400">Parte {p.sku}</span>}
+                                {p.sku && <span class="mt-3 text-[10px] uppercase tracking-widest text-gray-400">{T.parte} {p.sku}</span>}
                             </div>
                         </a>
                     ))}

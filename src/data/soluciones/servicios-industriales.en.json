@@ -1,0 +1,156 @@
+{
+  "slug": "servicios-industriales",
+  "name": "Industrial Services and Replacement Parts",
+  "seo": {
+    "title": "Industrial Services and Replacement Parts | Anaerobia",
+    "description": "Our industrial service team helps customers improve equipment reliability, optimize performance, and keep production processes running safely."
+  },
+  "hero": {
+    "image": "/images/soluciones/servicios_industriales/Servicio Industrial.webp",
+    "badge": "Aftermarket Support and Replacement Parts",
+    "title": "Industrial Services and Replacement Parts",
+    "description": "Our industrial service team helps customers improve equipment reliability, optimize performance, and keep production processes running safely."
+  },
+  "desafios": {
+    "title": "Why Industrial Service Matters",
+    "badge": "Engineering and Technology",
+    "description": "Proper maintenance is essential to equipment performance and service life.",
+    "tarjetas": [
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+        "text": "Extends equipment service life"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"/></svg>",
+        "text": "Reduces losses from downtime and failures"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\"/></svg>",
+        "text": "Maintains process stability and finish quality"
+      },
+      {
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z\"/></svg>",
+        "text": "Provides greater operational confidence"
+      }
+    ]
+  },
+  "cta1": {
+    "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+    "title": "Need more information about industrial services or replacement parts?",
+    "description": "Our specialists provide preventive and corrective maintenance to keep your equipment operating at its best.",
+    "button_label": "Request More Information",
+    "button_url": "/contacto?solucion=servicios-industriales"
+  },
+  "normatividad": {
+    "badge": "Safety and Regulatory Compliance",
+    "title": "Service aligned with safety and environmental standards",
+    "description": "Our maintenance and equipment upgrade services meet or exceed applicable equipment codes and standards while following the industrial safety and environmental requirements established by our customers.",
+    "bullets": [
+      {
+        "text": "Our qualified engineers lead equipment maintenance, inspection, and upgrades safely and on schedule."
+      }
+    ]
+  },
+  "faqs": {
+    "badge": "Support and Maintenance",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "When should maintenance be scheduled for a paint or finishing line?",
+        "answer": "Maintenance should be scheduled when recurring failures, variations in finish quality, longer downtime, excessive material consumption, or wear on critical components begin to appear.\n\nPreventive maintenance is also recommended to avoid unplanned production interruptions."
+      },
+      {
+        "question": "Can existing equipment be upgraded without replacing the entire line?",
+        "answer": "Yes. In many cases, specific components can be upgraded and new technologies integrated into the existing system. The decision to retrofit or replace equipment depends on its current condition, performance requirements, and the specific constraints of each application."
+      },
+      {
+        "question": "Does your service include remote diagnostics or emergency support?",
+        "answer": "Yes. Support may include remote diagnostics, phone assistance, technical recommendations, and specialized on-site visits when required to troubleshoot failures, assess equipment condition, and define corrective actions. We provide service throughout Mexico."
+      }
+    ]
+  },
+  "galeria": {
+    "badge": "Gallery",
+    "title": "On-Site Service",
+    "images": [
+      {
+        "image": "/images/soluciones/servicios_industriales/12.webp",
+        "alt": "Adjusting components on paint application equipment"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+        "alt": "Inspecting an operating paint booth"
+      },
+      {
+        "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+        "alt": "Condition assessment of an industrial finishing line"
+      }
+    ]
+  },
+  "extras": {
+    "anservice": {
+      "description": "Our ANSERVICE division provides preventive and corrective maintenance as well as equipment modifications and upgrades.",
+      "image": "/images/soluciones/servicios_industriales/DSC03104.webp",
+      "items": [
+        { "text": "Development of equipment preservation and preventive maintenance plans." },
+        { "text": "Supply of replacement-part and filter packages." },
+        { "text": "Assessment of facility and equipment condition." },
+        { "text": "Airflow balancing for paint booths and ovens." },
+        { "text": "Training for production and maintenance operators, including TPM practices." },
+        { "text": "Periodic facility inspections and service reports." },
+        { "text": "Development of technical specifications and engineering for paint application processes based on customer process and product requirements." }
+      ]
+    },
+    "servicios": {
+      "title": "Complete service, aftermarket support, and replacement-parts coverage",
+      "description": "Our specialists provide preventive and corrective maintenance to keep equipment in optimal operating condition. Contact our team for a technical assessment.",
+      "image": "/images/soluciones/servicios_industriales/DSC03097.webp",
+      "items": [
+        { "text": "Development of equipment preservation and preventive maintenance plans." },
+        { "text": "Supply of replacement-part and filter packages." },
+        { "text": "Assessment of facility and equipment condition." },
+        { "text": "Airflow balancing for paint booths and ovens." },
+        { "text": "Training for production and maintenance operators, including TPM practices." },
+        { "text": "Periodic facility inspections and service reports." },
+        { "text": "Development of technical specifications and engineering for paint application processes based on customer process and product requirements." }
+      ]
+    },
+    "alcance": {
+      "cards": [
+        {
+          "title": "Maintenance service plans",
+          "description": "Our maintenance plans help keep equipment operating reliably and prevent unexpected failures and production downtime:",
+          "image": "/images/soluciones/servicios_industriales/13.webp",
+          "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z\"/></svg>",
+          "items": [
+            { "text": "Inspection: measurements, testing, and diagnostics" },
+            { "text": "Maintenance: cleaning, lubrication, adjustments, and component replacement" },
+            { "text": "Repair: correction of identified failures" }
+          ]
+        },
+        {
+          "title": "Equipment upgrades and retrofits",
+          "description": "Our industrial service team keeps equipment and production capabilities current as industry requirements evolve:",
+          "image": "/images/soluciones/servicios_industriales/DSC03121.webp",
+          "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" d=\"M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99\"/></svg>",
+          "items": [
+            { "text": "Changes in product dimensions or weight" },
+            { "text": "Relocation of equipment or paint lines" },
+            { "text": "Integration of new technologies" },
+            { "text": "Energy-efficiency improvements" },
+            { "text": "Conveyor systems" },
+            { "text": "Electrical systems and PLC controls" }
+          ]
+        }
+      ]
+    }
+  },
+  "certificados": [
+    { "name": "NFPA", "logo": "/images/home/certificaciones/normativas/certificados/0/logo.png" },
+    { "name": "EPA", "logo": "/images/home/certificaciones/normativas/certificados/1/logo.svg" },
+    { "name": "ETL", "logo": "/images/home/certificaciones/normativas/certificados/2/logo.png" },
+    { "name": "ICC", "logo": "/images/home/certificaciones/normativas/certificados/3/logo.png" },
+    { "name": "OSHA", "logo": "/images/home/certificaciones/normativas/certificados/4/logo.png" },
+    { "name": "ATEX", "logo": "/images/home/certificaciones/normativas/certificados/5/logo.webp" }
+  ]
+}

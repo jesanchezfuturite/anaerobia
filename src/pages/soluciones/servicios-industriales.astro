@@ -3,16 +3,20 @@ export const prerender = false
 
 import Layout from '../../layouts/Layout.astro'
 import { getGeneral } from '../../lib/general.js'
+import { withLocale } from '../../lib/i18n.js'
 import fallback from '../../data/soluciones/servicios-industriales.json'
+import fallbackEn from '../../data/soluciones/servicios-industriales.en.json'
 
-const general = await getGeneral()
+const { locale = 'es' } = Astro.props
+const general = await getGeneral(locale)
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
 // visita (SSR). Si la API no responde, se usa el respaldo local (fallback).
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
-let d = fallback
+const respaldo = locale === 'en' ? fallbackEn : fallback
+let d = respaldo
 try {
-    const res = await fetch(`${API_URL}/api/v1/soluciones/servicios-industriales`, { signal: AbortSignal.timeout(5000) })
+    const res = await fetch(`${API_URL}/api/v1/soluciones/servicios-industriales?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) d = (await res.json()).data
 } catch {
     // API no disponible: la página se sirve con el contenido de respaldo
@@ -20,7 +24,7 @@ try {
 
 // Logos de certificaciones: contenido compartido del sitio que llega en el
 // mismo payload de la API (se editan una sola vez en la página de Inicio).
-const certificados = d.certificados ?? fallback.certificados ?? []
+const certificados = d.certificados ?? respaldo.certificados ?? []
 
 // CTA en banda que va después del bloque «Ingeniería y Tecnología». Se
 // administra desde el panel (pestaña «CTA tras Servicios»); si se deja
@@ -96,18 +100,18 @@ const datosFAQ = d.faqs?.items?.length
                 <div class="max-w-4xl hero-section-text">
                     <!-- Breadcrumbs -->
                     <nav class="flex items-center gap-2 text-xs md:text-sm text-gray-400 font-semibold uppercase tracking-widest mb-6">
-                        <a href="/" class="text-gray-300 hover:text-brand-lime transition-colors">Inicio</a>
+                        <a href={withLocale('/', locale)} class="text-gray-300 hover:text-brand-lime transition-colors">{locale === 'en' ? 'Home' : 'Inicio'}</a>
                         <span>/</span>
-                        <span class="text-gray-400">Soluciones</span>
+                        <span class="text-gray-400">{locale === 'en' ? 'Solutions' : 'Soluciones'}</span>
                         <span>/</span>
-                        <span class="text-brand-lime">Servicio Industrial</span>
+                        <span class="text-brand-lime">{d.name}</span>
                     </nav>
 
                     <span class="inline-block bg-brand-lime/10 text-brand-lime border border-brand-lime/20 rounded px-3 py-1 text-xs font-semibold uppercase tracking-widest mb-6">{d.hero.badge}</span>
                     <h1 class="text-white font-saira italic font-semibold uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">{d.hero.title}</h1>
                     <p class="text-gray-300 text-lg md:text-xl font-light max-w-3xl leading-relaxed whitespace-pre-wrap">{d.hero.description}</p>
                     <div class="pt-8">
-                        <a href="/contacto?solucion=servicios-industriales" class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg"> Cotizar </a>
+                        <a href={withLocale('/contacto?solucion=servicios-industriales', locale)} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg"> {locale === 'en' ? 'Request a Quote' : 'Cotizar'} </a>
                     </div>
                 </div>
             </div>
@@ -183,7 +187,7 @@ const datosFAQ = d.faqs?.items?.length
                     <!-- Intro Image -->
                     <div class="relative intro-image group">
                         <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                            <img src={d.extras.servicios.image} alt="Servicio industrial en planta" class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
+                            <img src={d.extras.servicios.image} alt={locale === 'en' ? 'On-site industrial service' : 'Servicio industrial en planta'} class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-700" />
                         </div>
                     </div>
                 </div>
@@ -199,7 +203,7 @@ const datosFAQ = d.faqs?.items?.length
                         <h2 class="text-white text-2xl md:text-3xl font-saira italic font-semibold uppercase">{ctaServicios.title}</h2>
                         <p class="text-gray-300 text-sm md:text-base font-light mt-2 max-w-xl whitespace-pre-wrap">{ctaServicios.description}</p>
                     </div>
-                    <a href={ctaServicios.button_url} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{ctaServicios.button_label}</a>
+                    <a href={withLocale(ctaServicios.button_url, locale)} class="bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-8 py-4 rounded hover:brightness-110 transition-all shadow-lg shrink-0 text-center">{ctaServicios.button_label}</a>
                 </div>
             </section>
         )}
@@ -286,7 +290,7 @@ const datosFAQ = d.faqs?.items?.length
                 <h2 class="text-3xl md:text-4xl font-saira italic font-semibold text-white uppercase tracking-wider">{d.cta1.title}</h2>
                 <p class="text-gray-300 font-light text-base md:text-lg max-w-2xl mx-auto whitespace-pre-wrap">{d.cta1.description}</p>
                 <div class="pt-8">
-                    <a href={d.cta1.button_url} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta1.button_label}</a>
+                    <a href={withLocale(d.cta1.button_url, locale)} class="inline-block bg-brand-lime text-brand-navy font-bold uppercase tracking-widest px-10 py-4 rounded hover:bg-white transition-all duration-300 shadow-lg hover:-translate-y-1">{d.cta1.button_label}</a>
                 </div>
             </div>
         </section>
@@ -325,7 +329,7 @@ const datosFAQ = d.faqs?.items?.length
         <!-- 08. ALIANZAS / PARTNERS -->
         <section class="bg-white py-4 px-6 md:px-12 border-y border-gray-200 overflow-hidden flex items-center">
             <div class="container mx-auto flex flex-col md:flex-row items-center gap-6">
-                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">Refacciones y marcas que respaldamos:</span>
+                <span class="text-gray-500 font-medium whitespace-nowrap text-sm mt-1 uppercase tracking-wide">{locale === 'en' ? 'Replacement parts and brands we support:' : 'Refacciones y marcas que respaldamos:'}</span>
                 <div class="swiper marquee-swiper w-full">
                     <div class="swiper-wrapper items-center">
                         {[...(general.aliados?.logos ?? []), ...(general.aliados?.logos ?? [])].map((aliado) => (

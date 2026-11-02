@@ -4,8 +4,19 @@ export const prerender = false
 import Layout from '../../layouts/Layout.astro'
 import CatalogoListado from '../../components/CatalogoListado.astro'
 import { getProducto, getCatalogo, getCategoriasLocales } from '../../lib/catalogo.js'
+import { withLocale } from '../../lib/i18n.js'
 
 const { slug } = Astro.params
+const { locale = 'es' } = Astro.props
+const T = locale === 'en' ? {
+    inicio: 'Home', catalogo: 'Parts and Filters', descripcionCatalogo: 'Parts, filters, and replacement components for industrial paint systems, including paint booth filters, infrared lamps, application equipment, and components from leading manufacturers.',
+    sinImagen: 'No image', verImagen: 'View image', parte: 'Part', cotizar: 'Request a quote',
+    respuesta: 'We will reply with current availability, lead times, and pricing.', detalles: 'Details', tambien: 'More in',
+} : {
+    inicio: 'Inicio', catalogo: 'Partes y Filtros', descripcionCatalogo: 'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.',
+    sinImagen: 'Sin imagen', verImagen: 'Ver imagen', parte: 'Parte', cotizar: 'Cotizar esta parte',
+    respuesta: 'Te respondemos con disponibilidad, tiempos de entrega y precio vigente.', detalles: 'Detalles', tambien: 'También en',
+}
 
 // /partes-y-filtros/{slug} sirve dos cosas con la misma ruta: la categoría
 // (cuando el slug es una de las del catálogo) o la ficha del producto. Se
@@ -33,16 +44,16 @@ if (esCategoria) {
     const buscar = parametros.get('buscar') ?? ''
     const pagina = Math.max(1, Number(parametros.get('pagina') ?? 1))
 
-    const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria: slug, marca, buscar, pagina })
+    const { data: productos, meta, categorias, marcas } = await getCatalogo({ categoria: slug, marca, buscar, pagina, locale })
     const categoriaActual = categorias.find((c) => c.slug === slug)
 
     catalogoCategoria = { categoria: slug, marca, buscar, productos, meta, categorias, marcas }
-    seoTitle = `${categoriaActual?.name ?? slug} | Partes y Filtros | Anaerobia`
+    seoTitle = `${categoriaActual?.name ?? slug} | ${T.catalogo} | Anaerobia`
     seoDescription =
         categoriaActual?.description ??
-        'Catálogo de partes, filtros y refacciones para sistemas de pintura industrial: filtros de cabina, lámparas infrarrojas, equipos de aplicación y componentes de las principales marcas.'
+        T.descripcionCatalogo
 } else {
-    const ficha = await getProducto(slug)
+    const ficha = await getProducto(slug, locale)
 
     // Un 404 con cuerpo vacío hace que Astro sirva src/pages/404.astro.
     if (!ficha) {
@@ -56,7 +67,7 @@ if (esCategoria) {
     // la ficha se pidió por ese slug, se manda a la URL canónica en vez de
     // servir la misma página bajo dos direcciones.
     if (producto.slug !== slug) {
-        return Astro.redirect(`/partes-y-filtros/${producto.slug}`, 301)
+        return Astro.redirect(withLocale(`/partes-y-filtros/${producto.slug}`, locale), 301)
     }
 
     seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
@@ -81,7 +92,7 @@ if (esCategoria) {
         cotizar.set('categoria', CATEGORIA_EN_FORMULARIO[producto.category.slug])
     }
 
-    enlaceCotizar = `/contacto?${cotizar}`
+    enlaceCotizar = `${withLocale('/contacto', locale)}?${cotizar}`
 
     // El catálogo no publica precio (se cotiza por contacto directo), así
     // que se declara disponibilidad sin price en vez de omitir «offers».
@@ -96,7 +107,7 @@ if (esCategoria) {
         category: producto.category?.name || undefined,
         offers: {
             '@type': 'Offer',
-            url: new URL(`/partes-y-filtros/${producto.slug}`, Astro.site ?? Astro.url.origin).href,
+            url: new URL(withLocale(`/partes-y-filtros/${producto.slug}`, locale), Astro.site ?? Astro.url.origin).href,
             availability: 'https://schema.org/InStock',
             itemCondition: 'https://schema.org/NewCondition',
         },
@@ -105,12 +116,12 @@ if (esCategoria) {
     // Migas de pan: refleja exactamente el <nav> visible más abajo
     // (Inicio / Partes y Filtros / categoría opcional).
     const migas = [
-        { name: 'Inicio', item: new URL('/', Astro.site ?? Astro.url.origin).href },
-        { name: 'Partes y Filtros', item: new URL('/partes-y-filtros', Astro.site ?? Astro.url.origin).href },
+        { name: T.inicio, item: new URL(withLocale('/', locale), Astro.site ?? Astro.url.origin).href },
+        { name: T.catalogo, item: new URL(withLocale('/partes-y-filtros', locale), Astro.site ?? Astro.url.origin).href },
         ...(producto.category
-            ? [{ name: producto.category.name, item: new URL(`/partes-y-filtros/${producto.category.slug}`, Astro.site ?? Astro.url.origin).href }]
+            ? [{ name: producto.category.name, item: new URL(withLocale(`/partes-y-filtros/${producto.category.slug}`, locale), Astro.site ?? Astro.url.origin).href }]
             : []),
-        { name: producto.name, item: new URL(`/partes-y-filtros/${producto.slug}`, Astro.site ?? Astro.url.origin).href },
+        { name: producto.name, item: new URL(withLocale(`/partes-y-filtros/${producto.slug}`, locale), Astro.site ?? Astro.url.origin).href },
     ]
 
     datosBreadcrumb = {
@@ -129,6 +140,7 @@ if (esCategoria) {
 {esCategoria ? (
 <Layout title={seoTitle} description={seoDescription}>
     <CatalogoListado
+        locale={locale}
         categoria={catalogoCategoria.categoria}
         marca={catalogoCategoria.marca}
         buscar={catalogoCategoria.buscar}
@@ -146,13 +158,13 @@ if (esCategoria) {
         <section class="pt-32 pb-16 px-6 md:px-12">
             <div class="container mx-auto max-w-7xl">
                 <nav class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-gray-500 font-semibold uppercase tracking-widest mb-8">
-                    <a href="/" class="hover:text-brand-lime transition-colors">Inicio</a>
+                    <a href={withLocale('/', locale)} class="hover:text-brand-lime transition-colors">{T.inicio}</a>
                     <span>/</span>
-                    <a href="/partes-y-filtros" class="hover:text-brand-lime transition-colors">Partes y Filtros</a>
+                    <a href={withLocale('/partes-y-filtros', locale)} class="hover:text-brand-lime transition-colors">{T.catalogo}</a>
                     {producto.category && (
                         <>
                             <span>/</span>
-                            <a href={`/partes-y-filtros/${producto.category.slug}`} class="hover:text-brand-lime transition-colors">
+                            <a href={withLocale(`/partes-y-filtros/${producto.category.slug}`, locale)} class="hover:text-brand-lime transition-colors">
                                 {producto.category.name}
                             </a>
                         </>
@@ -166,7 +178,7 @@ if (esCategoria) {
                             {producto.images?.[0] ? (
                                 <img id="imagen-principal" src={producto.images[0]} alt={producto.name} class="max-h-full max-w-full object-contain" />
                             ) : (
-                                <span class="text-xs text-gray-300 uppercase tracking-widest">Sin imagen</span>
+                                <span class="text-xs text-gray-300 uppercase tracking-widest">{T.sinImagen}</span>
                             )}
                         </div>
 
@@ -177,7 +189,7 @@ if (esCategoria) {
                                         type="button"
                                         data-imagen={imagen}
                                         class="miniatura rounded-xl bg-white border border-gray-100 p-2 aspect-square flex items-center justify-center hover:border-brand-lime transition-colors"
-                                        aria-label={`Ver imagen ${i + 1}`}
+                                        aria-label={`${T.verImagen} ${i + 1}`}
                                     >
                                         <img src={imagen} alt="" loading="lazy" class="max-h-full max-w-full object-contain" />
                                     </button>
@@ -190,11 +202,11 @@ if (esCategoria) {
                     <div class="flex flex-col">
                         <div class="flex flex-wrap items-center gap-3 mb-4">
                             {producto.brand && (
-                                <a href={`/partes-y-filtros?marca=${producto.brand.slug}`} class="rounded-full bg-brand-lime/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-lime hover:bg-brand-lime/20 transition-colors">
+                                <a href={`${withLocale('/partes-y-filtros', locale)}?marca=${producto.brand.slug}`} class="rounded-full bg-brand-lime/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-lime hover:bg-brand-lime/20 transition-colors">
                                     {producto.brand.name}
                                 </a>
                             )}
-                            {producto.sku && <span class="text-xs uppercase tracking-widest text-gray-400">Parte {producto.sku}</span>}
+                            {producto.sku && <span class="text-xs uppercase tracking-widest text-gray-400">{T.parte} {producto.sku}</span>}
                         </div>
 
                         <h1 class="font-saira font-semibold italic uppercase text-brand-navy text-3xl md:text-4xl leading-tight mb-6">
@@ -225,14 +237,14 @@ if (esCategoria) {
                             href={enlaceCotizar}
                             class="inline-flex items-center justify-center gap-3 rounded-full bg-brand-lime px-8 py-4 font-saira font-bold uppercase tracking-wider text-brand-navy transition-transform hover:-translate-y-0.5 hover:bg-brand-lime/90 w-fit"
                         >
-                            Cotizar esta parte
+                            {T.cotizar}
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </a>
 
                         <p class="mt-4 text-xs text-gray-400 font-light">
-                            Te respondemos con disponibilidad, tiempos de entrega y precio vigente.
+                            {T.respuesta}
                         </p>
                     </div>
                 </div>
@@ -240,7 +252,7 @@ if (esCategoria) {
                 <!-- DESCRIPCIÓN COMPLETA -->
                 {producto.description && (
                     <div class="mt-16 max-w-4xl">
-                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-6">Detalles</h2>
+                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-6">{T.detalles}</h2>
                         <div class="contenido-producto text-base text-gray-600 font-light leading-relaxed" set:html={producto.description} />
                     </div>
                 )}
@@ -248,10 +260,10 @@ if (esCategoria) {
                 <!-- RELACIONADOS -->
                 {relacionados.length > 0 && (
                     <div class="mt-20 border-t border-gray-200 pt-12">
-                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-8">También en {producto.category?.name}</h2>
+                        <h2 class="font-saira font-semibold italic uppercase text-brand-navy text-2xl mb-8">{T.tambien} {producto.category?.name}</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                             {relacionados.map((p) => (
-                                <a href={`/partes-y-filtros/${p.slug}`} class="group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
+                                <a href={withLocale(`/partes-y-filtros/${p.slug}`, locale)} class="group flex flex-col rounded-2xl bg-white border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.06)] overflow-hidden transition-shadow hover:shadow-[0_8px_30px_rgb(0,0,0,0.15)]">
                                     <div class="aspect-4/3 flex items-center justify-center p-6 overflow-hidden">
                                         {p.image && <img src={p.image} alt={p.name} loading="lazy" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105" />}
                                     </div>
