@@ -21,12 +21,13 @@ en el sitio (`src/content.config.ts` y `src/content/` no existen).
 ---
 export const prerender = false
 
-import fallback from '../data/<pagina>.json'
+import fallbackEs from '../data/<pagina>.json'
+import fallbackEn from '../data/<pagina>.en.json'
 
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
-let d = fallback
+let d = locale === 'en' ? fallbackEn : fallbackEs
 try {
-    const res = await fetch(`${API_URL}/api/v1/soluciones/<slug>`, { signal: AbortSignal.timeout(5000) })
+    const res = await fetch(`${API_URL}/api/v1/soluciones/<slug>?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
     if (res.ok) d = (await res.json()).data
 } catch {
     // API no disponible: la página se sirve con el contenido de respaldo
@@ -37,6 +38,10 @@ try {
 Reglas:
 - **Siempre** debe existir el respaldo en `src/data/` y usarse si la API falla: el sitio nunca
   puede depender de que el admin esté disponible.
+- Toda ruta bajo `/en/` debe conservar contenido, SEO y textos alternativos en inglés aun
+  cuando el admin no responda. ANEFFY es la única campaña deliberadamente sólo en español.
+- Blog, casos y productos sólo aparecen en inglés cuando el editor activa
+  `english_published`; el sitemap y el RSS respetan esa aprobación.
 - Solo textos, imágenes y videos son datos. Iconos SVG, clases Tailwind, alturas, animaciones
   GSAP y tablas técnicas permanecen en el código.
 - Al agregar campos nuevos hay que actualizar el seeder del admin **y** el respaldo local.

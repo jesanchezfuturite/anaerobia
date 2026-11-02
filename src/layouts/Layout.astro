@@ -15,7 +15,7 @@ interface Props {
 
 const {
   title,
-  description = "Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.",
+  description,
   image,
   noindex = false,
 } = Astro.props;
@@ -27,6 +27,9 @@ const {
 const rutaSinBarra = Astro.url.pathname.length > 1 ? Astro.url.pathname.replace(/\/+$/, "") : Astro.url.pathname;
 const canonical = new URL(rutaSinBarra, Astro.site ?? Astro.url.origin).href;
 const idioma = Astro.currentLocale ?? "es";
+const metaDescription = description ?? (idioma === "en"
+  ? "Anaerobia - Surface finishing and paint-system integration for high-volume manufacturing."
+  : "Anaerobia - Líderes en integración de sistemas de pintura y acabado para manufactura de alto volumen.");
 const rutaAlterna = rutaEnOtroIdioma(rutaSinBarra, idioma);
 const rutaEs = idioma === "es" ? rutaSinBarra : rutaAlterna;
 const rutaEn = idioma === "en" ? rutaSinBarra : rutaAlterna;
@@ -109,11 +112,11 @@ const datosLocalBusiness = sedes.map((sede) => ({
     })(window,document,'script','dataLayer','GTM-MGBSXK6G');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="alternate" type="application/rss+xml" title="Blog | Anaerobia" href="/blog/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Blog | Anaerobia" href={idioma === "en" ? "/en/blog/rss.xml" : "/blog/rss.xml"} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {noindex ? <meta name="robots" content="noindex, nofollow" /> : <link rel="canonical" href={canonical} />}
@@ -135,12 +138,12 @@ const datosLocalBusiness = sedes.map((sede) => ({
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Anaerobia" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonical} />
     {imagenSocial && <meta property="og:image" content={imagenSocial} />}
     <meta name="twitter:card" content={imagenSocial ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDescription} />
     {imagenSocial && <meta name="twitter:image" content={imagenSocial} />}
 
     <!-- Google Fonts -->

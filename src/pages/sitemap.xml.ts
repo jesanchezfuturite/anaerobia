@@ -98,6 +98,7 @@ export async function GET({ site, url }) {
     }
 
     const productos = await recorrer((pagina) => getCatalogo({ pagina }))
+    const productosEn = new Set((await recorrer((pagina) => getCatalogo({ pagina, locale: 'en' }))).map((producto) => producto.slug))
 
     for (const producto of productos) {
         entradas.push({
@@ -105,15 +106,18 @@ export async function GET({ site, url }) {
             prioridad: '0.6',
             frecuencia: 'monthly',
         })
-        entradas.push({
-            url: `${base}/en/partes-y-filtros/${producto.slug}`,
-            prioridad: '0.6',
-            frecuencia: 'monthly',
-        })
+        if (productosEn.has(producto.slug)) {
+            entradas.push({
+                url: `${base}/en/partes-y-filtros/${producto.slug}`,
+                prioridad: '0.6',
+                frecuencia: 'monthly',
+            })
+        }
     }
 
     // Blog: cada artículo publicado.
     const articulos = await recorrer((pagina) => getArticulos({ pagina }))
+    const articulosEn = new Set((await recorrer((pagina) => getArticulos({ pagina, locale: 'en' }))).map((articulo) => articulo.slug))
 
     for (const articulo of articulos) {
         entradas.push({
@@ -122,16 +126,19 @@ export async function GET({ site, url }) {
             frecuencia: 'monthly',
             fecha: articulo.published_at,
         })
-        entradas.push({
-            url: `${base}/en/blog/${articulo.slug}`,
-            prioridad: '0.7',
-            frecuencia: 'monthly',
-            fecha: articulo.published_at,
-        })
+        if (articulosEn.has(articulo.slug)) {
+            entradas.push({
+                url: `${base}/en/blog/${articulo.slug}`,
+                prioridad: '0.7',
+                frecuencia: 'monthly',
+                fecha: articulo.published_at,
+            })
+        }
     }
 
     // Casos de estudio: no hay listado propio, solo fichas enlazadas desde /proyectos.
     const casos = await getUltimosCasos(MAX_PAGINAS)
+    const casosEn = new Set((await getUltimosCasos(MAX_PAGINAS, 'en')).map((caso) => caso.slug))
 
     for (const caso of casos) {
         entradas.push({
@@ -140,12 +147,14 @@ export async function GET({ site, url }) {
             frecuencia: 'monthly',
             fecha: caso.published_at,
         })
-        entradas.push({
-            url: `${base}/en/casos-de-estudio/${caso.slug}`,
-            prioridad: '0.7',
-            frecuencia: 'monthly',
-            fecha: caso.published_at,
-        })
+        if (casosEn.has(caso.slug)) {
+            entradas.push({
+                url: `${base}/en/casos-de-estudio/${caso.slug}`,
+                prioridad: '0.7',
+                frecuencia: 'monthly',
+                fecha: caso.published_at,
+            })
+        }
     }
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>

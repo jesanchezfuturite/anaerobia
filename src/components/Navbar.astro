@@ -5,6 +5,7 @@ import LanguageToggle from './LanguageToggle.astro'
 
 // Toggle de idioma: manual, el visitante elige (no se redirige por navegador).
 const idioma = Astro.currentLocale ?? 'es'
+const T = idioma === 'en' ? { openMenu: 'Open menu' } : { openMenu: 'Abrir menú' }
 const rutaAlterna = rutaEnOtroIdioma(Astro.url.pathname, idioma)
 const hrefEs = idioma === 'es' ? Astro.url.pathname : rutaAlterna
 const hrefEn = idioma === 'en' ? Astro.url.pathname : rutaAlterna
@@ -67,7 +68,7 @@ const navItems = visibles(nav.links).map((item) => ({
       </nav>
 
       <!-- Mobile Button -->
-      <button class="md:hidden text-[var(--color-brand-navy)] focus:outline-none z-30 cursor-pointer" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <button class="md:hidden text-[var(--color-brand-navy)] focus:outline-none z-30 cursor-pointer" id="mobile-menu-btn" aria-label={T.openMenu} aria-expanded="false" aria-controls="mobile-menu">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

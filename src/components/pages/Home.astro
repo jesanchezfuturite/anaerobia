@@ -19,6 +19,7 @@ const { locale = 'es' } = Astro.props as Props
 const T = {
   es: {
     seoTitle: 'Anaerobia | Ingeniería Inteligente en Sistemas de Pintura y Acabado',
+    seoDescription: 'Integración de sistemas de pintura y acabado para manufactura de alto volumen.',
     heroEyebrow: 'Líderes en integración industrial',
     fase: 'Fase',
     normativasSubtitle: 'Cumplimos con los más altos estándares internacionales para asegurar la calidad y seguridad en cada proyecto de integración industrial.',
@@ -31,9 +32,11 @@ const T = {
     procesoDePintura: 'Proceso de Pintura',
     mapaPresenciaNacional: 'Mapa de Presencia Nacional',
     ingenierosInteractuando: 'Ingenieros interactuando con maquinaria',
+    certificacion: (nombre) => `Certificación ${nombre}`,
   },
   en: {
     seoTitle: 'Anaerobia | Smart Engineering in Paint and Finishing Systems',
+    seoDescription: 'Paint and surface-finishing system integration for high-volume manufacturing.',
     heroEyebrow: 'Leaders in industrial integration',
     fase: 'Phase',
     normativasSubtitle: 'We meet the highest international standards to ensure quality and safety in every industrial integration project.',
@@ -46,6 +49,7 @@ const T = {
     procesoDePintura: 'Painting Process',
     mapaPresenciaNacional: 'National Presence Map',
     ingenierosInteractuando: 'Engineers working with machinery',
+    certificacion: (nombre) => `${nombre} Certification`,
   },
 }[locale]
 
@@ -180,7 +184,7 @@ const datosWebSite = {
 }
 ---
 
-<Layout title={T.seoTitle}>
+<Layout title={T.seoTitle} description={T.seoDescription}>
   <script type="application/ld+json" set:html={JSON.stringify(datosWebSite)} is:inline />
   <main>
     <!-- A. Hero Section Cinematográfico -->
@@ -511,7 +515,7 @@ const datosWebSite = {
           {(general.normas?.certificados || []).map((cert) => (
             <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-[var(--color-brand-lime)]">
               <div class="h-14 md:h-16 w-full flex items-center justify-center mb-2">
-                <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
+                <img src={cert.logo} alt={T.certificacion(cert.name)} class="max-h-full max-w-full object-contain transition-all duration-300" />
               </div>
             </div>
           ))}

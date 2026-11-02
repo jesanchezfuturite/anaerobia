@@ -4,6 +4,7 @@ import { getUltimosCasos } from '../../lib/casos-de-estudio.js'
 import { withLocale } from '../../lib/i18n.js'
 
 import fallback from '../../data/proyectos.json'
+import fallbackEn from '../../data/proyectos.en.json'
 
 interface Props {
   locale?: 'es' | 'en'
@@ -17,10 +18,9 @@ const T = {
 }[locale]
 
 // Contenido administrable: se consulta la API del Admin (Laravel) en cada
-// visita (SSR). Si la API no responde, se usa el respaldo local (siempre en
-// español: el respaldo no tiene copia en inglés).
+// visita (SSR). Si la API no responde, se usa el respaldo del idioma actual.
 const API_URL = import.meta.env.ADMIN_API_URL ?? 'http://127.0.0.1:8000'
-let d = fallback
+let d = locale === 'en' ? fallbackEn : fallback
 try {
   const res = await fetch(`${API_URL}/api/v1/paginas/proyectos?locale=${locale}`, { signal: AbortSignal.timeout(5000) })
   if (res.ok) d = (await res.json()).data

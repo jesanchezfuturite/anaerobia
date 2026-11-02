@@ -70,7 +70,7 @@ if (esCategoria) {
         return Astro.redirect(withLocale(`/partes-y-filtros/${producto.slug}`, locale), 301)
     }
 
-    seoTitle = `${producto.name} | Partes y Filtros | Anaerobia`
+    seoTitle = `${producto.name} | ${T.catalogo} | Anaerobia`
     seoDescription = producto.seo?.description ?? producto.summary?.split('\n')[0] ?? ''
 
     // El catálogo no vende: el botón lleva al formulario con el producto ya

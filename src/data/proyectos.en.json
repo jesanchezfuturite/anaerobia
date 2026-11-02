@@ -1,0 +1,68 @@
+{
+    "seo": {
+        "title": "Projects | Anaerobia Surface Finishing",
+        "description": "Gallery of completed paint and finishing system projects, booths, and ovens implemented by Anaerobia."
+    },
+    "hero": {
+        "image": "proyectos/hero_proyectos.webp",
+        "alt": "Anaerobia Projects",
+        "title": "Projects",
+        "description": "Thanks to our experience across different sectors, we can offer solutions tailored to each client's needs."
+    },
+    "industrias": {
+        "sectionTitle": "Projects by Industry",
+        "items": [
+            {
+                "title": "Agriculture",
+                "image": "proyectos/galeria_industria/Agricultura.jpg"
+            },
+            {
+                "title": "Automotive",
+                "image": "proyectos/galeria_industria/Automotriz.JPG"
+            },
+            {
+                "title": "Automotive",
+                "image": "proyectos/galeria_industria/Automotriz2.jpg"
+            },
+            {
+                "title": "Appliances & Furniture",
+                "image": "proyectos/galeria_industria/Electrodomesticos_y_muebles.jpg"
+            },
+            {
+                "title": "Energy",
+                "image": "proyectos/galeria_industria/Energia.jpg"
+            },
+            {
+                "title": "Heavy Equipment",
+                "image": "proyectos/galeria_industria/Equipo_Pesado.png"
+            },
+            {
+                "title": "Railway",
+                "image": "proyectos/galeria_industria/Ferroviaria.jpg"
+            },
+            {
+                "title": "General Industry",
+                "image": "proyectos/galeria_industria/Industria_general.jpg"
+            },
+            {
+                "title": "Metalworking",
+                "image": "proyectos/galeria_industria/Metalmecanica.jpg"
+            },
+            {
+                "title": "Recreational Vehicles",
+                "image": "proyectos/galeria_industria/Recreational_Vehicles.jpg"
+            }
+        ]
+    },
+    "casos_estudio": {
+        "sectionTitle": "Case Studies"
+    },
+    "cta": {
+        "image": "proyectos/bg_cta_proyectos.webp",
+        "alt": "Anaerobia Facilities",
+        "title": "Ready to start your next project?",
+        "description": "Contact our experts and let's design the ideal system to optimize your plant's processes together.",
+        "button_label": "Let's Talk About Your Project",
+        "button_url": "/contacto"
+    }
+}

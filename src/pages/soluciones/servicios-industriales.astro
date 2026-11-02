@@ -283,7 +283,7 @@ const datosFAQ = d.faqs?.items?.length
 
         <!-- 06. CTA PERSONALIZADO -->
         <section class="py-16 relative flex items-center justify-center overflow-hidden px-6 md:px-12">
-            <img src={d.cta1.image} alt={d.cta1.alt || "Especialistas de Anaerobia en planta"} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
+            <img src={d.cta1.image} alt={d.cta1.alt || d.name} class="absolute top-1/2 left-0 w-full h-[130%] -translate-y-1/2 object-cover z-0" />
             <div class="absolute inset-0 bg-brand-navy/90 z-10 mix-blend-multiply"></div>
 
             <div class="container mx-auto max-w-4xl text-center space-y-6 relative z-20">
@@ -315,7 +315,7 @@ const datosFAQ = d.faqs?.items?.length
                                 certificados.map((cert) => (
                                     <div class="bg-white rounded-xl p-4 flex flex-col items-center justify-center shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-transparent hover:border-brand-lime">
                                         <div class="h-14 w-full flex items-center justify-center mb-2">
-                                            <img src={cert.logo} alt={`Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
+                                            <img src={cert.logo} alt={locale === 'en' ? `${cert.name} Certification` : `Certificación ${cert.name}`} class="max-h-full max-w-full object-contain transition-all duration-300" />
                                         </div>
                                     </div>
                                 ))
