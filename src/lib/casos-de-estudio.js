@@ -40,8 +40,13 @@ export async function getCaso(slug, locale = 'es') {
   }
 
   const copia = locale === 'en' ? respaldoEn : respaldo
-  const caso = copia.casos.find((c) => c.slug === slug)
-  if (!caso) return null
+  const encontrado = copia.casos.find((c) => c.slug === slug)
+  if (!encontrado) return null
+
+  const caso = {
+    ...encontrado,
+    english_published: respaldoEn.casos.some((item) => item.slug === slug),
+  }
 
   return {
     data: caso,

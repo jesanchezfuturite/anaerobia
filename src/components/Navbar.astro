@@ -3,12 +3,19 @@ import { getGeneral } from '../lib/general.js'
 import { rutaEnOtroIdioma, withLocale } from '../lib/i18n.js'
 import LanguageToggle from './LanguageToggle.astro'
 
+interface Props {
+  hasEnglish?: boolean
+}
+
+const { hasEnglish = true } = Astro.props as Props
+
 // Toggle de idioma: manual, el visitante elige (no se redirige por navegador).
 const idioma = Astro.currentLocale ?? 'es'
 const T = idioma === 'en' ? { openMenu: 'Open menu' } : { openMenu: 'Abrir menú' }
-const rutaAlterna = rutaEnOtroIdioma(Astro.url.pathname, idioma)
-const hrefEs = idioma === 'es' ? Astro.url.pathname : rutaAlterna
-const hrefEn = idioma === 'en' ? Astro.url.pathname : rutaAlterna
+const rutaActual = `${Astro.url.pathname}${Astro.url.search}`
+const rutaAlterna = rutaEnOtroIdioma(rutaActual, idioma)
+const hrefEs = idioma === 'es' ? rutaActual : rutaAlterna
+const hrefEn = idioma === 'en' ? rutaActual : rutaAlterna
 
 const general = await getGeneral(idioma)
 
@@ -64,7 +71,7 @@ const navItems = visibles(nav.links).map((item) => ({
             <a href={item.url} class="text-[var(--color-brand-navy)] hover:text-[var(--color-brand-lime)] font-semibold text-[clamp(9px,1.1vw,14px)] uppercase tracking-widest transition-colors whitespace-nowrap">{item.label}</a>
           )
         ))}
-        <LanguageToggle idioma={idioma} hrefEs={hrefEs} hrefEn={hrefEn} />
+        <LanguageToggle idioma={idioma} hrefEs={hrefEs} hrefEn={hrefEn} hasEnglish={hasEnglish} />
       </nav>
 
       <!-- Mobile Button -->
@@ -80,7 +87,7 @@ const navItems = visibles(nav.links).map((item) => ({
   <!-- Mobile Menu Panel -->
   <div id="mobile-menu" class="absolute top-full left-0 w-full bg-white/98 backdrop-blur-lg shadow-xl border-t border-gray-100 transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none md:hidden z-10 max-h-[75vh] overflow-y-auto">
     <div class="flex justify-end px-6 pt-4">
-      <LanguageToggle idioma={idioma} hrefEs={hrefEs} hrefEn={hrefEn} />
+      <LanguageToggle idioma={idioma} hrefEs={hrefEs} hrefEn={hrefEn} hasEnglish={hasEnglish} />
     </div>
     <nav class="flex flex-col p-6 space-y-3">
       {navItems.map((item) => (

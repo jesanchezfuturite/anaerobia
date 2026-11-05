@@ -6,11 +6,12 @@ export const DEFAULT_LOCALE = 'es'
  * idioma. El español no lleva prefijo (/tienda); el inglés vive bajo /en
  * (/en/tienda), siguiendo el `routing.prefixDefaultLocale: false` de Astro.
  */
-export function rutaEnOtroIdioma(pathname, localeActual) {
+export function rutaEnOtroIdioma(url, localeActual) {
+  const [, pathname = '/', suffix = ''] = url.match(/^([^?#]*)(.*)$/) ?? []
   const base = localeActual === 'en' ? pathname.replace(/^\/en(?=\/|$)/, '') || '/' : pathname
 
-  if (localeActual === 'en') return base
-  return base === '/' ? '/en' : `/en${base}`
+  if (localeActual === 'en') return `${base}${suffix}`
+  return `${base === '/' ? '/en' : `/en${base}`}${suffix}`
 }
 
 /**

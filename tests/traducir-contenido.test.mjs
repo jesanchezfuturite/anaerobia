@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { readdirSync } from 'node:fs'
 
 import { traducirContenido } from '../src/lib/traducir-contenido.js'
+import { rutaEnOtroIdioma } from '../src/lib/i18n.js'
 import general from '../src/data/general.json' with { type: 'json' }
 import generalEn from '../src/data/general.en.json' with { type: 'json' }
 import homepage from '../src/data/homepage.json' with { type: 'json' }
@@ -26,6 +27,17 @@ test('traduce textos exactos sin cambiar la estructura ni otros valores', () => 
       bloques: [{ texto: 'Overspray capture', imagen: '/cabina.webp' }],
       activo: true,
     },
+  )
+})
+
+test('el selector de idioma conserva filtros y datos de cotizacion', () => {
+  assert.equal(
+    rutaEnOtroIdioma('/contacto?producto=Filtro&parte=123', 'es'),
+    '/en/contacto?producto=Filtro&parte=123',
+  )
+  assert.equal(
+    rutaEnOtroIdioma('/en/partes-y-filtros?marca=gfs', 'en'),
+    '/partes-y-filtros?marca=gfs',
   )
 })
 

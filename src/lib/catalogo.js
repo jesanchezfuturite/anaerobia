@@ -71,8 +71,13 @@ export async function getProducto(slug, locale = 'es') {
 
   // Igual que la API: también responde al slug del catálogo anterior.
   const copia = locale === 'en' ? respaldoEnIngles() : respaldo
-  const producto = copia.productos.find((p) => p.slug === slug || p.legacy_slug === slug)
-  if (!producto) return null
+  const encontrado = copia.productos.find((p) => p.slug === slug || p.legacy_slug === slug)
+  if (!encontrado) return null
+
+  const producto = {
+    ...encontrado,
+    english_published: Boolean(traducciones.productos[encontrado.slug]),
+  }
 
   return {
     data: producto,

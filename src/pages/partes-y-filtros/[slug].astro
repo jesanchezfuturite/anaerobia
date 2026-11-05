@@ -86,7 +86,7 @@ if (esCategoria) {
         'equipos-para-aplicacion-de-pintura': 'Pintura líquida',
     }
 
-    const cotizar = new URLSearchParams({ producto: producto.name })
+    const cotizar = new URLSearchParams({ producto: producto.name, producto_slug: producto.slug })
     if (producto.sku) cotizar.set('parte', producto.sku)
     if (CATEGORIA_EN_FORMULARIO[producto.category?.slug]) {
         cotizar.set('categoria', CATEGORIA_EN_FORMULARIO[producto.category.slug])
@@ -151,7 +151,7 @@ if (esCategoria) {
     />
 </Layout>
 ) : (
-<Layout title={seoTitle} description={seoDescription}>
+<Layout title={seoTitle} description={seoDescription} hasEnglish={producto.english_published !== false}>
     <script type="application/ld+json" set:html={JSON.stringify(datosProducto)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
     <main class="bg-industrial-gray min-h-screen text-brand-navy">

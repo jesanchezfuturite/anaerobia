@@ -91,7 +91,7 @@ const datosBreadcrumb = {
 }
 ---
 
-<Layout title={articulo.seo?.title ?? articulo.title} description={articulo.seo?.description ?? ''} image={articulo.cover}>
+<Layout title={articulo.seo?.title ?? articulo.title} description={articulo.seo?.description ?? ''} image={articulo.cover} hasEnglish={articulo.english_published !== false}>
     <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
 

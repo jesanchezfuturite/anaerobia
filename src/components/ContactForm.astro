@@ -88,6 +88,7 @@ const etiquetasPartes = {
 
   <!-- Producto del catálogo desde el que se pidió la cotización (si aplica) -->
   <input type="hidden" name="producto" value="">
+  <input type="hidden" name="producto_slug" value="">
   <input type="hidden" name="parte" value="">
 
   <!-- Atribución de campaña (utm_*): se rellenan desde sessionStorage al enviar -->
@@ -183,6 +184,7 @@ const etiquetasPartes = {
     // identifique qué parte se está pidiendo.
     const parametros = new URLSearchParams(window.location.search);
     const producto = parametros.get('producto');
+    const productoSlug = parametros.get('producto_slug');
     const parte = parametros.get('parte');
     const categoria = parametros.get('categoria');
 
@@ -191,6 +193,7 @@ const etiquetasPartes = {
         const campo = (nombre) => form.querySelector(`[name="${nombre}"]`);
 
         if (campo('producto')) campo('producto').value = producto;
+        if (campo('producto_slug')) campo('producto_slug').value = productoSlug ?? '';
         if (campo('parte')) campo('parte').value = parte ?? '';
 
         // El select de soluciones ya trae las categorías del catálogo.

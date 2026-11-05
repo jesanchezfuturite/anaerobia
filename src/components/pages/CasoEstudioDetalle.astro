@@ -83,7 +83,7 @@ const datosBreadcrumb = {
 }
 ---
 
-<Layout title={caso.seo?.title ?? caso.title} description={caso.seo?.description ?? ''} image={caso.cover}>
+<Layout title={caso.seo?.title ?? caso.title} description={caso.seo?.description ?? ''} image={caso.cover} hasEnglish={caso.english_published !== false}>
     <script type="application/ld+json" set:html={JSON.stringify(datosEstructurados)} is:inline />
     <script type="application/ld+json" set:html={JSON.stringify(datosBreadcrumb)} is:inline />
 

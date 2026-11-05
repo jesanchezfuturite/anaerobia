@@ -42,8 +42,13 @@ export async function getArticulo(slug, locale = 'es') {
   }
 
   const copia = locale === 'en' ? respaldoEn : respaldo
-  const articulo = copia.articulos.find((a) => a.slug === slug)
-  if (!articulo) return null
+  const encontrado = copia.articulos.find((a) => a.slug === slug)
+  if (!encontrado) return null
+
+  const articulo = {
+    ...encontrado,
+    english_published: respaldoEn.articulos.some((item) => item.slug === slug),
+  }
 
   return {
     data: articulo,
